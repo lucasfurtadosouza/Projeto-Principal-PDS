@@ -17,7 +17,7 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "INSERT Into Escola Value " +
+                comando.CommandText = "INSERT Into Funcionario Value " +
 
                     "(null, @nome, @email, @cpf, @telefon, @endereco, @rg, @data, @sexo, @careteira, @salario," +
                     "@foto)";
