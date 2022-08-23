@@ -113,6 +113,28 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Caixa.cs" />
+    <Compile Include="Models\CaixaDAO.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\ClienteDAO.cs" />
+    <Compile Include="Models\Despesa.cs" />
+    <Compile Include="Models\DespesaDAO.cs" />
+    <Compile Include="Models\Fornecedor.cs" />
+    <Compile Include="Models\FornecedorDAO.cs" />
+    <Compile Include="Models\Funcionario.cs" />
+    <Compile Include="Models\FuncionarioDAO.cs" />
+    <Compile Include="Models\Pagamento.cs" />
+    <Compile Include="Models\PagamentoDAO.cs" />
+    <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\ProdutoCompra.cs" />
+    <Compile Include="Models\ProdutoCompraDAO.cs" />
+    <Compile Include="Models\ProdutoDAO.cs" />
+    <Compile Include="Models\ProdutoVenda.cs" />
+    <Compile Include="Models\ProdutoVendaDAO.cs" />
+    <Compile Include="Models\Recebimento.cs" />
+    <Compile Include="Models\RecebimentoDAO.cs" />
+    <Compile Include="Models\Venda.cs" />
+    <Compile Include="Models\VendaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -141,7 +163,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
