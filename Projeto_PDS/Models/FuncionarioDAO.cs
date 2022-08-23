@@ -64,12 +64,12 @@ namespace Projeto_PDS.Models
                     funcionario.Nome= Helpers.DAOHelper.GetString(reader, "nome_fun");
                     funcionario.Email = Helpers.DAOHelper.GetString(reader, "email_fun");
                     funcionario.Cpf = Helpers.DAOHelper.GetString(reader, "cpf_fun");
-                    funcionario.Telefone = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "telefone_fun"));
+                    funcionario.Telefone = Helpers.DAOHelper.GetString(reader, "telefone_fun");
                     funcionario.Endereco = Helpers.DAOHelper.GetString(reader, "rg_fun");
-                    funcionario.Rg = Helpers.DAOHelper.GetString(reader, "data_nac_fun");
-                    funcionario.DataNasc = Helpers.DAOHelper.GetString(reader, "sexo_fun");
-                    funcionario.Sexo = Helpers.DAOHelper.GetString(reader, "carteira_det_trabalho_fun");
-                    funcionario.CarteiraDeTrabalho = Helpers.DAOHelper.GetString(reader, "cnpj_esc");
+                    funcionario.Rg = Helpers.DAOHelper.GetString(reader, "rg_fun");
+                    funcionario.DataNasc = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_nasc_fun"));
+                    funcionario.Sexo = Helpers.DAOHelper.GetString(reader, "sexo_fun");
+                    funcionario.CarteiraDeTrabalho = Helpers.DAOHelper.GetString(reader, "carteira_de_trabalho_fun");
                     funcionario.Salario = Helpers.DAOHelper.GetString(reader, "salario_fun");
                     funcionario.Foto = Helpers.DAOHelper.GetString(reader, "foto_fun");
                 
