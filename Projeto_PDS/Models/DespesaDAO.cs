@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 using Projeto_PDS.DataBase;
-
 
 namespace Projeto_PDS.Models
 {
@@ -47,6 +47,49 @@ namespace Projeto_PDS.Models
                 throw ex;
             }
         }
+        public List<Despesa> List()
+        {
+            try
+            {
+                List<Despesa> list = new List<Despesa>();
+
+                var query = _conn.Query();
+                query.CommandText = "SELECT * FROM despesa";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var despesa = new Despesa();
+                    despesa.id = reader.GetInt32("id_des");
+
+
+
+                    despesa.Valor = Convert.ToDouble(Helpers.DAOHelper.GetString(reader, "valor_des"));
+
+
+
+                    despesa.Data_Vencimento = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_vencimento_des"));
+
+                    despesa.Data_Pagamento  = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, " data_pagamento_des"));
+
+                    despesa.Forma_Pagamento = Helpers.DAOHelper.GetString(reader, "forma_pagamento_des");
+
+                    despesa.Descrição = Helpers.DAOHelper.GetString(reader, "descricao_des");
+               
+
+                    list.Add(despesa);
+                }
+                reader.Close();
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         public void Delete(Despesa despesa)
         {
             try
@@ -75,11 +118,11 @@ namespace Projeto_PDS.Models
 
 
                     "id_des = @id," +
-                    "valor_desc = @valor," +
+                    "valor_des = @valor," +
                     " data_vencimento_des = @Data_Vencimento," +
-                    " data_pagamento = @Data_Pagamento, " +
+                    " data_pagamento_des = @Data_Pagamento, " +
                     "forma_pagamento_des = @Forma_Pagamento," +
-                    "descricao = @Descriçao " ;
+                    "descricao_des = @Descriçao " ;
 
                 comando.Parameters.AddWithValue("@id", despesa.id);
                 comando.Parameters.AddWithValue("@fantasia", despesa.Valor);
