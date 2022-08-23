@@ -17,7 +17,7 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "INSERT Into Escola Value " +
+                comando.CommandText = "INSERT Into Funcionario Value " +
 
                     "(null, @nome, @email, @cpf, @telefon, @endereco, @rg, @data, @sexo, @careteira, @salario," +
                     "@foto)";
@@ -70,7 +70,7 @@ namespace Projeto_PDS.Models
                     funcionario.DataNasc = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_nasc_fun"));
                     funcionario.Sexo = Helpers.DAOHelper.GetString(reader, "sexo_fun");
                     funcionario.CarteiraDeTrabalho = Helpers.DAOHelper.GetString(reader, "carteira_de_trabalho_fun");
-                    funcionario.Salario = Helpers.DAOHelper.GetString(reader, "salario_fun");
+                    funcionario.Salario = Convert.ToDouble(Helpers.DAOHelper.GetString(reader, "salario_fun"));
                     funcionario.Foto = Helpers.DAOHelper.GetString(reader, "foto_fun");
                 
 
@@ -134,32 +134,6 @@ namespace Projeto_PDS.Models
                 {
                     throw new Exception("Ocorreram erros ao salvar as informações");
                 }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        public List<Funcionario> List4()
-        {
-            try
-            {
-                List<Funcionario> funcionario = new List<Funcionario>();
-
-                var queryCount = _conn.Query();
-                queryCount.CommandText = "SELECT COUNT(id_fun) FROM Funcionario";
-
-                MySqlDataReader reader = queryCount.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    var cadastrofuncionario = new Funcionario();
-                    cadastrofuncionario.Id = reader.GetInt32("count(id_fun)");
-
-                    funcionario.Add(cadastrofuncionario);
-                }
-                reader.Close();
-                return funcionario;
             }
             catch (Exception ex)
             {

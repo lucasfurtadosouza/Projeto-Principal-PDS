@@ -15,10 +15,10 @@ namespace Projeto_PDS.Models
         public string Telefone { get; set; }
         public string Endereco { get; set; }
         public string Rg { get; set; }
-        public DateTime DataNasc { get; set; }
+        public DateTime? DataNasc { get; set; }
         public string Sexo { get; set; }
         public string CarteiraDeTrabalho { get; set; }
-        public string Salario { get; set; }
+        public double Salario { get; set; }
         public string Foto { get; set; }
     }
 }
