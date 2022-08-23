@@ -8,5 +8,6 @@ namespace Projeto_PDS.Models
 {
     public class FuncionarioDAO
     {
+
     }
 }
