@@ -18,7 +18,7 @@ namespace Projeto_PDS.DataBase
 
         private static string password = "root";
 
-        private static string dbname = "bd_projeto";
+        private static string dbname = "Loja_roupa";
 
         private static MySqlConnection connection;
 
