@@ -37,9 +37,9 @@ namespace Projeto_PDS.Models
                     throw new Exception("Ocorreram erros ao salvar as informações");
                 }
             }
-            catch (Exception exacao)
+            catch (Exception ex)
             {
-                throw exacao;
+                throw ex;
             }
         }
     }
