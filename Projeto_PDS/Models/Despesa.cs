@@ -9,12 +9,11 @@ namespace Projeto_PDS.Models
     public class Despesa
     {
         public int id { get; set; }
-
         public double Valor {get; set;}
         public  DateTime?  Data_Vencimento { get; set; }
         public DateTime? Data_Pagamento { get; set; }
         public string Forma_Pagamento { get; set; }
-        public string Descrição { get; set; }
+        public string Descricao { get; set; }
 
 
 

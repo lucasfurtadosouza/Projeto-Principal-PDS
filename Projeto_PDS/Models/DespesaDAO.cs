@@ -29,7 +29,7 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@data_vencimento", despesa.Data_Vencimento);
                 comando.Parameters.AddWithValue("@data_pagamento", despesa.Data_Pagamento);
                 comando.Parameters.AddWithValue("@forma_pagamento", despesa.Forma_Pagamento);
-                comando.Parameters.AddWithValue("@descricao", despesa.Descrição);
+                comando.Parameters.AddWithValue("@descricao", despesa.Descricao);
 
 
                 var resultado = comando.ExecuteNonQuery();
@@ -75,7 +75,7 @@ namespace Projeto_PDS.Models
 
                     despesa.Forma_Pagamento = Helpers.DAOHelper.GetString(reader, "forma_pagamento_des");
 
-                    despesa.Descrição = Helpers.DAOHelper.GetString(reader, "descricao_des");
+                    despesa.Descricao = Helpers.DAOHelper.GetString(reader, "descricao_des");
                
 
                     list.Add(despesa);
@@ -129,7 +129,7 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@razao", despesa.Data_Vencimento);
                 comando.Parameters.AddWithValue("@cnpj", despesa.Data_Pagamento);
                 comando.Parameters.AddWithValue("@cnpj", despesa.Forma_Pagamento);
-                comando.Parameters.AddWithValue("@insc", despesa.Descrição);
+                comando.Parameters.AddWithValue("@insc", despesa.Descricao);
  
            
 
