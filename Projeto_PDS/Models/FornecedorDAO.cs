@@ -20,11 +20,8 @@ namespace Projeto_PDS.Models
 
                 comando.CommandText = "INSERT Into Fornecedor Value " +
 
-                    "(@id, @nome_fantasia, @razao_social, @cnpj, @email, @endereco,  @telefone,)";
+                    "(null, @nome_fantasia, @razao_social, @cnpj, @email, @endereco, @telefone)";
 
-
-
-                comando.Parameters.AddWithValue("@id", fornecedor.Id);
                 comando.Parameters.AddWithValue("@nome_fantasia", fornecedor.Nome);
                 comando.Parameters.AddWithValue("@razao_social", fornecedor.Razao );
                 comando.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);

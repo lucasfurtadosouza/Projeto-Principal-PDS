@@ -20,7 +20,8 @@ namespace Projeto_PDS.Models
 
                 comando.CommandText = "INSERT Into Caixa Value " +
 
-                    "(null, @saldo_inicial, @saldo_final, @data_abertura, @data_fechamento, @hora_abertura, @hora_fechamento, @quantidade_pagamentos, @quantidade_recebimentos)";
+                    "(null, @saldo_inicial, @saldo_final, @data_abertura, @data_fechamento, @hora_abertura, @hora_fechamento," +
+                    "@quantidade_pagamentos, @quantidade_recebimentos)";
 
                 comando.Parameters.AddWithValue("@saldo_inicial", caixa.SaldoInicial);
                 comando.Parameters.AddWithValue("@saldo_final", caixa.SaldoFinal);
