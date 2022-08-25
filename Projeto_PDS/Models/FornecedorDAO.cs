@@ -87,7 +87,7 @@ namespace Projeto_PDS.Models
                 var resultado = comando.ExecuteNonQuery();
                 if (resultado == 0)
                 {
-                    throw new Exception("Ocorreram problemas o salvar as informações");
+                    throw new Exception("Ocorreram problemas ao salvar as informações");
                 }
             }
             catch (Exception ex)

@@ -19,10 +19,7 @@ namespace Projeto_PDS.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "INSERT Into Despesa Value " +
-
-                    "(@id, @valor, @data_vencimento, @data_pagamento, @forma_pagamento,  @descricao,)";
-
-
+                    "(@id, @valor, @data_vencimento, @data_pagamento, @forma_pagamento,  @descricao)";
 
                 comando.Parameters.AddWithValue("@id", despesa.Valor);
                 comando.Parameters.AddWithValue("@valor", despesa.Valor);
@@ -38,9 +35,6 @@ namespace Projeto_PDS.Models
                 {
                     throw new Exception("Ocorreram erros ao salvar as informações");
                 }
-
-
-
             }
             catch (Exception ex)
             {
@@ -61,22 +55,12 @@ namespace Projeto_PDS.Models
                 while (reader.Read())
                 {
                     var despesa = new Despesa();
-                    despesa.id = reader.GetInt32("id_des");
-
-
-
+                    despesa.Id = reader.GetInt32("id_des");
                     despesa.Valor = Convert.ToDouble(Helpers.DAOHelper.GetString(reader, "valor_des"));
-
-
-
                     despesa.Data_Vencimento = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_vencimento_des"));
-
                     despesa.Data_Pagamento  = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, " data_pagamento_des"));
-
                     despesa.Forma_Pagamento = Helpers.DAOHelper.GetString(reader, "forma_pagamento_des");
-
-                    despesa.Descricao = Helpers.DAOHelper.GetString(reader, "descricao_des");
-               
+                    despesa.Descricao = Helpers.DAOHelper.GetString(reader, "descricao_des");               
 
                     list.Add(despesa);
                 }
@@ -88,19 +72,17 @@ namespace Projeto_PDS.Models
                 throw ex;
             }
         }
-
-
         public void Delete(Despesa despesa)
         {
             try
             {
                 var comando = _conn.Query();
                 comando.CommandText = "DELETE FROM despesa WHERE id_esc = @id";
-                comando.Parameters.AddWithValue("@id", despesa.id);
+                comando.Parameters.AddWithValue("@id", despesa.Id);
                 var resultado = comando.ExecuteNonQuery();
                 if (resultado == 0)
                 {
-                    throw new Exception("Ocorreram problemas o salvar as informações");
+                    throw new Exception("Ocorreram problemas ao salvar as informações");
                 }
             }
             catch (Exception ex)
@@ -115,8 +97,6 @@ namespace Projeto_PDS.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "UPDATE Despesa SET " +
-
-
                     "id_des = @id," +
                     "valor_des = @valor," +
                     " data_vencimento_des = @Data_Vencimento," +
@@ -124,16 +104,13 @@ namespace Projeto_PDS.Models
                     "forma_pagamento_des = @Forma_Pagamento," +
                     "descricao_des = @Descriçao " ;
 
-                comando.Parameters.AddWithValue("@id", despesa.id);
-                comando.Parameters.AddWithValue("@fantasia", despesa.Valor);
-                comando.Parameters.AddWithValue("@razao", despesa.Data_Vencimento);
-                comando.Parameters.AddWithValue("@cnpj", despesa.Data_Pagamento);
-                comando.Parameters.AddWithValue("@cnpj", despesa.Forma_Pagamento);
-                comando.Parameters.AddWithValue("@insc", despesa.Descricao);
+                comando.Parameters.AddWithValue("@id", despesa.Id);
+                comando.Parameters.AddWithValue("@valor", despesa.Valor);
+                comando.Parameters.AddWithValue("@Data_Vencimento", despesa.Data_Vencimento);
+                comando.Parameters.AddWithValue("@Data_Pagamento", despesa.Data_Pagamento);
+                comando.Parameters.AddWithValue("@Forma_Pagamento", despesa.Forma_Pagamento);
+                comando.Parameters.AddWithValue("@Descriçao", despesa.Descricao);
  
-           
-
-
                 var resultado = comando.ExecuteNonQuery();
 
                 if (resultado == 0)
