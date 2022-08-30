@@ -23,5 +23,10 @@ namespace Projeto_PDS.Views
         {
             InitializeComponent();
         }
+
+        private void rdAceitar_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
