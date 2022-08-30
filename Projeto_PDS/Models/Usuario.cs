@@ -10,8 +10,8 @@ namespace Projeto_PDS.Models
     public class Usuario
     {
         public int Id { get; set; }
-        public double Nome { get; set; }
-
+        public string Nome { get; set; }
+        public int Permissao { get; set; }
         public string Senha { get; set; }
     }
 }
