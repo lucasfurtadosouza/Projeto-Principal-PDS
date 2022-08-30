@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Projeto_PDS.Models;
+using Projeto_PDS.DataBase;
 
 namespace Projeto_PDS.Views
 {
@@ -19,9 +21,54 @@ namespace Projeto_PDS.Views
     /// </summary>
     public partial class WindowFornecedor : Window
     {
+        public Fornecedor _fornecedor = new Fornecedor();
         public WindowFornecedor()
         {
             InitializeComponent();
+        }
+        public WindowFornecedor(Fornecedor fornecedor)
+        {
+            _fornecedor = fornecedor;
+            InitializeComponent();
+            Loaded += WindowFornecedor_Loaded;
+        }
+
+        private void WindowFornecedor_Loaded(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void btSalvarFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+            _fornecedor.Nome = txtNome.Text;
+            _fornecedor.Razao = txtRazao.Text;
+            _fornecedor.Cnpj = txtCnpj.Text;
+            _fornecedor.Email= txtEmail.Text;
+            _fornecedor.Endereco = txtEndereco.Text;
+            _fornecedor.Telefone = txtTelefone.Text;
+
+
+            try
+            {
+                var dao = new FornecedorDAO();
+                if (_fornecedor.Id > 0)
+                {
+                    dao.Update(_fornecedor);
+                    MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var form = new WindowFornecedorList();
+                    form.Show();
+                    this.Close();
+                }
+                else
+                {
+                    dao.Insert(_fornecedor);
+                    MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
