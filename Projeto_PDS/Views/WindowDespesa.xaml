@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="WindowDespesa" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="btSalvarDespesa" Content="Salvar" Click="btSalvarDespesa_Click"/>
     </Grid>
 </Window>
