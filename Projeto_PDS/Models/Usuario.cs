@@ -11,12 +11,7 @@ namespace Projeto_PDS.Models
     {
         public int Id { get; set; }
         public double Nome { get; set; }
-        public double SaldoFinal { get; set; }
-        public DateTime? DataAbertura { get; set; }
-        public DateTime? DataFechamento { get; set; }
-        public DateTime? HoraAbertura { get; set; }
-        public DateTime? HoraFechamento { get; set; }
-        public int QuantidadePagamentos { get; set; }
-        public int QuantidadeRecebimentos { get; set; }
+
+        public string Senha { get; set; }
     }
 }
