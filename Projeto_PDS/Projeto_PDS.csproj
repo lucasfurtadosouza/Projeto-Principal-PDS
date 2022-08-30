@@ -98,6 +98,47 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\UsuarioDAO.cs" />
+    <Compile Include="SplashScreen.xaml.cs">
+      <DependentUpon>SplashScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowCaixa.xaml.cs">
+      <DependentUpon>WindowCaixa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowCaixaList.xaml.cs">
+      <DependentUpon>WindowCaixaList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowCliente.xaml.cs">
+      <DependentUpon>WindowCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowClienteList.xaml.cs">
+      <DependentUpon>WindowClienteList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowFornecedor.xaml.cs">
+      <DependentUpon>WindowFornecedor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowFornecedorList.xaml.cs">
+      <DependentUpon>WindowFornecedorList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowFuncionario.xaml.cs">
+      <DependentUpon>WindowFuncionario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowFuncionarioList.xaml.cs">
+      <DependentUpon>WindowFuncionarioList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowNovoUsuario.xaml.cs">
+      <DependentUpon>WindowNovoUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowProduto.xaml.cs">
+      <DependentUpon>WindowProduto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowProdutoList.xaml.cs">
+      <DependentUpon>WindowProdutoList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowTermos.xaml.cs">
+      <DependentUpon>WindowTermos.xaml</DependentUpon>
+    </Compile>
     <Page Include="Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -112,6 +153,58 @@
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowCaixa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowCaixaList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowClienteList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowFornecedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowFornecedorList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowFuncionario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowFuncionarioList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowNovoUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowProduto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowProdutoList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowTermos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Caixa.cs" />
@@ -162,8 +255,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
