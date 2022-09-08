@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="WindowTermos" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Label Content="Bem Vindo!"/>
+            <Label Content="Preparado para uma nova experiência? Este software é desenvolvido &#10; pela icoNIC tazendo soluções para a sua empresa."/>
+            <StackPanel Orientation="Horizontal">
+                <RadioButton x:Name="rdAceitar" Margin="10 14 0 10" Checked="rdAceitar_Checked_1"/>
+                <Label Content="Permito a coleta de meus dados para o aprimoramento do &#10;Software e aceito os termos de uso"/>
+                
+            </StackPanel>
+            <Button x:Name="btAvancar" Content="Avançar" Click="btAvancar_Click"/>
+
+        </StackPanel>
     </Grid>
 </Window>

@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeto_PDS"
         mc:Ignorable="d"
-        Title="SplashScreen" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="SplashScreen" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Border Background="White" CornerRadius="25">
+
+        <Grid>
+        <MediaElement x:Name="media" UnloadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded" Stretch="Fill"/>
+      </Grid>
+    </Border>
 </Window>

@@ -11,7 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using Projeto_PDS.Models;
+using Projeto_PDS.DataBase;
+using Projeto_PDS;
 namespace Projeto_PDS.Views
 {
     /// <summary>
@@ -19,14 +21,55 @@ namespace Projeto_PDS.Views
     /// </summary>
     public partial class WindowTermos : Window
     {
+        public int chave;
+        public bool verdade;
         public WindowTermos()
         {
             InitializeComponent();
+            Loaded += WindowTermos_Loaded;
+            
         }
 
-        private void rdAceitar_Checked(object sender, RoutedEventArgs e)
+        private void WindowTermos_Loaded(object sender, RoutedEventArgs e)
         {
+          
+        }
 
+        public void rdAceitar_Checked(Funcionario funcionario)
+        {
+            chave = funcionario.Id;
+
+        }
+
+        public void rdAceitar_Checked_1(object sender, RoutedEventArgs e)
+        {
+          
+            if (chave > 0)
+            {
+                verdade = true;
+
+            }
+            else
+            {
+                verdade = false;
+            }
+            
+        }
+
+        public void btAvancar_Click(object sender, RoutedEventArgs e)
+        {
+            if (verdade == true)
+            {
+                var form = new Projeto_PDS.SplashScreen();
+                form.Show();
+                this.Close();
+            }
+            else
+            {
+                var form = new WindowNovoUsuario();
+                form.Show();
+                this.Close();
+            }
         }
     }
 }
