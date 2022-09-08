@@ -38,12 +38,10 @@ namespace Projeto_PDS.Views
         public void rdAceitar_Checked(Funcionario funcionario)
         {
             chave = funcionario.Id;
-
         }
 
         public void rdAceitar_Checked_1(object sender, RoutedEventArgs e)
         {
-          
             if (chave > 0)
             {
                 verdade = true;

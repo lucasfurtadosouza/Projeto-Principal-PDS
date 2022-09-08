@@ -33,7 +33,7 @@ namespace Projeto_PDS.Views
         }
         private void WindowCaixa_Loaded(object sender, RoutedEventArgs e)
         {
-            txtSaldoInicial.Focus();
+            //txtSaldoInicial.Focus();
         }
         private void btSalvarCaixa_Click(object sender, RoutedEventArgs e)
         {
@@ -46,7 +46,7 @@ namespace Projeto_PDS.Views
             //public DateTime? HoraFechamento { get; set; }
             //public int QuantidadePagamentos { get; set; }
             //public int QuantidadeRecebimentos { get; set; }
-
+            /*
             _caixa.SaldoInicial = Convert.ToDouble(txtSaldoInicial.Text);
             _caixa.SaldoFinal = Convert.ToDouble(txtSaldoFinal.Text);
             if (dpDataCriacao.SelectedDate != null)
@@ -80,7 +80,7 @@ namespace Projeto_PDS.Views
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            }*/
         }
     }
 }

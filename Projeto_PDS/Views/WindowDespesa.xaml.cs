@@ -31,10 +31,10 @@ namespace Projeto_PDS.Views
         }
         private void DespesaWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            txtValor.Focus();
+            //txtValor.Focus();
         }
         private void btSalvarDespesa_Click(object sender, RoutedEventArgs e)
-        {
+        {/*
             _despesa.Valor = txtValorText;
             _despesa.Data_Vencimento = txtData_ven.Text;
             _despesa.Data_Pagamento = dpData_Pag.Text;
@@ -62,7 +62,7 @@ namespace Projeto_PDS.Views
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            }*/
         }
     }
 }

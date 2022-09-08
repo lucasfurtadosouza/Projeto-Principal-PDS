@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Projeto_PDS.Views;
 using System.Windows.Navigation;
 using System.Windows.Threading;
+using Projeto_PDS;
 
 namespace Projeto_PDS
 {
@@ -26,6 +27,7 @@ namespace Projeto_PDS
         {
             InitializeComponent();
             media.Source = new Uri(Environment.CurrentDirectory + @"\video.mp4");
+            Loading();
             
         }
         DispatcherTimer timer = new DispatcherTimer();
@@ -37,7 +39,7 @@ namespace Projeto_PDS
         private void timer_tick(object sender, EventArgs e)
         {
             timer.Stop();
-            var form = new Projeto_PDS.SplashScreen();
+            var form = new WindowTermos();
             form.Show();
             this.Close();
         }
@@ -46,6 +48,7 @@ namespace Projeto_PDS
             timer.Tick += timer_tick;
             timer.Interval = new TimeSpan(0,0,4);
             timer.Start();
+
         }
     }
 }
