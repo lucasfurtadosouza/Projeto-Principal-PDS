@@ -33,54 +33,52 @@ namespace Projeto_PDS.Views
         }
         private void WindowCaixa_Loaded(object sender, RoutedEventArgs e)
         {
-            //txtSaldoInicial.Focus();
+            txtSaldoInicial.Focus();
         }
         private void btSalvarCaixa_Click(object sender, RoutedEventArgs e)
         {
-            //public int Id { get; set; }
-            //public double SaldoInicial { get; set; }
-            //public double SaldoFinal { get; set; }
-            //public DateTime? DataAbertura { get; set; }
-            //public DateTime? DataFechamento { get; set; }
-            //public DateTime? HoraAbertura { get; set; }
-            //public DateTime? HoraFechamento { get; set; }
-            //public int QuantidadePagamentos { get; set; }
-            //public int QuantidadeRecebimentos { get; set; }
-            /*
             _caixa.SaldoInicial = Convert.ToDouble(txtSaldoInicial.Text);
             _caixa.SaldoFinal = Convert.ToDouble(txtSaldoFinal.Text);
-            if (dpDataCriacao.SelectedDate != null)
+            if (dpDataAbertura.SelectedDate != null)
             {
-                _escola.DataCricao = dpDataCriacao.SelectedDate;
+                _caixa.DataAbertura = dpDataAbertura.SelectedDate;
             }
-            if (dpDataCriacao.SelectedDate != null)
+            if (dpDataFechamento.SelectedDate != null)
             {
-                _escola.DataCricao = dpDataCriacao.SelectedDate;
+                _caixa.DataFechamento = dpDataFechamento.SelectedDate;
             }
-            _curso.Carga = txtCarga.Text;
-            _curso.Turno = cbTurno.Text;
+            if (dpHoraAbertura.SelectedDate != null)
+            {
+                _caixa.HoraAbertura = dpHoraAbertura.SelectedDate;
+            }
+            if (dpHoraFechamento.SelectedDate != null)
+            {
+                _caixa.HoraFechamento = dpHoraFechamento.SelectedDate;
+            }
+            _caixa.QuantidadePagamentos = Convert.ToInt32(txtQuantidadePagamentos.Text);
+            _caixa.QuantidadeRecebimentos = Convert.ToInt32(txtQuantidadeRecebimentos.Text);
 
             try
             {
-                var dao = new CursoDAO();
-                if (_curso.IdCur > 0)
+                var dao = new CaixaDAO();
+                if (_caixa.Id > 0)
                 {
-                    dao.Update(_curso);
+                    dao.Update(_caixa);
                     MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
-                    var form = new ProjetoEscola.Views.CursoWindowLista();
+                    var form = new WindowCaixaList();
                     form.Show();
                     this.Close();
                 }
                 else
                 {
-                    dao.Insert(_curso);
+                    dao.Insert(_caixa);
                     MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }*/
+            }
         }
     }
 }

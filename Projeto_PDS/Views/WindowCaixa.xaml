@@ -7,6 +7,24 @@
         mc:Ignorable="d"
         Title="WindowCaixa" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btSalvarCaixa" Content="Salvar" Click="btSalvarCaixa_Click"/>
+        <StackPanel>
+            <Label Content="Saldo Inicial:"></Label>
+            <TextBox x:Name="txtSaldoInicial"></TextBox>
+            <Label Content="Saldo Final:"></Label>
+            <TextBox x:Name="txtSaldoFinal"></TextBox>
+            <Label Content="Data de Abertura:"></Label>
+            <DatePicker x:Name="dpDataAbertura"></DatePicker>
+            <Label Content="Data de Fechamento:"></Label>
+            <DatePicker x:Name="dpDataFechamento"></DatePicker>
+            <Label Content="Hora de Abertura:"></Label>
+            <DatePicker x:Name="dpHoraAbertura"></DatePicker>
+            <Label Content="Hora de Fechamento:"></Label>
+            <DatePicker x:Name="dpHoraFechamento"></DatePicker>
+            <Label Content="Quantidade de Pagamentos:"></Label>
+            <TextBox x:Name="txtQuantidadePagamentos"></TextBox>
+            <Label Content="Quantidade de Recebimentos:"></Label>
+            <TextBox x:Name="txtQuantidadeRecebimentos"></TextBox>
+            <Button x:Name="btSalvarCaixa" Content="Salvar" Click="btSalvarCaixa_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

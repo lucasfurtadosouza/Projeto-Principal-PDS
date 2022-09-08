@@ -26,7 +26,7 @@ namespace Projeto_PDS
         public SplashScreen()
         {
             InitializeComponent();
-            media.Source = new Uri(Environment.CurrentDirectory + @"\video.mp4");
+            media.Source = new Uri(Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf("Projeto_PDS")) + @"Projeto_PDS\Imagens_Videos\VideoLogo.mp4");
             Loading();
             
         }
