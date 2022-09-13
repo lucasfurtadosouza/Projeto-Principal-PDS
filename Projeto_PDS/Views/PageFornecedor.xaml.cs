@@ -36,6 +36,7 @@ namespace Projeto_PDS.Views
         
         public PageFornecedor()
         {
+
             InitializeComponent();
         }
         public PageFornecedor(Fornecedor fornecedor)
@@ -59,35 +60,35 @@ namespace Projeto_PDS.Views
             _main.setPageMain();
 
 
-            //_fornecedor.Nome = txtNome.Text;
-            //_fornecedor.Razao = txtRazao.Text;
-            //_fornecedor.Cnpj = txtCnpj.Text;
-            //_fornecedor.Email= txtEmail.Text;
-            //_fornecedor.Endereco = txtEndereco.Text;
-            //_fornecedor.Telefone = txtTelefone.Text;
+            _fornecedor.Nome = txtNome.Text;
+            _fornecedor.Razao = txtRazao.Text;
+            _fornecedor.Cnpj = txtCnpj.Text;
+            _fornecedor.Email = txtEmail.Text;
+            _fornecedor.Endereco = txtEndereco.Text;
+            _fornecedor.Telefone = txtTelefone.Text;
 
 
-            //try
-            //{
-            //    var dao = new FornecedorDAO();
-            //    if (_fornecedor.Id > 0)
-            //    {
-            //        dao.Update(_fornecedor);
-            //        MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
-            //        var form = new WindowFornecedorList();
-            //        form.Show();
-            //        //this.Close();
-            //    }
-            //    else
-            //    {
-            //        dao.Insert(_fornecedor);
-            //        MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            try
+            {
+                var dao = new FornecedorDAO();
+                if (_fornecedor.Id > 0)
+                {
+                    dao.Update(_fornecedor);
+                    MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var form = new WindowFornecedorList();
+                    form.Show();
+ 
+                }
+                else
+                {
+                    dao.Insert(_fornecedor);
+                    MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

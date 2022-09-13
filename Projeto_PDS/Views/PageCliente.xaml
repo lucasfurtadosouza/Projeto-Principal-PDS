@@ -8,10 +8,30 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageCliente"
       >
-    
+
 
     <Grid Background="#FFF">
-        <TextBlock Text="CLIENTE" FontSize="20"/>
+        <StackPanel>
+            <Label Content="Nome:"></Label>
+            <TextBox x:Name="txtNome"></TextBox>
+            <Label Content="Email:"></Label>
+            <TextBox x:Name="txtEmail"></TextBox>
+            <Label Content="CPF:"></Label>
+            <TextBox x:Name="txtCpf"></TextBox>
+            <Label Content="Telefone:"></Label>
+            <TextBox x:Name="txtTelefone"></TextBox>
+            <Label Content="Endereço:"></Label>
+            <TextBox x:Name="txtEndereco"></TextBox>
+            <Label Content="RG:"></Label>
+            <TextBox x:Name="txtRg"></TextBox>
+            <Label Content="Data de nascimento:"></Label>
+            <DatePicker x:Name="dtDataNasc"></DatePicker>
+            <Label Content="Sexo:"></Label>
+            <ComboBox x:Name="cbSexo"></ComboBox>
+            <Label Content="Renda Familiar:"></Label>
+            <TextBox x:Name="txtRenda"></TextBox>
 
+            <Button x:Name="btSalvar" Content="Salvar" Click="btSalvar_Click"></Button>
+        </StackPanel>
     </Grid>
 </Page>

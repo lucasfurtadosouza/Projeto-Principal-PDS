@@ -5,10 +5,55 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Projeto_PDS.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="950" d:DesignWidth="700"
       Title="PageFuncionario">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <StackPanel Grid.Column="0" Margin="6,6,6,-27">
+            <Label Content="Cadastrar Funcionario" FontSize="20"/>
+
+            <Label Content="Nome" FontSize="16"/>
+            <TextBox x:Name="txtNome" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+
+            <Label Content="Email" FontSize="16"/>
+            <TextBox x:Name="txtEmail" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+            <Label Content="CPF" FontSize="16"/>
+            <TextBox x:Name="txtCpf" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+            <Label Content="Telefone" FontSize="16"/>
+            <TextBox x:Name="txtTelefone" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+            <Label Content="Rua" FontSize="16"/>
+            <TextBox x:Name="txtRua" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+            <Label Content="Numero" FontSize="16"/>
+            <TextBox x:Name="txtNumero" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+            <Label Content="Bairro" FontSize="16"/>
+            <TextBox x:Name="txtBairro" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+            <Label Content="Rg" FontSize="16"/>
+            <TextBox x:Name="txtRg" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+
+            <Label Content="Data do Nascimento" FontSize="16"/>
+            <DatePicker x:Name="dpDataNasc" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+
+            <Label Content="Carteira de Trabalho" FontSize="16"/>
+            <TextBox x:Name="txtCarteiraTrabalho" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+            <Label Content="Salario" FontSize="16"/>
+            <TextBox x:Name="txtSalario" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+            <Label Content="Foto" FontSize="16"/>
+            <TextBox x:Name="txtFoto" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+            <Button x:Name="btSalvar" Content="Salvar" Click="btSalvar_Click" Width="100" Margin="50"/>
+
+        </StackPanel>
+
     </Grid>
 </Page>
