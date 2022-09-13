@@ -21,11 +21,11 @@ namespace Projeto_PDS.Views
     /// </summary>
     public partial class PageCaixa : Page
     {
+        public Caixa _caixa = new Caixa();
         public PageCaixa()
         {
             InitializeComponent();
         }
-        public Caixa _caixa = new Caixa();
         public PageCaixa(Caixa caixa)
         {
             _caixa = caixa;
