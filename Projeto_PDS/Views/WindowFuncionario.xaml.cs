@@ -53,20 +53,9 @@ namespace Projeto_PDS.Views
                 _funcionario.DataNasc = dpDataNasc.SelectedDate;
             }
             _funcionario.CarteiraDeTrabalho = txtCarteiraTrabalho.Text;
-            _funcionario.Salario = txtSalario.Text;
+            _funcionario.Salario = Convert.ToInt32(txtSalario.Text);
+            
             _funcionario.Foto = txtFoto.Text;
-
-
-
-
-
-
-
-
-
-
-
-
 
             try
             {
