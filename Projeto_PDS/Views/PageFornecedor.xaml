@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeto_PDS.Views"
         mc:Ignorable="d"
-        Title="WindowFornecedor" d:DesignHeight="500" d:DesignWidth="500">
-    <Grid>
+        Title="WindowFornecedor" d:DesignHeight="900" d:DesignWidth="1000">
+    <Grid Background="White">
 
-        <StackPanel Grid.Column="0" Margin="6">
+        <StackPanel Grid.Column="0" Margin="550 10 0 10">
             <Label Content="Cadastro Fornecedor" FontSize="20"/>
 
             <Label Content="Nome" FontSize="16"/>
@@ -27,7 +27,7 @@
             
         </StackPanel>
 
-        <StackPanel x:Name="btSalvar"  Width="100" Height="400" HorizontalAlignment="Left" Margin="200,480,0,0">
+        <StackPanel x:Name="btSalvar"  Width="100" Height="400" HorizontalAlignment="Left" Margin="715,480,0,0">
             <Button x:Name="btSalvarFornecedor" Content="Salvar" Click="btSalvarFornecedor_Click"/>
         </StackPanel>
                 
