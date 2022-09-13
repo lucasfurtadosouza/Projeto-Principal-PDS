@@ -19,14 +19,16 @@ namespace Projeto_PDS.Models
 
                 comando.CommandText = "INSERT Into Funcionario Value " +
 
-                    "(null, @nome, @email, @cpf, @telefon, @endereco, @rg, @data, @sexo, @careteira, @salario," +
+                    "(null, @nome, @email, @cpf, @telefon, @rua, @numero, @bairro, @rg, @data, @sexo, @careteira, @salario," +
                     "@foto)";
 
                 comando.Parameters.AddWithValue("@nome", funcionario.Nome);
                 comando.Parameters.AddWithValue("@email", funcionario.Email);
                 comando.Parameters.AddWithValue("@cpf", funcionario.Cpf);
                 comando.Parameters.AddWithValue("@telefon", funcionario.Telefone);
-                comando.Parameters.AddWithValue("@endereco", funcionario.Endereco);
+                comando.Parameters.AddWithValue("@rua", funcionario.Rua);
+                comando.Parameters.AddWithValue("@numero", funcionario.Numero);
+                comando.Parameters.AddWithValue("@bairro", funcionario.Bairro);
                 comando.Parameters.AddWithValue("@rg", funcionario.Rg);
                 comando.Parameters.AddWithValue("@data", funcionario.DataNasc?.ToString("yyyy-MM-dd"));
                 comando.Parameters.AddWithValue("@sexo", funcionario.Sexo);
