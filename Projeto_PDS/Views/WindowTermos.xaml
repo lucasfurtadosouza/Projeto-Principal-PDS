@@ -16,8 +16,8 @@
             <Label Content="Bem Vindo!"/>
             <Label Content="Preparado para uma nova experiência? Este software é desenvolvido &#10; pela icoNIC tazendo soluções para a sua empresa."/>
             <StackPanel Orientation="Horizontal">
-                <RadioButton x:Name="rdAceitar" Margin="10 14 0 10" Checked="rdAceitar_Checked_1"/>
-                <Label Content="Permito a coleta de meus dados para o aprimoramento do &#10;Software e aceito os termos de uso"/>
+                <RadioButton x:Name="rdAceitar" Margin="10 8 0 10" Checked="rdAceitar_Checked_1"/>
+                <Label Content="Permito a coleta de meus dados para o aprimoramento do"/>
                 
             </StackPanel>
             <Button x:Name="btAvancar" Content="Avançar" Click="btAvancar_Click"/>
