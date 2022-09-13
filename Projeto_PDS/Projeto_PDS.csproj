@@ -103,6 +103,18 @@
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PageCaixa.xaml.cs">
+      <DependentUpon>PageCaixa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageDespesa.xaml.cs">
+      <DependentUpon>PageDespesa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageFuncionario.xaml.cs">
+      <DependentUpon>PageFuncionario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageProduto.xaml.cs">
+      <DependentUpon>PageProduto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WindowCaixa.xaml.cs">
       <DependentUpon>WindowCaixa.xaml</DependentUpon>
     </Compile>
@@ -160,6 +172,22 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageCaixa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageDespesa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageFuncionario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageProduto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
