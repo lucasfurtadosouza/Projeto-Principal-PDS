@@ -31,15 +31,21 @@ namespace Projeto_PDS.Views
         }
         private void DespesaWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //txtValor.Focus();
+            txtValor.Focus();
         }
-        private void btSalvarDespesa_Click(object sender, RoutedEventArgs e)
-        {/*
-            _despesa.Valor = txtValorText;
-            _despesa.Data_Vencimento = txtData_ven.Text;
-            _despesa.Data_Pagamento = dpData_Pag.Text;
-            _despesa.Forma_Pagamento = txtForma_Pag.Text;
-            _despesa.Descricao = txtDescri.Text;
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        {
+            _despesa.Valor = Convert.ToInt32(txtValor.Text);
+            if (dpDataVen.SelectedDate != null)
+            {
+                _despesa.Data_Vencimento = dpDataVen.SelectedDate;
+            }
+            if (dpDataVen.SelectedDate != null)
+            {
+                _despesa.Data_Pagamento = dpDataPag.SelectedDate;
+            }
+            _despesa.Forma_Pagamento = txtFormaPagamento.Text;
+            _despesa.Descricao = txtDescricao.Text;
 
 
             try
@@ -62,7 +68,8 @@ namespace Projeto_PDS.Views
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }*/
+            }
         }
+
     }
 }

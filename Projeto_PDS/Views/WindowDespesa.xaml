@@ -7,34 +7,31 @@
         mc:Ignorable="d"
         Title="WindowDespesa" Height="450" Width="800">
     <Grid>
-
-
-        <Grid>
-
-            <StackPanel Grid.Column="0" Margin="6">
+        
+        <StackPanel Grid.Column="0" Margin="6">
                 <Label Content="Cadastrar Despesa" FontSize="20"/>
 
                 <Label Content="Valor" FontSize="16"/>
                 <TextBox x:Name="txtValor" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
 
                 <Label Content="Data do Vencimento" FontSize="16"/>
-                <TextBox x:Name="txtData_Ven" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
-                
+                <DatePicker x:Name="dpDataVen" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
                 <Label Content="Data do Pagamento" FontSize="16"/>
-                <TextBox x:Name="" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
-                <Label Content="Email" FontSize="16"/>
-                <TextBox x:Name="txtEmail" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+                <DatePicker x:Name="dpDataPag" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+                <Label Content="Forma de Pagamento" FontSize="16"/>
+                <TextBox x:Name="txtFormaPagamento" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
                 <Label Content="Endereço" FontSize="16"/>
                 <TextBox x:Name="txtEndereco" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
-                <Label Content="Telefone" FontSize="16"/>
-                <TextBox x:Name="txtTelefone" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+                 <Label Content="Descrição" FontSize="16"/>
+                 <TextBox x:Name="txtDescricao" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+
+                <Button x:Name="btSalvar" Content="Salvar" Click="btSalvar_Click"/>
 
             </StackPanel>
-
-            <StackPanel x:Name="btSalvar"  Width="100" Height="400" HorizontalAlignment="Left" Margin="200,480,0,0">
-                <Button x:Name="btSalvarFornecedor" Content="Salvar" Click="btSalvarFornecedor_Click"/>
-            </StackPanel>
-
+        
         </Grid>
-    </Grid>
 </Window>
