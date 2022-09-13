@@ -50,7 +50,7 @@
             <Label Content="Foto" FontSize="16"/>
             <TextBox x:Name="txtFoto" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
 
-            <Button x:Name="btSalvar" Content="Salvar" Click="btSalvar_Click"/>
+            <Button x:Name="btSalvar" Content="Salvar" Click="btSalvar_Click" Width="100" Margin="50"/>
 
         </StackPanel>
 
