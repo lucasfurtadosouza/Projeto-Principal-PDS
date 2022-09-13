@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeto_PDS.Views"
         mc:Ignorable="d"
-        Title="WindowDespesa" Height="450" Width="800">
+        Title="WindowDespesa" Height="550" Width="800">
     <Grid>
         
-        <StackPanel Grid.Column="0" Margin="6">
+        <StackPanel Grid.Column="0" Margin="6,6,6,-27">
                 <Label Content="Cadastrar Despesa" FontSize="20"/>
 
                 <Label Content="Valor" FontSize="16"/>
