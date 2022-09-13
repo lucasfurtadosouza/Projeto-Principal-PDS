@@ -8,7 +8,22 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageProduto">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <StackPanel>
+            <Label Content="Nome:"></Label>
+            <TextBox x:Name="txtNome"></TextBox>
+            <Label Content="Valor Compra:"></Label>
+            <TextBox x:Name="txtValorCompra"></TextBox>
+            <Label Content="Valor Venda:"></Label>
+            <TextBox x:Name="txtValorVenda"></TextBox>
+            <Label Content="Estoque:"></Label>
+            <TextBox x:Name="txtEstoque"></TextBox>
+            <Label Content="Descrição:"></Label>
+            <TextBox x:Name="txtDescricao"></TextBox>
+            <Label Content="Foto:"></Label>
+            <TextBox x:Name="txtFoto"></TextBox>
+
+            <Button x:Name="btSalvar" Content="Salvar" Click="btSalvar_Click"></Button>
+        </StackPanel>
     </Grid>
 </Page>
