@@ -19,14 +19,16 @@ namespace Projeto_PDS.Models
 
                 comando.CommandText = "INSERT Into Funcionario Value " +
 
-                    "(null, @nome, @email, @cpf, @telefon, @endereco, @rg, @data, @sexo, @careteira, @salario," +
+                    "(null, @nome, @email, @cpf, @telefon, @rua, @numero, @bairro, @rg, @data, @sexo, @careteira, @salario," +
                     "@foto)";
 
                 comando.Parameters.AddWithValue("@nome", funcionario.Nome);
                 comando.Parameters.AddWithValue("@email", funcionario.Email);
                 comando.Parameters.AddWithValue("@cpf", funcionario.Cpf);
                 comando.Parameters.AddWithValue("@telefon", funcionario.Telefone);
-                comando.Parameters.AddWithValue("@endereco", funcionario.Endereco);
+                comando.Parameters.AddWithValue("@rua", funcionario.Rua);
+                comando.Parameters.AddWithValue("@numero", funcionario.Numero);
+                comando.Parameters.AddWithValue("@bairro", funcionario.Bairro);
                 comando.Parameters.AddWithValue("@rg", funcionario.Rg);
                 comando.Parameters.AddWithValue("@data", funcionario.DataNasc?.ToString("yyyy-MM-dd"));
                 comando.Parameters.AddWithValue("@sexo", funcionario.Sexo);
@@ -65,7 +67,9 @@ namespace Projeto_PDS.Models
                     funcionario.Email = Helpers.DAOHelper.GetString(reader, "email_fun");
                     funcionario.Cpf = Helpers.DAOHelper.GetString(reader, "cpf_fun");
                     funcionario.Telefone = Helpers.DAOHelper.GetString(reader, "telefone_fun");
-                    funcionario.Endereco = Helpers.DAOHelper.GetString(reader, "rg_fun");
+                    funcionario.Rua = Helpers.DAOHelper.GetString(reader, "rua_fun");
+                    funcionario.Numero = Helpers.DAOHelper.GetString(reader, "numero_fun");
+                    funcionario.Bairro = Helpers.DAOHelper.GetString(reader, "bairro_fun");
                     funcionario.Rg = Helpers.DAOHelper.GetString(reader, "rg_fun");
                     funcionario.DataNasc = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_nasc_fun"));
                     funcionario.Sexo = Helpers.DAOHelper.GetString(reader, "sexo_fun");
@@ -109,7 +113,7 @@ namespace Projeto_PDS.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "UPDATE Funcionario SET " +
-                    "nome_fun = @nome, email_fun = @email, cpf_fun = @cpf, telefone_fun = @telefon, endereco_fun = @endereco,rg_fun = @rg ,data_nasc_fun = @data, sexo_fun = @sexo, carteira_de_trabalho_fun = @carteira, salario_fun = @salario," +
+                    "nome_fun = @nome, email_fun = @email, cpf_fun = @cpf, telefone_fun = @telefone, rua_fun = @rua, numero_fun = @numero, bairro_fun = @bairro,rg_fun = @rg ,data_nasc_fun = @data, sexo_fun = @sexo, carteira_de_trabalho_fun = @carteira, salario_fun = @salario," +
                     " foto_fun = @foto" +
                     "WHERE id_fun = @id";
 
@@ -117,8 +121,10 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@nome", funcionario.Nome);
                 comando.Parameters.AddWithValue("@email", funcionario.Email);
                 comando.Parameters.AddWithValue("@cpf", funcionario.Cpf);
-                comando.Parameters.AddWithValue("@telefon", funcionario.Telefone);
-                comando.Parameters.AddWithValue("@endereco", funcionario.Endereco);
+                comando.Parameters.AddWithValue("@telefone", funcionario.Telefone);
+                comando.Parameters.AddWithValue("@rua", funcionario.Rua);
+                comando.Parameters.AddWithValue("@numero", funcionario.Numero);
+                comando.Parameters.AddWithValue("@bairro", funcionario.Bairro);
                 comando.Parameters.AddWithValue("@rg", funcionario.Rg);
                 comando.Parameters.AddWithValue("@data", funcionario.DataNasc?.ToString("yyyy-MM-dd"));
                 comando.Parameters.AddWithValue("@sexo", funcionario.Sexo);

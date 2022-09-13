@@ -8,5 +8,12 @@ namespace Projeto_PDS.Models
 {
     public class Produto
     {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public double ValorCompra { get; set; }
+        public double ValorVenda { get; set; }
+        public int Estoque { get; set; }
+        public string Descricao { get; set; }
+        public string Foto { get; set; }
     }
 }
