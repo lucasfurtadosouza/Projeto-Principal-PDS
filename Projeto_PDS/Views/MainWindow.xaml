@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Button Content="funcionario" Click="Button_Click" Name="MN_Funcionario" />
+            <Button Content="Cliente" Click="Button_Click" Name="MN_Cliente"/>
+
+        </StackPanel>
+        <Frame x:Name="framePage" Grid.Column="1" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
+
+
+
+
     </Grid>
 </Window>
