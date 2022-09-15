@@ -114,7 +114,7 @@
     </Compile>
     <Compile Include="Views\PageProduto.xaml.cs">
       <DependentUpon>PageProduto.xaml</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -197,8 +197,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PageProduto.xaml">
-	  <SubType>Designer</SubType>
-	  <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainWindow.xaml">
       <SubType>Designer</SubType>

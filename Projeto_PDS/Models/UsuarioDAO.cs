@@ -6,19 +6,14 @@ using System.Threading.Tasks;
 using Projeto_PDS.Models;
 using MySql.Data.MySqlClient;
 using Projeto_PDS.DataBase;
-using System.Security.Cryptography;
 
 namespace Projeto_PDS.Models
 {
     public class UsuarioDAO
     {
-       
         private static Conexao _conn = new Conexao();
         public void Insert(Usuario user)
         {
-            
-
-
             try
             {
                 var comando = _conn.Query();
