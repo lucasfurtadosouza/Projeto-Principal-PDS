@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="WindowNovoUsuario" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Label Content="Usuário" Margin="300 110 300 0"/>
+            <TextBox x:Name="txtUsuario" Background="DarkGray" Margin="300 10 300 0"/>
+            <Label Content="senha" Margin="300 10 300 0"/>
+            <TextBox x:Name="txtSenha" Background="DarkGray" Margin="300 10 300 10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Button Content="Login" Margin="300 20" Click="Button_Click10"/>
+        </StackPanel>
     </Grid>
 </Window>

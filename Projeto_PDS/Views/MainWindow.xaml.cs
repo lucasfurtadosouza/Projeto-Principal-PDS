@@ -51,11 +51,23 @@ namespace Projeto_PDS.Views
 
             switch (button.Name)
             {
-                case "MN_Funcionario":
+                case "MN_Fornecedor":
                     framePage.NavigationService.Navigate(new PageFornecedor(this)); //Uri($"{pack}/PageFornecedor.xaml");
                     break;
                 case "MN_Cliente":
                     framePage.Source = new System.Uri($"{pack}/PageCliente.xaml");
+                    break;
+                case "MN_Despesa":
+                    framePage.Source = new System.Uri($"{pack}/PageDespesa.xaml");
+                    break;
+                case "MN_Funcionario":
+                    framePage.Source = new System.Uri($"{pack}/PageFuncionario.xaml");
+                    break;
+                case "MN_Produto":
+                    framePage.Source = new System.Uri($"{pack}/PageProduto.xaml");
+                    break;
+                case "MN_Relatorio":
+                    framePage.Source = new System.Uri($"{pack}/PageFuncionario.xaml");
                     break;
             }
         }

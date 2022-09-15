@@ -7,29 +7,29 @@
         mc:Ignorable="d"
         Title="WindowFornecedor" d:DesignHeight="900" d:DesignWidth="1000">
     <Grid Background="White">
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+            <StackPanel Grid.Column="0" Margin="10 10 0 10">
+                <Label Content="Cadastro Fornecedor" FontSize="20"/>
 
-        <StackPanel Grid.Column="0" Margin="550 10 0 10">
-            <Label Content="Cadastro Fornecedor" FontSize="20"/>
+                <Label Content="Nome" FontSize="16"/>
+                <TextBox x:Name="txtNome" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
 
-            <Label Content="Nome" FontSize="16"/>
-            <TextBox x:Name="txtNome" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+                <Label Content="Razão social" FontSize="16"/>
+                <TextBox x:Name="txtRazao" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+                <Label Content="CNPJ" FontSize="16"/>
+                <TextBox x:Name="txtCnpj" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+                <Label Content="Email" FontSize="16"/>
+                <TextBox x:Name="txtEmail" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+                <Label Content="Endereço" FontSize="16"/>
+                <TextBox x:Name="txtEndereco" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+                <Label Content="Telefone" FontSize="16"/>
+                <TextBox x:Name="txtTelefone" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
 
-            <Label Content="Razão social" FontSize="16"/>
-            <TextBox x:Name="txtRazao" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
-            <Label Content="CNPJ" FontSize="16"/>
-            <TextBox x:Name="txtCnpj" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
-            <Label Content="Email" FontSize="16"/>
-            <TextBox x:Name="txtEmail" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
-            <Label Content="Endereço" FontSize="16"/>
-            <TextBox x:Name="txtEndereco" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
-            <Label Content="Telefone" FontSize="16"/>
-            <TextBox x:Name="txtTelefone" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
-            
+            </StackPanel>
+
+            <StackPanel x:Name="btSalvar"  Width="100" Height="40" HorizontalAlignment="Left" Margin="10,10,0,0">
+                <Button x:Name="btSalvarFornecedor" Content="Salvar" Click="btSalvarFornecedor_Click"/>
+            </StackPanel>
         </StackPanel>
-
-        <StackPanel x:Name="btSalvar"  Width="100" Height="400" HorizontalAlignment="Left" Margin="715,480,0,0">
-            <Button x:Name="btSalvarFornecedor" Content="Salvar" Click="btSalvarFornecedor_Click"/>
-        </StackPanel>
-                
     </Grid>
 </Page>

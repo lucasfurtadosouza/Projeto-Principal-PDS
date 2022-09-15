@@ -13,8 +13,14 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <Button Content="funcionario" Click="Button_Click" Name="MN_Funcionario" />
+            <Button Content="Fornecedor" Click="Button_Click" Name="MN_Fornecedor" />
             <Button Content="Cliente" Click="Button_Click" Name="MN_Cliente"/>
+            <Button Content="Gastos" Click="Button_Click" Name="MN_Despesa"/>
+            <Button Content="Colaboradores" Click="Button_Click" Name="MN_Funcionario"/>
+            <Button Content="Produtos" Click="Button_Click" Name="MN_Produto"/>
+            <Button Content="Relatórios" Click="Button_Click" Name="MN_Relatorio"/>
+           
+            
 
         </StackPanel>
         <Frame x:Name="framePage" Grid.Column="1" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
