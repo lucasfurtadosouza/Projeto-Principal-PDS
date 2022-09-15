@@ -20,12 +20,12 @@ namespace Projeto_PDS.Models
 
                 comando.CommandText = "INSERT Into usuario Value " +
 
-                    "(null, @nome, @perm, @senha)";
+                    "(null, @nome, @senha, @perm, null)";
 
                 comando.Parameters.AddWithValue("@nome", user.Nome);
-                comando.Parameters.AddWithValue("@perm", user.Permissao);
                 comando.Parameters.AddWithValue("@senha", user.Senha);
-              
+                comando.Parameters.AddWithValue("@perm", user.Permissao);
+
 
                 var resultado = comando.ExecuteNonQuery();
 
@@ -54,10 +54,10 @@ namespace Projeto_PDS.Models
                 {
                     var user = new Usuario();
                     user.Id = reader.GetInt32("id_usu");
-                    user.Nome = Helpers.DAOHelper.GetString(reader, "nome_cli");
-                    user.Permissao = Convert.ToInt32( Helpers.DAOHelper.GetString(reader, "email_cli"));
-                    user.Senha = Helpers.DAOHelper.GetString(reader, "cpf_cli");
-                   
+                    user.Nome = Helpers.DAOHelper.GetString(reader, "nome_usu");
+                    user.Permissao = Helpers.DAOHelper.GetString(reader, "nivel_permissao_usu");
+                    user.Senha = Helpers.DAOHelper.GetString(reader, "senha_usu");
+                    user.FK_Fun = Helpers.DAOHelper.GetDouble(reader, "id_fun_fk");
 
                     list.Add(user);
                 }
@@ -94,12 +94,13 @@ namespace Projeto_PDS.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "UPDATE UsuarioSET " +
-                    "nome_usu = @nome, permissao_usu = @perm, senha_usu = @senha" +
+                    "nome_usu = @nome, permissao_usu = @perm, senha_usu = @senha, id_fun_fk = @funcionario"+
                     "WHERE id_usu = @id";
 
                 comando.Parameters.AddWithValue("@nome", usuario.Nome);
-                comando.Parameters.AddWithValue("@email", usuario.Permissao);
-                comando.Parameters.AddWithValue("@telefone", usuario.Senha);
+                comando.Parameters.AddWithValue("@perm", usuario.Permissao);
+                comando.Parameters.AddWithValue("@senha", usuario.Senha);
+                comando.Parameters.AddWithValue("@funcionario", usuario.FK_Fun);
              
 
                 var resultado = comando.ExecuteNonQuery();

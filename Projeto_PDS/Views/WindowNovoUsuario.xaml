@@ -16,9 +16,16 @@
             <TextBox x:Name="txtUsuario" Background="DarkGray" Margin="300 10 300 0"/>
             <Label Content="senha" Margin="300 10 300 0"/>
             <TextBox x:Name="txtSenha" Background="DarkGray" Margin="300 10 300 10"/>
+            <ComboBox x:Name="cbPermissao" Margin=" 300 10 330 10">
+                <ComboBoxItem Content="Administador"/>
+                <ComboBoxItem Content="Gerente"/>
+                <ComboBoxItem Content="Vendedor"/>
+                <ComboBoxItem Content="Controlador"/>
+                <ComboBoxItem Content="Financeiro"/>
+            </ComboBox>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <Button Content="Login" Margin="300 20" Click="Button_Click10"/>
+            <Button Content="Login" Margin="300 5" Click="Button_Click10"/>
         </StackPanel>
     </Grid>
 </Window>

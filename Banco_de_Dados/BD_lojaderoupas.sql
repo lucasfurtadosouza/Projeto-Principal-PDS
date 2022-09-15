@@ -3,48 +3,73 @@ use Loja_roupa;
 #Alunos: Daniel Delfino Neto, Lucas Furtado Souza, Lucas Tozo Monção, Maria Eduarda Alves Moriá e Taynara da Silva Pereira.
 #Turma: 3°B          Curso: Técnico em Informática
 
-create table Funcionario (
+create table Sexo(
+id_sex int not null primary key auto_increment,
+tipo_sex varchar(300)
+);
+insert into Sexo values(null, "Masculino");
+insert into Sexo values(null, "Feminino");
+insert into Sexo values(null, "Outros");
+
+create table Funcionario(
 id_fun int not null primary key auto_increment,
 nome_fun varchar (300) not null,
 email_fun varchar (300),
 cpf_fun varchar (300),
 telefone_fun varchar (300),
-endereco_fun varchar (300),
+rua_fun varchar (300),
+numero_fun varchar (300),
+bairro_fun varchar (300),
 rg_fun varchar (300),
 data_nasc_fun date,
-sexo_fun varchar (300),
 carteira_de_trabalho_fun varchar (300),
-salario_fun float,
-foto_fun blob
+salario_fun double,
+foto_fun blob,
+id_sex_fk integer not null,
+foreign key (id_sex_fk) references Sexo (id_sex)
 );
 
-create table Cliente (
+create table Usuario(
+id_Usu int primary key auto_increment,
+nome_usu varchar(300),
+senha_usu varchar(300),
+nivel_permissao_usu varchar(300),
+id_fun_fk int, 
+foreign key (id_fun_fk) references Funcionario(id_fun)
+);
+
+create table Cliente(
 id_cli int not null primary key auto_increment,
 nome_cli varchar (300) not null,
 email_cli varchar (300),
 cpf_cli varchar (300),
 telefone_cli varchar (300),
-endereco_cli varchar (300),
+rua_cli varchar (300),
+numero_cli varchar (300),
+bairro_cli varchar (300),
 rg_cli varchar (300),
 data_nasc_cli date,
-sexo_cli varchar (300),
-renda_familiar_cli float,
-foto_cli blob
+renda_familiar_cli double,
+foto_cli blob,
+id_sex_fk integer not null,
+foreign key (id_sex_fk) references Sexo (id_sex)
 );
 
-create table Fornecedor (
+create table Fornecedor(
 id_for int not null primary key auto_increment,
 nome_fantasia_for varchar (300) not null,
 razao_social_for varchar (300) not null,
 cnpj_for varchar (300),
 email_for varchar (300),
-endereco_for varchar (300),
+rua_for varchar (300),
+numero_for varchar (300),
+bairro_for varchar (300),
 telefone_for varchar (300)
 );
 
 create table Despesa(
 id_des int not null primary key auto_increment,
-valor_des float,
+valor_des double,
 data_vencimento_des date,
 data_pagamento_des date,
 forma_pagamento_des varchar(300),
@@ -54,8 +79,8 @@ descricao_des varchar(300)
 create table Produto(
 id_pro int not null primary key auto_increment,
 nome_pro varchar (300),
-valor_compra_pro float,
-valor_venda_pro float,
+valor_compra_pro double,
+valor_venda_pro double,
 estoque_pro int,
 descricao_pro varchar(300),
 foto_pro blob
@@ -63,8 +88,8 @@ foto_pro blob
 
 create table Caixa(
 id_cai int not null primary key auto_increment,
-saldo_inicial_cai float,
-saldo_final_cai float,
+saldo_inicial_cai double,
+saldo_final_cai double,
 data_abertura_cai date,
 data_fechamento_cai date,
 hora_abertura_cai time,
@@ -75,7 +100,7 @@ quantidade_recebimentos_cai int
 
 create table Venda(
 id_ven int not null primary key auto_increment,
-valor_ven float,
+valor_ven double,
 data_ven date,
 hora_ven time,
 forma_pagamento_ven varchar(300),
@@ -88,7 +113,7 @@ foreign key (id_cli_fk) references Cliente (id_cli)
 
 create table Compra(
 id_com int not null primary key auto_increment,
-valor_com float,
+valor_com double,
 data_com date,
 hora_com time,
 forma_pagamento_com varchar(300),
@@ -101,7 +126,7 @@ foreign key (id_for_fk) references Fornecedor (id_for)
 
 create table Pagamento(
 id_pag int not null primary key auto_increment,
-valor_pag float,
+valor_pag double,
 data_vencimento_pag date,
 hora_pag time,
 descricao_pag varchar(300),
@@ -117,7 +142,7 @@ foreign key (id_cai_fk) references Caixa (id_cai)
 
 create table Recebimento(
 id_rec int not null primary key auto_increment,
-valor_rec float,
+valor_rec double,
 data_recebimento_rec date,
 hora_rec time,
 descricao_rec varchar(300),
@@ -134,7 +159,7 @@ foreign key (id_cai_fk) references Caixa (id_cai)
 
 create table Produto_Venda(
 id_pro_ven int not null primary key auto_increment,
-quantidade_pro_ven varchar(300), 
+quantidade_pro_ven int, 
 
 id_pro_fk integer not null,
 id_ven_fk integer not null,
@@ -144,7 +169,7 @@ foreign key (id_ven_fk) references Venda (id_ven)
 
 create table Produto_Compra(
 id_pro_com int not null primary key auto_increment,
-quantidade_pro_com varchar(300), 
+quantidade_pro_com int, 
 
 id_pro_fk integer not null,
 id_com_fk integer not null,

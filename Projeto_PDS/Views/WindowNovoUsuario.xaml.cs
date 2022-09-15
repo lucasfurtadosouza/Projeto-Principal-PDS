@@ -41,6 +41,7 @@ namespace Projeto_PDS.Views
                 string HashUsuario = CalcSaltedPass(salt, txtUsuario.Text);
                 _login.Senha = HashPassword;
                 _login.Nome = HashUsuario;
+                _login.Permissao = cbPermissao.Text;
                 MessageBox.Show(HashUsuario);
                 MessageBox.Show(HashPassword);
             }
