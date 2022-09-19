@@ -14,7 +14,7 @@
     <Border Background="White" CornerRadius="25">
 
         <Grid>
-            <MediaElement x:Name="media" UnloadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded" Stretch="Fill" Margin="76, 12"/>
+            <MediaElement x:Name="media" UnloadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded" Stretch="Fill" Margin="76, 20, 76, 0"/>
         </Grid>
     </Border>
 </Window>

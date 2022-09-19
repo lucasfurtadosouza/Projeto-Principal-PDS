@@ -112,6 +112,24 @@
     <Compile Include="Views\PageFuncionario.xaml.cs">
       <DependentUpon>PageFuncionario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PageList\PageCaixaList.xaml.cs">
+      <DependentUpon>PageCaixaList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageList\PageClienteList.xaml.cs">
+      <DependentUpon>PageClienteList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageList\PageDespesaList.xaml.cs">
+      <DependentUpon>PageDespesaList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageList\PageFornecedorList.xaml.cs">
+      <DependentUpon>PageFornecedorList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageList\PageFuncionarioList.xaml.cs">
+      <DependentUpon>PageFuncionarioList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageList\PageProdutoList.xaml.cs">
+      <DependentUpon>PageProdutoList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PageProduto.xaml.cs">
       <DependentUpon>PageProduto.xaml</DependentUpon>
     </Compile>
@@ -193,6 +211,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PageFuncionario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageList\PageCaixaList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageList\PageClienteList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageList\PageDespesaList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageList\PageFornecedorList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageList\PageFuncionarioList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageList\PageProdutoList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
