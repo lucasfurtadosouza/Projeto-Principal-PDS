@@ -8,7 +8,37 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageDespesaList">
 
-    <Grid>
-        
+    <Grid Background="DimGray">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Width="86" Background="#FFB92D2D" Cursor="Hand" BorderBrush="Black" Height="32" Click="btVoltar_Click"/>
+        <TextBlock Grid.Row="0" Text="Listagem de Despesas" FontSize="24" Padding="10" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="btCarregar" Content="Recarregar" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" Width="108" Cursor="Hand" Background="#FF49B73A" BorderBrush="Black" Click="btCarregar_Click" Height="30"/>
+
+        <DataGrid Grid.Row="1" x:Name="dataGridDespesa" Margin="5" IsReadOnly="True" AlternatingRowBackground="LightBlue" AlternationCount="2" AutoGenerateColumns="False">
+            <DataGrid.Background>
+                <SolidColorBrush Color="#FFFAFAFA" Opacity="0.55"/>
+            </DataGrid.Background>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Descricao}"/>
+
+                <DataGridTemplateColumn Header="Ações">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Atualizar registrar" Margin="5 0" Click="Button_Atualizar_Click"/>
+                                <Button Content="Excluir o registro" Click="Button_Remover_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Page>
