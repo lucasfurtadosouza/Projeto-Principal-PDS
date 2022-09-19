@@ -41,7 +41,7 @@ namespace Projeto_PDS.Models
             }  
 
         }
-        public List<Despesa> List(List<Despesa> list)
+        public List<Fornecedor> List()
         {
             try
             {

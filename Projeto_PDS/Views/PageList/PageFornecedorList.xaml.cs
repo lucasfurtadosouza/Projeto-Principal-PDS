@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Projeto_PDS.Models;
 
 namespace Projeto_PDS.Views.PageList
 {
@@ -22,7 +23,68 @@ namespace Projeto_PDS.Views.PageList
     {
         public PageFornecedorList()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            Loaded += FornecedorListWindow_Loaded;
+        }
+
+        private void FornecedorListWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            CarregarListagem();
+        }
+        private void Button_Remover_Click(object sender, RoutedEventArgs e)
+        {
+            var FornecedorSelecionada = dataGridFornecedor.SelectedItem as Fornecedor;
+            var resultado = MessageBox.Show($"Deseja realmente excluir a escola '{FornecedorSelecionada.Id}'?", "Confirmar Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            try
+            {
+                if (resultado == MessageBoxResult.Yes)
+                {
+                    var dao = new FornecedorDAO();
+                    dao.Delete(FornecedorSelecionada);
+
+                    MessageBox.Show("Registro deletado com sucesso!");
+                    CarregarListagem();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
+        {
+            var FornecedorSelecionada = dataGridFornecedor.SelectedItem as Fornecedor;
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void CarregarListagem()
+        {
+            try
+            {
+                var dao = new FornecedorDAO();
+                List<Fornecedor> listaFornecedores = dao.List();
+
+                dataGridFornecedor.ItemsSource = listaFornecedores;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            var form = new Views.MainWindow();
+            form.Show();
+        }
+
+        private void btCarregar_Click(object sender, RoutedEventArgs e)
+        {
+            CarregarListagem();
         }
     }
 }
