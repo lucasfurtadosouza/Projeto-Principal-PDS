@@ -45,7 +45,7 @@ namespace Projeto_PDS.Models
         {
             try
             {
-                List<Fornecedor> List = new List<Fornecedor>();
+                List<Fornecedor> list = new List<Fornecedor>();
 
                 var query = _conn.Query();
                 query.CommandText = "SELECT * FROM fornecedor";
@@ -64,7 +64,7 @@ namespace Projeto_PDS.Models
                     Fornecedor.Endereco = Helpers.DAOHelper.GetString(reader, "endereco");
                     Fornecedor.Telefone = Helpers.DAOHelper.GetString(reader, "telefone");
                
-                    List.Add(Fornecedor);
+                    list.Add(Fornecedor);
                 }
                 reader.Close();
                 return list;
