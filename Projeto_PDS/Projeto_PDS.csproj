@@ -145,6 +145,9 @@
     <Compile Include="Views\PageMain.xaml.cs">
       <DependentUpon>PageMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PageRelatorio.xaml.cs">
+      <DependentUpon>PageRelatorio.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WindowCaixa.xaml.cs">
       <DependentUpon>WindowCaixa.xaml</DependentUpon>
     </Compile>
@@ -258,6 +261,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PageMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageRelatorio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
