@@ -34,7 +34,7 @@ namespace Projeto_PDS.Views.PageList
         private void Button_Remover_Click(object sender, RoutedEventArgs e)
         {
             var despesaSelecionada = dataGridDespesa.SelectedItem as Despesa;
-            var resultado = MessageBox.Show($"Deseja realmente excluir a despesa? '{despesaSelecionada.Id}'?", "Confirmar Exclusão",
+            var resultado = MessageBox.Show($"Deseja realmente excluir a despesa '{despesaSelecionada.Id}'?", "Confirmar Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
             try
             {

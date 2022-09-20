@@ -44,8 +44,10 @@ namespace Projeto_PDS.Views
             _cliente.Nome = txtNome.Text;
             _cliente.Email = txtEmail.Text;
             _cliente.Cpf = txtCpf.Text;
+            _cliente.Rua = txtRua.Text;
+            _cliente.Bairro = txtRua.Text;
+            _cliente.Numero = txtRua.Text;
             _cliente.Telefone = txtTelefone.Text;
-            _cliente.Endereco = txtEndereco.Text;
             _cliente.Rg = txtRg.Text;
 
             if (dtDataNasc.SelectedDate != null)

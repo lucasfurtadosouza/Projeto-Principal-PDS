@@ -13,7 +13,9 @@ namespace Projeto_PDS.Models
         public string Email { get; set; }
         public string Cpf { get; set; }
         public string Telefone { get; set; }
-        public string Endereco { get; set; }
+        public string Rua { get; set; }
+        public string Numero { get; set; }
+        public string Bairro { get; set; }
         public string Rg { get; set; }
         public DateTime? DataNasc { get; set; }
         public string Sexo { get; set; }
