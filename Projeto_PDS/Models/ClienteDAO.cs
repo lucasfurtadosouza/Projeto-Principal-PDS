@@ -20,12 +20,14 @@ namespace Projeto_PDS.Models
 
                 comando.CommandText = "INSERT Into Cliente Value " +
 
-                    "(null, @nome, @email, @cpf, @telefone, @endereco, @rg, @data_nasc, @sexo, @renda_familiar, @foto)";
+                    "(null, @nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @data_nasc, @sexo, @renda_familiar, @foto)";
 
                 comando.Parameters.AddWithValue("@nome", cliente.Nome);
                 comando.Parameters.AddWithValue("@email", cliente.Email);
                 comando.Parameters.AddWithValue("@telefone", cliente.Telefone);
-                comando.Parameters.AddWithValue("@endereco", cliente.Endereco);
+                comando.Parameters.AddWithValue("@rua", cliente.Rua);
+                comando.Parameters.AddWithValue("@numero", cliente.Numero);
+                comando.Parameters.AddWithValue("@bairro", cliente.Bairro);
                 comando.Parameters.AddWithValue("@rg", cliente.Rg);
                 comando.Parameters.AddWithValue("@data_nasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
                 comando.Parameters.AddWithValue("@sexo", cliente.Sexo);
@@ -64,7 +66,9 @@ namespace Projeto_PDS.Models
                     cliente.Email = Helpers.DAOHelper.GetString(reader, "email_cli");
                     cliente.Cpf = Helpers.DAOHelper.GetString(reader, "cpf_cli");
                     cliente.Telefone = Helpers.DAOHelper.GetString(reader, "telefone_cli");
-                    cliente.Endereco = Helpers.DAOHelper.GetString(reader, "endereco_cli");
+                    cliente.Rua = Helpers.DAOHelper.GetString(reader, "rua_cli");
+                    cliente.Numero = Helpers.DAOHelper.GetString(reader, "numero_cli");
+                    cliente.Bairro = Helpers.DAOHelper.GetString(reader, "bairro_cli");
                     cliente.Rg = Helpers.DAOHelper.GetString(reader, "rg_cli");
                     cliente.DataNasc = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_nasc_cli"));
                     cliente.Sexo = Helpers.DAOHelper.GetString(reader, "sexo_cli");
@@ -86,7 +90,7 @@ namespace Projeto_PDS.Models
             try
             {
                 var comando = _conn.Query();
-                comando.CommandText = "DELETE FROM cliente WHERE id_esc = @id";
+                comando.CommandText = "DELETE FROM cliente WHERE id_cli = @id";
                 comando.Parameters.AddWithValue("@id", cliente.Id);
                 var resultado = comando.ExecuteNonQuery();
                 if (resultado == 0)
@@ -106,14 +110,16 @@ namespace Projeto_PDS.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "UPDATE Cliente SET " +
-                    "nome_cli = @nome, email_cli = @email, cpf_cli = @cpf, telefone_cli = @telefone, endereco_cli = @endereco, rg_cli = @rg, " +
+                    "nome_cli = @nome, email_cli = @email, cpf_cli = @cpf, telefone_cli = @telefone, rua_cli = @rua, numero_cli = @numero, bairro_cli = @bairro, rg_cli = @rg, " +
                     "data_nasc_cli = @data_nasc, sexo_cli = @sexo, renda_familiar_cli = @renda_familiar, foto_cli = @foto" +
                     "WHERE id_cli = @id";
 
                 comando.Parameters.AddWithValue("@nome", cliente.Nome);
                 comando.Parameters.AddWithValue("@email", cliente.Email);
                 comando.Parameters.AddWithValue("@telefone", cliente.Telefone);
-                comando.Parameters.AddWithValue("@endereco", cliente.Endereco);
+                comando.Parameters.AddWithValue("@rua", cliente.Rua);
+                comando.Parameters.AddWithValue("@numero", cliente.Numero);
+                comando.Parameters.AddWithValue("@bairro", cliente.Bairro);
                 comando.Parameters.AddWithValue("@rg", cliente.Rg);
                 comando.Parameters.AddWithValue("@data_nasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
                 comando.Parameters.AddWithValue("@sexo", cliente.Sexo);
