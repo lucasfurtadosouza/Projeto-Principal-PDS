@@ -24,7 +24,14 @@
             </DataGrid.Background>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Nome Fantasia" Binding="{Binding NomeFantasia}"/>
+                <DataGridTextColumn Header="Razão Social" Binding="{Binding Razao}"/>
+                <DataGridTextColumn Header="Cnpj" Binding="{Binding Cnpj}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email }"/>
+                <DataGridTextColumn Header="Endereço" Binding="{Binding Endereco}"/>
+                <DataGridTextColumn Header="Telefone" Binding="{Binding Telefone}"/>
+                
+                
+                
 
                 <DataGridTemplateColumn Header="Ações">
                     <DataGridTemplateColumn.CellTemplate>

@@ -34,7 +34,7 @@ namespace Projeto_PDS.Views.PageList
         private void Button_Remover_Click(object sender, RoutedEventArgs e)
         {
             var FornecedorSelecionada = dataGridFornecedor.SelectedItem as Fornecedor;
-            var resultado = MessageBox.Show($"Deseja realmente excluir a escola '{FornecedorSelecionada.Id}'?", "Confirmar Exclusão",
+            var resultado = MessageBox.Show($"Deseja realmente excluir o fornecedor '{FornecedorSelecionada.Razao}'?", "Confirmar Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
             try
             {
