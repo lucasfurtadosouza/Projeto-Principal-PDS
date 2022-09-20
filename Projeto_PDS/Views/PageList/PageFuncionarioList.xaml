@@ -5,10 +5,45 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Projeto_PDS.Views.PageList"
       mc:Ignorable="d" 
+      Background="Transparent"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageFuncionarioList">
 
-    <Grid>
-        
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Background="#666296" Opacity="0.1"/> 
+
+        <TextBlock Grid.Row="0" Text="Colaboradores" FontSize="24" Padding="10" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="btRecarregar" Content="Recarregar" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" Width="108" Cursor="Hand" Background="#FF49B73A" BorderBrush="Black" Height="30"/>
+
+        <DataGrid Grid.Row="1" x:Name="dataGridFuncionario" Margin="5" IsReadOnly="True" AlternatingRowBackground="LightBlue" AlternationCount="2" AutoGenerateColumns="False">
+            <DataGrid.Background>
+                <SolidColorBrush Color="#FFFAFAFA" Opacity="0.55"/>
+            </DataGrid.Background>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Cpf" Binding="{Binding Cpf}"/>
+                <DataGridTextColumn Header="Telefone" Binding="{Binding Telefone}"/>
+                <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo}"/>
+                <DataGridTextColumn Header="Carteira de trabalho" Binding="{Binding CarteiraDeTrabalho}"/>
+                <DataGridTextColumn Header="Salario" Binding="{Binding Salario}"/>
+                <DataGridTemplateColumn Header="Ações">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Atualizar registrar" Margin="5 0" />
+                                <Button x:Name="Remover" Content="Excluir o registro" Click="Button_Remover_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Page>
