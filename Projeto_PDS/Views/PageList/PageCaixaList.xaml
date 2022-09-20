@@ -26,6 +26,11 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Data de Abertura" Binding="{Binding DataAbertura}"/>
+                <DataGridTextColumn Header="Data de Fechamento" Binding="{Binding DataFechamento}"/>
+                <DataGridTextColumn Header="Data de Fechamento" Binding="{Binding DataFechamento}"/>
+                <DataGridTextColumn Header="Hora de Abertura" Binding="{Binding HoraAbertura}"/>
+                <DataGridTextColumn Header="Hora de Fechamento" Binding="{Binding HoraFechamento}"/>
+
 
                 <DataGridTemplateColumn Header="Ações">
                     <DataGridTemplateColumn.CellTemplate>
