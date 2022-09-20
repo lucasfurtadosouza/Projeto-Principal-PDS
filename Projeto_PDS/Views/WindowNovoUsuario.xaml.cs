@@ -44,6 +44,8 @@ namespace Projeto_PDS.Views
                 _login.Permissao = cbPermissao.Text;
                 MessageBox.Show(HashUsuario);
                 MessageBox.Show(HashPassword);
+                var form = new MainWindow();
+                form.Show();
             }
             
 
@@ -54,7 +56,7 @@ namespace Projeto_PDS.Views
                 {
                     dao.Update(_login);
                     MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
-                    var form = new Projeto_PDS.Views.WindowClienteList();
+                    var form = new MainWindow();
                     form.Show();
                 }
                 else

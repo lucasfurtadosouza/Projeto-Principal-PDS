@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="Login" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Label Content="Usuário" Margin="300 110 300 0"/>
+            <TextBox x:Name="txtUsuario" Background="DarkGray" Margin="300 10 300 0"/>
+            <Label Content="senha" Margin="300 10 300 0"/>
+            <TextBox x:Name="txtSenha" Background="DarkGray" Margin="300 10 300 10"/>
+            <StackPanel Grid.Row="1">
+                <Button Content="Login" Margin="300 5" Click="Button_Click10"/>
+            </StackPanel>
+        </StackPanel>
         
+   
     </Grid>
 </Window>

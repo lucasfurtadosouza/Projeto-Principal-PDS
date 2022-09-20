@@ -56,18 +56,16 @@ namespace Projeto_PDS.Views
 
         public void btAvancar_Click(object sender, RoutedEventArgs e)
         {
-            if (verdade == true)
-            {
-                var form = new Projeto_PDS.SplashScreen();
-                form.Show();
-                this.Close();
-            }
-            else
-            {
+            
+            
+              
+            
+         
+           
                 var form = new WindowNovoUsuario();
                 form.Show();
                 this.Close();
-            }
+            
         }
     }
 }

@@ -15,6 +15,7 @@ using Projeto_PDS.Views;
 using System.Windows.Navigation;
 using System.Windows.Threading;
 using Projeto_PDS;
+using Projeto_PDS.Models;
 
 namespace Projeto_PDS
 {
@@ -22,7 +23,9 @@ namespace Projeto_PDS
     /// Lógica interna para SplashScreen.xaml
     /// </summary>
     public partial class SplashScreen : Window
+
     {
+        Funcionario _login = new Funcionario();
         public SplashScreen()
         {
             InitializeComponent();
@@ -31,7 +34,8 @@ namespace Projeto_PDS
             
         }
         DispatcherTimer timer = new DispatcherTimer();
-
+        public int chave;
+        public bool verdade;
         private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
         {
 
@@ -48,6 +52,19 @@ namespace Projeto_PDS
             timer.Tick += timer_tick;
             timer.Interval = new TimeSpan(0,0,4);
             timer.Start();
+            chave = _login.Id;
+            if (verdade == true)
+            {
+                var form = new Projeto_PDS.SplashScreen();
+                form.Show();
+                this.Close();
+            }
+            else
+            {
+                var form = new WindowNovoUsuario();
+                form.Show();
+                this.Close();
+            }
 
         }
     }
