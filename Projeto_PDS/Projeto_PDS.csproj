@@ -103,6 +103,9 @@
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Page loading.xaml.cs">
+      <DependentUpon>Page loading.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PageCaixa.xaml.cs">
       <DependentUpon>PageCaixa.xaml</DependentUpon>
     </Compile>
@@ -199,6 +202,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Page loading.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

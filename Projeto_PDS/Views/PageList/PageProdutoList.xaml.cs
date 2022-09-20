@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Projeto_PDS.Models;
 
 namespace Projeto_PDS.Views.PageList
 {
@@ -23,6 +24,63 @@ namespace Projeto_PDS.Views.PageList
         public PageProdutoList()
         {
             InitializeComponent();
+            Loaded += ProdutoListWindow_Loaded;
+        }
+
+        private void ProdutoListWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            CarregarListagem();
+        }
+        private void Button_Remover_Click(object sender, RoutedEventArgs e)
+        {
+            var produtoSelecionado = dataGridProduto.SelectedItem as Produto;
+            var resultado = MessageBox.Show($"Deseja realmente excluir o produto '{produtoSelecionado.Nome}'?", "Confirmar Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            try
+            {
+                if (resultado == MessageBoxResult.Yes)
+                {
+                    var dao = new ProdutoDAO();
+                    dao.Delete(produtoSelecionado);
+
+                    MessageBox.Show("Registro deletado com sucesso!");
+                    CarregarListagem();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
+        {
+            var produtoSelecionado = dataGridProduto.SelectedItem as Produto;
+        }
+        private void CarregarListagem()
+        {
+            try
+            {
+                var dao = new ProdutoDAO();
+                List<Produto> listaProdutos = dao.List();
+
+                dataGridProduto.ItemsSource = listaProdutos;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            var form = new Views.MainWindow();
+            form.Show();
+        }
+
+        private void btCarregar_Click(object sender, RoutedEventArgs e)
+        {
+            CarregarListagem();
         }
     }
 }
