@@ -25,7 +25,12 @@
             </DataGrid.Background>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Nome" Binding="{Binding Descricao}"/>
+                <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}"/>
+                <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
+                <DataGridTextColumn Header="Data de Vencimento" Binding="{Binding Data_Vencimento}"/>
+                <DataGridTextColumn Header="Data de Pagamento" Binding="{Binding Data_Pagamento }"/>
+                <DataGridTextColumn Header="Forma de Pagamento" Binding="{Binding Forma_Pagamento }"/>
+                
 
                 <DataGridTemplateColumn Header="Ações">
                     <DataGridTemplateColumn.CellTemplate>

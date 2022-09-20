@@ -67,7 +67,7 @@ namespace Projeto_PDS.Views
                     framePage.Source = new System.Uri($"{pack}/PageProduto.xaml");
                     break;
                 case "MN_Relatorio":
-                    framePage.Source = new System.Uri($"{pack}/PageFuncionario.xaml");
+                    framePage.Source = new System.Uri($"{pack}/PageRelatorio.xaml");
                     break;
             }
         }
