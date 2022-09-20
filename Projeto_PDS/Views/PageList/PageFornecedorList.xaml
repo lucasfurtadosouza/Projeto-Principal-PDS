@@ -11,14 +11,15 @@
     <Grid Background="DimGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="103*"/>
+            <RowDefinition Height="297*"/>
         </Grid.RowDefinitions>
 
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Width="86" Background="#FFB92D2D" Cursor="Hand" BorderBrush="Black" Height="32" Click="btVoltar_Click"/>
-        <TextBlock Grid.Row="0" Text="Listagem de Escolas" FontSize="24" Padding="10" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="btCarregar" Content="Recarregar" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" Width="108" Cursor="Hand" Background="#FF49B73A" BorderBrush="Black" Click="btCarregar_Click" Height="30"/>
+        <TextBlock Text="Listagem de Fornecedor" FontSize="24" Padding="10" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="btCarregar" Content="Recarregar" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="682,0,0,0" Width="108" Cursor="Hand" Background="#FF49B73A" BorderBrush="Black" Click="btCarregar_Click" Height="30"/>
 
-        <DataGrid Grid.Row="1" x:Name="dataGridFornecedor" Margin="5" IsReadOnly="True" AlternatingRowBackground="LightBlue" AlternationCount="2" AutoGenerateColumns="False">
+        <DataGrid Grid.Row="1" x:Name="dataGridFornecedor" Margin="5,5,5,5" IsReadOnly="True" AlternatingRowBackground="LightBlue" AlternationCount="2" AutoGenerateColumns="False" Grid.RowSpan="2">
             <DataGrid.Background>
                 <SolidColorBrush Color="#FFFAFAFA" Opacity="0.55"/>
             </DataGrid.Background>
@@ -29,9 +30,9 @@
                 <DataGridTextColumn Header="Email" Binding="{Binding Email }"/>
                 <DataGridTextColumn Header="Endereço" Binding="{Binding Endereco}"/>
                 <DataGridTextColumn Header="Telefone" Binding="{Binding Telefone}"/>
-                
-                
-                
+
+
+
 
                 <DataGridTemplateColumn Header="Ações">
                     <DataGridTemplateColumn.CellTemplate>
