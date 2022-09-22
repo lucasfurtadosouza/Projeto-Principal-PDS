@@ -42,30 +42,24 @@ namespace Projeto_PDS.Views
 
         public void rdAceitar_Checked_1(object sender, RoutedEventArgs e)
         {
-            if (chave > 0)
-            {
-                verdade = true;
-
-            }
-            else
-            {
-                verdade = false;
-            }
+            verdade = true;
             
         }
 
         public void btAvancar_Click(object sender, RoutedEventArgs e)
         {
-            
-            
-              
-            
-         
-           
+
+            if (verdade == true)
+            {
                 var form = new WindowNovoUsuario();
                 form.Show();
                 this.Close();
-            
+            }
+            else
+            {
+                MessageBox.Show("Aceite a condição para continuar");
+            }
+              
         }
     }
 }

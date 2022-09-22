@@ -53,15 +53,23 @@ namespace Projeto_PDS
             timer.Interval = new TimeSpan(0,0,4);
             timer.Start();
             chave = _login.Id;
+            if (chave > 0)
+            {
+                verdade = true;
+            }
+            else
+            {
+                verdade = false;
+            }
             if (verdade == true)
             {
-                var form = new Projeto_PDS.SplashScreen();
+                var form = new MainWindow();
                 form.Show();
                 this.Close();
             }
             else
             {
-                var form = new WindowNovoUsuario();
+                var form = new WindowTermos();
                 form.Show();
                 this.Close();
             }

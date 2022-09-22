@@ -27,6 +27,7 @@ namespace Projeto_PDS.Views
             InitializeComponent();
         }
         private Usuario _login = new Usuario();
+        private Funcionario _func = new Funcionario();
         private void Button_Click10(object sender, RoutedEventArgs e)
         {
             if(txtSenha.Text == "" && txtUsuario.Text == "")
@@ -41,6 +42,7 @@ namespace Projeto_PDS.Views
                 string HashUsuario = CalcSaltedPass(salt, txtUsuario.Text);
                 _login.Senha = HashPassword;
                 _login.Nome = HashUsuario;
+                _func.Nome = txtNome.Text;
                 _login.Permissao = cbPermissao.Text;
                 MessageBox.Show(HashUsuario);
                 MessageBox.Show(HashPassword);
@@ -52,6 +54,8 @@ namespace Projeto_PDS.Views
             try
             {
                 var dao = new UsuarioDAO();
+                var daof = new FuncionarioDAO();
+
                 if (_login.Id > 0)
                 {
                     dao.Update(_login);
@@ -62,6 +66,7 @@ namespace Projeto_PDS.Views
                 else
                 {
                     dao.Insert(_login);
+                    daof.Insert2(_func);
                     MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }

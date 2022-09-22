@@ -57,7 +57,41 @@ namespace Projeto_PDS.Models
                     user.Nome = Helpers.DAOHelper.GetString(reader, "nome_usu");
                     user.Permissao = Helpers.DAOHelper.GetString(reader, "nivel_permissao_usu");
                     user.Senha = Helpers.DAOHelper.GetString(reader, "senha_usu");
-                    user.FK_Fun = Helpers.DAOHelper.GetDouble(reader, "id_fun_fk");
+                   
+
+                    list.Add(user);
+                }
+                reader.Close();
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<Usuario> List2()
+        {
+            try
+            {
+                Funcionario func = new Funcionario();
+                List<Usuario> list = new List<Usuario>();
+
+                var query = _conn.Query();
+                query.CommandText = "SELECT usuario.id_usu, Funcionario.Nome_fun, usuario.nome_usu, usuario.nivel_permissao_usu, usuario.senha_usu from Usuario, funcionario" +
+                    "where(usuario.id_fun_fk = funcionario.id_fun)";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var user = new Usuario();
+                   
+                    user.Id = reader.GetInt32("usuario.id_usu");
+                    user.Nome_Fun = Helpers.DAOHelper.GetDouble(reader, "funcionario.nome_fun");
+                    user.Nome = Helpers.DAOHelper.GetString(reader, "usuario.nome_usu");
+                    user.Permissao = Helpers.DAOHelper.GetString(reader, "usuario.nivel_permissao_usu");
+                    user.Senha = Helpers.DAOHelper.GetString(reader, "usuario.senha_usu");
+                    
 
                     list.Add(user);
                 }
@@ -100,7 +134,7 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@nome", usuario.Nome);
                 comando.Parameters.AddWithValue("@perm", usuario.Permissao);
                 comando.Parameters.AddWithValue("@senha", usuario.Senha);
-                comando.Parameters.AddWithValue("@funcionario", usuario.FK_Fun);
+                comando.Parameters.AddWithValue("@funcionario", usuario.Nome_Fun);
              
 
                 var resultado = comando.ExecuteNonQuery();
