@@ -16,8 +16,12 @@
             <TextBox x:Name="txtCpf"></TextBox>
             <Label Content="Telefone:"></Label>
             <TextBox x:Name="txtTelefone"></TextBox>
-            <Label Content="Endereço:"></Label>
-            <TextBox x:Name="txtEndereco"></TextBox>
+            <Label Content="Rua:"></Label>
+            <TextBox x:Name="txtRua"></TextBox>
+            <Label Content="Bairro:"></Label>
+            <TextBox x:Name="txtBairro"></TextBox>
+            <Label Content="Múmero:"></Label>
+            <TextBox x:Name="txtNumero"></TextBox>
             <Label Content="RG:"></Label>
             <TextBox x:Name="txtRg"></TextBox>
             <Label Content="Data de nascimento:"></Label>

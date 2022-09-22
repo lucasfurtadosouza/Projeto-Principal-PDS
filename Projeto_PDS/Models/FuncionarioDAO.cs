@@ -47,6 +47,31 @@ namespace Projeto_PDS.Models
                 throw ex;
             }
         }
+        public void Insert2(Funcionario funcionario)
+        {
+            try
+            {
+                var comando = _conn.Query();
+
+                comando.CommandText = "INSERT Into Funcionario Value " +
+
+                    "(null, @nome, null, null, null, null, null, null, null, null, null, null, null," +
+                    "null)";
+
+                comando.Parameters.AddWithValue("@nome", funcionario.Nome);
+               
+                var resultado = comando.ExecuteNonQuery();
+
+                if (resultado == 0)
+                {
+                    throw new Exception("Ocorreram erros ao salvar as informações");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public List<Funcionario> List()
         {
