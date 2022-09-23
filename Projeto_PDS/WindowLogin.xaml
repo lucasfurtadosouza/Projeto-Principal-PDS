@@ -1,11 +1,11 @@
-﻿<Window x:Class="Projeto_PDS.MainWindow"
+﻿<Window x:Class="Projeto_PDS.WindowLogin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeto_PDS"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="WindowLogin" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="300"/>
@@ -17,10 +17,8 @@
             <Label Content="senha" Margin="300 10 300 0"/>
             <TextBox x:Name="txtSenha" Background="DarkGray" Margin="300 10 300 10"/>
             <StackPanel Grid.Row="1">
-                <Button Content="Login" Margin="300 5" Click="Button_Click10"/>
+                <Button Name="btLogin" Content="Login" Margin="300 5" Click="btLogin_Click"/>
             </StackPanel>
         </StackPanel>
-        
-   
     </Grid>
 </Window>

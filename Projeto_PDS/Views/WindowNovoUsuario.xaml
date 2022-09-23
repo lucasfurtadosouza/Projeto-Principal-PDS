@@ -5,16 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeto_PDS.Views"
         mc:Ignorable="d"
-        Title="WindowNovoUsuario" Height="450" Width="800">
+        Title="WindowNovoUsuario" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="350"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <Label Content="nome" Margin="300 110 300 0"/>
-            <TextBox x:Name="txtNome" Background="DarkGray" Margin="300 10 300 0"/>
-            <Label Content="Usuário" Margin="300 0 300 0"/>
+            <Label Content="Usuário" Margin="300 110 300 0"/>
             <TextBox x:Name="txtUsuario" Background="DarkGray" Margin="300 10 300 0"/>
             <Label Content="senha" Margin="300 10 300 0"/>
             <TextBox x:Name="txtSenha" Background="DarkGray" Margin="300 10 300 10"/>
@@ -27,7 +25,7 @@
             </ComboBox>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <Button Content="Login" Margin="300 10" Click="Button_Click10"/>
+            <Button x:Name="btLogin" Content="Login" Margin="300 10" Click="btLogin_Click"/>
         </StackPanel>
     </Grid>
 </Window>

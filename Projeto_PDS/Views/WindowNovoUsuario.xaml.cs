@@ -27,8 +27,8 @@ namespace Projeto_PDS.Views
             InitializeComponent();
         }
         private Usuario _login = new Usuario();
-        private Funcionario _func = new Funcionario();
-        private void Button_Click10(object sender, RoutedEventArgs e)
+        //private Funcionario _func = new Funcionario();
+        private void btLogin_Click(object sender, RoutedEventArgs e)
         {
             if(txtSenha.Text == "" && txtUsuario.Text == "")
             {
@@ -37,17 +37,17 @@ namespace Projeto_PDS.Views
             }
             else
             {
-                string salt = getSalt();
-                string HashPassword = CalcSaltedPass(salt, txtSenha.Text);
-                string HashUsuario = CalcSaltedPass(salt, txtUsuario.Text);
+                //string salt = getSalt();
+                //string HashPassword = CalcSaltedPass(salt, txtSenha.Text);
+                //string HashUsuario = CalcSaltedPass(salt, txtUsuario.Text);
+                string HashUsuario = getHashSha256(txtUsuario.Text);
+                string HashPassword = getHashSha256(txtSenha.Text);
                 _login.Senha = HashPassword;
                 _login.Nome = HashUsuario;
-                _func.Nome = txtNome.Text;
+                //_func.Nome = txtNome.Text;
                 _login.Permissao = cbPermissao.Text;
                 MessageBox.Show(HashUsuario);
                 MessageBox.Show(HashPassword);
-                var form = new MainWindow();
-                form.Show();
             }
             
 
@@ -60,14 +60,18 @@ namespace Projeto_PDS.Views
                 {
                     dao.Update(_login);
                     MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
-                    var form = new MainWindow();
+                    var form = new WindowLogin();
                     form.Show();
+                    this.Close();
                 }
                 else
                 {
                     dao.Insert(_login);
-                    daof.Insert2(_func);
+                    //daof.Insert2(_func);
                     MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var form = new WindowLogin();
+                    form.Show();
+                    this.Close();
                 }
             }
             catch (Exception ex)
@@ -75,7 +79,19 @@ namespace Projeto_PDS.Views
                 MessageBox.Show(ex.Message);
             }
         }
-        public static string getSalt()
+        public static string getHashSha256(string text)
+        {
+            byte[] bytes = Encoding.Unicode.GetBytes(text);
+            SHA256Managed hashstring = new SHA256Managed();
+            byte[] hash = hashstring.ComputeHash(bytes);
+            string hashString = string.Empty;
+            foreach (byte x in hash)
+            {
+                hashString += String.Format("{0:x2}", x);
+            }
+            return hashString;
+        }
+        /*public static string getSalt()
         {
             var random = new RNGCryptoServiceProvider();
 
@@ -105,7 +121,7 @@ namespace Projeto_PDS.Views
         public static string CalcSaltedPass(string salt, string password)
         {
             return SHA256(salt + password);
-        }
+        }*/
 
     }
 }
