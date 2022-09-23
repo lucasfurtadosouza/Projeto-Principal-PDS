@@ -91,6 +91,7 @@ namespace Projeto_PDS.Views
             }
             return hashString;
         }
+
         /*public static string getSalt()
         {
             var random = new RNGCryptoServiceProvider();
@@ -122,6 +123,5 @@ namespace Projeto_PDS.Views
         {
             return SHA256(salt + password);
         }*/
-
     }
 }
