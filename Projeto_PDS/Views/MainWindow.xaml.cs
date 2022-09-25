@@ -24,33 +24,30 @@ namespace Projeto_PDS.Views
             InitializeComponent();
             Loaded += MainWindow_Loaded;
         }
-
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             this.setPageMain();
         }
-
         public  void setPage(string page)
         {
             var pack = "pack://application:,,,/Views";
             framePage.Source = new Uri($"{pack}/{page}.xaml");
         }
-
         public void setPageMain()
         {
             framePage.Source = new Uri("pack://application:,,,/Views/PageMain.xaml");
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
             var frame = framePage;
             var pack = "pack://application:,,,/Views";
 
-
-
             switch (button.Name)
             {
+                case "MN_Menu":
+                    framePage.Source = new System.Uri($"{pack}/PageMain.xaml");
+                    break;
                 case "MN_Fornecedor":
                     framePage.NavigationService.Navigate(new PageFornecedor(this)); //Uri($"{pack}/PageFornecedor.xaml");
                     break;

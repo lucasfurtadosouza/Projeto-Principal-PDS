@@ -4,26 +4,56 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeto_PDS.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         WindowState="Maximized"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        WindowStyle="None"
+        Title="Menu Principal" Height="600" Width="1080">
+    <Grid Background="#FFE8E8E8">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <Button Content="Fornecedor" Click="Button_Click" Name="MN_Fornecedor" />
-            <Button Content="Cliente" Click="Button_Click" Name="MN_Cliente"/>
-            <Button Content="Gastos" Click="Button_Click" Name="MN_Despesa"/>
-            <Button Content="Colaboradores" Click="Button_Click" Name="MN_Funcionario"/>
-            <Button Content="Produtos" Click="Button_Click" Name="MN_Produto"/>
-            <Button Content="Relatórios" Click="Button_Click" Name="MN_Relatorio"/>
-           
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid VerticalAlignment="Center" Grid.ColumnSpan="2" Background="#100f2b" Height="40">
             
+        </Grid>
 
-        </StackPanel>
-        <Frame x:Name="framePage" Grid.Column="1" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
+        <Grid Width="250" HorizontalAlignment="Left" Grid.Column="0" Grid.RowSpan="2" Background="#292d52">
+
+            <StackPanel>
+
+                <Grid Height="200" Background="White">
+                    <Button x:Name="ButtonCloseMenu" Width="30" VerticalAlignment="Top" HorizontalAlignment="Right" BorderBrush="{x:Null}" Background="{x:Null}">
+                        <materialDesign:PackIcon Foreground="#292d52" Kind="ArrowLeft" Height="25" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Button>
+                    <Button x:Name="ButtonOpenMenu" Width="30" VerticalAlignment="Top" HorizontalAlignment="Right" BorderBrush="{x:Null}" Background="{x:Null}" Cursor="Hand">
+                        <materialDesign:PackIcon Kind="Menu" Foreground="#292d52" Height="25" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Button>
+                </Grid>
+                
+                <Button Content="Menu" Click="Button_Click" Name="MN_Menu" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+                <Button Content="Fornecedor" Click="Button_Click" Name="MN_Fornecedor" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+                <Button Content="Cliente" Click="Button_Click" Name="MN_Cliente" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+                <Button Content="Gastos" Click="Button_Click" Name="MN_Despesa" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+                <Button Content="Colaboradores" Click="Button_Click" Name="MN_Funcionario" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+                <Button Content="Produtos" Click="Button_Click" Name="MN_Produto" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+                <Button Content="Relatórios" Click="Button_Click" Name="MN_Relatorio" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+            </StackPanel>
+        </Grid>
+
+
+        <Frame x:Name="framePage" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
 
 
 
