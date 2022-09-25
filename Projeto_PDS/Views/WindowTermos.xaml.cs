@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using Projeto_PDS.Models;
 using Projeto_PDS.DataBase;
 using Projeto_PDS;
+using System.Windows.Threading;
+using System.Timers;
 namespace Projeto_PDS.Views
 {
     /// <summary>
@@ -27,12 +29,32 @@ namespace Projeto_PDS.Views
         {
             InitializeComponent();
             Loaded += WindowTermos_Loaded;
-            
+
+            //Timer timer = new Timer();
+
+            //timer.Elapsed += timer_Tick;
+            //timer.Interval = 1000;
+        }
+        bool maximize = false;
+        private void timer_Tick(object sender, EventArgs e)
+        {
+
+            Dispatcher.Invoke(new Action(() =>
+            {
+                BitmapImage bitmapImage = new BitmapImage();
+                bitmapImage.BeginInit();
+                //  bitmapImage.UriSource = new Uri(files[counter], UriKind.Relative);não esquecer de por o endereço das imagens
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapImage.EndInit();
+                Picture.Source = bitmapImage;
+
+            }));
+
         }
 
         private void WindowTermos_Loaded(object sender, RoutedEventArgs e)
         {
-          
+
         }
 
         public void rdAceitar_Checked(Funcionario funcionario)
@@ -43,7 +65,7 @@ namespace Projeto_PDS.Views
         public void rdAceitar_Checked_1(object sender, RoutedEventArgs e)
         {
             verdade = true;
-            
+
         }
 
         public void btAvancar_Click(object sender, RoutedEventArgs e)
@@ -59,7 +81,31 @@ namespace Projeto_PDS.Views
             {
                 MessageBox.Show("Aceite a condição para continuar");
             }
-              
+
+        }
+
+        private void btFechar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btMinimizar_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        public void btMaximizar_Click(object sender, RoutedEventArgs e)
+        {
+            if (maximize == false)
+            {
+                WindowState = WindowState.Maximized;
+                maximize = true;
+            }
+            else
+            {
+                WindowState = WindowState.Normal;
+                maximize = false;
+            }
         }
     }
 }

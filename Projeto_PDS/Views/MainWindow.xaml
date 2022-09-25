@@ -75,8 +75,8 @@
                     <Image Height="80" VerticalAlignment="Bottom"/>
                 </Grid>
 
-            <Button Content="Menu" Click="Button_Click" Name="MN_Menu" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
-                <Button Content="Fornecedor" Click="Button_Click" Name="MN_Fornecedor" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+            <Button Content="Menu" Click="Button_Click" Name="MN_Menu" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Cursor="Hand"/>
+                <Button Content="Fornecedor" Click="Button_Click" Name="MN_Fornecedor" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Cursor="Hand"/>
                 <Button Content="Cliente" Click="Button_Click" Name="MN_Cliente" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
                 <Button Content="Gastos" Click="Button_Click" Name="MN_Despesa" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
                 <Button Content="Colaboradores" Click="Button_Click" Name="MN_Funcionario" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>

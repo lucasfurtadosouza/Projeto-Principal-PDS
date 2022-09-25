@@ -5,23 +5,112 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeto_PDS.Views"
         mc:Ignorable="d"
-        Title="WindowTermos" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        WindowStyle="None"
+        WindowState="Maximized"
+        Title="WindowTermos" Height="720" Width="1024" WindowStartupLocation="CenterScreen">
+
     <Grid>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="570"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="400"/>
+
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <Label Content="Bem Vindo!"/>
-            <Label Content="Preparado para uma nova experiência? Este software é desenvolvido &#10; pela icoNIC tazendo soluções para a sua empresa."/>
-            <StackPanel Orientation="Horizontal">
-                <RadioButton x:Name="rdAceitar" Margin="10 8 0 10" Checked="rdAceitar_Checked_1"/>
-                <Label Content="Permito a coleta de meus dados para o aprimoramento do"/>
-                
-            </StackPanel>
-            <Button x:Name="btAvancar" Content="Avançar" Click="btAvancar_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1">
+            <Image x:Name="Picture"   Width="217" Height="179" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
+
+            </Image>
+
+
+
 
         </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal"  HorizontalAlignment="Right" Width="132" >
+
+
+            <Button Width="30" Background="Transparent" Cursor="Hand"  Margin="10 0 5 5" BorderThickness="0,0,0,0" Click="btMaximizar_Click" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="100" Background="#00ce1b"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+
+            <Button Width="30" Margin="5 0 5 5" Background="Transparent" Cursor="Hand" BorderThickness="0,0,0,0" Click="btMinimizar_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="100" Background="#febc02"/>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+            <Button Width="30" Margin="5 0 5 5" Background="Transparent" Cursor="Hand" BorderThickness="0,0,0,0" Click="btFechar_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="100" Background="#fd4846"/>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+
+
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" Margin=" 50 10 10 10">
+            <Label x:Name="label1" Content="Bem Vindo!" FontSize="36" FontWeight="bold" FontFamily="Century Gothic"/>
+            <Label Margin="0 25 0 10" Foreground="Black" FontSize="22" FontFamily="Leelawadee UI" FontWeight="Light" Content="Preparado para uma nova experiência? Este software &#10;é desenvolvido pela icoNIC tazendo soluções para &#10;a sua empresa."/>
+            <StackPanel Orientation="Horizontal">
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="50 280 10 10">
+
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="3" Margin="50 00 10 10" Width="452" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" Margin="20 0 0 0">
+                <RadioButton  x:Name="rdAceitar" Margin="10 15 04 15" Checked="rdAceitar_Checked_1" BorderThickness="1,1,1,1" Cursor="Hand" Background="#FFF1A132" BorderBrush="#FFF1A132"/>
+                <Label FontSize="18" Content="Permito a coleta de meus dados para o &#10;aprimoramento do software"/>
+            </StackPanel>
+
+
+            <Button Width="380" Height="56"
+               Margin="25 30 10 10" HorizontalAlignment="Left" Foreground="White" x:Name="btAvancar" FontWeight="UltraBold" Background="Transparent" BorderThickness="0,0,0,0"  Click="btAvancar_Click" Cursor="Hand" FontSize="22">
+                <Button.Content>
+                    <Image>
+                        <Image.Source>
+                            <BitmapImage UriSource="Imagens_Videos\imgAvancar.png"/>
+                        </Image.Source>
+                    </Image>
+                </Button.Content>
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="26">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FFF1A132" Offset="0"/>
+
+                                    <GradientStop Color="#FFFF399B" Offset="1.7"/>
+
+                                </LinearGradientBrush>
+
+                            </Border.Background>
+                            <Border.Effect>
+                                <DropShadowEffect Color="#FFFF4242"  ShadowDepth="0.6" Direction="330">
+
+                                </DropShadowEffect>
+                            </Border.Effect>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </StackPanel>
+
+
     </Grid>
 </Window>
