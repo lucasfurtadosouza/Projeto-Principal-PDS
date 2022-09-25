@@ -16,6 +16,28 @@
         WindowState="Maximized"
         WindowStyle="None"
         Title="Menu Principal" Height="600" Width="1080">
+    <Window.Resources>
+        <Storyboard x:Key="OpenMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="250"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CloseMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid Background="#FFE8E8E8">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
@@ -25,30 +47,44 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid VerticalAlignment="Center" Grid.ColumnSpan="2" Background="#100f2b" Height="40">
-            
+        <Grid VerticalAlignment="Center" Grid.ColumnSpan="2" Background="#FF100F2B" Height="40">
+            <Button x:Name="ButtonClose" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Cursor="Hand" Click="ButtonClose_Click">
+                <materialDesign:PackIcon Kind="Close" Width="25" Height="25"/>
+            </Button>
+
         </Grid>
 
-        <Grid Width="250" HorizontalAlignment="Left" Grid.Column="0" Grid.RowSpan="2" Background="#292d52">
-
+        <Grid x:Name="GridMenu" Width="250" HorizontalAlignment="Left" Grid.Column="0" Grid.RowSpan="2" Background="#FF292D52">
             <StackPanel>
+                <Grid Height="150" Background="White" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button x:Name="ButtonCloseMenu" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonCloseMenu_Click">
+                        <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
+                    </Button>
+                    <Button x:Name="ButtonOpenMenu" Visibility="Collapsed" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonOpenMenu_Click" Cursor="Hand">
+                        <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
+                    </Button>
 
-                <Grid Height="200" Background="White">
-                    <Button x:Name="ButtonCloseMenu" Width="30" VerticalAlignment="Top" HorizontalAlignment="Right" BorderBrush="{x:Null}" Background="{x:Null}">
-                        <materialDesign:PackIcon Foreground="#292d52" Kind="ArrowLeft" Height="25" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Button>
-                    <Button x:Name="ButtonOpenMenu" Width="30" VerticalAlignment="Top" HorizontalAlignment="Right" BorderBrush="{x:Null}" Background="{x:Null}" Cursor="Hand">
-                        <materialDesign:PackIcon Kind="Menu" Foreground="#292d52" Height="25" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Button>
+                    <Image Height="80" VerticalAlignment="Bottom"/>
                 </Grid>
-                
-                <Button Content="Menu" Click="Button_Click" Name="MN_Menu" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+
+            <Button Content="Menu" Click="Button_Click" Name="MN_Menu" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
                 <Button Content="Fornecedor" Click="Button_Click" Name="MN_Fornecedor" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
                 <Button Content="Cliente" Click="Button_Click" Name="MN_Cliente" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
                 <Button Content="Gastos" Click="Button_Click" Name="MN_Despesa" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
                 <Button Content="Colaboradores" Click="Button_Click" Name="MN_Funcionario" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
                 <Button Content="Produtos" Click="Button_Click" Name="MN_Produto" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
                 <Button Content="Relatórios" Click="Button_Click" Name="MN_Relatorio" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+
+                
+                
             </StackPanel>
         </Grid>
 
