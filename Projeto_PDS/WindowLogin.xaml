@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeto_PDS"
         mc:Ignorable="d"
-        Title="WindowLogin" Height="450" Width="800">
+        Title="WindowLogin" WindowStartupLocation="CenterScreen" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="300"/>

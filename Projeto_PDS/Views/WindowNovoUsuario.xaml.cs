@@ -49,7 +49,6 @@ namespace Projeto_PDS.Views
                 MessageBox.Show(HashUsuario);
                 MessageBox.Show(HashPassword);
             }
-            
 
             try
             {
