@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Projeto_PDS.Views"
         mc:Ignorable="d"
         WindowStyle="None"
-        WindowState="Maximized"
+        WindowState="Normal"
         Title="WindowTermos" Height="720" Width="1024" WindowStartupLocation="CenterScreen">
 
     <Grid>
@@ -100,7 +100,7 @@
 
                             </Border.Background>
                             <Border.Effect>
-                                <DropShadowEffect Color="#FFFF4242"  ShadowDepth="0.6" Direction="330">
+                                <DropShadowEffect Color="AntiqueWhite"  ShadowDepth="0.1" Direction="330">
 
                                 </DropShadowEffect>
                             </Border.Effect>
