@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStyle="None"
         WindowState="Normal"
-        Title="WindowTermos" Height="720" Width="1024" WindowStartupLocation="CenterScreen">
+        Title="WindowTermos" Height="720" Width="1024" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
     <Grid>
 
@@ -20,7 +20,7 @@
             <RowDefinition Height="60"/>
             <RowDefinition Height="200"/>
             <RowDefinition Height="250"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="1">
             <Image x:Name="Picture"   Width="217" Height="179" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
@@ -71,7 +71,10 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="50 280 10 10">
 
         </StackPanel>
-        <StackPanel Grid.Column="0" Grid.Row="3" Margin="50 00 10 10" Width="452" HorizontalAlignment="Left">
+        <StackPanel Grid.Column="0" Grid.Row="3" Margin="50 00 10 55" Width="452" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <StackPanel.Background>
+                <ImageBrush/>
+            </StackPanel.Background>
             <StackPanel Orientation="Horizontal" Margin="20 0 0 0">
                 <RadioButton  x:Name="rdAceitar" Margin="10 15 04 15" Checked="rdAceitar_Checked_1" BorderThickness="1,1,1,1" Cursor="Hand" Background="#FFF1A132" BorderBrush="#FFF1A132"/>
                 <Label FontSize="18" Content="Permito a coleta de meus dados para o &#10;aprimoramento do software"/>
@@ -79,14 +82,7 @@
 
 
             <Button Width="380" Height="56"
-               Margin="25 30 10 10" HorizontalAlignment="Left" Foreground="White" x:Name="btAvancar" FontWeight="UltraBold" Background="Transparent" BorderThickness="0,0,0,0"  Click="btAvancar_Click" Cursor="Hand" FontSize="22">
-                <Button.Content>
-                    <Image>
-                        <Image.Source>
-                            <BitmapImage UriSource="Imagens_Videos\imgAvancar.png"/>
-                        </Image.Source>
-                    </Image>
-                </Button.Content>
+               Margin="25 30 10 10" HorizontalAlignment="Left" Foreground="White" x:Name="btAvancar" FontWeight="UltraBold" BorderThickness="0,0,0,0"  Click="btAvancar_Click" Cursor="Hand" FontSize="22">
                 <Button.Template>
                     <ControlTemplate>
                         <Border CornerRadius="26">
@@ -95,7 +91,6 @@
                                     <GradientStop Color="#FFF1A132" Offset="0"/>
 
                                     <GradientStop Color="#FFFF399B" Offset="1.7"/>
-
                                 </LinearGradientBrush>
 
                             </Border.Background>
@@ -104,11 +99,11 @@
 
                                 </DropShadowEffect>
                             </Border.Effect>
+                            <Image Source="/Imagens_Videos/imgAvancar.png" Stretch="Uniform" Margin="28,10,24,6"/>
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-
         </StackPanel>
 
 

@@ -395,6 +395,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="imgAvancar.png" />
     <Resource Include="Imagens_Videos\imgAvancar.png" />
     <Content Include="Imagens_Videos\VideoLogo.mp4" />
   </ItemGroup>
