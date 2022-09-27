@@ -10,24 +10,43 @@
 
     <Grid Background="White">
         <StackPanel>
-            <Label Content="Saldo Inicial:"></Label>
-            <TextBox x:Name="txtSaldoInicial"></TextBox>
-            <Label Content="Saldo Final:"></Label>
-            <TextBox x:Name="txtSaldoFinal"></TextBox>
-            <Label Content="Data de Abertura:"></Label>
+            <StackPanel>
+                <Label Content="Saldo Inicial:"></Label>
+                <TextBox x:Name="txtSaldoInicial"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Saldo Final:"></Label>
+                <TextBox x:Name="txtSaldoFinal"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Data de Abertura:"></Label>
             <DatePicker x:Name="dpDataAbertura"></DatePicker>
-            <Label Content="Data de Fechamento:"></Label>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Data de Fechamento:"></Label>
             <DatePicker x:Name="dpDataFechamento"></DatePicker>
-            <Label Content="Hora de Abertura:"></Label>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Hora de Abertura:"></Label>
             <DatePicker x:Name="dpHoraAbertura"></DatePicker>
-            <Label Content="Hora de Fechamento:"></Label>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Hora de Fechamento:"></Label>
             <DatePicker x:Name="dpHoraFechamento"></DatePicker>
-            <Label Content="Quantidade de Pagamentos:"></Label>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Quantidade de Pagamentos:"></Label>
             <TextBox x:Name="txtQuantidadePagamentos"></TextBox>
-            <Label Content="Quantidade de Recebimentos:"></Label>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Quantidade de Recebimentos:"></Label>
             <TextBox x:Name="txtQuantidadeRecebimentos"></TextBox>
-            <Button x:Name="btSalvarCaixa" Content="Salvar" Click="btSalvarCaixa_Click"/>
-        </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <Button x:Name="btSalvarCaixa" Content="Salvar" Click="btSalvarCaixa_Click"/>
+            </StackPanel>
+           
+            </StackPanel>
         
     </Grid>
 </Page>
