@@ -397,9 +397,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="Imagens_Videos\imgAvancar.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+=======
+    <Resource Include="imgAvancar.png" />
+    <Resource Include="Imagens_Videos\imgAvancar.png" />
+>>>>>>> 5675548d27ae521a0ac7e81f640df1fb49abf7e6
     <Content Include="Imagens_Videos\VideoLogo.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
