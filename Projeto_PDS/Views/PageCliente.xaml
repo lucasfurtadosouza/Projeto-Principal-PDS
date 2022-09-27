@@ -5,68 +5,75 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Projeto_PDS.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="650" d:DesignWidth="900"
-      Title="PageCliente"
-      >
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="PageCliente">
 
+    <Grid Background="White">
+        <StackPanel Background="#f2f2f2" Margin="10">
+            <StackPanel>
+                <!--STACK PANEL INFORMACOES-->
+                <StackPanel>
+                    <Label Content="Nome:"></Label>
+                    <TextBox x:Name="txtNome"></TextBox>
+                </StackPanel>
 
-    <Grid Background="#FFF">
-        <StackPanel>
-            <StackPanel>
-                <Label Content="Nome:"></Label>
-                <TextBox x:Name="txtNome"></TextBox>
-            </StackPanel>
-            
-            <StackPanel>
+                <StackPanel>
+                    <Label Content="Email:"></Label>
+                    <TextBox x:Name="txtEmail"></TextBox>
+                </StackPanel>
 
-                <Label Content="Email:"></Label>
-            <TextBox x:Name="txtEmail"></TextBox>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="CPF:"></Label>
-            <TextBox x:Name="txtCpf"></TextBox>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Telefone:"></Label>
-            <TextBox x:Name="txtTelefone"></TextBox>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Rua:"></Label>
-            <TextBox x:Name="txtRua"></TextBox>
-            </StackPanel>
-            <StackPanel>
+                <StackPanel>
+                    <Label Content="CPF:"></Label>
+                    <TextBox x:Name="txtCpf"></TextBox>
+                </StackPanel>
 
-                <Label Content="Bairro:"></Label>
-            <TextBox x:Name="txtBairro"></TextBox>
-            </StackPanel>
-            <StackPanel>
+                <StackPanel>
+                    <Label Content="Telefone:"></Label>
+                    <TextBox x:Name="txtTelefone"></TextBox>
+                </StackPanel>
 
-                <Label Content="Múmero:"></Label>
-            <TextBox x:Name="txtNumero"></TextBox>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="RG:"></Label>
-            <TextBox x:Name="txtRg"></TextBox>
+                <StackPanel>
+                    <Label Content="RG:"></Label>
+                    <TextBox x:Name="txtRg"></TextBox>
+                </StackPanel>
 
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Data de nascimento:"></Label>
-            <DatePicker x:Name="dtDataNasc"></DatePicker>
-            </StackPanel>
-            <StackPanel>
+                <StackPanel>
+                    <Label Content="Data de nascimento:"></Label>
+                    <DatePicker x:Name="dtDataNasc"></DatePicker>
+                </StackPanel>
 
-                <Label Content="Sexo:"></Label>
-            <ComboBox x:Name="cbSexo"></ComboBox>
-            </StackPanel>
-            <StackPanel>
+                <StackPanel>
+                    <Label Content="Sexo:"></Label>
+                    <ComboBox x:Name="cbSexo"></ComboBox>
+                </StackPanel>
 
-                <Label Content="Renda Familiar:"></Label>
-            <TextBox x:Name="txtRenda"></TextBox>
+                <StackPanel>
+                    <Label Content="Renda Familiar:"></Label>
+                    <TextBox x:Name="txtRenda"></TextBox>
+                </StackPanel>
             </StackPanel>
+
             <StackPanel>
-            <Button x:Name="btSalvar" Content="Salvar" Click="btSalvar_Click"></Button>
+                <StackPanel>
+                    <Label Content="Rua:"></Label>
+                    <TextBox x:Name="txtRua"></TextBox>
+                </StackPanel>
+
+                <StackPanel>
+                    <Label Content="Bairro:"></Label>
+                    <TextBox x:Name="txtBairro"></TextBox>
+                </StackPanel>
+
+                <StackPanel>
+                    <Label Content="Múmero:"></Label>
+                    <TextBox x:Name="txtNumero"></TextBox>
+                </StackPanel>
             </StackPanel>
-         
+
+            <StackPanel>
+                <Button x:Name="btSalvar" Content="Salvar" Click="btSalvar_Click"></Button>
             </StackPanel>
+
+        </StackPanel>
     </Grid>
 </Page>
