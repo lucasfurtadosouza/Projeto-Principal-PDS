@@ -29,7 +29,7 @@ namespace Projeto_PDS
         public SplashScreen()
         {
             InitializeComponent();
-            media.Source = new Uri(Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf("Projeto_PDS")) + @"Projeto_PDS\Imagens_Videos\VideoLogo.mp4");
+            media.Source = new Uri(Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf("Projeto_PDS")) + @"Projeto_PDS\Imagens_Videos\VideoLogo1.mp4");
             Loading();
             
         }
@@ -62,7 +62,7 @@ namespace Projeto_PDS
         void Loading()
         {
             timer.Tick += timer_tick;
-            timer.Interval = new TimeSpan(0, 0, 4);
+            timer.Interval = new TimeSpan(0, 0, 2);
             timer.Start();
         }
     }

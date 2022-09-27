@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Projeto_PDS.Models;
+using Projeto_PDS.Helpers;
 using MySql.Data.MySqlClient;
 using Projeto_PDS.DataBase;
 
@@ -12,6 +13,50 @@ namespace Projeto_PDS.Models
     public class UsuarioDAO
     {
         private static Conexao _conn = new Conexao();
+
+        public Usuario GetByUsuario(string usuario)
+        {
+            return new Usuario()
+            {
+                Id = 1,
+                Nome = "João Teixeira",
+                Senha = HashHelper.Compute("joao1234")
+            };
+        }
+
+        public Usuario GetByUsuario(string usuarioNome, string senha)
+        {
+            try
+            {
+                var query = _conn.Query();
+                query.CommandText = "SELECT * FROM usuario " +
+                    "WHERE usuario_usu = @usuario;";
+
+                query.Parameters.AddWithValue("@usuario", usuarioNome);
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                Usuario usuario = null;
+
+                while (reader.Read())
+                {
+                    usuario = new Usuario();
+                    usuario.Id = reader.GetInt32("id_usu");
+                    usuario.Nome = reader.GetString("nome_usu");
+                    usuario.Funcionario = new Funcionario() { Id = reader.GetInt32("id_fun"), Nome = reader.GetString("nome_fun") };
+                }
+
+                return usuario;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
         public void Insert(Usuario user)
         {
             try
@@ -87,7 +132,7 @@ namespace Projeto_PDS.Models
                     var user = new Usuario();
                    
                     user.Id = reader.GetInt32("usuario.id_usu");
-                    user.Nome_Fun = Helpers.DAOHelper.GetDouble(reader, "funcionario.nome_fun");
+                    user.Funcionario.Nome = Helpers.DAOHelper.GetString(reader, "funcionario.nome_fun");
                     user.Nome = Helpers.DAOHelper.GetString(reader, "usuario.nome_usu");
                     user.Permissao = Helpers.DAOHelper.GetString(reader, "usuario.nivel_permissao_usu");
                     user.Senha = Helpers.DAOHelper.GetString(reader, "usuario.senha_usu");
@@ -134,7 +179,7 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@nome", usuario.Nome);
                 comando.Parameters.AddWithValue("@perm", usuario.Permissao);
                 comando.Parameters.AddWithValue("@senha", usuario.Senha);
-                comando.Parameters.AddWithValue("@funcionario", usuario.Nome_Fun);
+                comando.Parameters.AddWithValue("@funcionario", usuario.Funcionario.Id);
              
 
                 var resultado = comando.ExecuteNonQuery();

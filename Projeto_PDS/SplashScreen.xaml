@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeto_PDS"
         mc:Ignorable="d"
-        Title="SplashScreen" Height="400" Width="550"
+        Title="SplashScreen" Height="450" Width="550"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True" WindowStartupLocation="CenterScreen">
 
-    <Border Background="White" CornerRadius="25">
+    <Border Background="#ebebeb" CornerRadius="25">
 
         <Grid>
-            <MediaElement x:Name="media" UnloadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded" Stretch="Fill" Margin="76, 20, 76, 0"/>
+            <MediaElement x:Name="media" UnloadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded" Stretch="Fill" Margin="76, 10, 76, 10"/>
         </Grid>
     </Border>
 </Window>

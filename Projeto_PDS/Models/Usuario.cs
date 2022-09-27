@@ -13,6 +13,6 @@ namespace Projeto_PDS.Models
         public string Nome { get; set; }
         public string Permissao { get; set; }
         public string Senha { get; set; }
-        public double Nome_Fun { get; set; }
+        public Funcionario Funcionario { get; set; }
     }
 }

@@ -15,7 +15,7 @@
             <Label Content="Usuário" Margin="300 110 300 0"/>
             <TextBox x:Name="txtUsuario" Background="DarkGray" Margin="300 10 300 0"/>
             <Label Content="senha" Margin="300 10 300 0"/>
-            <TextBox x:Name="txtSenha" Background="DarkGray" Margin="300 10 300 10"/>
+            <PasswordBox x:Name="txtSenha" Background="DarkGray" Margin="300 10 300 10"/>
             <StackPanel Grid.Row="1">
                 <Button Name="btLogin" Content="Login" Margin="300 5" Click="btLogin_Click"/>
             </StackPanel>
