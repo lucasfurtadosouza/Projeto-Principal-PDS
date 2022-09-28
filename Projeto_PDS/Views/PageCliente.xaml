@@ -5,75 +5,146 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Projeto_PDS.Views"
       mc:Ignorable="d" 
+      
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="White"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      
       d:DesignHeight="600" d:DesignWidth="1000"
       Title="PageCliente">
 
     <Grid Background="White">
-        <StackPanel Background="#f2f2f2" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="490"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--STACK PANEL INFORMACOES-->
+        <StackPanel Background="#f2f2f2" Margin="10" Grid.Column="0">
+            <StackPanel Margin="0,0,0,10">
+                <TextBox x:Name="txtNome" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          TextWrapping="Wrap"
+                          Width="370"
+                          materialDesign:HintAssist.Hint="Nome"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBox x:Name="txtEmail" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          TextWrapping="Wrap"
+                          Width="250"
+                          materialDesign:HintAssist.Hint="Email"/>
+
+                <TextBox x:Name="txtCpf" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          TextWrapping="Wrap"
+                          Width="100"
+                          Margin="20,0,0,0"
+                          materialDesign:HintAssist.Hint="CPF"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBox x:Name="txtTelefone" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          TextWrapping="Wrap"
+                          Width="130"
+                          materialDesign:HintAssist.Hint="Telefone"/>
+
+                <TextBox x:Name="txtRg" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          TextWrapping="Wrap"
+                          Width="100"
+                          Margin="20,0,0,0"
+                          materialDesign:HintAssist.Hint="RG"/>
+
+                <DatePicker x:Name="dtDataNasc" Padding="8"
+                            Width="100"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            materialDesign:HintAssist.Hint="Data de Nascimento"
+                            Style="{StaticResource MaterialDesignFilledDatePicker}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <ComboBox x:Name="cbSexo" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledComboBox}"
+                          materialDesign:HintAssist.Hint="Sexo"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          Width="130">
+                    <ComboBoxItem Content="Masculino"/>
+                    <ComboBoxItem Content="Feminino"/>
+                    <ComboBoxItem Content="Não Informar"/>
+                </ComboBox>
+
+                <TextBox x:Name="txtRenda" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          TextWrapping="Wrap"
+                          Width="220"
+                          Margin="20,0,0,0"
+                          materialDesign:HintAssist.Hint="Renda Familiar"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--STACK PANEL ENDEREÇO-->
+        <StackPanel Background="#f2f2f2" Margin="10" Grid.Column="1">
             <StackPanel>
-                <!--STACK PANEL INFORMACOES-->
-                <StackPanel>
-                    <Label Content="Nome:"></Label>
-                    <TextBox x:Name="txtNome"></TextBox>
-                </StackPanel>
-
-                <StackPanel>
-                    <Label Content="Email:"></Label>
-                    <TextBox x:Name="txtEmail"></TextBox>
-                </StackPanel>
-
-                <StackPanel>
-                    <Label Content="CPF:"></Label>
-                    <TextBox x:Name="txtCpf"></TextBox>
-                </StackPanel>
-
-                <StackPanel>
-                    <Label Content="Telefone:"></Label>
-                    <TextBox x:Name="txtTelefone"></TextBox>
-                </StackPanel>
-
-                <StackPanel>
-                    <Label Content="RG:"></Label>
-                    <TextBox x:Name="txtRg"></TextBox>
-                </StackPanel>
-
-                <StackPanel>
-                    <Label Content="Data de nascimento:"></Label>
-                    <DatePicker x:Name="dtDataNasc"></DatePicker>
-                </StackPanel>
-
-                <StackPanel>
-                    <Label Content="Sexo:"></Label>
-                    <ComboBox x:Name="cbSexo"></ComboBox>
-                </StackPanel>
-
-                <StackPanel>
-                    <Label Content="Renda Familiar:"></Label>
-                    <TextBox x:Name="txtRenda"></TextBox>
-                </StackPanel>
+                <TextBox x:Name="txtRua" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          TextWrapping="Wrap"
+                          Width="350"
+                          materialDesign:HintAssist.Hint="Rua"/>
             </StackPanel>
 
             <StackPanel>
-                <StackPanel>
-                    <Label Content="Rua:"></Label>
-                    <TextBox x:Name="txtRua"></TextBox>
-                </StackPanel>
-
-                <StackPanel>
-                    <Label Content="Bairro:"></Label>
-                    <TextBox x:Name="txtBairro"></TextBox>
-                </StackPanel>
-
-                <StackPanel>
-                    <Label Content="Múmero:"></Label>
-                    <TextBox x:Name="txtNumero"></TextBox>
-                </StackPanel>
+                <TextBox x:Name="txtBairro" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          TextWrapping="Wrap"
+                          Width="350"
+                          materialDesign:HintAssist.Hint="Bairro"/>
             </StackPanel>
 
             <StackPanel>
-                <Button x:Name="btSalvar" Content="Salvar" Click="btSalvar_Click"></Button>
+                <TextBox x:Name="txtNumero" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          TextWrapping="Wrap"
+                          Width="350"
+                          materialDesign:HintAssist.Hint="Número"/>
             </StackPanel>
+        </StackPanel>
 
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="10">
+            <Button x:Name="btSalvar" Content="Salvar" Click="btSalvar_Click"/>
         </StackPanel>
     </Grid>
 </Page>
