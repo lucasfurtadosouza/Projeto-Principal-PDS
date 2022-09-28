@@ -69,82 +69,93 @@
 
         </Grid>
 
-        <Grid x:Name="GridMenu" Width="250" HorizontalAlignment="Left" Grid.Column="0" Grid.RowSpan="2" Background="#FF100F2B">
-            <StackPanel>
-                <Grid Height="150" Background="White" RenderTransformOrigin="0.5,0.5">
-                    <Grid.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Grid.RenderTransform>
-                    <Button x:Name="ButtonCloseMenu" Height="60" Width="60" Margin="0,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonCloseMenu_Click">
-                        <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
-                    </Button>
-                    <Button x:Name="ButtonOpenMenu" Visibility="Collapsed" Height="60" Width="60" Margin="0,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonOpenMenu_Click" Cursor="Hand">
-                        <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
-                    </Button>
+        <Grid x:Name="GridMenu" Width="250" HorizontalAlignment="Left" Grid.Column="0" Grid.RowSpan="2" Background="White">
+            <Grid Height="150" Background="Transparent" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Button x:Name="ButtonCloseMenu" Height="60" Width="60" Margin="0,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonCloseMenu_Click">
+                    <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
+                </Button>
+                <Button x:Name="ButtonOpenMenu" Visibility="Collapsed" Height="60" Width="60" Margin="0,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonOpenMenu_Click" Cursor="Hand">
+                    <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
+                </Button>
 
-                    <Image Height="80" VerticalAlignment="Bottom"/>
-                </Grid>
-                <StackPanel>
-                    <Button Click="Button_Click" Name="MN_Menu" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Cursor="Hand" Height="50">
-                        <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="0 5 0 0">
-                            <Image Source="/Icons/IconDashboard.png" Stretch="Uniform" Height="25" Width="25" Margin="0 0 0 4"/>
-                            <TextBlock Text="Menu" VerticalAlignment="Center" Margin="25 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
+                <Image Height="80" VerticalAlignment="Bottom"/>
+            </Grid>
+            <Border Background="#FF100F2B" CornerRadius=" 0 50 0 0" Margin="0,140,0,0">
+                <StackPanel Margin="0,60,0,0">
+                    <StackPanel>
+                        <Button Click="Button_Click" Name="MN_Menu" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Cursor="Hand" Height="50">
+                            <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="0 5 0 0">
+                                <Image Source="/Icons/IconDashboard.png" Stretch="Uniform" Height="25" Width="25" Margin="0 0 0 4"/>
+                                <TextBlock Text="Menu" VerticalAlignment="Center" Margin="25 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
 
-                <StackPanel>
-                    <Button Click="Button_Click" Name="MN_Funcionario" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50">
-                        <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="0 5 0 0">
-                            <Image Source="/Icons/IconDashboard.png" Stretch="Uniform" Height="25" Width="25" Margin="0 0 0 4"/>
-                            <TextBlock Text="Funcionário" VerticalAlignment="Center" Margin="25 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
+                    <StackPanel>
+                        <Button Click="Button_Click" Name="MN_Funcionario" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50">
+                            <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
+                                <Image Source="/Icons/IconFuncionario.png" Stretch="Uniform" Height="30" Width="30" Margin="0 0 0 4"/>
+                                <TextBlock Text="Funcionário" VerticalAlignment="Center" Margin="20 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
 
-                <StackPanel>
-                    <Button Click="Button_Click" Name="MN_Fornecedor" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Cursor="Hand" Height="50">
-                        <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="0 5 0 0">
-                            <Image Source="/Icons/IconDashboard.png" Stretch="Uniform" Height="25" Width="25" Margin="0 0 0 4"/>
-                            <TextBlock Text="Fornecedor" VerticalAlignment="Center" Margin="25 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
-                
-                <StackPanel>
-                    <Button Click="Button_Click" Name="MN_Cliente" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50">
-                        <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="0 5 0 0">
-                            <Image Source="/Icons/IconDashboard.png" Stretch="Uniform" Height="25" Width="25" Margin="0 0 0 4"/>
-                            <TextBlock Text="Cliente" VerticalAlignment="Center" Margin="25 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
-                
-                <StackPanel>
-                    <Button Click="Button_Click" Name="MN_Despesa" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50">
-                        <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="0 5 0 0">
-                            <Image Source="/Icons/IconDashboard.png" Stretch="Uniform" Height="25" Width="25" Margin="0 0 0 4"/>
-                            <TextBlock Text="Despesa" VerticalAlignment="Center" Margin="25 0 25 7" Height="26" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
-                
-                
-                
-                <StackPanel>
-                    <Button Content="Produtos" Click="Button_Click" Name="MN_Produto" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50"/>
-                </StackPanel>
-                <StackPanel>
-                    <Button Content="Relatórios" Click="Button_Click" Name="MN_Relatorio" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50"/>
-                </StackPanel>
+                    <StackPanel>
+                        <Button Click="Button_Click" Name="MN_Fornecedor" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Cursor="Hand" Height="50">
+                            <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
+                                <Image Source="/Icons/IconFornecedor.png" Stretch="Uniform" Height="30" Width="30" Margin="0 0 0 4"/>
+                                <TextBlock Text="Fornecedor" VerticalAlignment="Center" Margin="20 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <Button Click="Button_Click" Name="MN_Cliente" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50">
+                            <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
+                                <Image Source="/Icons/IconCliente.png" Stretch="Uniform" Height="30" Width="30" Margin="0 0 0 4"/>
+                                <TextBlock Text="Cliente" VerticalAlignment="Center" Margin="20 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <Button Click="Button_Click" Name="MN_Despesa" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50">
+                            <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
+                                <Image Source="/Icons/IconDespesa.png" Stretch="Uniform" Height="30" Width="30" Margin="0 0 0 4"/>
+                                <TextBlock Text="Despesa" VerticalAlignment="Center" Margin="20 0 25 7" Height="26" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
 
 
-            </StackPanel>
+
+                    <StackPanel>
+                        <Button Click="Button_Click" Name="MN_Produto" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50">
+                            <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
+                                <Image Source="/Icons/IconProduto.png" Stretch="Uniform" Height="30" Width="30" Margin="0 0 0 4"/>
+                                <TextBlock Text="Produto" VerticalAlignment="Center" Margin="20 0 25 7" Height="26" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <Button Click="Button_Click" Name="MN_Relatorio" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50">
+                            <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
+                                <Image Source="/Icons/IconRelatorio.png" Stretch="Uniform" Height="30" Width="30" Margin="0 0 0 4"/>
+                                <TextBlock Text="Relatórios" VerticalAlignment="Center" Margin="20 0 25 7" Height="26" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
         </Grid>
 
 

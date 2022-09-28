@@ -62,7 +62,7 @@ namespace Projeto_PDS
         void Loading()
         {
             timer.Tick += timer_tick;
-            timer.Interval = new TimeSpan(0, 0, 2);
+            timer.Interval = new TimeSpan(0, 0, 4);
             timer.Start();
         }
     }
