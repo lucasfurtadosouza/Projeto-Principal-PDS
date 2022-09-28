@@ -98,7 +98,7 @@
 
                                 </DropShadowEffect>
                             </Border.Effect>
-                            <Image Source="/Imagens_Videos/imgAvancar.png" Stretch="Uniform" Margin="28,10,24,6"/>
+                            <Image Source="/Imagens_Videos/imgAvancar.png" Stretch="Uniform" Margin="28,15,24,15"/>
                         </Border>
                     </ControlTemplate>
                 </Button.Template>

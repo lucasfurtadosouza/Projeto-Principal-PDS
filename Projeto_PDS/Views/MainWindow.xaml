@@ -97,28 +97,50 @@
                         </StackPanel>
                     </Button>
                 </StackPanel>
-                
+
                 <StackPanel>
-                    <Button Content="Fornecedor" Click="Button_Click" Name="MN_Fornecedor" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Cursor="Hand"/>
+                    <Button Click="Button_Click" Name="MN_Funcionario" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50">
+                        <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="0 5 0 0">
+                            <Image Source="/Icons/IconDashboard.png" Stretch="Uniform" Height="25" Width="25" Margin="0 0 0 4"/>
+                            <TextBlock Text="Funcionário" VerticalAlignment="Center" Margin="25 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel>
+                    <Button Click="Button_Click" Name="MN_Fornecedor" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Cursor="Hand" Height="50">
+                        <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="0 5 0 0">
+                            <Image Source="/Icons/IconDashboard.png" Stretch="Uniform" Height="25" Width="25" Margin="0 0 0 4"/>
+                            <TextBlock Text="Fornecedor" VerticalAlignment="Center" Margin="25 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
                 
                 <StackPanel>
-                    <Button Content="Cliente" Click="Button_Click" Name="MN_Cliente" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+                    <Button Click="Button_Click" Name="MN_Cliente" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50">
+                        <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="0 5 0 0">
+                            <Image Source="/Icons/IconDashboard.png" Stretch="Uniform" Height="25" Width="25" Margin="0 0 0 4"/>
+                            <TextBlock Text="Cliente" VerticalAlignment="Center" Margin="25 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
                 
                 <StackPanel>
-                    <Button Content="Gastos" Click="Button_Click" Name="MN_Despesa" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+                    <Button Click="Button_Click" Name="MN_Despesa" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50">
+                        <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="0 5 0 0">
+                            <Image Source="/Icons/IconDashboard.png" Stretch="Uniform" Height="25" Width="25" Margin="0 0 0 4"/>
+                            <TextBlock Text="Despesa" VerticalAlignment="Center" Margin="25 0 25 7" Height="26" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
                 
-                <StackPanel>
-                    <Button Content="Colaboradores" Click="Button_Click" Name="MN_Funcionario" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
-                </StackPanel>
+                
                 
                 <StackPanel>
-                    <Button Content="Produtos" Click="Button_Click" Name="MN_Produto" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+                    <Button Content="Produtos" Click="Button_Click" Name="MN_Produto" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50"/>
                 </StackPanel>
                 <StackPanel>
-                    <Button Content="Relatórios" Click="Button_Click" Name="MN_Relatorio" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+                    <Button Content="Relatórios" Click="Button_Click" Name="MN_Relatorio" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50"/>
                 </StackPanel>
 
 
