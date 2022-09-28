@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using Projeto_PDS;
+using Projeto_PDS.Models;
 
 namespace Projeto_PDS.Views
 {
@@ -83,6 +87,6 @@ namespace Projeto_PDS.Views
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
         }
-
+        //Icon Editar <materialDesign:PackIcon Kind="Pencil" Height="28" Width="25"/>
     }
 }
