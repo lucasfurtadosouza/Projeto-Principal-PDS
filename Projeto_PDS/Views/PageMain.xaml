@@ -8,8 +8,8 @@
       d:DesignHeight="600" d:DesignWidth="1020"
       Title="PageMain">
 
-    <Grid>
-        <TextBlock Text="Menu" VerticalAlignment="Top" Padding="5" HorizontalAlignment="Center" FontSize="22" FontFamily="Century Gothic" FontWeight="Bold" Foreground="White"/>
+    <Grid Background="White" Opacity="0.8">
+        <TextBlock Text="Menu" VerticalAlignment="Top" Padding="5" HorizontalAlignment="Center" FontSize="22" FontFamily="Century Gothic" FontWeight="Bold" Foreground="Black"/>
 
     </Grid>
 </Page>

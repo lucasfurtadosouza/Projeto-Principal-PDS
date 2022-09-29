@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeto_PDS"
         mc:Ignorable="d"
-        Title="SplashScreen" Height="450" Width="550"
+        Title="SplashScreen" Height="400" Width="550"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"

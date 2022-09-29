@@ -10,12 +10,16 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
-        Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         WindowState="Maximized"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF" 
+        fw:AcrylicWindow.Enabled="True"
+        AllowsTransparency="True"
+        fw:AcrylicWindow.AcrylicWindowStyle="None"
         WindowStyle="None"
-        Title="Menu Principal" Height="600" Width="1080">
+        ResizeMode="NoResize"
+        Title="Menu Principal" Height="600" Width="1080" Icon="/Icons/IconMenu.png">
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -65,14 +69,12 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid VerticalAlignment="Center" Grid.ColumnSpan="2" Background="#e6642a" Height="40">
+        <Grid VerticalAlignment="Center" Grid.Column="1" Background="#e6642a" Height="40">
             <Button x:Name="ButtonClose" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Cursor="Hand" Click="ButtonClose_Click">
                 <materialDesign:PackIcon Kind="Close" Width="25" Height="25"/>
             </Button>
-
         </Grid>
-
-        <Grid x:Name="GridMenu" Width="250" HorizontalAlignment="Left" Grid.Column="0" Grid.RowSpan="2" Background="White">
+        <Grid x:Name="GridMenu" Width="250" HorizontalAlignment="Left" Grid.Column="0" Grid.RowSpan="2" Background="#01000000">
             <Grid Height="150" Background="Transparent" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
                 <Grid.RenderTransform>
                     <TransformGroup>
@@ -82,10 +84,10 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </Grid.RenderTransform>
-                <Button x:Name="ButtonCloseMenu" Height="60" Width="60" Margin="0,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonCloseMenu_Click">
+                <Button x:Name="ButtonCloseMenu" Height="60" Width="60" Margin="0,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonCloseMenu_Click">
                     <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
                 </Button>
-                <Button x:Name="ButtonOpenMenu" Visibility="Collapsed" Height="60" Width="60" Margin="0,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonOpenMenu_Click" Cursor="Hand">
+                <Button x:Name="ButtonOpenMenu" Visibility="Collapsed" Height="60" Width="60" Margin="0,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonOpenMenu_Click" Cursor="Hand">
                     <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
                 </Button>
 
@@ -93,19 +95,20 @@
             </Grid>
             <Border CornerRadius=" 0 50 0 0" Margin="0,140,0,0">
                 <Border.Background>
-                    <ImageBrush>
-                        <ImageBrush.ImageSource>
-                            <BitmapImage UriSource="/Imagens_Videos/Fundo_Azul.png"/>
-                        </ImageBrush.ImageSource>
-                    </ImageBrush>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#f48f2b" Offset="0"/>
+
+                        <GradientStop Color="#FFFF399B" Offset="1.7"/>
+
+                    </LinearGradientBrush>
+
                 </Border.Background>
                 <StackPanel Margin="0,60,0,0">
-
                     <StackPanel>
                         <Button Click="Button_Click" Name="MN_Menu" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Cursor="Hand" Height="50">
                             <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="0 5 0 0">
                                 <Image Source="/Icons/IconDashboard.png" Stretch="Uniform" Height="25" Width="25" Margin="0 0 0 4"/>
-                                <TextBlock Text="Menu" VerticalAlignment="Center" Margin="25 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
+                                <TextBlock Text="Menu" VerticalAlignment="Center" Margin="24 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -168,9 +171,8 @@
                 </StackPanel>
             </Border>
         </Grid>
-        
-        <Frame x:Name="framePage" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Right" NavigationUIVisibility="Hidden" Width="1286"/>
 
-        
+        <Frame x:Name="framePage" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Right" NavigationUIVisibility="Hidden" Width="1286"/>
+
     </Grid>
 </Window>
