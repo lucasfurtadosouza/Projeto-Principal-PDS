@@ -31,8 +31,16 @@
             </StackPanel>
 
             <StackPanel>
-                <Label Content="Endereço" FontSize="16"/>
-                <TextBox x:Name="txtEndereco" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+                <Label Content="Rua" FontSize="16"/>
+                <TextBox x:Name="txtRua" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Número" FontSize="16"/>
+                <TextBox x:Name="txtNumero" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Bairro" FontSize="16"/>
+                <TextBox x:Name="txtBairro" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
             </StackPanel>
             
             <StackPanel>

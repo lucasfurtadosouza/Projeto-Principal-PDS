@@ -33,7 +33,7 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Remover_Click(object sender, RoutedEventArgs e)
         {
-            var FornecedorSelecionada = dataGridFornecedor.SelectedItem as Fornecedor;
+            var FornecedorSelecionada = dtFornecedor.SelectedItem as Fornecedor;
             var resultado = MessageBox.Show($"Deseja realmente excluir o fornecedor '{FornecedorSelecionada.Razao}'?", "Confirmar Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
             try
@@ -54,7 +54,7 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
-            var FornecedorSelecionada = dataGridFornecedor.SelectedItem as Fornecedor;
+            var FornecedorSelecionada = dtFornecedor.SelectedItem as Fornecedor;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -67,7 +67,7 @@ namespace Projeto_PDS.Views.PageList
                 var dao = new FornecedorDAO();
                 List<Fornecedor> listaFornecedores = dao.List();
 
-                dataGridFornecedor.ItemsSource = listaFornecedores;
+               dtFornecedor.ItemsSource = listaFornecedores;
 
             }
             catch (Exception ex)

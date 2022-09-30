@@ -34,15 +34,9 @@ namespace Projeto_PDS.Views
             Loaded += WindowFornecedor_Loaded;
         }
         
-        public PageFornecedor()
-        {
-
-            InitializeComponent();
-        }
         public PageFornecedor(Fornecedor fornecedor)
         {
             _fornecedor = fornecedor;
-            InitializeComponent();
             Loaded += WindowFornecedor_Loaded;
         }
 
@@ -55,7 +49,7 @@ namespace Projeto_PDS.Views
         {
            
 
-            MessageBox.Show("aqui");
+           
 
             _main.setPageMain();
 
@@ -64,7 +58,9 @@ namespace Projeto_PDS.Views
             _fornecedor.Razao = txtRazao.Text;
             _fornecedor.Cnpj = txtCnpj.Text;
             _fornecedor.Email = txtEmail.Text;
-            _fornecedor.Endereco = txtEndereco.Text;
+            _fornecedor.Rua = txtRua.Text;
+            _fornecedor.Numero = txtNumero.Text;
+            _fornecedor.Bairro = txtBairro.Text;
             _fornecedor.Telefone = txtTelefone.Text;
 
 

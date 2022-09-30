@@ -13,7 +13,9 @@ namespace Projeto_PDS.Models
         public string  Razao { get; set; }
         public string  Cnpj{ get; set; }
         public string  Email { get; set; }
-        public string  Endereco { get; set; }
+        public string  Rua { get; set; }
+        public string Numero { get; set; }
+        public string Bairro { get; set; }
         public string  Telefone{ get; set; }
     }
 }

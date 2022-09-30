@@ -20,13 +20,16 @@ namespace Projeto_PDS.Models
 
                 comando.CommandText = "INSERT Into Fornecedor Value " +
 
-                    "(null, @nome_fantasia, @razao_social, @cnpj, @email, @endereco, @telefone)";
+                    "(null, @nome_fantasia, @razao_social, @cnpj, @email, @rua, @numero, @bairro, @telefone)";
 
                 comando.Parameters.AddWithValue("@nome_fantasia", fornecedor.Nome);
                 comando.Parameters.AddWithValue("@razao_social", fornecedor.Razao );
                 comando.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
                 comando.Parameters.AddWithValue("@email", fornecedor.Email);
-                comando.Parameters.AddWithValue("@endereco", fornecedor.Endereco);
+                comando.Parameters.AddWithValue("@rua", fornecedor.Rua);
+                comando.Parameters.AddWithValue("@numero", fornecedor.Numero);
+                comando.Parameters.AddWithValue("@bairro", fornecedor.Bairro);
+                comando.Parameters.AddWithValue("@telefone", fornecedor.Telefone);
 
                 var resultado = comando.ExecuteNonQuery();
 
@@ -61,7 +64,9 @@ namespace Projeto_PDS.Models
                     Fornecedor.Razao = Helpers.DAOHelper.GetString(reader, "razao.social");
                     Fornecedor.Cnpj = Helpers.DAOHelper.GetString(reader, "cnpj");
                     Fornecedor.Email = Helpers.DAOHelper.GetString(reader, "email");
-                    Fornecedor.Endereco = Helpers.DAOHelper.GetString(reader, "endereco");
+                    Fornecedor.Rua = Helpers.DAOHelper.GetString(reader, "rua");
+                    Fornecedor.Numero = Helpers.DAOHelper.GetString(reader, "numero");
+                    Fornecedor.Bairro = Helpers.DAOHelper.GetString(reader, "bairro");
                     Fornecedor.Telefone = Helpers.DAOHelper.GetString(reader, "telefone");
                
                     list.Add(Fornecedor);
@@ -106,7 +111,9 @@ namespace Projeto_PDS.Models
                     "razao_social_for = razao_social," +
                     " cnpj_for = @cnpj, " +
                     "email_for = @email," +
-                    "endereco_for = @endereco," +
+                    "rua_for = @rua," +
+                    "numero_for = @numero," +
+                    "bairro_for = @bairro," +
                     "telefone_for = @telefone";
 
 
@@ -115,7 +122,9 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@razao_social", fornecedor.Razao);
                 comando.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
                 comando.Parameters.AddWithValue("@email", fornecedor.Email);
-                comando.Parameters.AddWithValue("@endereco", fornecedor.Endereco);
+                comando.Parameters.AddWithValue("@endereco", fornecedor.Rua);
+                comando.Parameters.AddWithValue("@endereco", fornecedor.Numero);
+                comando.Parameters.AddWithValue("@endereco", fornecedor.Bairro);
                 comando.Parameters.AddWithValue("@telefone", fornecedor.Telefone);
 
                 var resultado = comando.ExecuteNonQuery();
