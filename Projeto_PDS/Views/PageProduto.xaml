@@ -91,7 +91,7 @@
 
         <!--STACK PANEL BOTOES-->
         <StackPanel Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10" Orientation="Horizontal">
-            <Button Width="150" Height="50" Foreground="White" x:Name="btLimpar" Background="Transparent" Click="btLimpar_Click">
+            <Button Width="150" Height="50" Foreground="White" x:Name="btLimpar" Background="Transparent" Click="btLimpar_Click" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate>
                         <Border CornerRadius="25">
