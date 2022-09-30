@@ -15,92 +15,92 @@
         Background="Transparent"
         FontFamily="{DynamicResource MaterialDesignFont}"
       
-      d:DesignHeight="600" d:DesignWidth="1000"
+      d:DesignHeight="600" d:DesignWidth="1020"
       Title="PageCliente">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="490"/>
+            <RowDefinition Height="190"/>
+            <RowDefinition Height="280"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Border CornerRadius="20" Grid.RowSpan="3" Background="Azure" Margin="20">
+        </Border>
+        <!--STACK PANEL NOVO USUARIO-->
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Image Source="/Icons/guestPFP.png" Width="100"/>
+            <StackPanel VerticalAlignment="Center">
+                <Label Content="Cadastrar Novo Usuário" FontSize="30" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
+                <Label Content="Inserir informações para cadastrar um novo usuário" FontSize="13" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
+            </StackPanel>
+        </StackPanel>
+
 
         <!--STACK PANEL INFORMACOES-->
-        <Border CornerRadius="50">
-            <Border.Background>
-                <LinearGradientBrush>
-                    <GradientStop Color="Azure" Offset="0"/>
-                    <GradientStop Color="AliceBlue" Offset="1.7"/>
-                </LinearGradientBrush>
-            </Border.Background>
-        </Border>
-        <StackPanel Margin="10" Grid.Column="0">
-                <StackPanel Margin="0,0,0,10">
-                    <TextBox x:Name="txtNome" Padding="8"
+        <StackPanel Grid.Row="1" VerticalAlignment="Center">
+            <StackPanel Margin="0,0,0,10">
+                <TextBox x:Name="txtNome" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
                           VerticalAlignment="Top"
-                          HorizontalAlignment="Left"
+                          HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="370"
+                          Width="700"
                           materialDesign:HintAssist.Hint="Nome"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
                 <TextBox x:Name="txtEmail" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
                           VerticalAlignment="Top"
-                          HorizontalAlignment="Left"
+                          HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="250"
+                          Width="400"
                           materialDesign:HintAssist.Hint="Email"/>
 
                 <TextBox x:Name="txtCpf" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
                           VerticalAlignment="Top"
-                          HorizontalAlignment="Left"
+                          HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="100"
+                          Width="280"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="CPF"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
                 <TextBox x:Name="txtTelefone" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
                           VerticalAlignment="Top"
-                          HorizontalAlignment="Left"
+                          HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="130"
+                          Width="260"
                           materialDesign:HintAssist.Hint="Telefone"/>
 
                 <TextBox x:Name="txtRg" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
                           VerticalAlignment="Top"
-                          HorizontalAlignment="Left"
+                          HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="100"
+                          Width="200"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="RG"/>
 
                 <DatePicker x:Name="dtDataNasc" Padding="8"
-                            Width="100"
+                            Width="200"
                             Margin="20,0,0,0"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
                             materialDesign:HintAssist.Hint="Data de Nascimento"
                             Style="{StaticResource MaterialDesignFilledDatePicker}"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
                 <ComboBox x:Name="cbSexo" Padding="8"
                           Style="{StaticResource MaterialDesignFilledComboBox}"
                           materialDesign:HintAssist.Hint="Sexo"
-                          VerticalAlignment="Top"
-                          HorizontalAlignment="Left"
-                          Width="130">
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          Width="280">
                     <ComboBoxItem Content="Masculino"/>
                     <ComboBoxItem Content="Feminino"/>
                     <ComboBoxItem Content="Não Informar"/>
@@ -108,50 +108,83 @@
 
                 <TextBox x:Name="txtRenda" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
-                          VerticalAlignment="Top"
-                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="220"
+                          Width="400"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Renda Familiar"/>
             </StackPanel>
-        </StackPanel>
-
-        <!--STACK PANEL ENDEREÇO-->
-        <StackPanel Background="#f2f2f2" Margin="10" Grid.Column="1">
-            <StackPanel>
-                <TextBox x:Name="txtRua" Padding="8"
+            
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
+                <StackPanel>
+                    <TextBox x:Name="txtRua" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
-                          VerticalAlignment="Top"
-                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="350"
+                          Width="275"
                           materialDesign:HintAssist.Hint="Rua"/>
-            </StackPanel>
+                </StackPanel>
 
-            <StackPanel>
-                <TextBox x:Name="txtBairro" Padding="8"
+                <StackPanel>
+                    <TextBox x:Name="txtBairro" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
-                          VerticalAlignment="Top"
-                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="350"
+                          Width="275"
+                          Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Bairro"/>
-            </StackPanel>
+                </StackPanel>
 
-            <StackPanel>
-                <TextBox x:Name="txtNumero" Padding="8"
+                <StackPanel>
+                    <TextBox x:Name="txtNumero" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
-                          VerticalAlignment="Top"
-                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="350"
+                          Width="110"
+                          Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Número"/>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="10">
-            <Button x:Name="btSalvar" Content="Salvar" Click="btSalvar_Click"/>
+        <!--STACK PANEL BOTOES-->
+        <StackPanel Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10" Orientation="Horizontal">
+            <Button Width="150" Height="50" Foreground="White" x:Name="btLimpar" Background="Transparent" Click="btLimpar_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="25">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FFF1A132" Offset="0"/>
+                                    <GradientStop Color="#FFFF399B" Offset="1.7"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="Limpar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Width="150" Height="50" Foreground="White" x:Name="btSalvar" Background="Transparent" Click="btSalvar_Click" Margin="50,0,0,0">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="25">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FFF1A132" Offset="0"/>
+                                    <GradientStop Color="#FFFF399B" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="Salvar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </StackPanel>
+        
     </Grid>
 </Page>

@@ -25,7 +25,7 @@ data_nasc_fun date,
 carteira_de_trabalho_fun varchar (300),
 salario_fun double,
 foto_fun blob,
-id_sex_fk integer,
+id_sex_fk integer not null,
 foreign key (id_sex_fk) references Sexo (id_sex)
 );
 

@@ -40,8 +40,6 @@ namespace Projeto_PDS.Views
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             _funcionario.Nome = txtNome.Text;
-
-
             _funcionario.Email = txtEmail.Text;
             _funcionario.Cpf = txtCpf.Text;
             _funcionario.Telefone = txtTelefone.Text;
@@ -50,14 +48,14 @@ namespace Projeto_PDS.Views
             _funcionario.Bairro = txtBairro.Text;
             _funcionario.Rg = txtRg.Text;
 
-            if (dpDataNasc.SelectedDate != null)
+            if (dtDataNasc.SelectedDate != null)
             {
-                _funcionario.DataNasc = dpDataNasc.SelectedDate;
+                _funcionario.DataNasc = dtDataNasc.SelectedDate;
             }
             _funcionario.CarteiraDeTrabalho = txtCarteiraTrabalho.Text;
-            _funcionario.Salario = Convert.ToInt32(txtSalario.Text);
+            _funcionario.Salario = Convert.ToDouble(txtSalario.Text);
 
-            _funcionario.Foto = txtFoto.Text;
+            _funcionario.Foto = null;
 
             try
             {
@@ -74,11 +72,27 @@ namespace Projeto_PDS.Views
                     dao.Insert(_funcionario);
                     MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
+
+                btLimpar_Click(sender, e);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            txtNome.Clear();
+            txtEmail.Clear();
+            txtCpf.Clear();
+            txtTelefone.Clear();
+            txtRua.Clear();
+            txtBairro.Clear();
+            txtNumero.Clear();
+            txtRg.Clear();
+            txtCarteiraTrabalho.Clear();
+            txtSalario.Clear();
         }
     }
 }
