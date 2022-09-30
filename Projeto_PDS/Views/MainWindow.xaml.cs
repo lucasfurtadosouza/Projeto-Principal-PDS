@@ -67,6 +67,9 @@ namespace Projeto_PDS.Views
                 case "MN_Produto":
                     framePage.Source = new System.Uri($"{pack}/PageProduto.xaml");
                     break;
+                case "MN_Caixa":
+                    framePage.Source = new System.Uri($"{pack}/PageCaixa.xaml");
+                    break;
                 case "MN_Relatorio":
                     framePage.Source = new System.Uri($"{pack}/PageRelatorio.xaml");
                     break;
