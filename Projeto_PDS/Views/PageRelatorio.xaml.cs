@@ -24,10 +24,36 @@ namespace Projeto_PDS.Views
         {
             InitializeComponent();
         }
-        public void btListFun_Click(object sender, RoutedEventArgs e)
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
-            var form = new WindowFuncionario();
-            form.ShowDialog();
+            var button = (Button)sender;
+            var frame = framePage;
+            var pack = "pack://application:,,,/Views/PageList";
+
+            switch (button.Name)
+            {
+                case "MN_Menu":
+                    framePage.Source = new System.Uri($"{pack}/PageMain.xaml");
+                    break;
+                case "List_Fornecedor":
+                    framePage.Source = new System.Uri($"{pack}/PageFornecedorList.xaml");
+                    break;
+                case "MN_Cliente":
+                    framePage.Source = new System.Uri($"{pack}/PageCliente.xaml");
+                    break;
+                case "MN_Despesa":
+                    framePage.Source = new System.Uri($"{pack}/PageDespesa.xaml");
+                    break;
+                case "MN_Funcionario":
+                    framePage.Source = new System.Uri($"{pack}/PageFuncionario.xaml");
+                    break;
+                case "MN_Produto":
+                    framePage.Source = new System.Uri($"{pack}/PageProduto.xaml");
+                    break;
+                case "MN_Relatorio":
+                    framePage.Source = new System.Uri($"{pack}/PageRelatorio.xaml");
+                    break;
+            }
         }
     }
 }

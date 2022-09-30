@@ -47,8 +47,6 @@ namespace Projeto_PDS.Views
             var frame = framePage;
             var pack = "pack://application:,,,/Views";
 
-
-
             switch (button.Name)
             {
                 case "MN_Menu":
