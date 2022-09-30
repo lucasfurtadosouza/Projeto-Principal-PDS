@@ -45,7 +45,7 @@ namespace Projeto_PDS.Views
             _produto.ValorVenda = Convert.ToDouble(txtValorVenda.Text);
             _produto.Estoque = Convert.ToInt32(txtEstoque.Text);
             _produto.Descricao = txtDescricao.Text;
-            _produto.Foto = txtFoto.Text;
+            _produto.Foto = null;
 
             try
             {
@@ -62,11 +62,22 @@ namespace Projeto_PDS.Views
                     dao.Insert(_produto);
                     MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
+
+                btLimpar_Click(sender, e);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            txtNome.Clear();
+            txtValorCompra.Clear();
+            txtValorVenda.Clear();
+            txtEstoque.Clear();
+            txtDescricao.Clear();
         }
     }
 }
