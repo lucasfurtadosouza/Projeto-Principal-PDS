@@ -5,13 +5,53 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Projeto_PDS.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="Transparent"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      
+      d:DesignHeight="600" d:DesignWidth="1020"
       Title="PageProduto">
 
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="190"/>
+            <RowDefinition Height="280"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border CornerRadius="20" Grid.RowSpan="3" Background="Azure" Margin="20">
+        </Border>
+
+        <!--STACK PANEL NOVO FUNCIONARIO-->
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Image Source="/Icons/guestPFP.png" Width="100"/>
+            <StackPanel VerticalAlignment="Center">
+                <Label Content="Cadastrar Novo Funcionário" FontSize="30" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
+                <Label Content="Inserir informações para cadastrar um novo funcionário" FontSize="13" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--STACK PANEL INFORMACOES-->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+            <StackPanel Margin="0,0,0,10">
+                <TextBox x:Name="txtNome" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          Width="700"
+                          materialDesign:HintAssist.Hint="Nome"/>
+            </StackPanel>
+        </StackPanel>
+
         <StackPanel>
-            <Label Content="Nome:"></Label>
-            <TextBox x:Name="txtNome"></TextBox>
             <Label Content="Valor Compra:"></Label>
             <TextBox x:Name="txtValorCompra"></TextBox>
             <Label Content="Valor Venda:"></Label>
