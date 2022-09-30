@@ -28,7 +28,6 @@ namespace Projeto_PDS.Views
             InitializeComponent();
             Loaded += MainWindow_Loaded;
         }
-        bool maximize = false;
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             this.setPageMain();
@@ -47,6 +46,8 @@ namespace Projeto_PDS.Views
             var button = (Button)sender;
             var frame = framePage;
             var pack = "pack://application:,,,/Views";
+
+
 
             switch (button.Name)
             {
@@ -81,30 +82,20 @@ namespace Projeto_PDS.Views
         {
             this.WindowState = WindowState.Minimized;
         }
-
-        public void btMaximizar_Click(object sender, RoutedEventArgs e)
-        {
-            if (maximize == false)
-            {
-                WindowState = WindowState.Maximized;
-                maximize = true;
-            }
-            else
-            {
-                WindowState = WindowState.Normal;
-                maximize = false;
-            }
-        }
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
             ButtonCloseMenu.Visibility = Visibility.Visible;
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
+            Name_User.Visibility = Visibility.Visible;
+            BorderFoto.Margin = new Thickness(0, -170, 0, 0);
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
         {
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
+            Name_User.Visibility = Visibility.Collapsed;
+            BorderFoto.Margin = new Thickness(0, -10, 0, 0);
         }
         //Icon Editar <materialDesign:PackIcon Kind="Pencil" Height="28" Width="25"/>
     }

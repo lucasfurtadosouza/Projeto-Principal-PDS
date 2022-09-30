@@ -415,6 +415,7 @@
     <Resource Include="Imagens_Videos\Fundo_Laranja.png" />
     <Resource Include="Imagens_Videos\Retangulo_Laranja.png" />
     <Resource Include="Icons\IconMenu.png" />
+    <Resource Include="Icons\IconUser.png" />
     <Content Include="Imagens_Videos\VideoLogo.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
