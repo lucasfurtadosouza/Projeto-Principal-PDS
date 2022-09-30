@@ -94,6 +94,8 @@ namespace Projeto_PDS.Views
             txtBairro.Clear();
             txtNumero.Clear();
             txtRg.Clear();
+            txtRenda.Clear();
+            cbSexo.SelectedIndex = 0;
         }
     }
 }

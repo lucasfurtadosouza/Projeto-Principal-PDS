@@ -33,8 +33,8 @@
         <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             <Image Source="/Icons/guestPFP.png" Width="100"/>
             <StackPanel VerticalAlignment="Center">
-                <Label Content="Cadastrar Novo Funcionário" FontSize="30" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
-                <Label Content="Inserir informações para cadastrar um novo funcionário" FontSize="13" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
+                <Label Content="Cadastrar Novo Produto" FontSize="30" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
+                <Label Content="Inserir informações para cadastrar um novo produto" FontSize="13" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
             </StackPanel>
         </StackPanel>
 
@@ -49,21 +49,79 @@
                           Width="700"
                           materialDesign:HintAssist.Hint="Nome"/>
             </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
+                <TextBox x:Name="txtValorCompra" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          Width="400"
+                          materialDesign:HintAssist.Hint="Valor de Compra"/>
+
+                <TextBox x:Name="txtValorVenda" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          Width="280"
+                          Margin="20,0,0,0"
+                          materialDesign:HintAssist.Hint="Valor de Venda"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
+                <TextBox x:Name="txtEstoque" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          Width="100"
+                          materialDesign:HintAssist.Hint="Estoque"/>
+
+                <TextBox x:Name="txtDescricao" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          Width="580"
+                          Margin="20,0,0,0"
+                          materialDesign:HintAssist.Hint="Descrição"/>
+            </StackPanel>
         </StackPanel>
 
-        <StackPanel>
-            <Label Content="Valor Compra:"></Label>
-            <TextBox x:Name="txtValorCompra"></TextBox>
-            <Label Content="Valor Venda:"></Label>
-            <TextBox x:Name="txtValorVenda"></TextBox>
-            <Label Content="Estoque:"></Label>
-            <TextBox x:Name="txtEstoque"></TextBox>
-            <Label Content="Descrição:"></Label>
-            <TextBox x:Name="txtDescricao"></TextBox>
-            <Label Content="Foto:"></Label>
-            <TextBox x:Name="txtFoto"></TextBox>
+        <!--STACK PANEL BOTOES-->
+        <StackPanel Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10" Orientation="Horizontal">
+            <Button Width="150" Height="50" Foreground="White" x:Name="btLimpar" Background="Transparent" Click="btLimpar_Click" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="25">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FFF1A132" Offset="0"/>
+                                    <GradientStop Color="#FFFF399B" Offset="1.7"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="Limpar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
-            <Button x:Name="btSalvar" Content="Salvar" Click="btSalvar_Click"></Button>
+            <Button Width="150" Height="50" Foreground="White" x:Name="btSalvar" Background="Transparent" Click="btSalvar_Click" Margin="50,0,0,0">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="25">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FFF1A132" Offset="0"/>
+                                    <GradientStop Color="#FFFF399B" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="Salvar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>
