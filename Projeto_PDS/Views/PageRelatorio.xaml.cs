@@ -24,5 +24,10 @@ namespace Projeto_PDS.Views
         {
             InitializeComponent();
         }
+        public void btListFun_Click(object sender, RoutedEventArgs e)
+        {
+            var form = new WindowFuncionario();
+            form.ShowDialog();
+        }
     }
 }

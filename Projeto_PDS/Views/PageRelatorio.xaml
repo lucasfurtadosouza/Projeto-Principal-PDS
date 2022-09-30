@@ -15,23 +15,26 @@
       d:DesignHeight="600" d:DesignWidth="1020"
       Title="PageRelatorio">
 
-    <Grid>
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="270"/>
-            <ColumnDefinition Width="270"/>
-            <ColumnDefinition Width="270"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="160"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="150"/>
-            <RowDefinition Height="150"/>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Height="120" Width="230">
-            <Button Width="230" Height="120" Foreground="White" x:Name="bt" FontWeight="UltraBold" Background="Transparent" Click="bt_Click" Cursor="Hand" FontSize="22">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Height="100" Width="230">
+            <Button Name="btListFun" Height="76" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="UltraBold" Background="Transparent" Click="btListFun_Click" Cursor="Hand" FontSize="22">
                 <Button.Template>
                     <ControlTemplate>
                         <Border>
@@ -42,11 +45,10 @@
                                 </LinearGradientBrush>
                             </Border.Background>
                             <Border.Clip>
-                                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,300,160"/>
+                                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,150,76"/>
                             </Border.Clip>
-
                             <StackPanel>
-                                <Ellipse Width="230" Height="230" Margin="0 -120 -250 0">
+                                <Ellipse Width="100" Height="100" Margin="0 -42 -120 0">
                                     <Ellipse.Fill>
                                         <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                                             <GradientStop Color="#dfbdff" Offset="0"/>
@@ -54,9 +56,8 @@
                                         </LinearGradientBrush>
                                     </Ellipse.Fill>
                                 </Ellipse>
-                                <materialDesign:PackIcon Kind="Pencil" Height="60" Width="60" Margin="0 -95 20 0" Foreground="White" HorizontalAlignment="Right" />
+                                <materialDesign:PackIcon Kind="Pencil" Height="35" Width="35" Margin="0 -50 8 0" Foreground="White" HorizontalAlignment="Right" />
                             </StackPanel>
-
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
