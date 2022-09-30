@@ -8,7 +8,7 @@
       d:DesignHeight="550" d:DesignWidth="800"
       Title="PageDespesa">
 
-    <Grid Background="White">
+    <Grid>
         <StackPanel>
             <Label Content="Cadastrar Despesa" FontSize="20"/>
             

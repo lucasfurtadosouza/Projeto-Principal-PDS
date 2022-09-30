@@ -8,7 +8,7 @@
       d:DesignHeight="950" d:DesignWidth="1000"
       Title="PageFuncionario">
 
-    <Grid Background="White">
+    <Grid>
         <StackPanel Grid.Column="0" Margin="6,6,6,-27">
             <Label Content="Cadastrar Funcionario" FontSize="20"/>
 

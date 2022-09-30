@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Projeto_PDS.Views"
         mc:Ignorable="d"
         Title="WindowFornecedor" d:DesignHeight="900" d:DesignWidth="1000">
-    <Grid Background="White">
+    <Grid>
         <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
             <Label Content="Cadastro Fornecedor" FontSize="20"/>
 

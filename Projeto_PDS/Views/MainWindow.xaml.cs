@@ -28,6 +28,7 @@ namespace Projeto_PDS.Views
             InitializeComponent();
             Loaded += MainWindow_Loaded;
         }
+        bool maximize = false;
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             this.setPageMain();
@@ -72,9 +73,27 @@ namespace Projeto_PDS.Views
                     break;
             }
         }
-        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        private void btFechar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        private void btMinimizar_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        public void btMaximizar_Click(object sender, RoutedEventArgs e)
+        {
+            if (maximize == false)
+            {
+                WindowState = WindowState.Maximized;
+                maximize = true;
+            }
+            else
+            {
+                WindowState = WindowState.Normal;
+                maximize = false;
+            }
         }
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {

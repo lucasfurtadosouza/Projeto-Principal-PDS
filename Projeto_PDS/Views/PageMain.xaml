@@ -9,7 +9,7 @@
       Title="PageMain">
 
     <Grid>
-        <TextBlock Text="Menu" VerticalAlignment="Top" Padding="5" HorizontalAlignment="Center" FontSize="22" FontFamily="Century Gothic" FontWeight="Bold" Foreground="Black"/>
+        <TextBlock Text="Menu" VerticalAlignment="Top" Padding="40" HorizontalAlignment="Center" FontSize="22" FontFamily="Century Gothic" FontWeight="Bold" Foreground="Black"/>
 
     </Grid>
 </Page>
