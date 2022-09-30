@@ -20,7 +20,7 @@ namespace Projeto_PDS.Models
 
                 comando.CommandText = "INSERT Into Cliente Value " +
 
-                    "(null, @nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @data_nasc, @sexo, @renda_familiar, @foto)";
+                    "(null, @nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @data_nasc, @renda_familiar, @foto, null)";
 
                 comando.Parameters.AddWithValue("@nome", cliente.Nome);
                 comando.Parameters.AddWithValue("@email", cliente.Email);
@@ -30,7 +30,6 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@bairro", cliente.Bairro);
                 comando.Parameters.AddWithValue("@rg", cliente.Rg);
                 comando.Parameters.AddWithValue("@data_nasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
-                comando.Parameters.AddWithValue("@sexo", cliente.Sexo);
                 comando.Parameters.AddWithValue("@renda_familiar", cliente.RendaFamiliar);
                 comando.Parameters.AddWithValue("@foto", cliente.Foto);
 
@@ -71,7 +70,6 @@ namespace Projeto_PDS.Models
                     cliente.Bairro = Helpers.DAOHelper.GetString(reader, "bairro_cli");
                     cliente.Rg = Helpers.DAOHelper.GetString(reader, "rg_cli");
                     cliente.DataNasc = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_nasc_cli"));
-                    cliente.Sexo = Helpers.DAOHelper.GetString(reader, "sexo_cli");
                     cliente.RendaFamiliar = Helpers.DAOHelper.GetString(reader, "renda_familiar_cli");
                     cliente.Foto = Helpers.DAOHelper.GetString(reader, "foto_cli");
 
@@ -111,7 +109,7 @@ namespace Projeto_PDS.Models
 
                 comando.CommandText = "UPDATE Cliente SET " +
                     "nome_cli = @nome, email_cli = @email, cpf_cli = @cpf, telefone_cli = @telefone, rua_cli = @rua, numero_cli = @numero, bairro_cli = @bairro, rg_cli = @rg, " +
-                    "data_nasc_cli = @data_nasc, sexo_cli = @sexo, renda_familiar_cli = @renda_familiar, foto_cli = @foto" +
+                    "data_nasc_cli = @data_nasc, renda_familiar_cli = @renda_familiar, foto_cli = @foto" +
                     "WHERE id_cli = @id";
 
                 comando.Parameters.AddWithValue("@nome", cliente.Nome);
@@ -122,7 +120,6 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@bairro", cliente.Bairro);
                 comando.Parameters.AddWithValue("@rg", cliente.Rg);
                 comando.Parameters.AddWithValue("@data_nasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
-                comando.Parameters.AddWithValue("@sexo", cliente.Sexo);
                 comando.Parameters.AddWithValue("@renda_familiar", cliente.RendaFamiliar);
                 comando.Parameters.AddWithValue("@foto", cliente.Foto);
 
