@@ -47,7 +47,7 @@
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
                           Width="340"
-                          materialDesign:HintAssist.Hint="Saldo Inicial"/>
+                          materialDesign:HintAssist.Hint="Saldo Inicial" CaretBrush="Orange"/>
 
                 <TextBox x:Name="txtSaldoFinal" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
