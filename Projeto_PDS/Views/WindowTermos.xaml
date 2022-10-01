@@ -8,7 +8,12 @@
         WindowStyle="None"
         WindowState="Normal"
         Title="WindowTermos" Height="720" Width="1024" WindowStartupLocation="CenterScreen">
-
+    <Window.Resources>
+        <ResourceDictionary>
+            <BitmapImage x:Key="image" UriSource="/Imagens_Videos/Image.png"/>
+            <BitmapImage x:Key="image1" UriSource="/Imagens_Videos/Image1.png"/>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -22,9 +27,37 @@
             <RowDefinition Height="250"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="1">
             <Image x:Name="Picture"   Width="217" Height="179" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
+        <StackPanel Grid.Column="1" Grid.Row="2" Margin=" 5 0 0 0">
+            
+            <Image x:Name="Picture"   Width="330" Height="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Source="{StaticResource image }">
+                
+                
+                <Image.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" 
+                                                 SpeedRatio=".2" From="1"
+                                                 To=".2" 
+                                                 RepeatBehavior="Forever"/>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" 
+                                                 SpeedRatio=".2" From="1"
+                                                 To=".2" 
+                                                 RepeatBehavior="Forever"/>
+                                
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source" 
+                                                               RepeatBehavior="Forever" Duration="0:0:6">
+                                    <DiscreteObjectKeyFrame Value="{StaticResource image1}" KeyTime="0:0:2"/>
+                                    
 
+                                </ObjectAnimationUsingKeyFrames>
+
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Image.Triggers>
             </Image>
 
 
