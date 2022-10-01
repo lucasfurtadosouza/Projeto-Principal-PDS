@@ -38,14 +38,14 @@ namespace Projeto_PDS.Views
         }
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
-            _despesa.Valor = Convert.ToInt32(txtValor.Text);
-            if (dpDataVen.SelectedDate != null)
+            _despesa.Valor = Convert.ToDouble(txtValor.Text);
+            if (dtDataVen.SelectedDate != null)
             {
-                _despesa.Data_Vencimento = dpDataVen.SelectedDate;
+                _despesa.Data_Vencimento = dtDataVen.SelectedDate;
             }
-            if (dpDataVen.SelectedDate != null)
+            if (dtDataVen.SelectedDate != null)
             {
-                _despesa.Data_Pagamento = dpDataPag.SelectedDate;
+                _despesa.Data_Pagamento = dtDataPag.SelectedDate;
             }
             _despesa.Forma_Pagamento = txtFormaPagamento.Text;
             _despesa.Descricao = txtDescricao.Text;
@@ -67,6 +67,8 @@ namespace Projeto_PDS.Views
                     dao.Insert(_despesa);
                     MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
+
+                btLimpar_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -74,9 +76,14 @@ namespace Projeto_PDS.Views
             }
         }
 
-
-
-
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            txtValor.Clear();
+            txtFormaPagamento.Clear();
+            txtDescricao.Clear();
+            dtDataVen.SelectedDate = null;
+            dtDataPag.SelectedDate = null;
+        }
 
     }
 }

@@ -4,49 +4,149 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Projeto_PDS.Views"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      mc:Ignorable="d"
+      
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="Transparent"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      
+      d:DesignHeight="600" d:DesignWidth="1020"
       Title="PageCaixa">
 
     <Grid>
-        <StackPanel>
-            <StackPanel>
-                <Label Content="Saldo Inicial:"></Label>
-                <TextBox x:Name="txtSaldoInicial"></TextBox>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="190"/>
+            <RowDefinition Height="280"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border CornerRadius="20" Grid.RowSpan="3" Background="Azure" Margin="20">
+        </Border>
+
+        <!--STACK PANEL NOVO CAIXA-->
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Image Source="/Icons/newCaixa.png" Width="100"/>
+            <StackPanel VerticalAlignment="Center">
+                <Label Content="Cadastrar Novo Caixa" FontSize="30" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
+                <Label Content="Inserir informações para cadastrar um novo caixa" FontSize="13" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
             </StackPanel>
-            <StackPanel>
-                <Label Content="Saldo Final:"></Label>
-                <TextBox x:Name="txtSaldoFinal"></TextBox>
+        </StackPanel>
+
+        <!--STACK PANEL INFORMACOES-->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
+                <TextBox x:Name="txtSaldoInicial" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          Width="340"
+                          materialDesign:HintAssist.Hint="Saldo Inicial"/>
+
+                <TextBox x:Name="txtSaldoFinal" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          Width="340"
+                          Margin="20,0,0,0"
+                          materialDesign:HintAssist.Hint="Saldo Final"/>
             </StackPanel>
-            <StackPanel>
-                <Label Content="Data de Abertura:"></Label>
-            <DatePicker x:Name="dpDataAbertura"></DatePicker>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
+                <DatePicker x:Name="dtDataAbertura" Padding="8"
+                            Width="160"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            materialDesign:HintAssist.Hint="Data de Abertura"
+                            Style="{StaticResource MaterialDesignFilledDatePicker}"/>
+                
+                <DatePicker x:Name="dtHoraAbertura" Padding="8"
+                            Width="160"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            materialDesign:HintAssist.Hint="Hora de Abertura"
+                            Style="{StaticResource MaterialDesignFilledDatePicker}"/>
+
+                <DatePicker x:Name="dtDataFechamento" Padding="8"
+                            Width="160"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            materialDesign:HintAssist.Hint="Data de Fechamento"
+                            Style="{StaticResource MaterialDesignFilledDatePicker}"/>
+
+                <DatePicker x:Name="dtHoraFechamento" Padding="8"
+                            Width="160"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            materialDesign:HintAssist.Hint="Hora de Fechamento"
+                            Style="{StaticResource MaterialDesignFilledDatePicker}"/>
             </StackPanel>
-            <StackPanel>
-                <Label Content="Data de Fechamento:"></Label>
-            <DatePicker x:Name="dpDataFechamento"></DatePicker>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
+                <TextBox x:Name="txtQuantidadePagamentos" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          Width="340"
+                          materialDesign:HintAssist.Hint="Quantidade de Pagamentos"/>
+
+                <TextBox x:Name="txtQuantidadeRecebimentos" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          Width="340"
+                          Margin="20,0,0,0"
+                          materialDesign:HintAssist.Hint="Quantidade de Recebimentos"/>
             </StackPanel>
-            <StackPanel>
-                <Label Content="Hora de Abertura:"></Label>
-            <DatePicker x:Name="dpHoraAbertura"></DatePicker>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Hora de Fechamento:"></Label>
-            <DatePicker x:Name="dpHoraFechamento"></DatePicker>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Quantidade de Pagamentos:"></Label>
-            <TextBox x:Name="txtQuantidadePagamentos"></TextBox>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Quantidade de Recebimentos:"></Label>
-            <TextBox x:Name="txtQuantidadeRecebimentos"></TextBox>
-            </StackPanel>
-            <StackPanel>
-                <Button x:Name="btSalvarCaixa" Content="Salvar" Click="btSalvarCaixa_Click"/>
-            </StackPanel>
-           
-            </StackPanel>
+        </StackPanel>
         
+
+        <!--STACK PANEL BOTOES-->
+        <StackPanel Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10" Orientation="Horizontal">
+            <Button Width="150" Height="50" Foreground="White" x:Name="btLimpar" Background="Transparent" Click="btLimpar_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="25">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FFF1A132" Offset="0"/>
+                                    <GradientStop Color="#FFFF399B" Offset="1.7"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="Limpar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Width="150" Height="50" Foreground="White" x:Name="btSalvar" Background="Transparent" Click="btSalvar_Click" Margin="50,0,0,0">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="25">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FFF1A132" Offset="0"/>
+                                    <GradientStop Color="#FFFF399B" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="Salvar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+
     </Grid>
 </Page>

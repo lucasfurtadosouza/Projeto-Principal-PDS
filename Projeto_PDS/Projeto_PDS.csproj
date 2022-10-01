@@ -419,6 +419,8 @@
     <Resource Include="Icons\IconCaixa.png" />
     <Resource Include="Icons\newProduto.png" />
     <Resource Include="Icons\newUsuario.png" />
+    <Resource Include="Icons\newDespesa.png" />
+    <Resource Include="Icons\newCaixa.png" />
     <Content Include="Imagens_Videos\VideoLogo.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

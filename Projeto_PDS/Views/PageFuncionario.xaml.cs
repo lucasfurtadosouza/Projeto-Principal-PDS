@@ -93,6 +93,7 @@ namespace Projeto_PDS.Views
             txtRg.Clear();
             txtCarteiraTrabalho.Clear();
             txtSalario.Clear();
+            dtDataNasc.SelectedDate = null;
         }
     }
 }
