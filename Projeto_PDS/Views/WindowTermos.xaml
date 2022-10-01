@@ -27,7 +27,6 @@
             <RowDefinition Height="250"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-            <Image x:Name="Picture"   Width="217" Height="179" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
         <StackPanel Grid.Column="1" Grid.Row="2" Margin=" 5 0 0 0">
             
             <Image x:Name="Picture"   Width="330" Height="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Source="{StaticResource image }">
