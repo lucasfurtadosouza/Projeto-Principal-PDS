@@ -32,26 +32,23 @@ namespace Projeto_PDS.Views
 
             switch (button.Name)
             {
-                case "MN_Menu":
-                    framePage.Source = new System.Uri($"{pack}/PageMain.xaml");
-                    break;
                 case "List_Fornecedor":
                     framePage.Source = new System.Uri($"{pack}/PageFornecedorList.xaml");
                     break;
-                case "MN_Cliente":
-                    framePage.Source = new System.Uri($"{pack}/PageCliente.xaml");
+                case "List_Funcionario":
+                    framePage.Source = new System.Uri($"{pack}/PageFuncionarioList.xaml");
                     break;
-                case "MN_Despesa":
-                    framePage.Source = new System.Uri($"{pack}/PageDespesa.xaml");
+                case "List_Cliente":
+                    framePage.Source = new System.Uri($"{pack}/PageClienteList.xaml");
                     break;
-                case "MN_Funcionario":
-                    framePage.Source = new System.Uri($"{pack}/PageFuncionario.xaml");
+                case "List_Despesa":
+                    framePage.Source = new System.Uri($"{pack}/PageDespesaList.xaml");
                     break;
-                case "MN_Produto":
-                    framePage.Source = new System.Uri($"{pack}/PageProduto.xaml");
+                case "List_Produto":
+                    framePage.Source = new System.Uri($"{pack}/PageProdutoList.xaml");
                     break;
-                case "MN_Relatorio":
-                    framePage.Source = new System.Uri($"{pack}/PageRelatorio.xaml");
+                case "List_Caixa":
+                    framePage.Source = new System.Uri($"{pack}/PageCaixaList.xaml");
                     break;
             }
         }

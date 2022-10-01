@@ -70,6 +70,96 @@
                         <Border>
                             <Border.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                    <GradientStop Color="#fd8a87" Offset="0"/>
+                                    <GradientStop Color="#f3ab92" Offset="0.6"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border.Clip>
+                                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,150,76"/>
+                            </Border.Clip>
+                            <StackPanel>
+                                <Ellipse Width="100" Height="100" Margin="0 -42 -120 0">
+                                    <Ellipse.Fill>
+                                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                            <GradientStop Color="#fdb89b" Offset="0"/>
+                                            <GradientStop Color="#fbd5a8" Offset="1.2"/>
+                                        </LinearGradientBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <materialDesign:PackIcon Kind="Pencil" Height="35" Width="35" Margin="0 -50 8 0" Foreground="White" HorizontalAlignment="Right" />
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="1" Height="100" Width="160">
+            <Button Name="List_Despesa" Height="76" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="UltraBold" Background="Transparent" Click="Button_Click" Cursor="Hand" FontSize="22">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border>
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                    <GradientStop Color="#fc84cb" Offset="0"/>
+                                    <GradientStop Color="#fc8fae" Offset="0.7"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border.Clip>
+                                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,150,76"/>
+                            </Border.Clip>
+                            <StackPanel>
+                                <Ellipse Width="100" Height="100" Margin="0 -42 -120 0">
+                                    <Ellipse.Fill>
+                                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                            <GradientStop Color="#fc8fae" Offset="0"/>
+                                            <GradientStop Color="#ffabe6" Offset="0.8"/>
+                                        </LinearGradientBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <materialDesign:PackIcon Kind="Pencil" Height="35" Width="35" Margin="0 -50 8 0" Foreground="White" HorizontalAlignment="Right" />
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" Grid.Row="1" Height="100" Width="160">
+            <Button Name="List_Funcionaridao" Height="76" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="UltraBold" Background="Transparent" Click="Button_Click" Cursor="Hand" FontSize="22">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border>
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                    <GradientStop Color="#6fa2f5" Offset="0"/>
+                                    <GradientStop Color="#5cd2f8" Offset="0.7"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border.Clip>
+                                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,150,76"/>
+                            </Border.Clip>
+                            <StackPanel>
+                                <Ellipse Width="100" Height="100" Margin="0 -42 -120 0">
+                                    <Ellipse.Fill>
+                                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                            <GradientStop Color="#5cd2f8" Offset="0"/>
+                                            <GradientStop Color="#FF95E4FD" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <materialDesign:PackIcon Kind="Pencil" Height="35" Width="35" Margin="0 -50 8 0" Foreground="White" HorizontalAlignment="Right" />
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="5" Grid.Row="1" Height="100" Width="160">
+            <Button Name="List_Produto" Height="76" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="UltraBold" Background="Transparent" Click="Button_Click" Cursor="Hand" FontSize="22">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border>
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                                     <GradientStop Color="#8185fc" Offset="0"/>
                                     <GradientStop Color="#c4adff" Offset="0.7"/>
                                 </LinearGradientBrush>
@@ -93,6 +183,37 @@
                 </Button.Template>
             </Button>
         </Grid>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="6" Grid.Row="1" Height="100" Width="160">
+            <Button Name="List_Caixa" Height="76" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="UltraBold" Background="Transparent" Click="Button_Click" Cursor="Hand" FontSize="22">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border>
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                    <GradientStop Color="#8185fc" Offset="0"/>
+                                    <GradientStop Color="#c4adff" Offset="0.7"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border.Clip>
+                                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,150,76"/>
+                            </Border.Clip>
+                            <StackPanel>
+                                <Ellipse Width="100" Height="100" Margin="0 -42 -120 0">
+                                    <Ellipse.Fill>
+                                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                            <GradientStop Color="#dfbdff" Offset="0"/>
+                                            <GradientStop Color="#d7b8ff" Offset="0.8"/>
+                                        </LinearGradientBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <materialDesign:PackIcon Kind="Pencil" Height="35" Width="35" Margin="0 -50 8 0" Foreground="White" HorizontalAlignment="Right" />
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+        
 
         <Frame x:Name="framePage" Grid.ColumnSpan="8" Grid.RowSpan="3" HorizontalAlignment="Right" Width="1200" HorizontalContentAlignment="Center" NavigationUIVisibility="Hidden" Margin="0,0,50,0" Grid.Row="2" />
 
