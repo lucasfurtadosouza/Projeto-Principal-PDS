@@ -45,7 +45,7 @@ namespace Projeto_PDS.Views
             
         }
 
-        private void btSalvarFornecedor_Click(object sender, RoutedEventArgs e)
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
            
 
@@ -80,11 +80,25 @@ namespace Projeto_PDS.Views
                     dao.Insert(_fornecedor);
                     MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
+
+                btLimpar_Click(sender, e);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            txtNome.Clear();
+            txtRazao.Clear();
+            txtCnpj.Clear();
+            txtEmail.Clear();
+            txtRua.Clear();
+            txtBairro.Clear();
+            txtNumero.Clear();
+            txtTelefone.Clear();
         }
     }
 }
