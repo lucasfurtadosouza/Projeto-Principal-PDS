@@ -30,20 +30,24 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="1" Grid.Row="2" Margin=" 5 0 0 0">
 
-            <Image x:Name="Picture"   Width="330" Height="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Source="{StaticResource Image}">
+            <Image x:Name="Picture" Width="330" Height="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Source="{StaticResource Image}">
                 <Image.Triggers>
                     <EventTrigger RoutedEvent="Loaded">
                         <BeginStoryboard>
                             <Storyboard>
                                 <DoubleAnimation Storyboard.TargetProperty="Opacity" 
-                                                 SpeedRatio="1.0" From="1"
-                                                 To="1.0" 
+                                                 SpeedRatio=".5" From="1.2"
+                                                 To=".6"
+                                                 RepeatBehavior="Forever"/>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" 
+                                                 SpeedRatio=".5" From=".6"
+                                                 To="1.2"
                                                  RepeatBehavior="Forever"/>
                                 
                                 <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source" 
-                                                               RepeatBehavior="Forever" Duration="0:0:9">
-                                    <DiscreteObjectKeyFrame Value="{StaticResource Image1}" KeyTime="0:0:3"/>
-                                    <DiscreteObjectKeyFrame Value="{StaticResource Image2}" KeyTime="0:0:6"/>
+                                                               RepeatBehavior="Forever" Duration="0:0:6">
+                                    <DiscreteObjectKeyFrame Value="{StaticResource Image1}" KeyTime="0:0:2"/>
+                                    <DiscreteObjectKeyFrame Value="{StaticResource Image2}" KeyTime="0:0:4"/>
                                 </ObjectAnimationUsingKeyFrames>
                             </Storyboard>
                         </BeginStoryboard>
@@ -85,7 +89,7 @@
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1" Margin=" 50 10 10 10">
             <Label x:Name="label1" Content="Bem Vindo!" FontSize="36" FontWeight="bold" FontFamily="Century Gothic"/>
-            <Label Margin="0 25 0 10" Foreground="Black" FontSize="22" FontFamily="Leelawadee UI" FontWeight="Light" Content="Preparado para uma nova experiência? Este software &#10;é desenvolvido pela icoNIC tazendo soluções para &#10;a sua empresa."/>
+            <Label Margin="0 25 0 10" Foreground="Black" FontSize="22" FontFamily="Leelawadee UI" FontWeight="Light" Content="Preparado para uma nova experiência? Este software &#10;é desenvolvido pela icoNIC, trazendo soluções para &#10;a sua empresa ou negócio."/>
             <StackPanel Orientation="Horizontal">
             </StackPanel>
         </StackPanel>
@@ -99,7 +103,7 @@
             </StackPanel>
 
 
-            <Button Width="380" Height="56" Content="A"
+            <Button Width="380" Height="56"
                Margin="25 30 10 10" HorizontalAlignment="Left" Foreground="White" x:Name="btAvancar" FontWeight="UltraBold" Background="Transparent" BorderThickness="0,0,0,0"  Click="btAvancar_Click" Cursor="Hand" FontSize="22">
               
                 <Button.Template>

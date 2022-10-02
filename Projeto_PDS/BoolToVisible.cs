@@ -23,7 +23,6 @@ namespace Projeto_PDS
 
 
         }
-
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();

@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeto_PDS"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         fw:AcrylicWindow.Enabled="True"
-        Title="WindowLogin" WindowStartupLocation="CenterScreen" Height="450" Width="800">
+        WindowStyle="None"
+        Title="WindowLogin" WindowStartupLocation="CenterScreen" Height="720" Width="1024">
    
 
         <Grid>
@@ -21,37 +29,68 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="2" Grid.Column="1" Margin="0 100 0 100" Background="Transparent">
-            <Border CornerRadius="10" Background="White">
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" Width="720" Height="540">
+            <Border CornerRadius="16" Background="White" Width="690" Height="510">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Height="300" Background="White">
+                    <StackPanel Grid.Column="0" Height="300" Background="White" Margin="10,5,0,5">
 
                     </StackPanel>
-                    <StackPanel Grid.Column="1">
-
-                        <Ellipse Width="100" Height="100" Fill="White">
-
-                        </Ellipse>
-                        <Grid Margin="10">
-
-                            <TextBox x:Name="txtUsuario" />
-
+                    <StackPanel Grid.Column="1" >
+                        <Ellipse Width="150" Height="150" Fill="White"/>
+                        <Grid Margin="10" Width="270">
+                            <TextBox
+                             x:Name="txtUsuario"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             materialDesign:TextFieldAssist.TextFieldCornerRadius="20"
+                             materialDesign:HintAssist.Foreground="#434343"
+                             BorderThickness="0"
+                             VerticalAlignment="Top"
+                             materialDesign:HintAssist.Hint="Usuário"
+                             materialDesign:HintAssist.HelperText="">
+                                <TextBox.Text>
+                                    <Binding Path=" " UpdateSourceTrigger="PropertyChanged">
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
                         </Grid>
-                        <Grid Margin="10">
-
-                            <PasswordBox x:Name="txtSenha"  OpacityMask="White" Foreground="White"/>
-
+                        <Grid Margin="15" Width="270">
+                            <StackPanel Orientation="Vertical">
+                                <PasswordBox
+                                x:Name="txtSenha"
+                                Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}"
+                                IsEnabled="{Binding ElementName=RevealPasswordOutlinedEnabled, Path=IsChecked}"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="20"
+                                materialDesign:HintAssist.Foreground="#434343"
+                                BorderThickness="0"
+                                materialDesign:HintAssist.Hint="Senha"
+                                materialDesign:TextFieldAssist.HasClearButton="True"/>
+                            </StackPanel>
                         </Grid>
-
-
-
-
-
-
+                        <Grid Margin="40" Width="270">
+                            <Button Width="180" Height="47" HorizontalAlignment="Center" Foreground="White" x:Name="btLogin" FontWeight="UltraBold" Background="Transparent" Click="btLogin_Click" Cursor="Hand" FontSize="22">
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <Border CornerRadius="26">
+                                            <Border.Background>
+                                                <LinearGradientBrush>
+                                                    <GradientStop Color="#FFF1A132" Offset="0"/>
+                                                    <GradientStop Color="#FFFF399B" Offset="1.7"/>
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                            <Border.Effect>
+                                                <DropShadowEffect Color="AntiqueWhite"  ShadowDepth="0.1" Direction="330">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                            <Image Source="/Imagens_Videos/imgEntrar.png" Stretch="Uniform" Margin="26,8,22,6"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
                     </StackPanel>
                 </Grid>
                 <Border.Effect>
