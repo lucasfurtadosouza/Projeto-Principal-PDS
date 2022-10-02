@@ -36,25 +36,25 @@ namespace Projeto_PDS.Views
         {
             txtSaldoInicial.Focus();
         }
-        private void btSalvarCaixa_Click(object sender, RoutedEventArgs e)
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             _caixa.SaldoInicial = Convert.ToDouble(txtSaldoInicial.Text);
             _caixa.SaldoFinal = Convert.ToDouble(txtSaldoFinal.Text);
-            if (dpDataAbertura.SelectedDate != null)
+            if (dtDataAbertura.SelectedDate != null)
             {
-                _caixa.DataAbertura = dpDataAbertura.SelectedDate;
+                _caixa.DataAbertura = dtDataAbertura.SelectedDate;
             }
-            if (dpDataFechamento.SelectedDate != null)
+            if (dtDataFechamento.SelectedDate != null)
             {
-                _caixa.DataFechamento = dpDataFechamento.SelectedDate;
+                _caixa.DataFechamento = dtDataFechamento.SelectedDate;
             }
-            if (dpHoraAbertura.SelectedDate != null)
+            if (dtHoraAbertura.SelectedDate != null)
             {
-                _caixa.HoraAbertura = dpHoraAbertura.SelectedDate;
+                _caixa.HoraAbertura = dtHoraAbertura.SelectedDate;
             }
-            if (dpHoraFechamento.SelectedDate != null)
+            if (dtHoraFechamento.SelectedDate != null)
             {
-                _caixa.HoraFechamento = dpHoraFechamento.SelectedDate;
+                _caixa.HoraFechamento = dtHoraFechamento.SelectedDate;
             }
             _caixa.QuantidadePagamentos = Convert.ToInt32(txtQuantidadePagamentos.Text);
             _caixa.QuantidadeRecebimentos = Convert.ToInt32(txtQuantidadeRecebimentos.Text);
@@ -74,11 +74,25 @@ namespace Projeto_PDS.Views
                     dao.Insert(_caixa);
                     MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
+
+                btLimpar_Click(sender, e);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            txtSaldoInicial.Clear();
+            txtSaldoFinal.Clear();
+            dtDataAbertura.SelectedDate = null;
+            dtDataFechamento.SelectedDate = null;
+            dtHoraAbertura.SelectedDate = null;
+            dtHoraFechamento.SelectedDate = null;
+            txtQuantidadePagamentos.Clear();
+            txtQuantidadeRecebimentos.Clear();
         }
     }
 }

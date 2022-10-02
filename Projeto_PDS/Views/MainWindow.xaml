@@ -148,7 +148,7 @@
                     
 
                     <StackPanel>
-                        <Button Click="Button_Click" Name="MN_Menu" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Cursor="Hand" Height="50" Style="{StaticResource MaterialDesignFlatLightButton}">
+                        <Button Click="Button_Click" Name="MN_Menu" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Cursor="Hand" Height="50" Style="{StaticResource MaterialDesignFlatSecondaryLightButton}">
                             <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="0 5 0 0">
                                 <Image Source="/Icons/IconDashboard.png" Stretch="Uniform" Height="25" Width="25" Margin="0 0 0 4"/>
                                 <TextBlock Text="Menu" VerticalAlignment="Center" Margin="24 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
@@ -157,7 +157,7 @@
                     </StackPanel>
 
                     <StackPanel>
-                        <Button Click="Button_Click" Name="MN_Funcionario" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50" Style="{StaticResource MaterialDesignFlatLightButton}">
+                        <Button Click="Button_Click" Name="MN_Funcionario" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50" Style="{StaticResource MaterialDesignFlatSecondaryLightButton}">
                             <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
                                 <Image Source="/Icons/IconFuncionario.png" Stretch="Uniform" Height="30" Width="30" Margin="0 0 0 4"/>
                                 <TextBlock Text="Funcionário" VerticalAlignment="Center" Margin="20 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
@@ -166,7 +166,7 @@
                     </StackPanel>
 
                     <StackPanel>
-                        <Button Click="Button_Click" Name="MN_Fornecedor" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Cursor="Hand" Height="50" Style="{StaticResource MaterialDesignFlatLightButton}">
+                        <Button Click="Button_Click" Name="MN_Fornecedor" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Cursor="Hand" Height="50" Style="{StaticResource MaterialDesignFlatSecondaryLightButton}">
                             <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
                                 <Image Source="/Icons/IconFornecedor.png" Stretch="Uniform" Height="30" Width="30" Margin="0 0 0 4"/>
                                 <TextBlock Text="Fornecedor" VerticalAlignment="Center" Margin="20 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
@@ -175,7 +175,7 @@
                     </StackPanel>
 
                     <StackPanel>
-                        <Button Click="Button_Click" Name="MN_Cliente" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50" Style="{StaticResource MaterialDesignFlatLightButton}">
+                        <Button Click="Button_Click" Name="MN_Cliente" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50" Style="{StaticResource MaterialDesignFlatSecondaryLightButton}">
                             <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
                                 <Image Source="/Icons/IconCliente.png" Stretch="Uniform" Height="30" Width="30" Margin="0 0 0 4"/>
                                 <TextBlock Text="Cliente" VerticalAlignment="Center" Margin="20 0 25 7" Height="23" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
@@ -184,7 +184,7 @@
                     </StackPanel>
 
                     <StackPanel>
-                        <Button Click="Button_Click" Name="MN_Despesa" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50" Style="{StaticResource MaterialDesignFlatLightButton}">
+                        <Button Click="Button_Click" Name="MN_Despesa" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50" Style="{StaticResource MaterialDesignFlatSecondaryLightButton}">
                             <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
                                 <Image Source="/Icons/IconDespesa.png" Stretch="Uniform" Height="30" Width="30" Margin="0 0 0 4"/>
                                 <TextBlock Text="Despesa" VerticalAlignment="Center" Margin="20 0 25 7" Height="26" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
@@ -193,7 +193,7 @@
                     </StackPanel>
 
                     <StackPanel>
-                        <Button Click="Button_Click" Name="MN_Produto" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50" Style="{StaticResource MaterialDesignFlatLightButton}">
+                        <Button Click="Button_Click" Name="MN_Produto" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50" Style="{StaticResource MaterialDesignFlatSecondaryLightButton}">
                             <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
                                 <Image Source="/Icons/IconProduto.png" Stretch="Uniform" Height="30" Width="30" Margin="0 0 0 4"/>
                                 <TextBlock Text="Produto" VerticalAlignment="Center" Margin="20 0 25 7" Height="26" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20" />
@@ -202,7 +202,7 @@
                     </StackPanel>
 
                     <StackPanel>
-                        <Button Click="Button_Click" Name="MN_Caixa" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50" Style="{StaticResource MaterialDesignFlatLightButton}">
+                        <Button Click="Button_Click" Name="MN_Caixa" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50" Style="{StaticResource MaterialDesignFlatSecondaryLightButton}">
                             <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
                                 <Image Source="/Icons/IconCaixa.png" Stretch="Uniform" Height="26" Width="26" Margin="3 0 1 4"/>
                                 <TextBlock Text="Caixa" VerticalAlignment="Center" Margin="20 0 25 7" Height="26" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
@@ -211,7 +211,7 @@
                     </StackPanel>
 
                     <StackPanel>
-                        <Button Click="Button_Click" Name="MN_Relatorio" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50" Style="{StaticResource MaterialDesignFlatLightButton}">
+                        <Button Click="Button_Click" Name="MN_Relatorio" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50" Style="{StaticResource MaterialDesignFlatSecondaryLightButton}">
                             <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
                                 <Image Source="/Icons/IconRelatorio.png" Stretch="Uniform" Height="30" Width="30" Margin="0 0 0 4"/>
                                 <TextBlock Text="Relatórios" VerticalAlignment="Center" Margin="20 0 25 7" Height="26" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
@@ -221,7 +221,7 @@
                 </StackPanel>
             </Border>
         </Grid>
-        <Frame x:Name="framePage" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Right" Width="1286" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Height="800" Margin="0 0 0 20" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="framePage" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Right" Width="1286" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Height="800" Margin="0 0 0 0" NavigationUIVisibility="Hidden"/>
 
     </Grid>
 </Window>

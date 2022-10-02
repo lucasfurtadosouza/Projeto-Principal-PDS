@@ -4,47 +4,132 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Projeto_PDS.Views"
-      mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="800"
+      mc:Ignorable="d"
+      
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="Transparent"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      
+      d:DesignHeight="600" d:DesignWidth="1020"
       Title="PageDespesa">
 
     <Grid>
-        <StackPanel>
-            <Label Content="Cadastrar Despesa" FontSize="20"/>
-            
-            <StackPanel>
-                <Label Content="Valor" FontSize="16"/>
-                <TextBox x:Name="txtValor" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
-            </StackPanel>
 
-            <StackPanel>
-                <Label Content="Data do Vencimento" FontSize="16"/>
-                <DatePicker x:Name="dpDataVen" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Data do Pagamento" FontSize="16"/>
-                <DatePicker x:Name="dpDataPag" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
-            </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="190"/>
+            <RowDefinition Height="280"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-                    <StackPanel>
-                <Label Content="Forma de Pagamento" FontSize="16"/>
-                <TextBox x:Name="txtFormaPagamento" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
-             </StackPanel>
+        <Border CornerRadius="20" Grid.RowSpan="3" Background="Azure" Margin="20">
+        </Border>
 
-            <StackPanel>
-                <Label Content="Endereço" FontSize="16"/>
-                <TextBox x:Name="txtEndereco" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
+        <!--STACK PANEL NOVO DESPESA-->
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Image Source="/Icons/newDespesa.png" Width="100"/>
+            <StackPanel VerticalAlignment="Center">
+                <Label Content="Cadastrar Nova Despesa" FontSize="30" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
+                <Label Content="Inserir informações para cadastrar uma nova despesa" FontSize="13" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
             </StackPanel>
-            
-            <StackPanel>
-                <Label Content="Descrição" FontSize="16"/>
-                <TextBox x:Name="txtDescricao" Padding="8" FontSize="12" Width="400" HorizontalAlignment="Left"/>
-            </StackPanel>
-            
-            <StackPanel>
-            <Button x:Name="btSalvar" Content="Salvar" Click="btSalvar_Click"/>
-            </StackPanel>
-            
         </StackPanel>
+
+        <!--STACK PANEL INFORMACOES-->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
+                <StackPanel>
+                    <TextBox x:Name="txtValor" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          Width="275"
+                          materialDesign:HintAssist.Hint="Valor"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <DatePicker x:Name="dtDataVen" Padding="8"
+                            Width="200"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            materialDesign:HintAssist.Hint="Data do Vencimento"
+                            Style="{StaticResource MaterialDesignFilledDatePicker}"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <DatePicker x:Name="dtDataPag" Padding="8"
+                            Width="200"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            materialDesign:HintAssist.Hint="Data do Pagamento"
+                            Style="{StaticResource MaterialDesignFilledDatePicker}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
+                <StackPanel>
+                    <TextBox x:Name="txtFormaPagamento" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          Width="250"
+                          materialDesign:HintAssist.Hint="Forma de Pagamento"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBox x:Name="txtDescricao" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          Width="445"
+                          Margin="20,0,0,0"
+                          materialDesign:HintAssist.Hint="Descrição"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <!--STACK PANEL BOTOES-->
+        <StackPanel Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10" Orientation="Horizontal">
+            <Button Width="150" Height="50" Foreground="White" x:Name="btLimpar" Background="Transparent" Click="btLimpar_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="25">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FFF1A132" Offset="0"/>
+                                    <GradientStop Color="#FFFF399B" Offset="1.7"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="Limpar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Width="150" Height="50" Foreground="White" x:Name="btSalvar" Background="Transparent" Click="btSalvar_Click" Margin="50,0,0,0">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="25">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FFF1A132" Offset="0"/>
+                                    <GradientStop Color="#FFFF399B" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="Salvar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+
     </Grid>
 </Page>
