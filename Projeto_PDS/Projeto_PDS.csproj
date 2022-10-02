@@ -120,6 +120,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BoolToVisible.cs" />
     <Compile Include="Helpers\HashHelper.cs" />
     <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="Models\Usuario.cs" />
@@ -226,6 +227,10 @@
     <Page Include="SplashScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Page loading.xaml">
       <SubType>Designer</SubType>
@@ -416,12 +421,14 @@
     <Resource Include="Imagens_Videos\Retangulo_Laranja.png" />
     <Resource Include="Icons\IconMenu.png" />
     <Resource Include="Icons\IconUser.png" />
-    <Resource Include="Icons\guestPFP.png" />
     <Resource Include="Icons\IconCaixa.png" />
     <Resource Include="Icons\newProduto.png" />
     <Resource Include="Icons\newUsuario.png" />
     <Resource Include="Icons\newDespesa.png" />
     <Resource Include="Icons\newCaixa.png" />
+    <Resource Include="Imagens_Videos\Image.png" />
+    <Resource Include="Imagens_Videos\Image1.png" />
+    <Resource Include="Imagens_Videos\Image2.png" />
     <Content Include="Imagens_Videos\VideoLogo.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

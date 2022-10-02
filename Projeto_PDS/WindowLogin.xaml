@@ -8,19 +8,60 @@
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         fw:AcrylicWindow.Enabled="True"
         Title="WindowLogin" WindowStartupLocation="CenterScreen" Height="450" Width="800">
-    <Grid fw:PointerTracker.Enabled="True">
+   
+
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="180"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <Label Content="Usuário" Margin="300 110 300 0"/>
-            <TextBox x:Name="txtUsuario" Background="DarkGray" Margin="300 10 300 0"/>
-            <Label Content="senha" Margin="300 10 300 0"/>
-            <PasswordBox x:Name="txtSenha" Background="DarkGray" Margin="300 10 300 10"/>
-            <StackPanel Grid.Row="1">
-                <Button Name="btLogin" Content="Login" Margin="300 5" Click="btLogin_Click"/>
-            </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="0 100 0 100" Background="Transparent">
+            <Border CornerRadius="10" Background="White">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Height="300" Background="White">
+
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+
+                        <Ellipse Width="100" Height="100" Fill="White">
+
+                        </Ellipse>
+                        <Grid Margin="10">
+
+                            <TextBox x:Name="txtUsuario" />
+
+                        </Grid>
+                        <Grid Margin="10">
+
+                            <PasswordBox x:Name="txtSenha"  OpacityMask="White" Foreground="White"/>
+
+                        </Grid>
+
+
+
+
+
+
+                    </StackPanel>
+                </Grid>
+                <Border.Effect>
+                    <DropShadowEffect Color="#c5c6d0" Direction="330" ShadowDepth="6"/>
+                </Border.Effect>
+            </Border>
         </StackPanel>
+
+
     </Grid>
+
+
 </Window>

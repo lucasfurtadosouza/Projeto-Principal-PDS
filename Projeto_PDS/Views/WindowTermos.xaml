@@ -10,8 +10,9 @@
         Title="WindowTermos" Height="720" Width="1024" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ResourceDictionary>
-            <BitmapImage x:Key="image" UriSource="/Imagens_Videos/Image.png"/>
-            <BitmapImage x:Key="image1" UriSource="/Imagens_Videos/Image1.png"/>
+            <BitmapImage x:Key="Image" UriSource="/Imagens_Videos/Image.png"/>
+            <BitmapImage x:Key="Image1" UriSource="/Imagens_Videos/Image1.png"/>
+            <BitmapImage x:Key="Image2" UriSource="/Imagens_Videos/Image2.png"/>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
@@ -28,31 +29,22 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="1" Grid.Row="2" Margin=" 5 0 0 0">
-            
-            <Image x:Name="Picture"   Width="330" Height="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Source="{StaticResource image }">
-                
-                
+
+            <Image x:Name="Picture"   Width="330" Height="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Source="{StaticResource Image}">
                 <Image.Triggers>
                     <EventTrigger RoutedEvent="Loaded">
                         <BeginStoryboard>
                             <Storyboard>
                                 <DoubleAnimation Storyboard.TargetProperty="Opacity" 
-                                                 SpeedRatio=".2" From="1"
-                                                 To=".2" 
-                                                 RepeatBehavior="Forever"/>
-                                <DoubleAnimation Storyboard.TargetProperty="Opacity" 
-                                                 SpeedRatio=".2" From="1"
-                                                 To=".2" 
+                                                 SpeedRatio="1.0" From="1"
+                                                 To="1.0" 
                                                  RepeatBehavior="Forever"/>
                                 
                                 <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source" 
-                                                               RepeatBehavior="Forever" Duration="0:0:6">
-                                    <DiscreteObjectKeyFrame Value="{StaticResource image1}" KeyTime="0:0:2"/>
-                                    
-
+                                                               RepeatBehavior="Forever" Duration="0:0:9">
+                                    <DiscreteObjectKeyFrame Value="{StaticResource Image1}" KeyTime="0:0:3"/>
+                                    <DiscreteObjectKeyFrame Value="{StaticResource Image2}" KeyTime="0:0:6"/>
                                 </ObjectAnimationUsingKeyFrames>
-
-
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
@@ -64,8 +56,6 @@
 
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal"  HorizontalAlignment="Right" Width="132" >
-
-
             <Button Width="30" Background="Transparent" Cursor="Hand"  Margin="10 0 5 5" BorderThickness="0,0,0,0" Click="btMaximizar_Click" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
                 <Button.Template>
                     <ControlTemplate>
@@ -73,7 +63,6 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-
 
             <Button Width="30" Margin="5 0 5 5" Background="Transparent" Cursor="Hand" BorderThickness="0,0,0,0" Click="btMinimizar_Click">
                 <Button.Template>

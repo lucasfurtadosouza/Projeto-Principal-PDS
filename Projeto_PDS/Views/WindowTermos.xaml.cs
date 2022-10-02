@@ -29,28 +29,8 @@ namespace Projeto_PDS.Views
         {
             InitializeComponent();
             Loaded += WindowTermos_Loaded;
-
-            //Timer timer = new Timer();
-
-            //timer.Elapsed += timer_Tick;
-            //timer.Interval = 1000;
         }
         bool maximize = false;
-        private void timer_Tick(object sender, EventArgs e)
-        {
-
-            Dispatcher.Invoke(new Action(() =>
-            {
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                //  bitmapImage.UriSource = new Uri(files[counter], UriKind.Relative);não esquecer de por o endereço das imagens
-                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                bitmapImage.EndInit();
-                Picture.Source = bitmapImage;
-
-            }));
-
-        }
 
         private void WindowTermos_Loaded(object sender, RoutedEventArgs e)
         {
