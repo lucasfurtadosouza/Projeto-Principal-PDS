@@ -64,7 +64,7 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "INSERT Into usuario Value " +
+                comando.CommandText = "INSERT Into usuario Values " +
 
                     "(null, @nome, @senha, @perm, null)";
 

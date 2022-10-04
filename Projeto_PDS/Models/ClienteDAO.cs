@@ -18,12 +18,13 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "INSERT Into Cliente Value " +
+                comando.CommandText = "INSERT Into Cliente Values " +
 
-                    "(null, @nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @data_nasc, @renda_familiar, @foto, null)";
+                    "(null, @nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @data_nasc, @renda_familiar, null, null)";
 
                 comando.Parameters.AddWithValue("@nome", cliente.Nome);
                 comando.Parameters.AddWithValue("@email", cliente.Email);
+                comando.Parameters.AddWithValue("@cpf", cliente.Cpf);
                 comando.Parameters.AddWithValue("@telefone", cliente.Telefone);
                 comando.Parameters.AddWithValue("@rua", cliente.Rua);
                 comando.Parameters.AddWithValue("@numero", cliente.Numero);
@@ -31,7 +32,7 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@rg", cliente.Rg);
                 comando.Parameters.AddWithValue("@data_nasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
                 comando.Parameters.AddWithValue("@renda_familiar", cliente.RendaFamiliar);
-                comando.Parameters.AddWithValue("@foto", cliente.Foto);
+                //comando.Parameters.AddWithValue("@foto", cliente.Foto);
 
                 var resultado = comando.ExecuteNonQuery();
 
@@ -109,7 +110,7 @@ namespace Projeto_PDS.Models
 
                 comando.CommandText = "UPDATE Cliente SET " +
                     "nome_cli = @nome, email_cli = @email, cpf_cli = @cpf, telefone_cli = @telefone, rua_cli = @rua, numero_cli = @numero, bairro_cli = @bairro, rg_cli = @rg, " +
-                    "data_nasc_cli = @data_nasc, renda_familiar_cli = @renda_familiar, foto_cli = @foto" +
+                    "data_nasc_cli = @data_nasc, renda_familiar_cli = @renda_familiar, foto_cli = null" +
                     "WHERE id_cli = @id";
 
                 comando.Parameters.AddWithValue("@nome", cliente.Nome);
@@ -121,7 +122,6 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@rg", cliente.Rg);
                 comando.Parameters.AddWithValue("@data_nasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
                 comando.Parameters.AddWithValue("@renda_familiar", cliente.RendaFamiliar);
-                comando.Parameters.AddWithValue("@foto", cliente.Foto);
 
                 var resultado = comando.ExecuteNonQuery();
 

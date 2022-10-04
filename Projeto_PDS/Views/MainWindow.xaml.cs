@@ -53,7 +53,7 @@ namespace Projeto_PDS.Views
                     framePage.Source = new System.Uri($"{pack}/PageMain.xaml");
                     break;
                 case "MN_Fornecedor":
-                    framePage.NavigationService.Navigate(new PageFornecedor(this)); //Uri($"{pack}/PageFornecedor.xaml");
+                    framePage.NavigationService.Navigate(new PageFornecedor(this));
                     break;
                 case "MN_Cliente":
                     framePage.Source = new System.Uri($"{pack}/PageCliente.xaml");

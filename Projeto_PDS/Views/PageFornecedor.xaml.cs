@@ -47,19 +47,14 @@ namespace Projeto_PDS.Views
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
-           
-
-           
-
-            _main.setPageMain();
-
+            //_main.setPageMain();
 
             _fornecedor.Nome = txtNome.Text;
             _fornecedor.Razao = txtRazao.Text;
             _fornecedor.Cnpj = txtCnpj.Text;
             _fornecedor.Email = txtEmail.Text;
             _fornecedor.Rua = txtRua.Text;
-            _fornecedor.Numero = txtNumero.Text;
+            _fornecedor.Numero = Convert.ToInt32(txtNumero.Text);
             _fornecedor.Bairro = txtBairro.Text;
             _fornecedor.Telefone = txtTelefone.Text;
 

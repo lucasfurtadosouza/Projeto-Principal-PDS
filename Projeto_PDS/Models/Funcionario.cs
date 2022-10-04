@@ -14,7 +14,7 @@ namespace Projeto_PDS.Models
         public string Cpf { get; set; }
         public string Telefone { get; set; }
         public string Rua { get; set; }
-        public string Numero { get; set; }
+        public int Numero { get; set; }
         public string Bairro { get; set; }
         public string Rg { get; set; }
         public DateTime? DataNasc { get; set; }

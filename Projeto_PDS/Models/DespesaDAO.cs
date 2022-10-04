@@ -18,7 +18,7 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "INSERT Into Despesa Value " +
+                comando.CommandText = "INSERT Into Despesa Values " +
                     "(null, @valor, @data_vencimento, @data_pagamento, @forma_pagamento, @descricao)";
 
                 comando.Parameters.AddWithValue("@valor", despesa.Valor);

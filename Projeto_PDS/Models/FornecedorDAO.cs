@@ -65,7 +65,7 @@ namespace Projeto_PDS.Models
                     Fornecedor.Cnpj = Helpers.DAOHelper.GetString(reader, "cnpj");
                     Fornecedor.Email = Helpers.DAOHelper.GetString(reader, "email");
                     Fornecedor.Rua = Helpers.DAOHelper.GetString(reader, "rua");
-                    Fornecedor.Numero = Helpers.DAOHelper.GetString(reader, "numero");
+                    Fornecedor.Numero = Convert.ToInt32(Helpers.DAOHelper.GetString(reader, "numero"));
                     Fornecedor.Bairro = Helpers.DAOHelper.GetString(reader, "bairro");
                     Fornecedor.Telefone = Helpers.DAOHelper.GetString(reader, "telefone");
                

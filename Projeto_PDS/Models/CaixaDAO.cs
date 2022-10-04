@@ -18,7 +18,7 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "INSERT Into Caixa Value " +
+                comando.CommandText = "INSERT Into Caixa Values " +
 
                     "(null, @saldo_inicial, @saldo_final, @data_abertura, @data_fechamento, @hora_abertura, @hora_fechamento," +
                     "@quantidade_pagamentos, @quantidade_recebimentos)";

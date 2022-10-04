@@ -44,7 +44,7 @@ namespace Projeto_PDS.Views
             _funcionario.Cpf = txtCpf.Text;
             _funcionario.Telefone = txtTelefone.Text;
             _funcionario.Rua = txtRua.Text;
-            _funcionario.Numero = txtNumero.Text;
+            _funcionario.Numero = Convert.ToInt32(txtNumero.Text);
             _funcionario.Bairro = txtBairro.Text;
             _funcionario.Rg = txtRg.Text;
 
