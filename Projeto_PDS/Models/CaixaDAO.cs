@@ -82,7 +82,7 @@ namespace Projeto_PDS.Models
             try
             {
                 var comando = _conn.Query();
-                comando.CommandText = "DELETE FROM Caixa WHERE id_esc = @id";
+                comando.CommandText = "DELETE FROM Caixa WHERE id_cai = @id";
                 comando.Parameters.AddWithValue("@id", caixa.Id);
                 var resultado = comando.ExecuteNonQuery();
                 if (resultado == 0)
