@@ -23,6 +23,8 @@ namespace Projeto_PDS.Views
         public PageMain()
         {
             InitializeComponent();
+            txtHora.Text = DateTime.Now.ToString("hh:mm:ss");
+            txtData.Text = DateTime.Now.ToLongDateString();
         }
     }
 }
