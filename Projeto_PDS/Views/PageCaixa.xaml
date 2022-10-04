@@ -67,14 +67,17 @@
                             materialDesign:HintAssist.Hint="Data de Abertura"
                             Style="{StaticResource MaterialDesignFilledDatePicker}"/>
                 
-                <DatePicker x:Name="dtHoraAbertura" Padding="8"
+                <materialDesign:TimePicker
+                            x:Name="dtHoraAbertura"
+                            Is24Hours="True"
+                            Padding="8"
                             Width="160"
                             Margin="20,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             materialDesign:HintAssist.Hint="Hora de Abertura"
-                            Style="{StaticResource MaterialDesignFilledDatePicker}"/>
-
+                            Style="{StaticResource MaterialDesignFilledTimePicker}"/>
+                    
                 <DatePicker x:Name="dtDataFechamento" Padding="8"
                             Width="160"
                             Margin="20,0,0,0"
@@ -82,14 +85,16 @@
                             HorizontalAlignment="Center"
                             materialDesign:HintAssist.Hint="Data de Fechamento"
                             Style="{StaticResource MaterialDesignFilledDatePicker}"/>
-
-                <DatePicker x:Name="dtHoraFechamento" Padding="8"
+                <materialDesign:TimePicker
+                            x:Name="dtHoraFechamento"
+                            Is24Hours="True"
+                            Padding="8"
                             Width="160"
                             Margin="20,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             materialDesign:HintAssist.Hint="Hora de Fechamento"
-                            Style="{StaticResource MaterialDesignFilledDatePicker}"/>
+                            Style="{StaticResource MaterialDesignFilledTimePicker}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">

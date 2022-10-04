@@ -105,6 +105,7 @@
                           Width="160">
                     <ComboBoxItem Content="Masculino"/>
                     <ComboBoxItem Content="Feminino"/>
+                    <ComboBoxItem Content="Outros"/>
                     <ComboBoxItem Content="Não Informar"/>
                 </ComboBox>
 

@@ -96,7 +96,7 @@ namespace Projeto_PDS.Views
             txtRg.Clear();
             txtRenda.Clear();
             dtDataNasc.SelectedDate = null;
-            cbSexo.SelectedIndex = 0;
+            cbSexo.SelectedIndex = -1;
         }
     }
 }

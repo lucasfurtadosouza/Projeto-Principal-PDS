@@ -10,6 +10,7 @@ tipo_sex varchar(300)
 insert into Sexo values(null, "Masculino");
 insert into Sexo values(null, "Feminino");
 insert into Sexo values(null, "Outros");
+insert into Sexo values(null, "Não Informar");
 
 create table Funcionario(
 id_fun int not null primary key auto_increment,
@@ -30,7 +31,7 @@ foreign key (id_sex_fk) references Sexo (id_sex)
 );
 
 create table Usuario(
-id_Usu int primary key auto_increment,
+id_usu int primary key auto_increment,
 nome_usu varchar(300),
 senha_usu varchar(300),
 nivel_permissao_usu varchar(300),

@@ -43,6 +43,7 @@ namespace Projeto_PDS.Models
                     usuario = new Usuario();
                     usuario.Id = reader.GetInt32("id_usu");
                     usuario.Nome = reader.GetString("nome_usu");
+                    usuario.Permissao = reader.GetString("_usu");
                     usuario.Funcionario = new Funcionario() { Id = reader.GetInt32("id_fun"), Nome = reader.GetString("nome_fun") };
                 }
 

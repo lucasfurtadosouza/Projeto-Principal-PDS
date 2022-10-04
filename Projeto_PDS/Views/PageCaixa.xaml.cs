@@ -48,13 +48,13 @@ namespace Projeto_PDS.Views
             {
                 _caixa.DataFechamento = dtDataFechamento.SelectedDate;
             }
-            if (dtHoraAbertura.SelectedDate != null)
+            if (dtHoraAbertura.SelectedTime != null)
             {
-                _caixa.HoraAbertura = dtHoraAbertura.SelectedDate;
+                _caixa.HoraAbertura = dtHoraAbertura.SelectedTime;
             }
-            if (dtHoraFechamento.SelectedDate != null)
+            if (dtHoraFechamento.SelectedTime != null)
             {
-                _caixa.HoraFechamento = dtHoraFechamento.SelectedDate;
+                _caixa.HoraFechamento = dtHoraFechamento.SelectedTime;
             }
             _caixa.QuantidadePagamentos = Convert.ToInt32(txtQuantidadePagamentos.Text);
             _caixa.QuantidadeRecebimentos = Convert.ToInt32(txtQuantidadeRecebimentos.Text);
@@ -89,8 +89,8 @@ namespace Projeto_PDS.Views
             txtSaldoFinal.Clear();
             dtDataAbertura.SelectedDate = null;
             dtDataFechamento.SelectedDate = null;
-            dtHoraAbertura.SelectedDate = null;
-            dtHoraFechamento.SelectedDate = null;
+            dtHoraAbertura.SelectedTime = null;
+            dtHoraFechamento.SelectedTime = null;
             txtQuantidadePagamentos.Clear();
             txtQuantidadeRecebimentos.Clear();
         }
