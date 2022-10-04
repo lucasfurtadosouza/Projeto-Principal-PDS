@@ -4,28 +4,124 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeto_PDS.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="14"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="WindowNovoUsuario" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        WindowStyle="None"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        fw:AcrylicWindow.Enabled="True"
+        Icon="/Icons/semFundo.ico"
+        ResizeMode="NoResize"
+        Title="" WindowStartupLocation="CenterScreen" Height="720" AllowsTransparency="True" Width="1024" Background="Transparent">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="350"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <Label Content="Usuário" Margin="300 110 300 0"/>
-            <TextBox x:Name="txtUsuario" Background="DarkGray" Margin="300 10 300 0"/>
-            <Label Content="senha" Margin="300 10 300 0"/>
-            <TextBox x:Name="txtSenha" Background="DarkGray" Margin="300 10 300 10"/>
-            <ComboBox x:Name="cbPermissao" Margin=" 300 10 330 10">
-                <ComboBoxItem Content="Administador"/>
-                <ComboBoxItem Content="Gerente"/>
-                <ComboBoxItem Content="Vendedor"/>
-                <ComboBoxItem Content="Controlador"/>
-                <ComboBoxItem Content="Financeiro"/>
-            </ComboBox>
-        </StackPanel>
-        <StackPanel Grid.Row="1">
-            <Button x:Name="btLogin" Content="Login" Margin="300 10" Click="btLogin_Click"/>
+
+
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" Width="720" Height="540">
+            <Border CornerRadius="25" Background="#fbf9fe" Width="690" Height="530">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Height="500"  Margin="10,5,0,5" Background="#fbf9fe">
+                        <Image Source="/Imagens_Videos/imgLogin.png" Stretch="Uniform" Height="500"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" >
+                        <Ellipse Width="110" Height="110"  Margin="0 32 0 0">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Icons/IconLogin.png"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Grid Margin=" 0 50 0 10" Width="270">
+                            <TextBox
+                             x:Name="txtUsuario"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             materialDesign:TextFieldAssist.TextFieldCornerRadius="20"
+                             materialDesign:HintAssist.Foreground="#434343"
+                             BorderThickness="0"
+                             Background="#ffffff"
+                             VerticalAlignment="Top"
+                             materialDesign:HintAssist.Hint="Usuário"
+                             materialDesign:HintAssist.HelperText="">
+                                <TextBox.Text>
+                                    <Binding Path=" " UpdateSourceTrigger="PropertyChanged">
+                                    </Binding>
+                                </TextBox.Text>
+                                <TextBox.Effect>
+                                    <DropShadowEffect Color="#c5c6d0" Direction="330" ShadowDepth="2"/>
+                                </TextBox.Effect>
+                            </TextBox>
+                        </Grid>
+                        <Grid Margin="15" Width="270">
+                            <StackPanel Orientation="Vertical">
+                                <PasswordBox
+                                Background="#ffffff"
+                                x:Name="txtSenha"
+                                Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}"
+                                IsEnabled="{Binding ElementName=RevealPasswordOutlinedEnabled, Path=IsChecked}"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="20"
+                                materialDesign:HintAssist.Foreground="#434343"
+                                BorderThickness="0"
+                                materialDesign:HintAssist.Hint="Senha"
+                                materialDesign:TextFieldAssist.HasClearButton="True">
+                                    <PasswordBox.Effect>
+                                        <DropShadowEffect Color="#c5c6d0" Direction="330" ShadowDepth="2"/>
+                                    </PasswordBox.Effect>
+                                </PasswordBox>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Margin="15" Width="270">
+                            <ComboBox
+                            x:Name="cbPermissao"
+                            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            materialDesign:HintAssist.Foreground="Black"
+                            BorderThickness="0"
+                            materialDesign:HintAssist.Hint="Permissão"
+                            ItemsSource="{Binding ShortStringList}"
+                            Width="256">
+                                <ComboBoxItem Content="Administador"/>
+                                <ComboBoxItem Content="Gerente"/>
+                                <ComboBoxItem Content="Vendedor"/>
+                                <ComboBoxItem Content="Controlador"/>
+                                <ComboBoxItem Content="Financeiro"/>
+                                <ComboBox.Effect>
+                                    <DropShadowEffect Color="#c5c6d0" Direction="330" ShadowDepth="2"/>
+                                </ComboBox.Effect>
+                            </ComboBox>
+                        </Grid>
+                        <Grid Margin="0 40 0 0" HorizontalAlignment="Center" Width="270">
+                            <Button Width="180" Height="47" HorizontalAlignment="Center" Foreground="White" x:Name="btLogin" FontWeight="UltraBold" Background="Transparent" Click="btLogin_Click" Cursor="Hand" FontSize="22">
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <Border CornerRadius="26">
+                                            <Border.Background>
+                                                <LinearGradientBrush>
+                                                    <GradientStop Color="#845EC2" Offset="0"/>
+                                                    <GradientStop Color="#C4FCEF" Offset="1.4"/>
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                            <Border.Effect>
+                                                <DropShadowEffect Color="AntiqueWhite"  ShadowDepth="0.1" Direction="330">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                            <Image Source="/Imagens_Videos/imgEntrar.png" Stretch="Uniform" Margin="26,8,22,6"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+                <Border.Effect>
+                    <DropShadowEffect Color="#c5c6d0" Direction="330" ShadowDepth="6"/>
+                </Border.Effect>
+            </Border>
         </StackPanel>
     </Grid>
 </Window>

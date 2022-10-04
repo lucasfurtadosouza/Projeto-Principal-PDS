@@ -30,7 +30,7 @@ namespace Projeto_PDS.Views
         //private Funcionario _func = new Funcionario();
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-            if(txtSenha.Text == "" && txtUsuario.Text == "")
+            if(txtSenha.Password.ToString() == "" && txtUsuario.Text == "")
             {
                 MessageBox.Show("Digite um usuário ou senha válidos", "Usuário ou Senha inválidos", MessageBoxButton.OK, MessageBoxImage.Error);
 
@@ -41,7 +41,7 @@ namespace Projeto_PDS.Views
                 //string HashPassword = CalcSaltedPass(salt, txtSenha.Text);
                 //string HashUsuario = CalcSaltedPass(salt, txtUsuario.Text);
                 string HashUsuario = getHashSha256(txtUsuario.Text);
-                string HashPassword = getHashSha256(txtSenha.Text);
+                string HashPassword = getHashSha256(txtSenha.Password.ToString());
                 _login.Senha = HashPassword;
                 _login.Nome = HashUsuario;
                 //_func.Nome = txtNome.Text;

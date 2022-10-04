@@ -27,6 +27,9 @@ namespace Projeto_PDS
         {
             InitializeComponent();
             Loaded += WindowLogin_Loaded;
+            this.WindowStyle = WindowStyle.None;
+
+
         }
         private Usuario _login = new Usuario();
         private void WindowLogin_Loaded(object sender, RoutedEventArgs e)

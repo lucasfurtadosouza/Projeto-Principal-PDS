@@ -8,46 +8,43 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
+        TextElement.FontSize="14"
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         fw:AcrylicWindow.Enabled="True"
-        WindowStyle="None"
-        Title="WindowLogin" WindowStartupLocation="CenterScreen" Height="720" Width="1024">
+        Icon="/Icons/semFundo.ico"
+        ResizeMode="NoResize"
+        Title="" WindowStartupLocation="CenterScreen" Height="720" AllowsTransparency="True" Width="1024" Background="Transparent">
    
 
         <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="180"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="180"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" Width="720" Height="540">
-            <Border CornerRadius="16" Background="White" Width="690" Height="510">
+            <Border CornerRadius="25" Background="#fbf9fe" Width="690" Height="510">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Height="300" Background="White" Margin="10,5,0,5">
-
+                    <StackPanel Grid.Column="0" Height="500"  Margin="10,5,0,5" Background="#fbf9fe">
+                        <Image Source="/Imagens_Videos/imgLogin.png" Stretch="Uniform" Height="500"/>
                     </StackPanel>
                     <StackPanel Grid.Column="1" >
-                        <Ellipse Width="150" Height="150" Fill="White"/>
-                        <Grid Margin="10" Width="270">
+                        <Ellipse Width="110" Height="110"  Margin="0 50 0 0">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Icons/IconLogin.png"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Grid Margin=" 0 50 0 10" Width="270">
                             <TextBox
                              x:Name="txtUsuario"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.TextFieldCornerRadius="20"
                              materialDesign:HintAssist.Foreground="#434343"
                              BorderThickness="0"
+                                Background="#ffffff"
                              VerticalAlignment="Top"
                              materialDesign:HintAssist.Hint="Usuário"
                              materialDesign:HintAssist.HelperText="">
@@ -55,11 +52,15 @@
                                     <Binding Path=" " UpdateSourceTrigger="PropertyChanged">
                                     </Binding>
                                 </TextBox.Text>
+                                <TextBox.Effect>
+                                    <DropShadowEffect Color="#c5c6d0" Direction="330" ShadowDepth="2"/>
+                                </TextBox.Effect>
                             </TextBox>
                         </Grid>
                         <Grid Margin="15" Width="270">
                             <StackPanel Orientation="Vertical">
                                 <PasswordBox
+                                    Background="#ffffff"
                                 x:Name="txtSenha"
                                 Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}"
                                 IsEnabled="{Binding ElementName=RevealPasswordOutlinedEnabled, Path=IsChecked}"
@@ -67,18 +68,21 @@
                                 materialDesign:HintAssist.Foreground="#434343"
                                 BorderThickness="0"
                                 materialDesign:HintAssist.Hint="Senha"
-                                materialDesign:TextFieldAssist.HasClearButton="True"/>
+                                materialDesign:TextFieldAssist.HasClearButton="True">
+                                    <PasswordBox.Effect>
+                                        <DropShadowEffect Color="#c5c6d0" Direction="330" ShadowDepth="2"/>
+                                    </PasswordBox.Effect> </PasswordBox>
                             </StackPanel>
                         </Grid>
-                        <Grid Margin="40" Width="270">
+                        <Grid Margin="0 50 0 0" HorizontalAlignment="Center" Width="270">
                             <Button Width="180" Height="47" HorizontalAlignment="Center" Foreground="White" x:Name="btLogin" FontWeight="UltraBold" Background="Transparent" Click="btLogin_Click" Cursor="Hand" FontSize="22">
                                 <Button.Template>
                                     <ControlTemplate>
                                         <Border CornerRadius="26">
                                             <Border.Background>
                                                 <LinearGradientBrush>
-                                                    <GradientStop Color="#FFF1A132" Offset="0"/>
-                                                    <GradientStop Color="#FFFF399B" Offset="1.7"/>
+                                                    <GradientStop Color="#845EC2" Offset="0"/>
+                                                    <GradientStop Color="#C4FCEF" Offset="1.4"/>
                                                 </LinearGradientBrush>
                                             </Border.Background>
                                             <Border.Effect>
@@ -98,7 +102,6 @@
                 </Border.Effect>
             </Border>
         </StackPanel>
-
 
     </Grid>
 
