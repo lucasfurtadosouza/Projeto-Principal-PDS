@@ -94,7 +94,7 @@ saldo_final_cai double,
 data_abertura_cai date,
 data_fechamento_cai date,
 hora_abertura_cai time,
-hora_fechamento time,
+hora_fechamento_cai time,
 quantidade_pagamentos_cai int,
 quantidade_recebimentos_cai int
 );

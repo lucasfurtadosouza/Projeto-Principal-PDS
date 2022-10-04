@@ -33,15 +33,15 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Remover_Click(object sender, RoutedEventArgs e)
         {
-            var FornecedorSelecionada = dtFornecedor.SelectedItem as Fornecedor;
-            var resultado = MessageBox.Show($"Deseja realmente excluir o fornecedor '{FornecedorSelecionada.Razao}'?", "Confirmar Exclusão",
+            var FornecedorSelecionado = dtFornecedor.SelectedItem as Fornecedor;
+            var resultado = MessageBox.Show($"Deseja realmente excluir o fornecedor '{FornecedorSelecionado.Razao}'?", "Confirmar Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
             try
             {
                 if (resultado == MessageBoxResult.Yes)
                 {
                     var dao = new FornecedorDAO();
-                    dao.Delete(FornecedorSelecionada);
+                    dao.Delete(FornecedorSelecionado);
 
                     MessageBox.Show("Registro deletado com sucesso!");
                     CarregarListagem();

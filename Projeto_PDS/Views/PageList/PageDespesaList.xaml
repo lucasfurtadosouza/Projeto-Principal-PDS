@@ -5,45 +5,97 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Projeto_PDS.Views.PageList"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal" 
+      TextOptions.TextRenderingMode="Auto"        
+      FontFamily="{DynamicResource MaterialDesignFont}"
+      d:DesignHeight="540" d:DesignWidth="800"
       Title="PageDespesaList">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-    <Grid Background="DimGray">
+        <StackPanel Grid.Column="0">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+            <Border CornerRadius="10" Margin=" 10 40 10 10" Height="200" >
+                <TextBlock  Margin="25 20 10 10"  Foreground="White" IsHitTestVisible="False" Text="Busca"/>
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="3" Color="Gray"/>
+                </Border.Effect>
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                        <GradientStop Color="#8185fc" Offset="0.8"/>
+                        <GradientStop Color="#dfbdff" Offset="0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
 
-        <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Width="86" Background="#FFB92D2D" Cursor="Hand" BorderBrush="Black" Height="32" Click="btVoltar_Click"/>
-        <TextBlock Grid.Row="0" Text="Listagem de Despesas" FontSize="24" Padding="10" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="btCarregar" Content="Recarregar" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" Width="108" Cursor="Hand" Background="#FF49B73A" BorderBrush="Black" Click="btCarregar_Click" Height="30"/>
+            <StackPanel Margin="20 -180 20 0">
+                <TextBox Width="180" x:Name="txtBuscar"></TextBox>
+                <Button
+                  Content="Clear"
+                  Style="{StaticResource MaterialDesignFlatButton}"
+                   Foreground="White"
+                  HorizontalAlignment="Right"
+                  Grid.Column="1" Cursor="Hand" Margin="0 15 0 0"/>
 
-        <DataGrid Grid.Row="1" x:Name="dataGridDespesa" Margin="5" IsReadOnly="True" AlternatingRowBackground="LightBlue" AlternationCount="2" AutoGenerateColumns="False">
-            <DataGrid.Background>
-                <SolidColorBrush Color="#FFFAFAFA" Opacity="0.55"/>
-            </DataGrid.Background>
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}"/>
-                <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
-                <DataGridTextColumn Header="Data de Vencimento" Binding="{Binding Data_Vencimento}"/>
-                <DataGridTextColumn Header="Data de Pagamento" Binding="{Binding Data_Pagamento }"/>
-                <DataGridTextColumn Header="Forma de Pagamento" Binding="{Binding Forma_Pagamento }"/>
-                
+                <ComboBox
+                    x:Name="cbFiltro"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
+                    materialDesign:HintAssist.Hint="Filtro"
+                    ItemsSource="{Binding ShortStringList}"
+                       Foreground="White"
+                        Margin=" 2 20 0 0"
+                    Width="195" />
+            </StackPanel>
 
-                <DataGridTemplateColumn Header="Ações">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="Atualizar registrar" Margin="5 0" Click="Button_Atualizar_Click"/>
-                                <Button Content="Excluir o registro" Click="Button_Remover_Click"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
 
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Border CornerRadius="10" Margin="10" Height="500">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="2,0" EndPoint="0,1">
+                        <GradientStop Color="White" Offset="0.7"/>
+                        <GradientStop Color="#8185fc" Offset="0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="3" Color="Gray"/>
+
+                </Border.Effect>
+                <DataGrid x:Name="dtDespesa" IsReadOnly="True" AlternatingRowBackground="LightBlue" AlternationCount="2" AutoGenerateColumns="False" Margin="5 20 5 20">
+                    <DataGrid.Background>
+                        <SolidColorBrush Color="#FFFAFAFA" Opacity="0.55"/>
+                    </DataGrid.Background>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}"/>
+                        <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
+                        <DataGridTextColumn Header="Data de Vencimento" Binding="{Binding Data_Vencimento}"/>
+                        <DataGridTextColumn Header="Data de Pagamento" Binding="{Binding Data_Pagamento}"/>
+                        <DataGridTextColumn Header="Forma de Pagamento" Binding="{Binding Forma_Pagamento }"/>
+
+
+                        <DataGridTemplateColumn Header="Ações">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="Atualizar registrar" Margin="5 0" Click="Button_Atualizar_Click"/>
+                                        <Button Content="Excluir o registro" Click="Button_Remover_Click"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </StackPanel>
     </Grid>
 </Page>

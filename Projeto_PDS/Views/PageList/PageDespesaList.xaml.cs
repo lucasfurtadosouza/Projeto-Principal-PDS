@@ -33,7 +33,7 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Remover_Click(object sender, RoutedEventArgs e)
         {
-            var despesaSelecionada = dataGridDespesa.SelectedItem as Despesa;
+            var despesaSelecionada = dtDespesa.SelectedItem as Despesa;
             var resultado = MessageBox.Show($"Deseja realmente excluir a despesa '{despesaSelecionada.Id}'?", "Confirmar Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
             try
@@ -54,7 +54,7 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
-            var despesaSelecionada = dataGridDespesa.SelectedItem as Despesa;
+            var despesaSelecionada = dtDespesa.SelectedItem as Despesa;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -67,7 +67,7 @@ namespace Projeto_PDS.Views.PageList
                 var dao = new DespesaDAO();
                 List<Despesa> listaDespesas = dao.List();
 
-                dataGridDespesa.ItemsSource = listaDespesas;
+                dtDespesa.ItemsSource = listaDespesas;
 
             }
             catch (Exception ex)

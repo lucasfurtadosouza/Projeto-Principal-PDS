@@ -5,24 +5,22 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Projeto_PDS.Views.PageList"
       mc:Ignorable="d" 
-         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
       TextElement.FontWeight="Regular"
       TextElement.FontSize="13"
       TextOptions.TextFormattingMode="Ideal" 
       TextOptions.TextRenderingMode="Auto"        
       FontFamily="{DynamicResource MaterialDesignFont}"
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="540" d:DesignWidth="800"
       Title="PageFornecedorList">
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
-
-
-
         </Grid.ColumnDefinitions>
+        
         <StackPanel Grid.Column="0">
 
             <Border CornerRadius="10" Margin=" 10 40 10 10" Height="200" >
@@ -56,7 +54,7 @@
                 x:Name="cbFiltro"
                 Style="{StaticResource MaterialDesignOutlinedComboBox}"
                 IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
-                materialDesign:HintAssist.Hint="Some item"
+                materialDesign:HintAssist.Hint="Filtro"
                 ItemsSource="{Binding ShortStringList}"
                    Foreground="White"
                     Margin=" 2 20 0 0"
@@ -66,49 +64,40 @@
 
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <Border CornerRadius="10" Margin="10"  Height="400">
+            <Border CornerRadius="10" Margin="10"  Height="500">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="2,0" EndPoint="0,1">
                         <GradientStop Color="White" Offset="0.7"/>
-                        <GradientStop Color="#FFEDBC" Offset="0"/>
+                        <GradientStop Color="#8185fc" Offset="0"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="3" Color="Gray"/>
 
                 </Border.Effect>
-                <DataGrid x:Name="dtFornecedor" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Margin="5 20 5 20">
+                <DataGrid x:Name="dtFornecedor" IsReadOnly="True" AlternatingRowBackground="LightBlue" AlternationCount="2" AutoGenerateColumns="False" Margin="5 20 5 20">
+                    <DataGrid.Background>
+                        <SolidColorBrush Color="#FFFAFAFA" Opacity="0.55"/>
+                    </DataGrid.Background>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                        <DataGridTextColumn Header="Nome" Binding="{Binding NomeFantasia}"/>
-                        <DataGridCheckBoxColumn CanUserResize="False" Width="auto">
-                            <DataGridCheckBoxColumn.Header>
-                                <DataTemplate>
-                                    <CheckBox />
+                        <DataGridTextColumn Header="Nome Fantasia" Binding="{Binding Nome}"/>
+                        <DataGridTextColumn Header="Razão Social" Binding="{Binding Razao}"/>
+                        <DataGridTextColumn Header="CNPJ" Binding="{Binding Cnpj}"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
 
-                                </DataTemplate>
-                                
-                            </DataGridCheckBoxColumn.Header>
-                            
-                        </DataGridCheckBoxColumn>
-                        <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" />
-                   
-                        <DataGridTemplateColumn Header="Fornecedor" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn Header="Ações">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                            
-                                            <Button Content="Atualizar registrar" Margin="5 0" />
-                                            <Button x:Name="Remover" Content="Excluir o registro" Click="Button_Remover_Click"/>
-                                     
+                                        <Button Content="Atualizar registrar" Margin="5 0" Click="Button_Atualizar_Click"/>
+                                        <Button Content="Excluir o registro" Click="Button_Remover_Click"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" />
                     </DataGrid.Columns>
                 </DataGrid>
-
             </Border>
         </StackPanel>
     </Grid>

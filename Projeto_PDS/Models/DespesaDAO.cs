@@ -47,7 +47,7 @@ namespace Projeto_PDS.Models
                 List<Despesa> list = new List<Despesa>();
 
                 var query = _conn.Query();
-                query.CommandText = "SELECT * FROM despesa";
+                query.CommandText = "SELECT * FROM Despesa";
 
                 MySqlDataReader reader = query.ExecuteReader();
 
@@ -57,7 +57,7 @@ namespace Projeto_PDS.Models
                     despesa.Id = reader.GetInt32("id_des");
                     despesa.Valor = Convert.ToDouble(Helpers.DAOHelper.GetString(reader, "valor_des"));
                     despesa.Data_Vencimento = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_vencimento_des"));
-                    despesa.Data_Pagamento  = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, " data_pagamento_des"));
+                    despesa.Data_Pagamento  = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_pagamento_des"));
                     despesa.Forma_Pagamento = Helpers.DAOHelper.GetString(reader, "forma_pagamento_des");
                     despesa.Descricao = Helpers.DAOHelper.GetString(reader, "descricao_des");               
 

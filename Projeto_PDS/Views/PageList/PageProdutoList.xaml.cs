@@ -33,7 +33,7 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Remover_Click(object sender, RoutedEventArgs e)
         {
-            var produtoSelecionado = dataGridProduto.SelectedItem as Produto;
+            var produtoSelecionado = dtProduto.SelectedItem as Produto;
             var resultado = MessageBox.Show($"Deseja realmente excluir o produto '{produtoSelecionado.Nome}'?", "Confirmar Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
             try
@@ -54,7 +54,7 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
-            var produtoSelecionado = dataGridProduto.SelectedItem as Produto;
+            var produtoSelecionado = dtProduto.SelectedItem as Produto;
         }
         private void CarregarListagem()
         {
@@ -63,7 +63,7 @@ namespace Projeto_PDS.Views.PageList
                 var dao = new ProdutoDAO();
                 List<Produto> listaProdutos = dao.List();
 
-                dataGridProduto.ItemsSource = listaProdutos;
+                dtProduto.ItemsSource = listaProdutos;
 
             }
             catch (Exception ex)

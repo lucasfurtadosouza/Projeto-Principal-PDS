@@ -34,8 +34,8 @@ namespace Projeto_PDS.Views.PageList
 
         private void Button_Remover_Click(object sender, RoutedEventArgs e)
         {
-            var clienteSelecionado = dataGridCliente.SelectedItem as Cliente;
-            var resultado = MessageBox.Show($"Deseja realmente excluir o registro '{clienteSelecionado.Id}'?", "Confirmar Exclusão",
+            var clienteSelecionado = dtCliente.SelectedItem as Cliente;
+            var resultado = MessageBox.Show($"Deseja realmente excluir o cliente '{clienteSelecionado.Nome}'?", "Confirmar Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
             try
             {
@@ -56,7 +56,7 @@ namespace Projeto_PDS.Views.PageList
 
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
-            var clienteSelecionado = dataGridCliente.SelectedItem as Cliente;
+            var clienteSelecionado = dtCliente.SelectedItem as Cliente;
         }
 
         private void CarregarListagem()
@@ -66,7 +66,7 @@ namespace Projeto_PDS.Views.PageList
                 var dao = new ClienteDAO();
                 List<Cliente> listaClientes = dao.List();
 
-                dataGridCliente.ItemsSource = listaClientes;
+                dtCliente.ItemsSource = listaClientes;
 
             }
             catch (Exception ex)

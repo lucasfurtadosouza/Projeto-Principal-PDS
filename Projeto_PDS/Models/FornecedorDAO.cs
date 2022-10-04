@@ -60,14 +60,14 @@ namespace Projeto_PDS.Models
                     var Fornecedor = new Fornecedor();
                     Fornecedor.Id = reader.GetInt32("id_for");
 
-                    Fornecedor.Nome = Helpers.DAOHelper.GetString(reader, "nome_fantasia");
-                    Fornecedor.Razao = Helpers.DAOHelper.GetString(reader, "razao.social");
-                    Fornecedor.Cnpj = Helpers.DAOHelper.GetString(reader, "cnpj");
-                    Fornecedor.Email = Helpers.DAOHelper.GetString(reader, "email");
-                    Fornecedor.Rua = Helpers.DAOHelper.GetString(reader, "rua");
-                    Fornecedor.Numero = Convert.ToInt32(Helpers.DAOHelper.GetString(reader, "numero"));
-                    Fornecedor.Bairro = Helpers.DAOHelper.GetString(reader, "bairro");
-                    Fornecedor.Telefone = Helpers.DAOHelper.GetString(reader, "telefone");
+                    Fornecedor.Nome = Helpers.DAOHelper.GetString(reader, "nome_fantasia_for");
+                    Fornecedor.Razao = Helpers.DAOHelper.GetString(reader, "razao_social_for");
+                    Fornecedor.Cnpj = Helpers.DAOHelper.GetString(reader, "cnpj_for");
+                    Fornecedor.Email = Helpers.DAOHelper.GetString(reader, "email_for");
+                    Fornecedor.Rua = Helpers.DAOHelper.GetString(reader, "rua_for");
+                    Fornecedor.Numero = Convert.ToInt32(Helpers.DAOHelper.GetString(reader, "numero_for"));
+                    Fornecedor.Bairro = Helpers.DAOHelper.GetString(reader, "bairro_for");
+                    Fornecedor.Telefone = Helpers.DAOHelper.GetString(reader, "telefone_for");
                
                     list.Add(Fornecedor);
                 }

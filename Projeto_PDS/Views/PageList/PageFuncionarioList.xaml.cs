@@ -33,8 +33,8 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Remover_Click(object sender, RoutedEventArgs e)
         {
-            var funcionarioSelecionado = dataGridFuncionario.SelectedItem as Funcionario;
-            var resultado = MessageBox.Show($"Deseja realmente excluir a escola '{funcionarioSelecionado.Id}'?", "Confirmar Exclusão",
+            var funcionarioSelecionado = dtFuncionario.SelectedItem as Funcionario;
+            var resultado = MessageBox.Show($"Deseja realmente excluir o funcionário '{funcionarioSelecionado.Nome}'?", "Confirmar Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
             try
             {
@@ -54,7 +54,7 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
-            var caixaSelecionada = dataGridFuncionario.SelectedItem as Caixa;
+            var caixaSelecionada = dtFuncionario.SelectedItem as Caixa;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -67,8 +67,7 @@ namespace Projeto_PDS.Views.PageList
                 var dao = new FuncionarioDAO();
                 List<Funcionario> listaFuncionario = dao.List();
 
-                dataGridFuncionario.ItemsSource = listaFuncionario;
-
+                dtFuncionario.ItemsSource = listaFuncionario;
             }
             catch (Exception ex)
             {

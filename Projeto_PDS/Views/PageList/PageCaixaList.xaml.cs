@@ -33,7 +33,7 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Remover_Click(object sender, RoutedEventArgs e)
         {
-            var caixaSelecionada = dataGridCaixa.SelectedItem as Caixa;
+            var caixaSelecionada = dtCaixa.SelectedItem as Caixa;
             var resultado = MessageBox.Show($"Deseja realmente excluir o caixa '{caixaSelecionada.Id}'?", "Confirmar Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
             try
@@ -54,7 +54,7 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
-            var caixaSelecionada = dataGridCaixa.SelectedItem as Caixa;
+            var caixaSelecionada = dtCaixa.SelectedItem as Caixa;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -67,7 +67,7 @@ namespace Projeto_PDS.Views.PageList
                 var dao = new CaixaDAO();
                 List<Caixa> listaCaixas = dao.List();
 
-                dataGridCaixa.ItemsSource = listaCaixas;
+                dtCaixa.ItemsSource = listaCaixas;
 
             }
             catch (Exception ex)
