@@ -32,14 +32,14 @@
         </Storyboard>
         <Storyboard x:Key="Extend">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="framePage">
-                <EasingDoubleKeyFrame KeyTime="0" Value="1286"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1475.8"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="1669"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1858.8"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="Compress">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="framePage">
-                <EasingDoubleKeyFrame KeyTime="0" Value="1475.8"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1286"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="1858.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1669"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="CompressFotoWidth">
@@ -220,6 +220,6 @@
                 </StackPanel>
             </Border>
         </Grid>
-        <Frame x:Name="framePage" Grid.ColumnSpan="2" Width="1286" Height="800" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 0 0" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="framePage" Grid.ColumnSpan="2" Width="1669" Height="1000" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 0 0" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
