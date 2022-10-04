@@ -20,7 +20,7 @@ namespace Projeto_PDS.Models
                 comando.CommandText = "INSERT Into Funcionario Values " +
 
                     "(null, @nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @data, @carteira, @salario," +
-                    "null, null)";
+                    "null, null)"; //ULTIMO NULL É DA FOREIGN KEY DE SEXO
 
                 comando.Parameters.AddWithValue("@nome", funcionario.Nome);
                 comando.Parameters.AddWithValue("@email", funcionario.Email);
