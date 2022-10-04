@@ -20,14 +20,14 @@ namespace Projeto_PDS.Models
 
                 comando.CommandText = "INSERT Into Produto Values " +
 
-                    "(null, @nome, @valorCompra, @valorVenda, @estoque, @descricao, @   )";
+                    "(null, @nome, @valorCompra, @valorVenda, @estoque, @descricao, null)";
 
                 comando.Parameters.AddWithValue("@nome", produto.Nome);
                 comando.Parameters.AddWithValue("@valorCompra", produto.ValorCompra);
                 comando.Parameters.AddWithValue("@valorVenda", produto.ValorVenda);
                 comando.Parameters.AddWithValue("@estoque", produto.Estoque);
                 comando.Parameters.AddWithValue("@descricao", produto.Descricao);
-                comando.Parameters.AddWithValue("@foto", produto.Foto);
+                //comando.Parameters.AddWithValue("@foto", produto.Foto);
 
                 var resultado = comando.ExecuteNonQuery();
 
