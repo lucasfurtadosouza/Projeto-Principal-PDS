@@ -76,7 +76,7 @@ namespace Projeto_PDS.Models
             try
             {
                 var comando = _conn.Query();
-                comando.CommandText = "DELETE FROM despesa WHERE id_esc = @id";
+                comando.CommandText = "DELETE FROM despesa WHERE id_des = @id";
                 comando.Parameters.AddWithValue("@id", despesa.Id);
                 var resultado = comando.ExecuteNonQuery();
                 if (resultado == 0)
@@ -101,14 +101,14 @@ namespace Projeto_PDS.Models
                     " data_vencimento_des = @Data_Vencimento," +
                     " data_pagamento_des = @Data_Pagamento, " +
                     "forma_pagamento_des = @Forma_Pagamento," +
-                    "descricao_des = @Descriçao " ;
+                    "descricao_des = @Descricao " ;
 
                 comando.Parameters.AddWithValue("@id", despesa.Id);
                 comando.Parameters.AddWithValue("@valor", despesa.Valor);
                 comando.Parameters.AddWithValue("@Data_Vencimento", despesa.Data_Vencimento);
                 comando.Parameters.AddWithValue("@Data_Pagamento", despesa.Data_Pagamento);
                 comando.Parameters.AddWithValue("@Forma_Pagamento", despesa.Forma_Pagamento);
-                comando.Parameters.AddWithValue("@Descriçao", despesa.Descricao);
+                comando.Parameters.AddWithValue("@Descricao", despesa.Descricao);
  
                 var resultado = comando.ExecuteNonQuery();
 
