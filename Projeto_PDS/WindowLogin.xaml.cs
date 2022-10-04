@@ -51,7 +51,7 @@ namespace Projeto_PDS
         }
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-            string email = txtUsuario.Text;
+            /*string email = txtUsuario.Text;
             string senha = txtSenha.Password.ToString();
 
             if (SessionHelper.Login(email, senha))
@@ -64,7 +64,10 @@ namespace Projeto_PDS
             {
                 MessageBox.Show("Usuario e/ou senha incorretos! Tente novamente", "Autorização negada", MessageBoxButton.OK, MessageBoxImage.Warning);
                 _ = txtUsuario.Focus();
-            }
+            }*/
+            var dao = new MainWindow();
+            dao.Show();
+            this.Close();
         }
     }
 }

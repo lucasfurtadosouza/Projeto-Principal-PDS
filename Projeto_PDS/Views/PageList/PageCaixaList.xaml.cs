@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Projeto_PDS.Views;
 using Projeto_PDS.Models;
 
 namespace Projeto_PDS.Views.PageList
@@ -55,6 +56,8 @@ namespace Projeto_PDS.Views.PageList
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
             var caixaSelecionada = dtCaixa.SelectedItem as Caixa;
+            var dao = new WindowCaixa();
+            dao.ShowDialog();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

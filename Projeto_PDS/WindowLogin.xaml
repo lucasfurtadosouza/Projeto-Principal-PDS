@@ -12,9 +12,7 @@
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         FontFamily="{DynamicResource MaterialDesignFont}"
-        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
-        fw:AcrylicWindow.Enabled="True"
-        Icon="/Icons/semFundo.ico"
+        WindowStyle="None"
         ResizeMode="NoResize"
         Title="" WindowStartupLocation="CenterScreen" Height="720" AllowsTransparency="True" Width="1024" Background="Transparent">
    
@@ -86,7 +84,7 @@
                                                 </LinearGradientBrush>
                                             </Border.Background>
                                             <Border.Effect>
-                                                <DropShadowEffect Color="AntiqueWhite"  ShadowDepth="0.1" Direction="330">
+                                                <DropShadowEffect Color="LightGray"  ShadowDepth="0.1" Direction="330">
                                                 </DropShadowEffect>
                                             </Border.Effect>
                                             <Image Source="/Imagens_Videos/imgEntrar.png" Stretch="Uniform" Margin="26,8,22,6"/>

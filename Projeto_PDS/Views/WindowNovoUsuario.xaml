@@ -13,26 +13,34 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         WindowStyle="None"
-        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
-        fw:AcrylicWindow.Enabled="True"
-        Icon="/Icons/semFundo.ico"
         ResizeMode="NoResize"
         Title="" WindowStartupLocation="CenterScreen" Height="720" AllowsTransparency="True" Width="1024" Background="Transparent">
     <Grid>
 
 
-        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" Width="720" Height="540">
-            <Border CornerRadius="25" Background="#fbf9fe" Width="690" Height="530">
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" Width="720" Height="560">
+            <Border CornerRadius="25" Background="#fbf9fe" Width="690" Height="550">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Height="500"  Margin="10,5,0,5" Background="#fbf9fe">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Grid.Column="0" Grid.Row="1" Height="500"  Margin="10,5,0,5" Background="#fbf9fe">
                         <Image Source="/Imagens_Videos/imgLogin.png" Stretch="Uniform" Height="500"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="1" >
-                        <Ellipse Width="110" Height="110"  Margin="0 32 0 0">
+                    <StackPanel Grid.RowSpan="2" Grid.Column="0">
+                        <TextBlock Text="Cadastro de Novo Usuário" FontSize="22" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#555555" Margin="45 65 0 0"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="0" Grid.Column="1">
+
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="1">
+                        <Ellipse Width="110" Height="110"  Margin="0 0 0 0">
                             <Ellipse.Fill>
                                 <ImageBrush ImageSource="/Icons/IconLogin.png"/>
                             </Ellipse.Fill>
@@ -80,11 +88,12 @@
                             x:Name="cbPermissao"
                             Style="{StaticResource MaterialDesignOutlinedComboBox}"
                             materialDesign:TextFieldAssist.HasClearButton="True"
-                            materialDesign:HintAssist.Foreground="Black"
+                            materialDesign:TextFieldAssist.TextFieldCornerRadius="20"
+                            materialDesign:HintAssist.Foreground="#434343"
                             BorderThickness="0"
+                            Background="#ffffff"
                             materialDesign:HintAssist.Hint="Permissão"
-                            ItemsSource="{Binding ShortStringList}"
-                            Width="256">
+                            ItemsSource="{Binding ShortStringList}">
                                 <ComboBoxItem Content="Administador"/>
                                 <ComboBoxItem Content="Gerente"/>
                                 <ComboBoxItem Content="Vendedor"/>
@@ -107,7 +116,7 @@
                                                 </LinearGradientBrush>
                                             </Border.Background>
                                             <Border.Effect>
-                                                <DropShadowEffect Color="AntiqueWhite"  ShadowDepth="0.1" Direction="330">
+                                                <DropShadowEffect Color="LightGray"  ShadowDepth="0.1" Direction="330">
                                                 </DropShadowEffect>
                                             </Border.Effect>
                                             <Image Source="/Imagens_Videos/imgEntrar.png" Stretch="Uniform" Margin="26,8,22,6"/>

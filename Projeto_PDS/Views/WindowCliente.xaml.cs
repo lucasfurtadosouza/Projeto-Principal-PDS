@@ -44,10 +44,10 @@ namespace Projeto_PDS.Views
             _cliente.Nome = txtNome.Text;
             _cliente.Email = txtEmail.Text;
             _cliente.Cpf = txtCpf.Text;
-            _cliente.Rua = txtRua.Text;
-            _cliente.Bairro = txtRua.Text;
-            _cliente.Numero = txtRua.Text;
             _cliente.Telefone = txtTelefone.Text;
+            _cliente.Rua = txtRua.Text;
+            _cliente.Bairro = txtBairro.Text;
+            _cliente.Numero = txtNumero.Text;
             _cliente.Rg = txtRg.Text;
 
             if (dtDataNasc.SelectedDate != null)
@@ -67,13 +67,15 @@ namespace Projeto_PDS.Views
                     MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
                     var form = new Projeto_PDS.Views.WindowClienteList();
                     form.Show();
-                    this.Close();
                 }
                 else
                 {
                     dao.Insert(_cliente);
                     MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
+
+                btLimpar_Click(sender, e);
+
             }
             catch (Exception ex)
             {
@@ -81,6 +83,20 @@ namespace Projeto_PDS.Views
             }
 
         }
-    }
 
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            txtNome.Clear();
+            txtEmail.Clear();
+            txtCpf.Clear();
+            txtTelefone.Clear();
+            txtRua.Clear();
+            txtBairro.Clear();
+            txtNumero.Clear();
+            txtRg.Clear();
+            txtRenda.Clear();
+            dtDataNasc.SelectedDate = null;
+            cbSexo.SelectedIndex = -1;
+        }
+    }
 }
