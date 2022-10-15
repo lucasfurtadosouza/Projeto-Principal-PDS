@@ -11,18 +11,18 @@
       TextElement.FontSize="13"
       TextOptions.TextFormattingMode="Ideal" 
       TextOptions.TextRenderingMode="Auto"        
-      d:DesignHeight="600" d:DesignWidth="1020"
+      d:DesignHeight="600" d:DesignWidth="1200"
       Title="PageRelatorio">
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="160"/>
-            <ColumnDefinition Width="160"/>
-            <ColumnDefinition Width="160"/>
-            <ColumnDefinition Width="160"/>
-            <ColumnDefinition Width="160"/>
-            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="190"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -209,8 +209,8 @@
                         <Border>
                             <Border.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                    <GradientStop Color="#FF00F745" Offset="0"/>
-                                    <GradientStop Color="#FF90CBA1" Offset="0.7"/>
+                                    <GradientStop Color="#FF90CBA1" Offset="0"/>
+                                    <GradientStop Color="#FF00F745" Offset="0.7"/>
                                 </LinearGradientBrush>
                             </Border.Background>
                             <Border.Clip>
@@ -236,9 +236,9 @@
                 </Button.Template>
             </Button>
         </Grid>
-        
 
-        <Frame x:Name="framePage" Grid.ColumnSpan="8" Grid.RowSpan="3" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden" Margin="50,50,50,0" Grid.Row="2" />
+
+        <Frame x:Name="framePage" Grid.ColumnSpan="8" Grid.RowSpan="3" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden" Margin="60,50,60,0" Grid.Row="2" />
 
     </Grid>
 </Page>
