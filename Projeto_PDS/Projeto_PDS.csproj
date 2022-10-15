@@ -433,7 +433,6 @@
     <Resource Include="Imagens_Videos\gradiente.png" />
     <Resource Include="Imagens_Videos\imgLogin.png" />
     <Resource Include="Icons\IconLogin.png" />
-    <Resource Include="Icons\semFundo.ico" />
     <Content Include="Imagens_Videos\VideoLogo.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

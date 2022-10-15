@@ -23,8 +23,8 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Menu" Grid.ColumnSpan="3" VerticalAlignment="Top" Padding="40" HorizontalAlignment="Center" FontSize="22" FontFamily="Century Gothic" FontWeight="Bold" Foreground="Black"/>
         <StackPanel Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="" x:Name="txtHora" FontSize="30" Padding="10"/>
-            <TextBlock Text="" x:Name="txtData" FontSize="30"/>
+            <TextBlock Text="" x:Name="txtHora" FontSize="30" Padding="10"  FontFamily="/Fonts/#Dosis" FontWeight="Bold"/>
+            <TextBlock Text="" x:Name="txtData" FontSize="30" FontFamily="/Fonts/#Dosis" FontWeight="Bold"/>
         </StackPanel>
     </Grid>
 </Page>
