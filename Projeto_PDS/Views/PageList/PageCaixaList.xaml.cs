@@ -56,7 +56,7 @@ namespace Projeto_PDS.Views.PageList
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
             var caixaSelecionada = dtCaixa.SelectedItem as Caixa;
-            var dao = new WindowCaixa();
+            var dao = new WindowCaixa(caixaSelecionada);
             dao.ShowDialog();
         }
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -36,7 +36,14 @@ namespace Projeto_PDS.Views
         }
         private void ClienteWindow_Loaded(object sender, RoutedEventArgs e)
         {
-
+            txtNome.Text = _cliente.Nome;
+            txtEmail.Text = _cliente.Email;
+            txtCpf.Text = _cliente.Cpf;
+            txtTelefone.Text = _cliente.Telefone;
+            txtRua.Text = _cliente.Rua;
+            txtBairro.Text = _cliente.Bairro;
+            txtNumero.Text = _cliente.Numero;
+            txtRg.Text = _cliente.Rg;
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)

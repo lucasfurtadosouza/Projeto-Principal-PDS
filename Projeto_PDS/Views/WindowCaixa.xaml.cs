@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 using Projeto_PDS.Models;
 
 namespace Projeto_PDS.Views
@@ -24,6 +25,7 @@ namespace Projeto_PDS.Views
         public WindowCaixa()
         {
             InitializeComponent();
+            Loaded += WindowCaixa_Loaded;
         }
         public WindowCaixa(Caixa caixa)
         {
@@ -34,6 +36,25 @@ namespace Projeto_PDS.Views
         private void WindowCaixa_Loaded(object sender, RoutedEventArgs e)
         {
             txtSaldoInicial.Focus();
+            txtSaldoInicial.Text = Convert.ToString(_caixa.SaldoInicial);
+            txtSaldoFinal.Text = Convert.ToString(_caixa.SaldoFinal);
+            if (_caixa.DataAbertura != null)
+            {
+                dtDataAbertura.SelectedDate = _caixa.DataAbertura;
+            }
+            if (_caixa.DataFechamento != null)
+            {
+                dtDataFechamento.SelectedDate = _caixa.DataFechamento;
+            }
+            if (_caixa.HoraAbertura != null)
+            {
+                dtHoraAbertura.SelectedTime = _caixa.HoraAbertura;
+            }
+            if (dtHoraFechamento.SelectedTime != null)
+            {
+                dtHoraFechamento.SelectedTime = _caixa.HoraFechamento;
+            }
+
         }
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {

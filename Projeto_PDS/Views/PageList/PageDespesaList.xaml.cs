@@ -54,6 +54,7 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
+
             var despesaSelecionada = dtDespesa.SelectedItem as Despesa;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
