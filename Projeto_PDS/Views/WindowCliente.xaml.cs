@@ -68,21 +68,11 @@ namespace Projeto_PDS.Views
             try
             {
                 var dao = new ClienteDAO();
-                if (_cliente.Id > 0)
-                {
-                    dao.Update(_cliente);
-                    MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
-                    var form = new Projeto_PDS.Views.WindowClienteList();
-                    form.Show();
-                }
-                else
-                {
-                    dao.Insert(_cliente);
-                    MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-
+                dao.Update(_cliente);
+                MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close();
+                
                 btLimpar_Click(sender, e);
-
             }
             catch (Exception ex)
             {

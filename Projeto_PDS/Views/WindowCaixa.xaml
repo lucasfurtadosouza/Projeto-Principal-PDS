@@ -10,23 +10,43 @@
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal" 
-        TextOptions.TextRenderingMode="Auto"        
-        Background="Transparent"
+        TextOptions.TextRenderingMode="Auto"     
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="{x:Null}"
         FontFamily="{DynamicResource MaterialDesignFont}"
       
       d:DesignHeight="600" d:DesignWidth="1020">
-    <Grid>
+    <Border CornerRadius="20" Background="Azure">
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="190"/>
-            <RowDefinition Height="280"/>
+            <RowDefinition Height="260"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border CornerRadius="20" Grid.RowSpan="3" Background="Azure" Margin="20">
-        </Border>
+        <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Button Width="30" Margin="5 15 15 0" Background="Transparent" Cursor="Hand" Click="btMinimizar_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="100" Background="#febc02"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="ButtonFechar" HorizontalAlignment="Right" Width="30" Margin="5 15 15 0" Background="Transparent" Cursor="Hand" BorderThickness="0,0,0,0" Click="btFechar_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="100" Background="#fd4846"/>
+                    </ControlTemplate>
+                </Button.Template>
 
-        <!--STACK PANEL NOVO CAIXA-->
-        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            </Button>
+        </StackPanel>
+
+
+            <!--STACK PANEL NOVO CAIXA-->
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0 40 0 0">
             <Image Source="/Icons/newCaixa.png" Width="100"/>
             <StackPanel VerticalAlignment="Center">
                 <Label Content="Cadastrar Novo Caixa" FontSize="30" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
@@ -36,7 +56,7 @@
 
         <!--STACK PANEL INFORMACOES-->
         <StackPanel Grid.Row="1" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,10" HorizontalAlignment="Center">
                 <TextBox x:Name="txtSaldoInicial" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
                           VerticalAlignment="Top"
@@ -116,23 +136,8 @@
 
         <!--STACK PANEL BOTOES-->
         <StackPanel Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10" Orientation="Horizontal">
-            <Button Width="150" Height="50" Foreground="White" x:Name="btLimpar" Background="Transparent" Click="btLimpar_Click">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Border CornerRadius="25">
-                            <Border.Background>
-                                <LinearGradientBrush>
-                                    <GradientStop Color="#FFF1A132" Offset="0"/>
-                                    <GradientStop Color="#FFFF399B" Offset="1.7"/>
-                                </LinearGradientBrush>
-                            </Border.Background>
-                            <TextBlock Text="Limpar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
 
-            <Button Width="150" Height="50" Foreground="White" x:Name="btSalvar" Background="Transparent" Click="btSalvar_Click" Margin="50,0,0,0">
+            <Button Width="200" Height="60" Foreground="White" x:Name="btSalvar" Background="Transparent" Click="btSalvar_Click">
                 <Button.Template>
                     <ControlTemplate>
                         <Border CornerRadius="25">
@@ -142,11 +147,12 @@
                                     <GradientStop Color="#FFFF399B" Offset="1.0"/>
                                 </LinearGradientBrush>
                             </Border.Background>
-                            <TextBlock Text="Salvar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                            <TextBlock Text="Atualizar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="26" FontFamily="Leelawadee UI" FontWeight="Bold"/>
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
         </StackPanel>
     </Grid>
+    </Border>
 </Window>

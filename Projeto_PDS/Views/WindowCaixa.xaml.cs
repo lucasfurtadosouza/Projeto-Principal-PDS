@@ -50,11 +50,12 @@ namespace Projeto_PDS.Views
             {
                 dtHoraAbertura.SelectedTime = _caixa.HoraAbertura;
             }
-            if (dtHoraFechamento.SelectedTime != null)
+            if (_caixa.HoraFechamento != null)
             {
                 dtHoraFechamento.SelectedTime = _caixa.HoraFechamento;
             }
-
+            txtQuantidadePagamentos.Text = Convert.ToString(_caixa.QuantidadePagamentos);
+            txtQuantidadeRecebimentos.Text = Convert.ToString(_caixa.QuantidadeRecebimentos);
         }
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
@@ -82,37 +83,22 @@ namespace Projeto_PDS.Views
             try
             {
                 var dao = new CaixaDAO();
-                if (_caixa.Id > 0)
-                {
-                    dao.Update(_caixa);
-                    MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
-                    var form = new WindowCaixaList();
-                    form.Show();
-                }
-                else
-                {
-                    dao.Insert(_caixa);
-                    MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-
-                btLimpar_Click(sender, e);
+                dao.Update(_caixa);
+                MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        private void btFechar_Click(object sender, RoutedEventArgs e)
         {
-            txtSaldoInicial.Clear();
-            txtSaldoFinal.Clear();
-            dtDataAbertura.SelectedDate = null;
-            dtDataFechamento.SelectedDate = null;
-            dtHoraAbertura.SelectedTime = null;
-            dtHoraFechamento.SelectedTime = null;
-            txtQuantidadePagamentos.Clear();
-            txtQuantidadeRecebimentos.Clear();
+            this.Close();
+        }
+        private void btMinimizar_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
         }
     }
 }
