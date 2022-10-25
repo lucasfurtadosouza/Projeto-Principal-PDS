@@ -15,14 +15,14 @@
         Background="Transparent"
         FontFamily="{DynamicResource MaterialDesignFont}"
       
-      d:DesignHeight="600" d:DesignWidth="1020"
+      d:DesignHeight="800" d:DesignWidth="1220"
       Title="PageFuncionario">
 
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="190"/>
-            <RowDefinition Height="280"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="350"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -46,7 +46,8 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="700"
+                          Width="900"
+                          Height="50"
                           materialDesign:HintAssist.Hint="Nome"/>
             </StackPanel>
 
@@ -56,7 +57,8 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="400"
+                          Width="600"
+                          Height="50"
                           materialDesign:HintAssist.Hint="Email"/>
 
                 <TextBox x:Name="txtCpf" Padding="8"
@@ -65,6 +67,7 @@
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
                           Width="280"
+                          Height="50"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="CPF"/>
             </StackPanel>
@@ -75,7 +78,8 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="260"
+                          Width="300"
+                          Height="50"
                           materialDesign:HintAssist.Hint="Telefone"/>
 
                 <TextBox x:Name="txtRg" Padding="8"
@@ -83,12 +87,14 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="200"
+                          Width="300"
+                          Height="50"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="RG"/>
 
                 <DatePicker x:Name="dtDataNasc" Padding="8"
-                            Width="200"
+                            Width="260"
+                            Height="50"
                             Margin="20,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
@@ -102,7 +108,8 @@
                           materialDesign:HintAssist.Hint="Sexo"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
-                          Width="160">
+                          Width="250"
+                          Height="50">
                     <ComboBoxItem Content="Masculino"/>
                     <ComboBoxItem Content="Feminino"/>
                     <ComboBoxItem Content="Outros"/>
@@ -114,7 +121,8 @@
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="300"
+                          Width="400"
+                          Height="50"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Salário"/>
 
@@ -123,7 +131,8 @@
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="200"
+                          Width="210"
+                          Height="50"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Carteira de Trabalho"/>
             </StackPanel>
@@ -135,7 +144,8 @@
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="275"
+                          Width="330"
+                          Height="50"
                           materialDesign:HintAssist.Hint="Rua"/>
                 </StackPanel>
 
@@ -145,7 +155,8 @@
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="275"
+                          Width="350"
+                          Height="50"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Bairro"/>
                 </StackPanel>
@@ -156,7 +167,8 @@
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="110"
+                          Width="180"
+                          Height="50"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Número"/>
                 </StackPanel>

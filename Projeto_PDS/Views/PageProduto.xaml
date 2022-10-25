@@ -15,14 +15,14 @@
         Background="Transparent"
         FontFamily="{DynamicResource MaterialDesignFont}"
       
-      d:DesignHeight="600" d:DesignWidth="1020"
+      d:DesignHeight="800" d:DesignWidth="1220"
       Title="PageProduto">
 
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="190"/>
-            <RowDefinition Height="280"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="350"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -46,7 +46,8 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="700"
+                          Width="900"
+                          Height="50"
                           materialDesign:HintAssist.Hint="Nome"/>
             </StackPanel>
 
@@ -56,7 +57,8 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="400"
+                          Width="500"
+                          Height="50"
                           materialDesign:HintAssist.Hint="Valor de Compra"/>
 
                 <TextBox x:Name="txtValorVenda" Padding="8"
@@ -64,7 +66,8 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="280"
+                          Width="380"
+                          Height="50"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Valor de Venda"/>
             </StackPanel>
@@ -75,7 +78,8 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="100"
+                          Width="250"
+                          Height="50"
                           materialDesign:HintAssist.Hint="Estoque"/>
 
                 <TextBox x:Name="txtDescricao" Padding="8"
@@ -83,7 +87,8 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="580"
+                          Width="630"
+                          Height="50"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Descrição"/>
             </StackPanel>
