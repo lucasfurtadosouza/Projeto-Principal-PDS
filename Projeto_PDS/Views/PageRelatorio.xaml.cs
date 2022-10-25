@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using Projeto_PDS.Views.PageList;
 using System.Windows.Shapes;
 
 namespace Projeto_PDS.Views
@@ -20,35 +21,49 @@ namespace Projeto_PDS.Views
     /// </summary>
     public partial class PageRelatorio : Page
     {
+        private MainWindow _main;
+
         public PageRelatorio()
         {
             InitializeComponent();
         }
-        public void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var button = (Button)sender;
-            var frame = framePage;
-            var pack = "pack://application:,,,/Views/PageList";
 
-            switch (button.Name)
+        public PageRelatorio(MainWindow main)
+        {
+            InitializeComponent();
+            _main = main;
+        }
+
+        public void Button_Click(object sender, RoutedEventArgs e)
+        { 
+            var button = (Button) sender;
+            
+            OpenPageList(button.Name);
+        }
+
+        public void OpenPageList(string name)
+        {
+
+            switch (name)
             {
                 case "List_Fornecedor":
-                    framePage.Source = new System.Uri($"{pack}/PageFornecedorList.xaml");
+                    //framePage.Source = new System.Uri($"{pack}/PageFornecedorList.xaml");
+                    frameRelatorio.Content = new PageFornecedorList(_main, this);
                     break;
                 case "List_Funcionario":
-                    framePage.Source = new System.Uri($"{pack}/PageFuncionarioList.xaml");
+                    frameRelatorio.Content = new PageFuncionarioList(_main, this);
                     break;
                 case "List_Cliente":
-                    framePage.Source = new System.Uri($"{pack}/PageClienteList.xaml");
+                    frameRelatorio.Content = new PageClienteList(_main, this);
                     break;
                 case "List_Despesa":
-                    framePage.Source = new System.Uri($"{pack}/PageDespesaList.xaml");
+                    frameRelatorio.Content = new PageDespesaList(_main, this);
                     break;
                 case "List_Produto":
-                    framePage.Source = new System.Uri($"{pack}/PageProdutoList.xaml");
+                    frameRelatorio.Content = new PageProdutoList(_main, this);
                     break;
                 case "List_Caixa":
-                    framePage.Source = new System.Uri($"{pack}/PageCaixaList.xaml");
+                    frameRelatorio.Content = new PageCaixaList(_main, this);
                     break;
             }
         }

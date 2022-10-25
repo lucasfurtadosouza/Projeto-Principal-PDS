@@ -21,16 +21,25 @@ namespace Projeto_PDS.Views
     /// </summary>
     public partial class PageProduto : Page
     {
-        public Produto _produto = new Produto();
-        public PageProduto()
-        {
-            InitializeComponent();
-        }
+        private MainWindow _main;
 
-        public PageProduto(Produto produto)
+        private PageRelatorio _page;
+
+        public Produto _produto = new Produto();
+
+        public PageProduto(MainWindow mainWindow)
         {
-            _produto = produto;
             InitializeComponent();
+            _main = mainWindow;
+            Loaded += WindowProduto_Loaded;
+        }
+        public PageProduto(MainWindow mainWindow, PageRelatorio page, Produto produto)
+        {
+            InitializeComponent();
+            _produto = produto;
+            _main = mainWindow;
+            _page = page;
+
             Loaded += WindowProduto_Loaded;
         }
         private void WindowProduto_Loaded(object sender, RoutedEventArgs e)

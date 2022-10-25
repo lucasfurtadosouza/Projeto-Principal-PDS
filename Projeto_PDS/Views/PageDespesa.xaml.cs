@@ -21,15 +21,26 @@ namespace Projeto_PDS.Views
     /// </summary>
     public partial class PageDespesa : Page
     {
+        private MainWindow _main;
+
+        private PageRelatorio _page;
+
         public Despesa _despesa = new Despesa();
-        public PageDespesa()
+
+        public PageDespesa(MainWindow mainWindow)
         {
             InitializeComponent();
+            _main = mainWindow;
+            Loaded += DespesaWindow_Loaded;
         }
-        public PageDespesa(Despesa despesa)
+
+        public PageDespesa(MainWindow mainWindow, PageRelatorio page, Despesa despesa)
         {
-            _despesa = despesa;
             InitializeComponent();
+            _despesa = despesa;
+            _main = mainWindow;
+            _page = page;
+
             Loaded += DespesaWindow_Loaded;
         }
         private void DespesaWindow_Loaded(object sender, RoutedEventArgs e)
@@ -58,9 +69,8 @@ namespace Projeto_PDS.Views
                 {
                     dao.Update(_despesa);
                     MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
-                    var form = new WindowDespesaList();
-                    form.Show();
-                    
+                    _page.OpenPageList("List_Despesa");
+
                 }
                 else
                 {

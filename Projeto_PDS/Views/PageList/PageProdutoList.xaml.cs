@@ -21,10 +21,21 @@ namespace Projeto_PDS.Views.PageList
     /// </summary>
     public partial class PageProdutoList : Page
     {
+        private MainWindow _main;
+
+        private PageRelatorio _page;
+
         public PageProdutoList()
         {
             InitializeComponent();
             Loaded += ProdutoListWindow_Loaded;
+        }
+        public PageProdutoList(MainWindow main, PageRelatorio page)
+        {
+            InitializeComponent();
+            Loaded += ProdutoListWindow_Loaded;
+            _main = main;
+            _page = page;
         }
 
         private void ProdutoListWindow_Loaded(object sender, RoutedEventArgs e)
@@ -55,6 +66,7 @@ namespace Projeto_PDS.Views.PageList
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
             var produtoSelecionado = dtProduto.SelectedItem as Produto;
+            _page.frameRelatorio.Content = new PageProduto(_main, _page, produtoSelecionado);
         }
         private void CarregarListagem()
         {

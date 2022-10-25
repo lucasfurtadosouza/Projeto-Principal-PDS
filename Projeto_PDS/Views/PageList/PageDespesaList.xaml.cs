@@ -21,10 +21,21 @@ namespace Projeto_PDS.Views.PageList
     /// </summary>
     public partial class PageDespesaList : Page
     {
+        private MainWindow _main;
+
+        private PageRelatorio _page;
+
         public PageDespesaList()
         {
             InitializeComponent(); 
             Loaded += DespesaListWindow_Loaded;
+        }
+        public PageDespesaList(MainWindow main, PageRelatorio page)
+        {
+            InitializeComponent();
+            Loaded += DespesaListWindow_Loaded;
+            _main = main;
+            _page = page;
         }
 
         private void DespesaListWindow_Loaded(object sender, RoutedEventArgs e)
@@ -54,8 +65,9 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
-
             var despesaSelecionada = dtDespesa.SelectedItem as Despesa;
+            _page.frameRelatorio.Content = new PageDespesa(_main, _page, despesaSelecionada);
+
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

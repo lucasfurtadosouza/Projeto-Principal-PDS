@@ -21,17 +21,29 @@ namespace Projeto_PDS.Views
     /// </summary>
     public partial class PageCaixa : Page
     {
+        private MainWindow _main;
+
+        private PageRelatorio _page;
+
         public Caixa _caixa = new Caixa();
-        public PageCaixa()
+
+        public PageCaixa(MainWindow mainWindow)
         {
             InitializeComponent();
-        }
-        public PageCaixa(Caixa caixa)
-        {
-            _caixa = caixa;
-            InitializeComponent();
+            _main = mainWindow;
             Loaded += WindowCaixa_Loaded;
         }
+
+        public PageCaixa(MainWindow mainWindow, PageRelatorio page, Caixa caixa)
+        {
+            InitializeComponent();
+            _caixa = caixa;
+            _main = mainWindow;
+            _page = page;
+
+            Loaded += WindowCaixa_Loaded;
+        }
+
         private void WindowCaixa_Loaded(object sender, RoutedEventArgs e)
         {
             txtSaldoInicial.Focus();
@@ -66,8 +78,7 @@ namespace Projeto_PDS.Views
                 {
                     dao.Update(_caixa);
                     MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
-                    var form = new WindowCaixaList();
-                    form.Show();
+                    _page.OpenPageList("List_Caixa"); ;
                 }
                 else
                 {

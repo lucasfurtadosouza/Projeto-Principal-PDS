@@ -21,10 +21,21 @@ namespace Projeto_PDS.Views.PageList
     /// </summary>
     public partial class PageFuncionarioList : Page
     {
+        private MainWindow _main;
+
+        private PageRelatorio _page;
+
         public PageFuncionarioList()
         {
             InitializeComponent();
             Loaded += PageFuncionarioList_Loaded;
+        }
+        public PageFuncionarioList(MainWindow main, PageRelatorio page)
+        {
+            InitializeComponent();
+            Loaded += PageFuncionarioList_Loaded;
+            _main = main;
+            _page = page;
         }
 
         private void PageFuncionarioList_Loaded(object sender, RoutedEventArgs e)
@@ -54,7 +65,8 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
-            var caixaSelecionada = dtFuncionario.SelectedItem as Caixa;
+            var funcionarioSelecionado = dtFuncionario.SelectedItem as Funcionario;
+            _page.frameRelatorio.Content = new PageFuncionario(_main, _page, funcionarioSelecionado);
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

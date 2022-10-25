@@ -23,17 +23,26 @@ namespace Projeto_PDS.Views
     {
         public Funcionario _funcionario = new Funcionario();
 
-        public PageFuncionario()
+        private MainWindow _main;
+
+        private PageRelatorio _page;
+
+        public PageFuncionario(MainWindow mainWindow)
         {
             InitializeComponent();
+            _main = mainWindow;
+            Loaded += WindowFornecedor_Loaded;
         }
-        public PageFuncionario(Funcionario funcionario)
+        public PageFuncionario(MainWindow mainWindow, PageRelatorio page, Funcionario funcionario)
         {
+            InitializeComponent();
             _funcionario = funcionario;
-            InitializeComponent();
-            Loaded += FuncionarioWindow_Loaded;
+            _main = mainWindow;
+            _page = page;
+
+            Loaded += WindowFornecedor_Loaded;
         }
-        private void FuncionarioWindow_Loaded(object sender, RoutedEventArgs e)
+        private void WindowFornecedor_Loaded(object sender, RoutedEventArgs e)
         {
             txtNome.Focus();
         }
@@ -64,8 +73,7 @@ namespace Projeto_PDS.Views
                 {
                     dao.Update(_funcionario);
                     MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
-                    var form = new WindowDespesaList();
-                    form.Show();
+                    _page.OpenPageList("List_Fornecedor");
                 }
                 else
                 {

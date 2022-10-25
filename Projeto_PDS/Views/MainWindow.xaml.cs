@@ -41,13 +41,19 @@ namespace Projeto_PDS.Views
         {
             framePage.Source = new Uri("pack://application:,,,/Views/PageMain.xaml");
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
-            var frame = framePage;
+
+            OpenPage(button.Name);            
+        }
+
+        public void OpenPage(string menu)
+        {
             var pack = "pack://application:,,,/Views";
 
-            switch (button.Name)
+            switch (menu)
             {
                 case "MN_Menu":
                     framePage.Source = new System.Uri($"{pack}/PageMain.xaml");
@@ -56,13 +62,13 @@ namespace Projeto_PDS.Views
                     framePage.NavigationService.Navigate(new PageFornecedor(this));
                     break;
                 case "MN_Cliente":
-                    framePage.Source = new System.Uri($"{pack}/PageCliente.xaml");
+                    framePage.NavigationService.Navigate(new PageCliente(this));
                     break;
                 case "MN_Despesa":
-                    framePage.Source = new System.Uri($"{pack}/PageDespesa.xaml");
+                    framePage.NavigationService.Navigate(new PageDespesa(this));
                     break;
                 case "MN_Funcionario":
-                    framePage.Source = new System.Uri($"{pack}/PageFuncionario.xaml");
+                    framePage.NavigationService.Navigate(new PageFuncionario(this));
                     break;
                 case "MN_Produto":
                     framePage.Source = new System.Uri($"{pack}/PageProduto.xaml");
@@ -71,9 +77,10 @@ namespace Projeto_PDS.Views
                     framePage.Source = new System.Uri($"{pack}/PageCaixa.xaml");
                     break;
                 case "MN_Relatorio":
-                    framePage.Source = new System.Uri($"{pack}/PageRelatorio.xaml");
+                    framePage.Content = new PageRelatorio(this);
                     break;
             }
+
         }
         private void btFechar_Click(object sender, RoutedEventArgs e)
         {

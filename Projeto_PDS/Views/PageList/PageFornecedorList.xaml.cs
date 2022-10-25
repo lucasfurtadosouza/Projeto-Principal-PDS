@@ -21,10 +21,21 @@ namespace Projeto_PDS.Views.PageList
     /// </summary>
     public partial class PageFornecedorList : Page
     {
+        private MainWindow _main;
+
+        private PageRelatorio _page;
+
         public PageFornecedorList()
         {
             InitializeComponent(); 
             Loaded += FornecedorListWindow_Loaded;
+        }
+        public PageFornecedorList(MainWindow main, PageRelatorio page)
+        {
+            InitializeComponent();
+            Loaded += FornecedorListWindow_Loaded;
+            _main = main;
+            _page = page;
         }
 
         private void FornecedorListWindow_Loaded(object sender, RoutedEventArgs e)
@@ -54,7 +65,8 @@ namespace Projeto_PDS.Views.PageList
         }
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
-            var FornecedorSelecionada = dtFornecedor.SelectedItem as Fornecedor;
+            var fornecedorSelecionada = dtFornecedor.SelectedItem as Fornecedor;
+            _page.frameRelatorio.Content = new PageFornecedor(_main, _page, fornecedorSelecionada);
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

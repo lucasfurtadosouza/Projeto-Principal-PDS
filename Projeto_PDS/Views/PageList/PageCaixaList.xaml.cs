@@ -22,10 +22,21 @@ namespace Projeto_PDS.Views.PageList
     /// </summary>
     public partial class PageCaixaList : Page
     {
+        private MainWindow _main;
+
+        private PageRelatorio _page;
+
         public PageCaixaList()
         {
             InitializeComponent(); 
             Loaded += CaixaListWindow_Loaded;
+        }
+        public PageCaixaList(MainWindow main, PageRelatorio page)
+        {
+            InitializeComponent();
+            Loaded += CaixaListWindow_Loaded;
+            _main = main;
+            _page = page;
         }
 
         private void CaixaListWindow_Loaded(object sender, RoutedEventArgs e)
@@ -56,8 +67,7 @@ namespace Projeto_PDS.Views.PageList
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
             var caixaSelecionada = dtCaixa.SelectedItem as Caixa;
-            var dao = new WindowCaixa(caixaSelecionada);
-            dao.ShowDialog();
+            _page.frameRelatorio.Content = new PageCaixa(_main, _page, caixaSelecionada);
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

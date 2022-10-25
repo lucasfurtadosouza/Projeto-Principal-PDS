@@ -21,19 +21,28 @@ namespace Projeto_PDS.Views
     /// </summary>
     public partial class PageCliente : Page
     {
-        public PageCliente()
-        {
-            InitializeComponent();
-        }
+        private MainWindow _main;
+
+        private PageRelatorio _page;
 
         private Cliente _cliente = new Cliente();
 
-        public PageCliente(Cliente cliente)
+        public PageCliente(MainWindow mainWindow)
         {
-            _cliente = cliente;
             InitializeComponent();
+            _main = mainWindow;
             Loaded += ClienteWindow_Loaded;
         }
+        public PageCliente(MainWindow mainWindow, PageRelatorio page, Cliente cliente)
+        {
+            InitializeComponent();
+            _cliente = cliente;
+            _main = mainWindow;
+            _page = page;
+
+            Loaded += ClienteWindow_Loaded;
+        }
+
         private void ClienteWindow_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -65,8 +74,7 @@ namespace Projeto_PDS.Views
                 {
                     dao.Update(_cliente);
                     MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
-                    var form = new Projeto_PDS.Views.WindowClienteList();
-                    form.Show();
+                    _page.OpenPageList("List_Cliente");
                 }
                 else
                 {

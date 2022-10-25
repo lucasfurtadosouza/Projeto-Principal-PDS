@@ -21,10 +21,21 @@ namespace Projeto_PDS.Views.PageList
     /// </summary>
     public partial class PageClienteList : Page
     {
+        private MainWindow _main;
+
+        private PageRelatorio _page;
+
         public PageClienteList()
         {
             InitializeComponent();
             Loaded += PageClienteList_Loaded;
+        }
+        public PageClienteList(MainWindow main, PageRelatorio page)
+        {
+            InitializeComponent();
+            Loaded += PageClienteList_Loaded;
+            _main = main;
+            _page = page;
         }
 
         private void PageClienteList_Loaded(object sender, RoutedEventArgs e)
@@ -57,6 +68,8 @@ namespace Projeto_PDS.Views.PageList
         private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
         {
             var clienteSelecionado = dtCliente.SelectedItem as Cliente;
+            _page.frameRelatorio.Content = new PageCliente(_main, _page, clienteSelecionado);
+
         }
 
         private void CarregarListagem()

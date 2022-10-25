@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Projeto_PDS.Models;
 using Projeto_PDS.DataBase;
+using Projeto_PDS.Views.PageList;
 
 namespace Projeto_PDS.Views
 {
@@ -23,20 +24,24 @@ namespace Projeto_PDS.Views
     {
         private MainWindow _main;
 
+        private PageRelatorio _page;
+
         public Fornecedor _fornecedor = new Fornecedor();
 
         public PageFornecedor(MainWindow mainWindow)
         {
             InitializeComponent();
-            
             _main = mainWindow;
-
             Loaded += WindowFornecedor_Loaded;
         }
         
-        public PageFornecedor(Fornecedor fornecedor)
+        public PageFornecedor(MainWindow mainWindow, PageRelatorio page, Fornecedor fornecedor)
         {
+            InitializeComponent();
             _fornecedor = fornecedor;
+            _main = mainWindow;
+            _page = page;
+
             Loaded += WindowFornecedor_Loaded;
         }
 
@@ -48,6 +53,7 @@ namespace Projeto_PDS.Views
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             //_main.setPageMain();
+            //_main.OpenPage("MN_Relatorio");
 
             _fornecedor.Nome = txtNome.Text;
             _fornecedor.Razao = txtRazao.Text;
@@ -66,9 +72,7 @@ namespace Projeto_PDS.Views
                 {
                     dao.Update(_fornecedor);
                     MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
-                    var form = new WindowFornecedorList();
-                    form.Show();
- 
+                    _page.OpenPageList("List_Fornecedor");
                 }
                 else
                 {
