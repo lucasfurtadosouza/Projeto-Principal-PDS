@@ -15,14 +15,14 @@
         Background="Transparent"
         FontFamily="{DynamicResource MaterialDesignFont}"
       
-      d:DesignHeight="600" d:DesignWidth="1020"
+      d:DesignHeight="800" d:DesignWidth="1220"
       Title="PageDespesa">
 
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="190"/>
-            <RowDefinition Height="280"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="350"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -47,13 +47,15 @@
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="275"
+                          Width="475"
+                          Height="50"
                           materialDesign:HintAssist.Hint="Valor"/>
                 </StackPanel>
 
                 <StackPanel>
                     <DatePicker x:Name="dtDataVen" Padding="8"
                             Width="200"
+                            Height="50"
                             Margin="20,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
@@ -64,6 +66,7 @@
                 <StackPanel>
                     <DatePicker x:Name="dtDataPag" Padding="8"
                             Width="200"
+                            Height="50"
                             Margin="20,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
@@ -79,7 +82,8 @@
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="250"
+                          Width="495"
+                          Height="50"
                           materialDesign:HintAssist.Hint="Forma de Pagamento"/>
                 </StackPanel>
 
@@ -89,7 +93,8 @@
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="445"
+                          Width="400"
+                          Height="50"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Descrição"/>
                 </StackPanel>

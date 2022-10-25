@@ -15,13 +15,13 @@
         Background="Transparent"
         FontFamily="{DynamicResource MaterialDesignFont}"
       
-        d:DesignHeight="600" d:DesignWidth="1020"
+        d:DesignHeight="800" d:DesignWidth="1220"
         Title="PageFornecedor">
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="190"/>
-            <RowDefinition Height="280"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="350"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -45,7 +45,8 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="700"
+                          Width="900"
+                          Height="50"
                           materialDesign:HintAssist.Hint="Nome"/>
             </StackPanel>
 
@@ -55,7 +56,8 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="400"
+                          Width="600"
+                          Height="50"
                           materialDesign:HintAssist.Hint="Razão Social"/>
 
                 <TextBox x:Name="txtCnpj" Padding="8"
@@ -64,6 +66,7 @@
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
                           Width="280"
+                          Height="50"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="CNPJ"/>
             </StackPanel>
@@ -74,7 +77,8 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="400"
+                          Width="600"
+                          Height="50"
                           materialDesign:HintAssist.Hint="Email"/>
 
                 <TextBox x:Name="txtTelefone" Padding="8"
@@ -83,6 +87,7 @@
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
                           Width="280"
+                          Height="50"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Telefone"/>
             </StackPanel>
@@ -94,7 +99,8 @@
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="275"
+                          Width="475"
+                          Height="50"
                           materialDesign:HintAssist.Hint="Rua"/>
                 </StackPanel>
 
@@ -105,6 +111,7 @@
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
                           Width="275"
+                          Height="50"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Bairro"/>
                 </StackPanel>
@@ -116,6 +123,7 @@
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
                           Width="110"
+                          Height="50"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Número"/>
                 </StackPanel>
