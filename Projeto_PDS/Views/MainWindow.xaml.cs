@@ -71,10 +71,10 @@ namespace Projeto_PDS.Views
                     framePage.NavigationService.Navigate(new PageFuncionario(this));
                     break;
                 case "MN_Produto":
-                    framePage.Source = new System.Uri($"{pack}/PageProduto.xaml");
+                    framePage.NavigationService.Navigate(new PageProduto(this));
                     break;
                 case "MN_Caixa":
-                    framePage.Source = new System.Uri($"{pack}/PageCaixa.xaml");
+                    framePage.NavigationService.Navigate(new PageCaixa(this));
                     break;
                 case "MN_Relatorio":
                     framePage.Content = new PageRelatorio(this);
