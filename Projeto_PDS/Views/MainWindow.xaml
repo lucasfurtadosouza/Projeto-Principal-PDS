@@ -15,7 +15,7 @@
         mc:Ignorable="d"
         WindowState="Maximized"
         WindowStyle="None"
-        Title="Menu Principal" Height="650" Width="1080" Icon="/Icons/IconMenu.png">
+        Title="Menu Principal" Height="760" Width="1190" Icon="/Icons/IconMenu.png">
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -203,6 +203,24 @@
                             <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
                                 <Image Source="/Icons/IconCaixa.png" Stretch="Uniform" Height="26" Width="26" Margin="3 0 1 4"/>
                                 <TextBlock Text="Caixa" VerticalAlignment="Center" Margin="20 0 25 7" Height="26" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <Button Click="Button_Click" Name="MN_Venda" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50" Style="{StaticResource MaterialDesignFlatSecondaryLightButton}">
+                            <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
+                                <Image Source="/Icons/IconVenda.png" Stretch="Uniform" Height="30" Width="30" Margin="0 0 0 4"/>
+                                <TextBlock Text="Venda" VerticalAlignment="Center" Margin="20 0 25 7" Height="26" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <Button Click="Button_Click" Name="MN_Compra" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Height="50" Style="{StaticResource MaterialDesignFlatSecondaryLightButton}">
+                            <StackPanel Orientation="Horizontal" Height="36" Width="240" Margin="-2 5 0 0">
+                                <Image Source="/Icons/IconCompra.png" Stretch="Uniform" Height="30" Width="30" Margin="0 0 0 4"/>
+                                <TextBlock Text="Compra" VerticalAlignment="Center" Margin="20 0 25 7" Height="26" FontWeight="bold" FontFamily="/Fonts/#Dosis" FontSize="20"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>

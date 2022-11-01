@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeto_PDS.Models
 {
-    public class Venda
+    public class Compra
     {
         public int Id { get; set; }
         public double Valor { get; set; }
@@ -14,6 +14,6 @@ namespace Projeto_PDS.Models
         public DateTime? Hora { get; set; }
         public string FormaPagamento { get; set; }
         public Funcionario Funcionario { get; set; }
-        public Cliente Cliente { get; set; }
+        public Fornecedor Fornecedor { get; set; }
     }
 }

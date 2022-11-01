@@ -23,8 +23,8 @@ namespace Projeto_PDS.Views
         public PageMain()
         {
             InitializeComponent();
-            txtHora.Text = DateTime.Now.ToString("hh:mm:ss");
-            txtData.Text = DateTime.Now.ToLongDateString();
+            txtHora.Text = DateTime.Now.ToString("hh:mm");
+            txtData.Text = DateTime.Now.ToShortDateString();
         }
 
         private void UIElement_TouchEnter(object sender, TouchEventArgs e)

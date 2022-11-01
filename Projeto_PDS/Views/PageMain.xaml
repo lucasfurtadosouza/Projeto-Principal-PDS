@@ -21,10 +21,10 @@
             <ColumnDefinition Width="800"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Menu" Grid.ColumnSpan="3" VerticalAlignment="Top" Padding="40" HorizontalAlignment="Center" FontSize="22" FontFamily="Century Gothic" FontWeight="Bold" Foreground="Black"/>
-        <StackPanel Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="" x:Name="txtHora" FontSize="30" Padding="10"  FontFamily="/Fonts/#Dosis" FontWeight="Bold"/>
-            <TextBlock Text="" x:Name="txtData" FontSize="30" FontFamily="/Fonts/#Dosis" FontWeight="Bold"/>
+        <TextBlock Text="Menu" Grid.ColumnSpan="3" VerticalAlignment="Top" Padding="30" HorizontalAlignment="Center" FontSize="22" FontFamily="Century Gothic" FontWeight="Bold" Foreground="Black"/>
+        <StackPanel Grid.ColumnSpan="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 10 10">
+            <TextBlock Text="" x:Name="txtHora" FontSize="20" Padding="5"  FontFamily="/Fonts/#Dosis" FontWeight="Bold" HorizontalAlignment="Right"/>
+            <TextBlock Text="" x:Name="txtData" FontSize="20" FontFamily="/Fonts/#Dosis" FontWeight="Bold" HorizontalAlignment="Right"/>
         </StackPanel>
     </Grid>
 </Page>
