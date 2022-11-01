@@ -40,10 +40,11 @@ namespace Projeto_PDS.Views
             _main = mainWindow;
             _page = page;
 
-            Loaded += WindowProduto_Loaded;
+            Loaded += WindowVenda_Loaded;
         }
-        private void WindowProduto_Loaded(object sender, RoutedEventArgs e)
+        private void WindowVenda_Loaded(object sender, RoutedEventArgs e)
         {
+
             dtHoraVenda.Text = DateTime.Now.ToString("hh:mm");
             dtDataVenda.Text = DateTime.Now.ToShortDateString();
         }
