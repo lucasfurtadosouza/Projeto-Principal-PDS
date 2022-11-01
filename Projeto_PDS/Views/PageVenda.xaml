@@ -68,6 +68,8 @@
                             materialDesign:HintAssist.Hint="Hora da Venda"
                             Style="{StaticResource MaterialDesignFilledTimePicker}"/>
             </StackPanel>
+            
+            
 
             <StackPanel Margin="0,0,0,10" HorizontalAlignment="Center">
                 <TextBox x:Name="txtFormaPagamento" Padding="8"
