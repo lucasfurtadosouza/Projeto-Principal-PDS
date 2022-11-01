@@ -84,7 +84,7 @@
                           Mask="(00) 0 0000-0000"
                           materialDesign:HintAssist.Hint="Telefone"/>
 
-                <TextBox x:Name="txtRg" Padding="8"
+                <wpfTool:MaskedTextBox x:Name="txtRg" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
@@ -92,6 +92,8 @@
                           Width="300"
                           Height="50"
                           Margin="20,0,0,0"
+                          Mask="0000000"
+                                       
                           materialDesign:HintAssist.Hint="RG"/>
 
                 <DatePicker x:Name="dtDataNasc" Padding="8"
