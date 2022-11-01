@@ -140,8 +140,10 @@
     <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\CompraDAO.cs" />
+    <Compile Include="Models\CompraItem.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\UsuarioDAO.cs" />
+    <Compile Include="Models\VendaItem.cs" />
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
@@ -150,6 +152,9 @@
     </Compile>
     <Compile Include="Views\PageCaixa.xaml.cs">
       <DependentUpon>PageCaixa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageCompra.xaml.cs">
+      <DependentUpon>PageCompra.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PageDespesa.xaml.cs">
       <DependentUpon>PageDespesa.xaml</DependentUpon>
@@ -190,44 +195,14 @@
     <Compile Include="Views\PageRelatorio.xaml.cs">
       <DependentUpon>PageRelatorio.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WindowCaixa.xaml.cs">
-      <DependentUpon>WindowCaixa.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WindowCaixaList.xaml.cs">
-      <DependentUpon>WindowCaixaList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WindowCliente.xaml.cs">
-      <DependentUpon>WindowCliente.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WindowClienteList.xaml.cs">
-      <DependentUpon>WindowClienteList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WindowDespesa.xaml.cs">
-      <DependentUpon>WindowDespesa.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WindowDespesaList.xaml.cs">
-      <DependentUpon>WindowDespesaList.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\PageFornecedor.xaml.cs">
       <DependentUpon>PageFornecedor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WindowFornecedorList.xaml.cs">
-      <DependentUpon>WindowFornecedorList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WindowFuncionario.xaml.cs">
-      <DependentUpon>WindowFuncionario.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WindowFuncionarioList.xaml.cs">
-      <DependentUpon>WindowFuncionarioList.xaml</DependentUpon>
+    <Compile Include="Views\PageVenda.xaml.cs">
+      <DependentUpon>PageVenda.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowNovoUsuario.xaml.cs">
       <DependentUpon>WindowNovoUsuario.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WindowProduto.xaml.cs">
-      <DependentUpon>WindowProduto.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WindowProdutoList.xaml.cs">
-      <DependentUpon>WindowProdutoList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowTermos.xaml.cs">
       <DependentUpon>WindowTermos.xaml</DependentUpon>
@@ -254,6 +229,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PageCaixa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageCompra.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -309,55 +288,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WindowCaixa.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WindowCaixaList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WindowCliente.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WindowClienteList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WindowDespesa.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WindowDespesaList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\PageFornecedor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WindowFornecedorList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WindowFuncionario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WindowFuncionarioList.xaml">
+    <Page Include="Views\PageVenda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WindowNovoUsuario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WindowProduto.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WindowProdutoList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -384,11 +323,7 @@
     <Compile Include="Models\Pagamento.cs" />
     <Compile Include="Models\PagamentoDAO.cs" />
     <Compile Include="Models\Produto.cs" />
-    <Compile Include="Models\ProdutoCompra.cs" />
-    <Compile Include="Models\ProdutoCompraDAO.cs" />
     <Compile Include="Models\ProdutoDAO.cs" />
-    <Compile Include="Models\ProdutoVenda.cs" />
-    <Compile Include="Models\ProdutoVendaDAO.cs" />
     <Compile Include="Models\Recebimento.cs" />
     <Compile Include="Models\RecebimentoDAO.cs" />
     <Compile Include="Models\Venda.cs" />

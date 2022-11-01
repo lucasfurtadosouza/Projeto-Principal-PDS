@@ -63,8 +63,6 @@ namespace Projeto_PDS.Views
                 {
                     dao.Update(_produto);
                     MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
-                    var form = new WindowCaixaList();
-                    form.Show();
                 }
                 else
                 {

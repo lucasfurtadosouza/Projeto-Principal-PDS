@@ -15,5 +15,6 @@ namespace Projeto_PDS.Models
         public int Estoque { get; set; }
         public string Descricao { get; set; }
         public string Foto { get; set; }
+
     }
 }

@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Projeto_PDS.Views
 {
     /// <summary>
-    /// Lógica interna para WindowProdutoList.xaml
+    /// Interação lógica para PageVenda.xam
     /// </summary>
-    public partial class WindowProdutoList : Window
+    public partial class PageVenda : Page
     {
-        public WindowProdutoList()
+        public PageVenda()
         {
             InitializeComponent();
         }

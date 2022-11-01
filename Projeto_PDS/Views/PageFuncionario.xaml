@@ -172,8 +172,7 @@
                           Width="180"
                           Height="50"
                           Margin="20,0,0,0"
-                          materialDesign:HintAssist.Hint="Número"
-                          Mask=""                 />
+                          materialDesign:HintAssist.Hint="Número"           />
                 </StackPanel>
             </StackPanel>
 

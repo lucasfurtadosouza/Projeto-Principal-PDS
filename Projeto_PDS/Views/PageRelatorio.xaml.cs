@@ -47,7 +47,6 @@ namespace Projeto_PDS.Views
             switch (name)
             {
                 case "List_Fornecedor":
-                    //framePage.Source = new System.Uri($"{pack}/PageFornecedorList.xaml");
                     frameRelatorio.Content = new PageFornecedorList(_main, this);
                     break;
                 case "List_Funcionario":
