@@ -50,7 +50,7 @@ namespace Projeto_PDS.Views
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
-            _venda.Valor = Convert.ToDouble(txtValor.Text);
+            //_venda.Valor = Convert.ToDouble(txtValor.Text);
             if (dtDataVenda.SelectedDate != null)
             {
                 _venda.Data = dtDataVenda.SelectedDate;
@@ -59,7 +59,7 @@ namespace Projeto_PDS.Views
             {
                 _venda.Hora = dtHoraVenda.SelectedTime;
             }
-            _venda.FormaPagamento = txtFormaPagamento.Text;
+            //_venda.FormaPagamento = txtFormaPagamento.Text;
 
             try
             {
@@ -85,10 +85,10 @@ namespace Projeto_PDS.Views
 
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
-            txtValor.Clear();
+            //txtValor.Clear();
             dtDataVenda.SelectedDate = null;
             dtHoraVenda.SelectedTime = null;
-            txtFormaPagamento.Clear();
+            //txtFormaPagamento.Clear();
         }
 
     }
