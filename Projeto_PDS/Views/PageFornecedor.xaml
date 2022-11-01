@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         xmlns:local="clr-namespace:Projeto_PDS.Views"
         mc:Ignorable="d"
       
@@ -60,7 +61,7 @@
                           Height="50"
                           materialDesign:HintAssist.Hint="Razão Social"/>
 
-                <TextBox x:Name="txtCnpj" Padding="8"
+                <wpfTool:MaskedTextBox x:Name="txtCnpj" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
@@ -68,6 +69,7 @@
                           Width="280"
                           Height="50"
                           Margin="20,0,0,0"
+                          Mask="00\.000\.000/0000-00"
                           materialDesign:HintAssist.Hint="CNPJ"/>
             </StackPanel>
 
@@ -81,7 +83,7 @@
                           Height="50"
                           materialDesign:HintAssist.Hint="Email"/>
 
-                <TextBox x:Name="txtTelefone" Padding="8"
+                <wpfTool:MaskedTextBox x:Name="txtTelefone" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
@@ -89,6 +91,7 @@
                           Width="280"
                           Height="50"
                           Margin="20,0,0,0"
+                          Mask="(00) 0 0000-0000"
                           materialDesign:HintAssist.Hint="Telefone"/>
             </StackPanel>
 
