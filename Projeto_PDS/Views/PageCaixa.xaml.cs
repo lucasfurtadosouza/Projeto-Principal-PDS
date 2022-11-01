@@ -42,11 +42,14 @@ namespace Projeto_PDS.Views
             _page = page;
 
             Loaded += WindowCaixa_Loaded;
+            
         }
 
         private void WindowCaixa_Loaded(object sender, RoutedEventArgs e)
         {
             txtSaldoInicial.Focus();
+            //dtHoraAbertura.Text = DateTime.Now.ToString("hh:mm");
+            //dtDataAbertura.Text = DateTime.Now.ToShortDateString();
         }
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
