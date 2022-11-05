@@ -67,7 +67,7 @@ namespace Projeto_PDS.Models
                     cliente.Cpf = Helpers.DAOHelper.GetString(reader, "cpf_cli");
                     cliente.Telefone = Helpers.DAOHelper.GetString(reader, "telefone_cli");
                     cliente.Rua = Helpers.DAOHelper.GetString(reader, "rua_cli");
-                    cliente.Numero = Helpers.DAOHelper.GetString(reader, "numero_cli");
+                    cliente.Numero = Convert.ToInt32(Helpers.DAOHelper.GetString(reader, "numero_cli"));
                     cliente.Bairro = Helpers.DAOHelper.GetString(reader, "bairro_cli");
                     cliente.Rg = Helpers.DAOHelper.GetString(reader, "rg_cli");
                     cliente.DataNasc = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_nasc_cli"));

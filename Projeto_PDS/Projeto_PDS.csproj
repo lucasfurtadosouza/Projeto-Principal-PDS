@@ -201,11 +201,17 @@
     <Compile Include="Views\PageVenda.xaml.cs">
       <DependentUpon>PageVenda.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WindowCompraProdutoListAdd.xaml.cs">
+      <DependentUpon>WindowCompraProdutoListAdd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WindowNovoUsuario.xaml.cs">
       <DependentUpon>WindowNovoUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowTermos.xaml.cs">
       <DependentUpon>WindowTermos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowVendaProdutoListAdd.xaml.cs">
+      <DependentUpon>WindowVendaProdutoListAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowLogin.xaml.cs">
       <DependentUpon>WindowLogin.xaml</DependentUpon>
@@ -296,11 +302,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\WindowCompraProdutoListAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WindowNovoUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WindowTermos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowVendaProdutoListAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

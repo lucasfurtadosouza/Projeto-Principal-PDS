@@ -31,7 +31,7 @@ namespace Projeto_PDS.Views
         {
             InitializeComponent();
             _main = mainWindow;
-            Loaded += ClienteWindow_Loaded;
+            Loaded += PageCliente_Loaded;
         }
         public PageCliente(MainWindow mainWindow, PageRelatorio page, Cliente cliente)
         {
@@ -40,12 +40,26 @@ namespace Projeto_PDS.Views
             _main = mainWindow;
             _page = page;
 
-            Loaded += ClienteWindow_Loaded;
+            Loaded += PageCliente_Loaded;
         }
 
-        private void ClienteWindow_Loaded(object sender, RoutedEventArgs e)
+        private void PageCliente_Loaded(object sender, RoutedEventArgs e)
         {
-
+            txtNome.Focus();
+            txtNome.Text = _cliente.Nome;
+            txtEmail.Text = _cliente.Email;
+            txtCpf.Text = _cliente.Cpf;
+            txtTelefone.Text = _cliente.Telefone;
+            txtRua.Text = _cliente.Rua;
+            txtBairro.Text = _cliente.Bairro;
+            if(_cliente.Numero != 0)
+            {
+                txtNumero.Text = Convert.ToString(_cliente.Numero);
+            }
+            txtRg.Text = _cliente.Rg;
+            dtDataNasc.SelectedDate = _cliente.DataNasc;
+            cbSexo.Text = _cliente.Sexo;
+            txtRenda.Text = _cliente.RendaFamiliar;
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -56,14 +70,12 @@ namespace Projeto_PDS.Views
             _cliente.Telefone = txtTelefone.Text;
             _cliente.Rua = txtRua.Text;
             _cliente.Bairro = txtBairro.Text;
-            _cliente.Numero = txtNumero.Text;
+            _cliente.Numero = Convert.ToInt32(txtNumero.Text);
             _cliente.Rg = txtRg.Text;
-
             if (dtDataNasc.SelectedDate != null)
             {
-                _cliente.DataNasc = (DateTime)dtDataNasc.SelectedDate;
+                _cliente.DataNasc = dtDataNasc.SelectedDate;
             }
-
             _cliente.Sexo = cbSexo.Text;
             _cliente.RendaFamiliar = txtRenda.Text;
 

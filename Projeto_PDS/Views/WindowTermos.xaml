@@ -119,9 +119,7 @@
 
                             </Border.Background>
                             <Border.Effect>
-                                <DropShadowEffect Color="AntiqueWhite"  ShadowDepth="0.1" Direction="330">
-
-                                </DropShadowEffect>
+                                <DropShadowEffect Color="AntiqueWhite"  ShadowDepth="0.1" Direction="330"/>
                             </Border.Effect>
                             <Image Source="/Imagens_Videos/imgAvancar.png" Stretch="Uniform" Margin="28,15,24,15"/>
                         </Border>

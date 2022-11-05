@@ -32,7 +32,7 @@ namespace Projeto_PDS.Views
         {
             InitializeComponent();
             _main = mainWindow;
-            Loaded += WindowFornecedor_Loaded;
+            Loaded += PageFornecedor_Loaded;
         }
         
         public PageFornecedor(MainWindow mainWindow, PageRelatorio page, Fornecedor fornecedor)
@@ -42,12 +42,23 @@ namespace Projeto_PDS.Views
             _main = mainWindow;
             _page = page;
 
-            Loaded += WindowFornecedor_Loaded;
+            Loaded += PageFornecedor_Loaded;
         }
 
-        private void WindowFornecedor_Loaded(object sender, RoutedEventArgs e)
+        private void PageFornecedor_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            txtNome.Focus();
+            txtNome.Text = _fornecedor.Nome;
+            txtRazao.Text = _fornecedor.Razao;
+            txtCnpj.Text = _fornecedor.Cnpj;
+            txtEmail.Text = _fornecedor.Email;
+            txtRua.Text = _fornecedor.Rua;
+            if(_fornecedor.Numero != 0)
+            {
+                txtNumero.Text = Convert.ToString(_fornecedor.Numero);
+            }
+            txtBairro.Text =_fornecedor.Bairro;
+            txtTelefone.Text = _fornecedor.Telefone;
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -63,7 +74,6 @@ namespace Projeto_PDS.Views
             _fornecedor.Numero = Convert.ToInt32(txtNumero.Text);
             _fornecedor.Bairro = txtBairro.Text;
             _fornecedor.Telefone = txtTelefone.Text;
-
 
             try
             {

@@ -45,6 +45,20 @@ namespace Projeto_PDS.Views
         private void WindowProduto_Loaded(object sender, RoutedEventArgs e)
         {
             txtNome.Focus();
+            txtNome.Text = _produto.Nome;
+            if(_produto.ValorCompra != 0)
+            {
+                txtValorCompra.Text = Convert.ToString(_produto.ValorCompra);
+            }
+            if (_produto.ValorVenda != 0)
+            {
+                txtValorVenda.Text = Convert.ToString(_produto.ValorVenda);
+            }
+            if (_produto.Estoque != 0)
+            {
+                txtEstoque.Text = Convert.ToString(_produto.Estoque);
+            }
+            txtDescricao.Text= _produto.Descricao;
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -77,7 +91,6 @@ namespace Projeto_PDS.Views
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             txtNome.Clear();

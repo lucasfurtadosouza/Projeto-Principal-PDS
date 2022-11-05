@@ -48,8 +48,22 @@ namespace Projeto_PDS.Views
         private void WindowCaixa_Loaded(object sender, RoutedEventArgs e)
         {
             txtSaldoInicial.Focus();
-            //dtHoraAbertura.Text = DateTime.Now.ToString("hh:mm");
-            //dtDataAbertura.Text = DateTime.Now.ToShortDateString();
+            if (_caixa.Id > 0)
+            {
+                txtSaldoInicial.Text = Convert.ToString(_caixa.SaldoInicial);
+                txtSaldoFinal.Text = Convert.ToString(_caixa.SaldoFinal);
+                txtQuantidadePagamentos.Text = Convert.ToString(_caixa.QuantidadePagamentos);
+                txtQuantidadeRecebimentos.Text = Convert.ToString(_caixa.QuantidadeRecebimentos);
+                dtDataAbertura.SelectedDate = _caixa.DataAbertura;
+                dtDataFechamento.SelectedDate = _caixa.DataFechamento;
+                dtHoraAbertura.SelectedTime = _caixa.HoraAbertura;
+                dtHoraFechamento.SelectedTime = _caixa.HoraFechamento;
+            }
+            else
+            {
+                dtDataAbertura.SelectedDate = DateTime.Now;
+                dtHoraAbertura.SelectedTime = DateTime.Now;
+            }
         }
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
@@ -101,9 +115,9 @@ namespace Projeto_PDS.Views
         {
             txtSaldoInicial.Clear();
             txtSaldoFinal.Clear();
-            dtDataAbertura.SelectedDate = null;
+            dtDataAbertura.SelectedDate = DateTime.Now;
+            dtHoraAbertura.SelectedTime = DateTime.Now;
             dtDataFechamento.SelectedDate = null;
-            dtHoraAbertura.SelectedTime = null;
             dtHoraFechamento.SelectedTime = null;
             txtQuantidadePagamentos.Clear();
             txtQuantidadeRecebimentos.Clear();

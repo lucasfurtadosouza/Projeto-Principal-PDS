@@ -31,7 +31,7 @@ namespace Projeto_PDS.Views
         {
             InitializeComponent();
             _main = mainWindow;
-            Loaded += WindowFornecedor_Loaded;
+            Loaded += PageFornecedor_Loaded;
         }
         public PageFuncionario(MainWindow mainWindow, PageRelatorio page, Funcionario funcionario)
         {
@@ -40,11 +40,25 @@ namespace Projeto_PDS.Views
             _main = mainWindow;
             _page = page;
 
-            Loaded += WindowFornecedor_Loaded;
+            Loaded += PageFornecedor_Loaded;
         }
-        private void WindowFornecedor_Loaded(object sender, RoutedEventArgs e)
+        private void PageFornecedor_Loaded(object sender, RoutedEventArgs e)
         {
             txtNome.Focus();
+            txtNome.Text = _funcionario.Nome;
+            txtEmail.Text = _funcionario.Email;
+            txtCpf.Text = _funcionario.Cpf;
+            txtTelefone.Text = _funcionario.Telefone;
+            txtRua.Text = _funcionario.Rua;
+            if(_funcionario.Numero != 0)
+            {
+                txtNumero.Text = Convert.ToString(_funcionario.Numero);
+            }
+            txtBairro.Text = _funcionario.Bairro;
+            txtRg.Text = _funcionario.Rg;
+            dtDataNasc.SelectedDate = _funcionario.DataNasc;
+            txtCarteiraTrabalho.Text = _funcionario.CarteiraDeTrabalho;
+            txtSalario.Text = Convert.ToString(_funcionario.Salario);
         }
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {

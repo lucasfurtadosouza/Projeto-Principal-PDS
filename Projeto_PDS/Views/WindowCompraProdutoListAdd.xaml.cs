@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Projeto_PDS.Views
 {
     /// <summary>
-    /// Interação lógica para PageMain.xam
+    /// Lógica interna para WindowCompraProdutoListAdd.xaml
     /// </summary>
-    public partial class PageMain : Page
+    public partial class WindowCompraProdutoListAdd : Window
     {
-        public PageMain()
+        public WindowCompraProdutoListAdd()
         {
             InitializeComponent();
-            txtHora.Text = DateTime.Now.ToShortTimeString();
-            txtData.Text = DateTime.Now.ToShortDateString();
-        }
-
-        private void UIElement_TouchEnter(object sender, TouchEventArgs e)
-        {
-
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Projeto_PDS.Views
         {
             InitializeComponent();
             _main = mainWindow;
-            Loaded += DespesaWindow_Loaded;
+            Loaded += PageDespesa_Loaded;
         }
 
         public PageDespesa(MainWindow mainWindow, PageRelatorio page, Despesa despesa)
@@ -41,11 +41,19 @@ namespace Projeto_PDS.Views
             _main = mainWindow;
             _page = page;
 
-            Loaded += DespesaWindow_Loaded;
+            Loaded += PageDespesa_Loaded;
         }
-        private void DespesaWindow_Loaded(object sender, RoutedEventArgs e)
+        private void PageDespesa_Loaded(object sender, RoutedEventArgs e)
         {
             txtValor.Focus();
+            if(_despesa.Valor != 0)
+            {
+                txtValor.Text = Convert.ToString(_despesa.Valor);
+            }
+            dtDataVen.SelectedDate = _despesa.Data_Vencimento;
+            dtDataPag.SelectedDate = _despesa.Data_Pagamento;
+            txtFormaPagamento.Text = _despesa.Forma_Pagamento;
+            txtDescricao.Text = _despesa.Descricao;
         }
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
@@ -60,7 +68,6 @@ namespace Projeto_PDS.Views
             }
             _despesa.Forma_Pagamento = txtFormaPagamento.Text;
             _despesa.Descricao = txtDescricao.Text;
-
 
             try
             {

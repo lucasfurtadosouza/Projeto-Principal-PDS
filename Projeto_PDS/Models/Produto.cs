@@ -16,5 +16,18 @@ namespace Projeto_PDS.Models
         public string Descricao { get; set; }
         public string Foto { get; set; }
 
+        private bool _selected = false;
+        public bool IsSelected
+        {
+            get
+            {
+                return _selected;
+            }
+            set
+            {
+                _selected = value;
+            }
+        }
+
     }
 }
