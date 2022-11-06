@@ -18,15 +18,14 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "INSERT Into Despesa Values " +
-                    "(null, @valor, @data_vencimento, @data_pagamento, @forma_pagamento, @descricao)";
+                comando.CommandText = "CALL InserirDespesa" +
+                    "(@valor, @dataVencimento, @dataPagamento, @formaPagamento, @descricao)";
 
                 comando.Parameters.AddWithValue("@valor", despesa.Valor);
-                comando.Parameters.AddWithValue("@data_vencimento", despesa.Data_Vencimento);
-                comando.Parameters.AddWithValue("@data_pagamento", despesa.Data_Pagamento);
-                comando.Parameters.AddWithValue("@forma_pagamento", despesa.Forma_Pagamento);
+                comando.Parameters.AddWithValue("@dataVencimento", despesa.Data_Vencimento);
+                comando.Parameters.AddWithValue("@dataPagamento", despesa.Data_Pagamento);
+                comando.Parameters.AddWithValue("@formaPagamento", despesa.Forma_Pagamento);
                 comando.Parameters.AddWithValue("@descricao", despesa.Descricao);
-
 
                 var resultado = comando.ExecuteNonQuery();
 
@@ -76,7 +75,7 @@ namespace Projeto_PDS.Models
             try
             {
                 var comando = _conn.Query();
-                comando.CommandText = "DELETE FROM despesa WHERE id_des = @id";
+                comando.CommandText = "CALL DeletarDespesa(@id)";
                 comando.Parameters.AddWithValue("@id", despesa.Id);
                 var resultado = comando.ExecuteNonQuery();
                 if (resultado == 0)
@@ -95,21 +94,15 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "UPDATE Despesa SET " +
-                    "id_des = @id," +
-                    "valor_des = @valor," +
-                    " data_vencimento_des = @Data_Vencimento," +
-                    " data_pagamento_des = @Data_Pagamento, " +
-                    "forma_pagamento_des = @Forma_Pagamento," +
-                    "descricao_des = @Descricao " ;
+                comando.CommandText = "CALL AtualizarDespesa" +
+                    "(@valor, @dataVencimento, @dataPagamento, @formaPagamento, @descricao)";
 
-                comando.Parameters.AddWithValue("@id", despesa.Id);
                 comando.Parameters.AddWithValue("@valor", despesa.Valor);
-                comando.Parameters.AddWithValue("@Data_Vencimento", despesa.Data_Vencimento);
-                comando.Parameters.AddWithValue("@Data_Pagamento", despesa.Data_Pagamento);
-                comando.Parameters.AddWithValue("@Forma_Pagamento", despesa.Forma_Pagamento);
-                comando.Parameters.AddWithValue("@Descricao", despesa.Descricao);
- 
+                comando.Parameters.AddWithValue("@dataVencimento", despesa.Data_Vencimento);
+                comando.Parameters.AddWithValue("@dataPagamento", despesa.Data_Pagamento);
+                comando.Parameters.AddWithValue("@formaPagamento", despesa.Forma_Pagamento);
+                comando.Parameters.AddWithValue("@descricao", despesa.Descricao);
+
                 var resultado = comando.ExecuteNonQuery();
 
                 if (resultado == 0)

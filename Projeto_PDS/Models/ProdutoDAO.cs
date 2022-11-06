@@ -18,16 +18,15 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "INSERT Into Produto Values " +
-
-                    "(null, @nome, @valorCompra, @valorVenda, @estoque, @descricao, null)";
+                comando.CommandText = "CALL InserirProduto" +
+                    "(@nome, @valorCompra, @valorVenda, @estoque, @descricao, null)";
 
                 comando.Parameters.AddWithValue("@nome", produto.Nome);
                 comando.Parameters.AddWithValue("@valorCompra", produto.ValorCompra);
                 comando.Parameters.AddWithValue("@valorVenda", produto.ValorVenda);
                 comando.Parameters.AddWithValue("@estoque", produto.Estoque);
                 comando.Parameters.AddWithValue("@descricao", produto.Descricao);
-                //comando.Parameters.AddWithValue("@foto", produto.Foto);
+                comando.Parameters.AddWithValue("@foto", null);
 
                 var resultado = comando.ExecuteNonQuery();
 
@@ -79,7 +78,7 @@ namespace Projeto_PDS.Models
             try
             {
                 var comando = _conn.Query();
-                comando.CommandText = "DELETE FROM Produto WHERE id_pro = @id";
+                comando.CommandText = "CALL DeletarProduto(@id)";
                 comando.Parameters.AddWithValue("@id", produto.Id);
                 var resultado = comando.ExecuteNonQuery();
                 if (resultado == 0)
@@ -98,16 +97,15 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "UPDATE Produto SET " +
-                    "nome_pro = @nome, valor_compra_pro = @produto, valor_venda_pro = @valorVenda, estoque_pro = @estoque, descricao_pro = @descricao, foto_pro = @foto" +
-                    "WHERE id_pro = @id";
+                comando.CommandText = "CALL AtualizarProduto" +
+                    "(@nome, @valorCompra, @valorVenda, @estoque, @descricao, @foto)";
 
                 comando.Parameters.AddWithValue("@nome", produto.Nome);
                 comando.Parameters.AddWithValue("@valorCompra", produto.ValorCompra);
                 comando.Parameters.AddWithValue("@valorVenda", produto.ValorVenda);
                 comando.Parameters.AddWithValue("@estoque", produto.Estoque);
                 comando.Parameters.AddWithValue("@descricao", produto.Descricao);
-                comando.Parameters.AddWithValue("@foto", produto.Foto);
+                comando.Parameters.AddWithValue("@foto", null);
 
                 var resultado = comando.ExecuteNonQuery();
 

@@ -18,12 +18,11 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "INSERT Into Fornecedor Value " +
+                comando.CommandText = "CALL InserirFornecedor" +
+                    "(@nomeFantasia, @razaoSocial, @cnpj, @email, @rua, @numero, @bairro, @telefone)";
 
-                    "(null, @nome_fantasia, @razao_social, @cnpj, @email, @rua, @numero, @bairro, @telefone)";
-
-                comando.Parameters.AddWithValue("@nome_fantasia", fornecedor.Nome);
-                comando.Parameters.AddWithValue("@razao_social", fornecedor.Razao );
+                comando.Parameters.AddWithValue("@nomeFantasia", fornecedor.Nome);
+                comando.Parameters.AddWithValue("@razaoSocial", fornecedor.Razao);
                 comando.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
                 comando.Parameters.AddWithValue("@email", fornecedor.Email);
                 comando.Parameters.AddWithValue("@rua", fornecedor.Rua);
@@ -84,7 +83,7 @@ namespace Projeto_PDS.Models
             try
             {
                 var comando = _conn.Query();
-                comando.CommandText = "DELETE FROM fornecedor WHERE id_for = @id";
+                comando.CommandText = "CALL DeletarFornecedor(@id)";
                 comando.Parameters.AddWithValue("@id", fornecedor.Id);
                 var resultado = comando.ExecuteNonQuery();
                 if (resultado == 0)
@@ -103,6 +102,7 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
+                /*
                 comando.CommandText = "UPDATE fornecedor SET " +
 
 
@@ -115,16 +115,18 @@ namespace Projeto_PDS.Models
                     "numero_for = @numero," +
                     "bairro_for = @bairro," +
                     "telefone_for = @telefone";
+                */
 
+                comando.CommandText = "CALL AtualizarFornecedor" +
+                    "(@nomeFantasia, @razaoSocial, @cnpj, @email, @rua, @numero, @bairro, @telefone)";
 
-                comando.Parameters.AddWithValue("@id", fornecedor.Id);
-                comando.Parameters.AddWithValue("@nome_fantasia", fornecedor.Nome);
-                comando.Parameters.AddWithValue("@razao_social", fornecedor.Razao);
+                comando.Parameters.AddWithValue("@nomeFantasia", fornecedor.Nome);
+                comando.Parameters.AddWithValue("@razaoSocial", fornecedor.Razao);
                 comando.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
                 comando.Parameters.AddWithValue("@email", fornecedor.Email);
-                comando.Parameters.AddWithValue("@endereco", fornecedor.Rua);
-                comando.Parameters.AddWithValue("@endereco", fornecedor.Numero);
-                comando.Parameters.AddWithValue("@endereco", fornecedor.Bairro);
+                comando.Parameters.AddWithValue("@rua", fornecedor.Rua);
+                comando.Parameters.AddWithValue("@numero", fornecedor.Numero);
+                comando.Parameters.AddWithValue("@bairro", fornecedor.Bairro);
                 comando.Parameters.AddWithValue("@telefone", fornecedor.Telefone);
 
                 var resultado = comando.ExecuteNonQuery();

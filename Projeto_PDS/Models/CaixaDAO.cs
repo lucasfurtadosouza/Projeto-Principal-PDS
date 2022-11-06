@@ -18,19 +18,18 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "INSERT Into Caixa Values " +
+                comando.CommandText = "CALL InserirCaixa" +
+                    "(@saldoInicial, @saldoFinal, @dataAbertura, @dataFechamento, @horaAbertura, @horaFechamento, @qtdPagamentos, @qtdRecebimentos)";
 
-                    "(null, @saldo_inicial, @saldo_final, @data_abertura, @data_fechamento, @hora_abertura, @hora_fechamento," +
-                    "@quantidade_pagamentos, @quantidade_recebimentos)";
+                comando.Parameters.AddWithValue("@saldoInicial", caixa.SaldoInicial);
+                comando.Parameters.AddWithValue("@saldoFinal", caixa.SaldoFinal);
+                comando.Parameters.AddWithValue("@dataAbertura", caixa.DataAbertura);
+                comando.Parameters.AddWithValue("@dataFechamento", caixa.DataFechamento);
+                comando.Parameters.AddWithValue("@horaAbertura", caixa.HoraAbertura);
+                comando.Parameters.AddWithValue("@horaFechamento", caixa.HoraFechamento);
+                comando.Parameters.AddWithValue("@qtdPagamentos", caixa.QuantidadePagamentos);
+                comando.Parameters.AddWithValue("@qtdRecebimentos", caixa.QuantidadeRecebimentos);
 
-                comando.Parameters.AddWithValue("@saldo_inicial", caixa.SaldoInicial);
-                comando.Parameters.AddWithValue("@saldo_final", caixa.SaldoFinal);
-                comando.Parameters.AddWithValue("@data_abertura", caixa.DataAbertura);
-                comando.Parameters.AddWithValue("@data_fechamento", caixa.DataFechamento);
-                comando.Parameters.AddWithValue("@hora_abertura", caixa.HoraAbertura);
-                comando.Parameters.AddWithValue("@hora_fechamento", caixa.HoraFechamento);
-                comando.Parameters.AddWithValue("@quantidade_pagamentos", caixa.QuantidadePagamentos);
-                comando.Parameters.AddWithValue("@quantidade_recebimentos", caixa.QuantidadeRecebimentos);
                 var resultado = comando.ExecuteNonQuery();
 
                 if (resultado == 0)
@@ -82,7 +81,7 @@ namespace Projeto_PDS.Models
             try
             {
                 var comando = _conn.Query();
-                comando.CommandText = "DELETE FROM Caixa WHERE id_cai = @id";
+                comando.CommandText = "CALL DeletarCaixa(@id)";
                 comando.Parameters.AddWithValue("@id", caixa.Id);
                 var resultado = comando.ExecuteNonQuery();
                 if (resultado == 0)
@@ -101,26 +100,17 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "UPDATE Caixa SET " +
-                    "id_cai = @id," +
-                    "saldo_inicial_cai = @saldo_inicial," +
-                    "saldo_final_cai = @saldo_final," +
-                    "data_abertura_cai = @data_abertura," +
-                    "data_fechamento_cai = @data_fechamento, " +
-                    "hora_abertura_cai = @hora_abertura," +
-                    "hora_fechamento_cai = @hora_fechamento, " +
-                    "quantidade_pagamentos_cai = @quantidade_pagamentos," +
-                    "quantidade_recebimentos_cai = @quantidade_recebimentos;";
+                comando.CommandText = "CALL AtualizarCaixa" +
+                    "(@saldoInicial, @saldoFinal, @dataAbertura, @dataFechamento, @horaAbertura, @horaFechamento, @qtdPagamentos, @qtdRecebimentos)";
 
-                comando.Parameters.AddWithValue("@id", caixa.Id);
-                comando.Parameters.AddWithValue("@saldo_inicial", caixa.SaldoInicial);
-                comando.Parameters.AddWithValue("@saldo_final", caixa.SaldoFinal);
-                comando.Parameters.AddWithValue("@data_abertura", caixa.DataAbertura);
-                comando.Parameters.AddWithValue("@data_fechamento", caixa.DataFechamento);
-                comando.Parameters.AddWithValue("@hora_abertura", caixa.HoraAbertura);
-                comando.Parameters.AddWithValue("@hora_fechamento", caixa.HoraFechamento);
-                comando.Parameters.AddWithValue("@quantidade_pagamentos", caixa.QuantidadePagamentos);
-                comando.Parameters.AddWithValue("@quantidade_recebimentos", caixa.QuantidadeRecebimentos);
+                comando.Parameters.AddWithValue("@saldoInicial", caixa.SaldoInicial);
+                comando.Parameters.AddWithValue("@saldoFinal", caixa.SaldoFinal);
+                comando.Parameters.AddWithValue("@dataAbertura", caixa.DataAbertura);
+                comando.Parameters.AddWithValue("@dataFechamento", caixa.DataFechamento);
+                comando.Parameters.AddWithValue("@horaAbertura", caixa.HoraAbertura);
+                comando.Parameters.AddWithValue("@horaFechamento", caixa.HoraFechamento);
+                comando.Parameters.AddWithValue("@qtdPagamentos", caixa.QuantidadePagamentos);
+                comando.Parameters.AddWithValue("@qtdRecebimentos", caixa.QuantidadeRecebimentos);
 
                 var resultado = comando.ExecuteNonQuery();
 

@@ -18,9 +18,8 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "INSERT Into Cliente Values " +
-
-                    "(null, @nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @data_nasc, @renda_familiar, null, null)"; //ULTIMO NULL É DA FOREIGN KEY DE SEXO
+                comando.CommandText = "CALL InserirCliente" +
+                    "(@nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @dataNasc, @rendaFamiliar, @foto, @idSexo)";
 
                 comando.Parameters.AddWithValue("@nome", cliente.Nome);
                 comando.Parameters.AddWithValue("@email", cliente.Email);
@@ -30,9 +29,10 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@numero", cliente.Numero);
                 comando.Parameters.AddWithValue("@bairro", cliente.Bairro);
                 comando.Parameters.AddWithValue("@rg", cliente.Rg);
-                comando.Parameters.AddWithValue("@data_nasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
-                comando.Parameters.AddWithValue("@renda_familiar", cliente.RendaFamiliar);
-                //comando.Parameters.AddWithValue("@foto", cliente.Foto);
+                comando.Parameters.AddWithValue("@dataNasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
+                comando.Parameters.AddWithValue("@rendaFamiliar", cliente.RendaFamiliar);
+                comando.Parameters.AddWithValue("@foto", null);
+                comando.Parameters.AddWithValue("@idSexo", null);
 
                 var resultado = comando.ExecuteNonQuery();
 
@@ -89,7 +89,7 @@ namespace Projeto_PDS.Models
             try
             {
                 var comando = _conn.Query();
-                comando.CommandText = "DELETE FROM cliente WHERE id_cli = @id";
+                comando.CommandText = "CALL DeletarUsuario(@id)";
                 comando.Parameters.AddWithValue("@id", cliente.Id);
                 var resultado = comando.ExecuteNonQuery();
                 if (resultado == 0)
@@ -108,20 +108,27 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
+                /*
                 comando.CommandText = "UPDATE Cliente SET " +
                     "nome_cli = @nome, email_cli = @email, cpf_cli = @cpf, telefone_cli = @telefone, rua_cli = @rua, numero_cli = @numero, bairro_cli = @bairro, rg_cli = @rg, " +
                     "data_nasc_cli = @data_nasc, renda_familiar_cli = @renda_familiar, foto_cli = null" +
                     "WHERE id_cli = @id";
+                */
+                comando.CommandText = "CALL AtualizarCliente" +
+                    "(@nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @dataNasc, @rendaFamiliar, @foto, @idSexo)";
 
                 comando.Parameters.AddWithValue("@nome", cliente.Nome);
                 comando.Parameters.AddWithValue("@email", cliente.Email);
+                comando.Parameters.AddWithValue("@cpf", cliente.Cpf);
                 comando.Parameters.AddWithValue("@telefone", cliente.Telefone);
                 comando.Parameters.AddWithValue("@rua", cliente.Rua);
                 comando.Parameters.AddWithValue("@numero", cliente.Numero);
                 comando.Parameters.AddWithValue("@bairro", cliente.Bairro);
                 comando.Parameters.AddWithValue("@rg", cliente.Rg);
-                comando.Parameters.AddWithValue("@data_nasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
-                comando.Parameters.AddWithValue("@renda_familiar", cliente.RendaFamiliar);
+                comando.Parameters.AddWithValue("@dataNasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
+                comando.Parameters.AddWithValue("@rendaFamiliar", cliente.RendaFamiliar);
+                comando.Parameters.AddWithValue("@foto", null);
+                comando.Parameters.AddWithValue("@idSexo", null);
 
                 var resultado = comando.ExecuteNonQuery();
 

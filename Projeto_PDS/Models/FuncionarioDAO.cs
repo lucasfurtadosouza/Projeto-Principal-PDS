@@ -17,10 +17,15 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
+                /*
                 comando.CommandText = "INSERT Into Funcionario Values " +
 
                     "(null, @nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @data, @carteira, @salario," +
                     "null, null)"; //ULTIMO NULL É DA FOREIGN KEY DE SEXO
+                */
+
+                comando.CommandText = "CALL InserirFuncionario" +
+                    "(@nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @dataNasc, @carteiraTrabalho, @salario, @foto, @idSexo)";
 
                 comando.Parameters.AddWithValue("@nome", funcionario.Nome);
                 comando.Parameters.AddWithValue("@email", funcionario.Email);
@@ -30,10 +35,12 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@numero", funcionario.Numero);
                 comando.Parameters.AddWithValue("@bairro", funcionario.Bairro);
                 comando.Parameters.AddWithValue("@rg", funcionario.Rg);
-                comando.Parameters.AddWithValue("@data", funcionario.DataNasc?.ToString("yyyy-MM-dd"));
-                comando.Parameters.AddWithValue("@carteira", funcionario.CarteiraDeTrabalho);
+                comando.Parameters.AddWithValue("@dataNasc", funcionario.DataNasc?.ToString("yyyy-MM-dd"));
+                comando.Parameters.AddWithValue("@carteiraTrabalho", funcionario.CarteiraDeTrabalho);
                 comando.Parameters.AddWithValue("@salario", funcionario.Salario);
-                //comando.Parameters.AddWithValue("@foto", funcionario.Foto);
+                comando.Parameters.AddWithValue("@foto", null);
+                comando.Parameters.AddWithValue("@idSexo", null);
+
                 var resultado = comando.ExecuteNonQuery();
 
                 if (resultado == 0)
@@ -46,31 +53,6 @@ namespace Projeto_PDS.Models
                 throw ex;
             }
         }
-        /*public void Insert2(Funcionario funcionario)
-        {
-            try
-            {
-                var comando = _conn.Query();
-
-                comando.CommandText = "INSERT Into Funcionario Value " +
-
-                    "(null, @nome, null, null, null, null, null, null, null, null, null, null, null," +
-                    "null)";
-
-                comando.Parameters.AddWithValue("@nome", funcionario.Nome);
-               
-                var resultado = comando.ExecuteNonQuery();
-
-                if (resultado == 0)
-                {
-                    throw new Exception("Ocorreram erros ao salvar as informações");
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }*/
 
         public List<Funcionario> List()
         {
@@ -117,7 +99,7 @@ namespace Projeto_PDS.Models
             try
             {
                 var comando = _conn.Query();
-                comando.CommandText = "DELETE FROM Funcionario WHERE id_fun = @id";
+                comando.CommandText = "CALL DeletarFuncionario(@id)";
                 comando.Parameters.AddWithValue("@id", funcionario.Id);
                 var resultado = comando.ExecuteNonQuery();
                 if (resultado == 0)
@@ -136,11 +118,8 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "UPDATE Funcionario SET " +
-                    "nome_fun = @nome, email_fun = @email, cpf_fun = @cpf, telefone_fun = @telefone, rua_fun = @rua, numero_fun = @numero, bairro_fun = @bairro,rg_fun = @rg ,data_nasc_fun = @data, carteira_de_trabalho_fun = @carteira, salario_fun = @salario," +
-                    " foto_fun = null" +
-                    "WHERE id_fun = @id";
-
+                comando.CommandText = "CALL AtualizarFuncionario" +
+                    "(@nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @dataNasc, @carteiraTrabalho, @salario, @foto, @idSexo)";
 
                 comando.Parameters.AddWithValue("@nome", funcionario.Nome);
                 comando.Parameters.AddWithValue("@email", funcionario.Email);
@@ -150,13 +129,11 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@numero", funcionario.Numero);
                 comando.Parameters.AddWithValue("@bairro", funcionario.Bairro);
                 comando.Parameters.AddWithValue("@rg", funcionario.Rg);
-                comando.Parameters.AddWithValue("@data", funcionario.DataNasc?.ToString("yyyy-MM-dd"));
-                //comando.Parameters.AddWithValue("@sexo", funcionario.Sexo);
-                comando.Parameters.AddWithValue("@carteira", funcionario.CarteiraDeTrabalho);
+                comando.Parameters.AddWithValue("@dataNasc", funcionario.DataNasc?.ToString("yyyy-MM-dd"));
+                comando.Parameters.AddWithValue("@carteiraTrabalho", funcionario.CarteiraDeTrabalho);
                 comando.Parameters.AddWithValue("@salario", funcionario.Salario);
-                //comando.Parameters.AddWithValue("@foto", funcionario.Foto);
-
-
+                comando.Parameters.AddWithValue("@foto", null);
+                comando.Parameters.AddWithValue("@idSexo", null);
 
                 var resultado = comando.ExecuteNonQuery();
 
