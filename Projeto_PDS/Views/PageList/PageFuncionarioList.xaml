@@ -16,15 +16,38 @@
       Title="PageFuncionarioList">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="0">
+        <StackPanel Grid.Row="0"  Margin="10 0 10 0">
 
-            <Border CornerRadius="10" Margin=" 10 40 10 10" Height="200" >
-                <TextBlock  Margin="25 20 10 10"  Foreground="White" IsHitTestVisible="False" Text="Busca"/>
+            <Border CornerRadius="10" Height="60" >
+                <StackPanel Orientation="Horizontal">
+
+                    <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Margin="10 0 600 0">
+                        <TextBox Width="440" x:Name="txtBuscar" Margin="14" materialDesign:HintAssist.Hint="Buscar" FontSize="16"></TextBox>
+                        <Button x:Name="BtnSearch" Margin="20 0 0 0"
+                            Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                            ToolTip="Adicionar Departamento"  Cursor="Hand">
+                            <materialDesign:PackIcon Kind="TableSearch" />
+                        </Button>
+                        <Button
+                      Content="Clear"
+                      Style="{StaticResource MaterialDesignFlatButton}"
+                       Foreground="White"
+                      HorizontalAlignment="Right"
+                      Grid.Column="1" Cursor="Hand" Margin="0 0 10 0"/>
+
+
+
+
+                    </StackPanel>
+
+
+                </StackPanel>
+
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="3" Color="Gray"/>
 
@@ -33,42 +56,21 @@
                 <Border.Background>
                     <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                         <GradientStop Color="#8185fc" Offset="0.8"/>
-                        <GradientStop Color="#dfbdff" Offset="0"/>
+                        <GradientStop Color="#FFC283FD" Offset="0"/>
                     </LinearGradientBrush>
                 </Border.Background>
 
             </Border>
 
-
-            <StackPanel Margin="20 -180 20 0">
-                <TextBox Width="180" x:Name="txtBuscar"></TextBox>
-
-                <Button
-          Content="Clear"
-          Style="{StaticResource MaterialDesignFlatButton}"
-           Foreground="White"
-          HorizontalAlignment="Right"
-          Grid.Column="1" Cursor="Hand" Margin="0 15 0 0"/>
-
-                <ComboBox
-                x:Name="cbFiltro"
-                Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
-                materialDesign:HintAssist.Hint="Filtro"
-                ItemsSource="{Binding ShortStringList}"
-                   Foreground="White"
-                    Margin=" 2 20 0 0"
-                Width="195" />
-            </StackPanel>
-
+            
 
         </StackPanel>
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Row="1">
             <Border CornerRadius="10" Margin="10"  Height="500">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="2,0" EndPoint="0,1">
                         <GradientStop Color="White" Offset="0.7"/>
-                        <GradientStop Color="#8185fc" Offset="0"/>
+                    
                     </LinearGradientBrush>
                 </Border.Background>
                 <Border.Effect>
