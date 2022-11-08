@@ -65,7 +65,7 @@
             <ScrollViewer Grid.Row="2" Margin="10" 
                               ScrollViewer.VerticalScrollBarVisibility="Auto">
 
-                <DataGrid  Margin="0,5,5,5" x:Name="dataGrid" CanUserAddRows="False" CanUserDeleteRows="False" 
+                <DataGrid  Margin="0,5,5,5" x:Name="dataGrid" CanUserAddRows="False" Background="#e2f0f0" CanUserDeleteRows="False" 
                                AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2"
                                ColumnWidth="*">
                     <DataGrid.Columns>

@@ -1,3 +1,4 @@
+drop database if exists Loja_roupa;
 create database Loja_roupa;
 use Loja_roupa;
 #Alunos: Daniel Delfino Neto, Lucas Furtado Souza, Lucas Tozo Monção, Maria Eduarda Alves Moriá e Taynara da Silva Pereira.
