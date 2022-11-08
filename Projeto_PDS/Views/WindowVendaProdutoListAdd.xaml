@@ -57,7 +57,7 @@
 
                 <Button x:Name="BtnSearch" Margin="20 0 0 0"
                             Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-                            ToolTip="Adicionar Departamento" Click="BtnSearch_Click">
+                            ToolTip="Adicionar Departamento" Click="BtnSearch_Click" Cursor="Hand">
                     <materialDesign:PackIcon Kind="TableSearch" />
                 </Button>
             </StackPanel>
