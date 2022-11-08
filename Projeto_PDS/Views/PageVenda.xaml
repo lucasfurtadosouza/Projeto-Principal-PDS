@@ -66,6 +66,8 @@
                           materialDesign:HintAssist.Hint="Cliente"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
+                          DisplayMemberPath="Nome"
+                          SelectedValuePath="Id"
                           Height="50"
                           Width="430"/>
 
@@ -74,6 +76,8 @@
                           materialDesign:HintAssist.Hint="Funcionário"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
+                          DisplayMemberPath="Nome"
+                          SelectedValuePath="Id"
                           Margin="20,0,0,0"
                           Height="50"
                           Width="430"/>

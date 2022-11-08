@@ -50,6 +50,7 @@ namespace Projeto_PDS.Views
                 dtDataVenda.SelectedDate = _venda.Data;
                 dtHoraVenda.SelectedTime = _venda.Hora;
                 cbFormaPagamento.Text = _venda.FormaPagamento;
+
             }
             else
             {
@@ -101,8 +102,15 @@ namespace Projeto_PDS.Views
 
             if (quantidade > 1)
             {
-                item.Quantidade = quantidade;
-                item.ValorTotal = quantidade * item.Valor;
+                if(quantidade <= item.Produto.Estoque)
+                {
+                    item.Quantidade = quantidade;
+                    item.ValorTotal = quantidade * item.Valor;
+                }
+                else
+                {
+                    MessageBox.Show("Não há estoque suficiente!", "Alerta de Quantidade", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
 
             LoadDataGrid();
@@ -158,16 +166,8 @@ namespace Projeto_PDS.Views
             try
             {
                 var dao = new VendaDAO();
-                if (_venda.Id > 0)
-                {
-                    //dao.Update(_venda);
-                    MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                {
-                    //dao.Insert(_venda);
-                    MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
+                //dao.Insert(_venda);
+                MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 btLimpar_Click(sender, e);
             }
