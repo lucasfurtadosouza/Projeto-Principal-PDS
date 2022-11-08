@@ -198,6 +198,9 @@ BEGIN
 END
 $$ DELIMITER ;
 
+CALL InserirFuncionario('Vitória Marcela Alves', 'vitoriaalves@gmail.com', '982.015.552-52', '(69) 98766-3791', 'Rua Triângulo Mineiro', '519', 'Nova Brasília', '46.877.444-0', '2002/02/25', '746.99192.34-7', 2500, null, 2);
+CALL InserirFuncionario('Luiz Francisco Isaac', 'luizrezende@gmail.com', '195.288.362-83', '(69) 99306-8988', 'Rua Estrada Velha', '838', 'Primavera', '25.355.141-9', '2000/07/20', '985.77786.34-1', 2600, null, 1);
+
 #INSERIR USUARIO
 DELIMITER $$
 CREATE PROCEDURE InserirUsuario(nome varchar(300), senha varchar(300), nivelPermissao varchar(300), idFuncionario int)
@@ -205,6 +208,10 @@ BEGIN
     insert into Usuario values (null, nome, senha, nivelPermissao, idFuncionario);
 END
 $$ DELIMITER ;
+
+CALL InserirUsuario('admin', 'admin', 'Administrador', null);
+CALL InserirUsuario('Vitória Marcela', '123', 'Vendedor', null);
+CALL InserirUsuario('Luiz Francisco', '123', 'Vendedor', null);
 
 #INSERIR CLIENTE
 DELIMITER $$
@@ -214,6 +221,9 @@ BEGIN
 END
 $$ DELIMITER ;
 
+CALL InserirCliente('Gustavo Cauã Danilo', 'gustavocaua@gmail.com', '202.730.772-95', '(69) 98725-6535', 'Rua Padre Sílvio', '360', 'Riachuelo', '24.077.427-9', '1998/05/20', 3000, null, 1);
+CALL InserirCliente('Fernando Gonçalves Filho', 'fernandofilho@gmail.com', '202.730.772-95', '(69) 95434-4382', 'Rua Saia Bonita', '432', 'Mastodonte', '19.683.220-2', '1995/02/18', 3600, null, 1);
+
 #INSERIR FORNECEDOR
 DELIMITER $$
 CREATE PROCEDURE InserirFornecedor(nomeFantasia varchar(300), razaoSocial varchar(300), cnpj varchar(300), email varchar(300), rua varchar(300), numero int, bairro varchar(300), telefone varchar(300))
@@ -221,6 +231,9 @@ BEGIN
     insert into Fornecedor values (null, nomeFantasia, razaoSocial, cnpj, email, rua, numero, bairro, telefone);
 END
 $$ DELIMITER ;
+
+CALL InserirFornecedor('Abibas', 'Abibas Calçados', '27.999.116/0001-32', 'abibascontato@gmail.com', 'Rua Nova Itália', '643', 'Marasol', '(69) 95324-5483');
+CALL InserirFornecedor('Caçoali', 'Caçoali Roupas', '05.745.943/0001-67', 'caçoaliempresa@gmail.com', 'Rua Bamé Lurdes', '433', 'Trutânia', '(69) 92345-7422');
 
 #INSERIR DESPESA
 DELIMITER $$
@@ -230,6 +243,9 @@ BEGIN
 END
 $$ DELIMITER ;
 
+CALL InserirDespesa(450, '2022/11/30', '2022/11/07', 'Crédito', 'Energia');
+CALL InserirDespesa(500, '2022/11/29', '2022/11/08', 'Crédito', 'Internet');
+
 #INSERIR PRODUTO
 DELIMITER $$
 CREATE PROCEDURE InserirProduto(nome varchar(300), valorCompra double, valorVenda double, estoque int, descricao varchar(300), foto blob)
@@ -238,6 +254,9 @@ BEGIN
 END
 $$ DELIMITER ;
 
+CALL InserirProduto('Tênis Pegasos', 300, 350, 30, 'Tênis "Pegasos" marca Abibas', null);
+CALL InserirProduto('Jaqueta de Couro', 250, 300, 15, 'Jaqueta para frio de couro', null);
+
 #INSERIR CAIXA
 DELIMITER $$
 CREATE PROCEDURE InserirCaixa(saldoInicial double, saldoFinal double, dataAbertura date, dataFechamento date, horaAbertura time, horaFechamento time, qtdPagamentos int, qtdRecebimentos int)
@@ -245,6 +264,9 @@ BEGIN
     insert into Caixa values (null, saldoInicial, saldoFinal, dataAbertura, dataFechamento, horaAbertura, horaFechamento, qtdPagamentos, qtdRecebimentos);
 END
 $$ DELIMITER ;
+
+CALL InserirCaixa(10, 2400, '2022/11/08', '2022/11/08', '08:00:00', '17:30:00', 20, 50);
+CALL InserirCaixa(0, 4500, '2022/11/09', '2022/11/09', '08:00:00', '17:30:00', 12, 94);
 
 #INSERIR VENDA
 DELIMITER $$
@@ -547,3 +569,15 @@ BEGIN
 END
 $$ DELIMITER ;
 */
+
+#LISTAR (SELECT)
+DELIMITER $$
+CREATE PROCEDURE ListarTabela(tabela varchar(300), atributo varchar(300), busca varchar(300))
+BEGIN
+    if(busca <> '') or (busca is not null) then
+        select * from tabela where (atributo like (select concat(busca, '%')));
+    else
+        select * from tabela;
+    end if;
+END
+$$ DELIMITER ;
