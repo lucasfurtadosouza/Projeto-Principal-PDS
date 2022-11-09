@@ -117,6 +117,12 @@
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Quantidade de Recebimentos"/>
             </StackPanel>
+            <StackPanel HorizontalAlignment="Left">
+                <ComboBox Width="438"  Style="{StaticResource MaterialDesignFilledComboBox}">
+                    <ComboBoxItem Content="Aberto"/>
+                    <ComboBoxItem Content="fechado"/>
+                </ComboBox>
+            </StackPanel>
         </StackPanel>
         
 
