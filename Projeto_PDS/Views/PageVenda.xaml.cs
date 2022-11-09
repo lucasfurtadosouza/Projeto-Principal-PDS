@@ -50,7 +50,6 @@ namespace Projeto_PDS.Views
                 dtDataVenda.SelectedDate = _venda.Data;
                 dtHoraVenda.SelectedTime = _venda.Hora;
                 cbFormaPagamento.Text = _venda.FormaPagamento;
-
             }
             else
             {

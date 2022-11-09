@@ -43,7 +43,7 @@ namespace Projeto_PDS.Views.PageList
         {
             CarregarListagem();
         }
-        private void Button_Remover_Click(object sender, RoutedEventArgs e)
+        private void btRemover_Click(object sender, RoutedEventArgs e)
         {
             var caixaSelecionada = dtCaixa.SelectedItem as Caixa;
             var resultado = MessageBox.Show($"Deseja realmente excluir o caixa '{caixaSelecionada.Id}'?", "Confirmar Exclusão",
@@ -64,7 +64,7 @@ namespace Projeto_PDS.Views.PageList
                 MessageBox.Show(ex.Message);
             }
         }
-        private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
+        private void btAtualizar_Click(Object sender, RoutedEventArgs e)
         {
             var caixaSelecionada = dtCaixa.SelectedItem as Caixa;
             _page.frameRelatorio.Content = new PageCaixa(_main, _page, caixaSelecionada);
@@ -94,9 +94,17 @@ namespace Projeto_PDS.Views.PageList
             var form = new Views.MainWindow();
             form.Show();
         }
-
         private void btCarregar_Click(object sender, RoutedEventArgs e)
         {
+            CarregarListagem();
+        }
+        private void btPesquisar_Click(object sender, RoutedEventArgs e)
+        {
+            CarregarListagem();
+        }
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            txtBuscar.Clear();
             CarregarListagem();
         }
     }

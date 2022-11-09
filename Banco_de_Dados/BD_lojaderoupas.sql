@@ -155,9 +155,11 @@ foreign key (id_ven_fk) references Venda (id_ven),
 foreign key (id_cai_fk) references Caixa (id_cai)
 );
 
-create table Produto_Venda(
+create table Venda_Produto(
 id_pro_ven int not null primary key auto_increment,
-quantidade_pro_ven int, 
+quantidade_pro_ven int,
+valor_pro_ven double,
+valor_total_pro_ven double,
 
 id_pro_fk integer not null,
 id_ven_fk integer not null,
@@ -165,9 +167,11 @@ foreign key (id_pro_fk) references Produto (id_pro),
 foreign key (id_ven_fk) references Venda (id_ven)
 );
 
-create table Produto_Compra(
+create table Compra_Produto(
 id_pro_com int not null primary key auto_increment,
 quantidade_pro_com int, 
+valor_pro_com double,
+valor_total_pro_com double,
 
 id_pro_fk integer not null,
 id_com_fk integer not null,
@@ -188,7 +192,6 @@ $$ DELIMITER ;
 CALL InserirSexo('Masculino');
 CALL InserirSexo('Feminino');
 CALL InserirSexo('Outros');
-CALL InserirSexo('Não Informar');
 
 #INSERIR FUNCIONARIO
 DELIMITER $$
@@ -302,17 +305,17 @@ $$ DELIMITER ;
 
 #INSERIR PRODUTO_VENDA
 DELIMITER $$
-CREATE PROCEDURE InserirProdutoVenda(quantidade int, idProduto int, idVenda int)
+CREATE PROCEDURE InserirVendaProduto(quantidade int, valor double, valorTotal double, idProduto int, idVenda int)
 BEGIN
-    insert into Produto_Venda values (null, quantidade, idProduto, idVenda);
+    insert into Venda_Produto values (null, quantidade, valor, valorTotal, idProduto, idVenda);
 END
 $$ DELIMITER ;
 
 #INSERIR PRODUTO_COMPRA
 DELIMITER $$
-CREATE PROCEDURE InserirProdutoCompra(quantidade int, idProduto int, idCompra int)
+CREATE PROCEDURE InserirCompraProduto(quantidade int, valor double, valorTotal double, idProduto int, idCompra int)
 BEGIN
-    insert into Produto_Compra values (null, quantidade, idProduto, idCompra);
+    insert into Compra_Produto values (null, quantidade, valor, valorTotal, idProduto, idCompra);
 END
 $$ DELIMITER ;
 
@@ -416,29 +419,30 @@ $$ DELIMITER ;
 
 #DELETAR PRODUTO_VENDA
 DELIMITER $$
-CREATE PROCEDURE DeletarProdutoVenda(id int)
+CREATE PROCEDURE DeletarVendaProduto(id int)
 BEGIN
-    delete from Produto_Venda where (id_pro_ven = id);
+    delete from Venda_Produto where (id_pro_ven = id);
 END
 $$ DELIMITER ;
 
 #DELETAR PRODUTO_COMPRA
 DELIMITER $$
-CREATE PROCEDURE DeletarProdutoCompra(id int)
+CREATE PROCEDURE DeletarCompraProduto(id int)
 BEGIN
-    delete from Produto_Compra where (id_pro_com = id);
+    delete from Compra_Produto where (id_pro_com = id);
 END
 $$ DELIMITER ;
 
 #PROCEDIMENTOS UPDATE
 
-#ATUALIZAR SEXO
+/*ATUALIZAR SEXO
 DELIMITER $$
 CREATE PROCEDURE AtualizarSexo(id int, tipo varchar(300))
 BEGIN
     update Sexo set tipo_sex = tipo where (id_sex = id);
 END
 $$ DELIMITER ;
+*/
 
 #ATUALIZAR FUNCIONARIO
 /*

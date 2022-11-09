@@ -48,14 +48,13 @@ namespace Projeto_PDS.Models
             foreach (VendaItem item in itens)
             {
                 var comando = _conn.Query();
-                comando.CommandText = "CALL InserirProdutoVenda(@venda, @produto, @quantidade, @valor, @valor_total)";
+                comando.CommandText = "CALL InserirVendaProduto(@quantidade, @valor, @valor_total, @venda, @produto)";
 
-
-                comando.Parameters.AddWithValue("@venda", vendaId);
-                comando.Parameters.AddWithValue("@produto", item.Produto.Id);
                 comando.Parameters.AddWithValue("@quantidade", item.Quantidade);
                 comando.Parameters.AddWithValue("@valor", item.Valor);
                 comando.Parameters.AddWithValue("@valor_total", item.ValorTotal);
+                comando.Parameters.AddWithValue("@venda", vendaId);
+                comando.Parameters.AddWithValue("@produto", item.Produto.Id);
 
                 var result = comando.ExecuteNonQuery();
 
