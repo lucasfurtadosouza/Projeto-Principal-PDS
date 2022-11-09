@@ -61,7 +61,7 @@ namespace Projeto_PDS.Views
         {
             try
             {
-                _produtosList = new ProdutoDAO().List();
+                _produtosList = new ProdutoDAO().List(null);
                 dataGrid.ItemsSource = _produtosList;
 
             }

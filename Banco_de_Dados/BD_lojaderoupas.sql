@@ -570,14 +570,74 @@ END
 $$ DELIMITER ;
 */
 
-#LISTAR (SELECT)
+#LISTAR CAIXA(SELECT)
 DELIMITER $$
-CREATE PROCEDURE ListarTabela(tabela varchar(300), atributo varchar(300), busca varchar(300))
+CREATE PROCEDURE ListarCaixa(busca varchar(300))
 BEGIN
     if(busca <> '') or (busca is not null) then
-        select * from tabela where (atributo like (select concat(busca, '%')));
+        select * from Caixa where (id_cai = busca);
     else
-        select * from tabela;
+        select * from Caixa;
+    end if;
+END
+$$ DELIMITER ;
+
+#LISTAR CLIENTE(SELECT)
+DELIMITER $$
+CREATE PROCEDURE ListarCliente(busca varchar(300))
+BEGIN
+    if(busca <> '') or (busca is not null) then
+        select * from Cliente where (nome_cli like (select concat('%', busca, '%')));
+    else
+        select * from Cliente;
+    end if;
+END
+$$ DELIMITER ;
+
+#LISTAR DESPESA(SELECT)
+DELIMITER $$
+CREATE PROCEDURE ListarDespesa(busca varchar(300))
+BEGIN
+    if(busca <> '') or (busca is not null) then
+        select * from Despesa where (descricao_des like (select concat('%', busca, '%')));
+    else
+        select * from Despesa;
+    end if;
+END
+$$ DELIMITER ;
+
+#LISTAR FORNECEDOR(SELECT)
+DELIMITER $$
+CREATE PROCEDURE ListarFornecedor(busca varchar(300))
+BEGIN
+    if(busca <> '') or (busca is not null) then
+        select * from Fornecedor where (nome_fantasia_for like (select concat('%', busca, '%')));
+    else
+        select * from Fornecedor;
+    end if;
+END
+$$ DELIMITER ;
+
+#LISTAR FUNCIONARIO(SELECT)
+DELIMITER $$
+CREATE PROCEDURE ListarFuncionario(busca varchar(300))
+BEGIN
+    if(busca <> '') or (busca is not null) then
+        select * from Funcionario where (nome_fun like (select concat('%', busca, '%')));
+    else
+        select * from Funcionario;
+    end if;
+END
+$$ DELIMITER ;
+
+#LISTAR PRODUTO(SELECT)
+DELIMITER $$
+CREATE PROCEDURE ListarProduto(busca varchar(300))
+BEGIN
+    if(busca <> '') or (busca is not null) then
+        select * from Produto where (nome_pro like (select concat('%', busca, '%')));
+    else
+        select * from Produto;
     end if;
 END
 $$ DELIMITER ;

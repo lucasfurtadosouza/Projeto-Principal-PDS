@@ -27,18 +27,19 @@
                 <StackPanel Orientation="Horizontal">
 
                     <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Margin="10 0 600 0">
-                        <TextBox Width="440" x:Name="txtBuscar" Margin="14" materialDesign:HintAssist.Hint="Buscar" FontSize="16"></TextBox>
-                        <Button x:Name="BtnSearch" Margin="20 0 0 0"
+                        <TextBox Width="440" x:Name="txtBuscar" Margin="14" materialDesign:HintAssist.Hint="Buscar (Descrição)" FontSize="16"></TextBox>
+                        <Button x:Name="btPesquisar" Margin="20 0 0 0"
                             Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-                            ToolTip="Adicionar Departamento"  Cursor="Hand">
+                            ToolTip="Adicionar Departamento"  Cursor="Hand" Click="btPesquisar_Click">
                             <materialDesign:PackIcon Kind="TableSearch" />
                         </Button>
                         <Button
-                      Content="Clear"
-                      Style="{StaticResource MaterialDesignFlatButton}"
-                       Foreground="White"
-                      HorizontalAlignment="Right"
-                      Grid.Column="1" Cursor="Hand" Margin="0 0 10 0"/>
+                            x:Name="btLimpar"
+                          Content="Limpar"
+                          Style="{StaticResource MaterialDesignFlatButton}"
+                           Foreground="White"
+                          HorizontalAlignment="Right"
+                          Grid.Column="1" Cursor="Hand" Margin="0 0 10 0" Click="btLimpar_Click"/> 
 
 
 
@@ -93,8 +94,12 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button Content="Atualizar registrar" Margin="5 0" Click="Button_Atualizar_Click"/>
-                                        <Button Content="Excluir o registro" Click="Button_Remover_Click"/>
+                                        <Button x:Name="btAtualizar" Width="50" Background="#03c2fc" Margin="5 0" Click="btAtualizar_Click">
+                                            <materialDesign:PackIcon Kind="Pencil"/>
+                                        </Button>
+                                        <Button x:Name="btRemover" Width="50" Background="#ff3333" Margin="5 0" Click="btRemover_Click">
+                                            <materialDesign:PackIcon Kind="Trash"/>
+                                        </Button>
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>

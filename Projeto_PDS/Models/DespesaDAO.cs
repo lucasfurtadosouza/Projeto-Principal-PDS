@@ -39,14 +39,15 @@ namespace Projeto_PDS.Models
                 throw ex;
             }
         }
-        public List<Despesa> List()
+        public List<Despesa> List(string busca)
         {
             try
             {
                 List<Despesa> list = new List<Despesa>();
 
                 var query = _conn.Query();
-                query.CommandText = "SELECT * FROM Despesa";
+                query.CommandText = "CALL ListarDespesa(@busca)";
+                query.Parameters.AddWithValue("@busca", busca);
 
                 MySqlDataReader reader = query.ExecuteReader();
 

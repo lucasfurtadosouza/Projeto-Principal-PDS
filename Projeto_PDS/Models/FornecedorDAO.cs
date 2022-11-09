@@ -43,14 +43,15 @@ namespace Projeto_PDS.Models
             }  
 
         }
-        public List<Fornecedor> List()
+        public List<Fornecedor> List(string busca)
         {
             try
             {
                 List<Fornecedor> list = new List<Fornecedor>();
 
                 var query = _conn.Query();
-                query.CommandText = "SELECT * FROM fornecedor";
+                query.CommandText = "CALL ListarFornecedor(@busca)";
+                query.Parameters.AddWithValue("@busca", busca);
 
                 MySqlDataReader reader = query.ExecuteReader();
 

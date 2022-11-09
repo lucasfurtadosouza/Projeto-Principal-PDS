@@ -43,7 +43,7 @@ namespace Projeto_PDS.Views.PageList
             CarregarListagem();
         }
 
-        private void Button_Remover_Click(object sender, RoutedEventArgs e)
+        private void btRemover_Click(object sender, RoutedEventArgs e)
         {
             var clienteSelecionado = dtCliente.SelectedItem as Cliente;
             var resultado = MessageBox.Show($"Deseja realmente excluir o cliente '{clienteSelecionado.Nome}'?", "Confirmar Exclusão",
@@ -65,7 +65,7 @@ namespace Projeto_PDS.Views.PageList
             }
         }
 
-        private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
+        private void btAtualizar_Click(Object sender, RoutedEventArgs e)
         {
             var clienteSelecionado = dtCliente.SelectedItem as Cliente;
             _page.frameRelatorio.Content = new PageCliente(_main, _page, clienteSelecionado);
@@ -76,8 +76,9 @@ namespace Projeto_PDS.Views.PageList
         {
             try
             {
+                string busca = txtBuscar.Text;
                 var dao = new ClienteDAO();
-                List<Cliente> listaClientes = dao.List();
+                List<Cliente> listaClientes = dao.List(busca);
 
                 dtCliente.ItemsSource = listaClientes;
 
@@ -96,6 +97,17 @@ namespace Projeto_PDS.Views.PageList
 
         private void btCarregar_Click(object sender, RoutedEventArgs e)
         {
+            CarregarListagem();
+        }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            CarregarListagem();
+        }
+
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            txtBuscar.Clear();
             CarregarListagem();
         }
     }

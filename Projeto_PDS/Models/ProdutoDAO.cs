@@ -41,14 +41,15 @@ namespace Projeto_PDS.Models
             }
         }
 
-        public List<Produto> List()
+        public List<Produto> List(string busca)
         {
             try
             {
                 List<Produto> list = new List<Produto>();
 
                 var query = _conn.Query();
-                query.CommandText = "SELECT * FROM Produto";
+                query.CommandText = "CALL ListarProduto(@busca)";
+                query.Parameters.AddWithValue("@busca", busca);
 
                 MySqlDataReader reader = query.ExecuteReader();
 

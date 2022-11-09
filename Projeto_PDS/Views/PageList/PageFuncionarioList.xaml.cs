@@ -42,7 +42,7 @@ namespace Projeto_PDS.Views.PageList
         {
             CarregarListagem();
         }
-        private void Button_Remover_Click(object sender, RoutedEventArgs e)
+        private void btRemover_Click(object sender, RoutedEventArgs e)
         {
             var funcionarioSelecionado = dtFuncionario.SelectedItem as Funcionario;
             var resultado = MessageBox.Show($"Deseja realmente excluir o funcionário '{funcionarioSelecionado.Nome}'?", "Confirmar Exclusão",
@@ -63,7 +63,7 @@ namespace Projeto_PDS.Views.PageList
                 MessageBox.Show(ex.Message);
             }
         }
-        private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
+        private void btAtualizar_Click(Object sender, RoutedEventArgs e)
         {
             var funcionarioSelecionado = dtFuncionario.SelectedItem as Funcionario;
             _page.frameRelatorio.Content = new PageFuncionario(_main, _page, funcionarioSelecionado);
@@ -76,8 +76,9 @@ namespace Projeto_PDS.Views.PageList
         {
             try
             {
+                string busca = txtBuscar.Text;
                 var dao = new FuncionarioDAO();
-                List<Funcionario> listaFuncionario = dao.List();
+                List<Funcionario> listaFuncionario = dao.List(busca);
 
                 dtFuncionario.ItemsSource = listaFuncionario;
             }
@@ -86,6 +87,16 @@ namespace Projeto_PDS.Views.PageList
                 MessageBox.Show(ex.Message);
             }
         }
-    
+
+        private void btPesquisar_Click(object sender, RoutedEventArgs e)
+        {
+            CarregarListagem();
+        }
+
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            txtBuscar.Clear();
+            CarregarListagem();
+        }
     }
 }

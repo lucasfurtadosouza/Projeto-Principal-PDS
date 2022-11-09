@@ -42,7 +42,7 @@ namespace Projeto_PDS.Views.PageList
         {
             CarregarListagem();
         }
-        private void Button_Remover_Click(object sender, RoutedEventArgs e)
+        private void btRemover_Click(object sender, RoutedEventArgs e)
         {
             var produtoSelecionado = dtProduto.SelectedItem as Produto;
             var resultado = MessageBox.Show($"Deseja realmente excluir o produto '{produtoSelecionado.Nome}'?", "Confirmar Exclusão",
@@ -63,7 +63,7 @@ namespace Projeto_PDS.Views.PageList
                 MessageBox.Show(ex.Message);
             }
         }
-        private void Button_Atualizar_Click(Object sender, RoutedEventArgs e)
+        private void btAtualizar_Click(Object sender, RoutedEventArgs e)
         {
             var produtoSelecionado = dtProduto.SelectedItem as Produto;
             _page.frameRelatorio.Content = new PageProduto(_main, _page, produtoSelecionado);
@@ -72,8 +72,9 @@ namespace Projeto_PDS.Views.PageList
         {
             try
             {
+                string busca = txtBuscar.Text;
                 var dao = new ProdutoDAO();
-                List<Produto> listaProdutos = dao.List();
+                List<Produto> listaProdutos = dao.List(busca);
 
                 dtProduto.ItemsSource = listaProdutos;
 
@@ -92,6 +93,17 @@ namespace Projeto_PDS.Views.PageList
 
         private void btCarregar_Click(object sender, RoutedEventArgs e)
         {
+            CarregarListagem();
+        }
+
+        private void btPesquisar_Click(object sender, RoutedEventArgs e)
+        {
+            CarregarListagem();
+        }
+
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            txtBuscar.Clear();
             CarregarListagem();
         }
     }

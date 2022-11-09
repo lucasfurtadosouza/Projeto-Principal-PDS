@@ -47,14 +47,15 @@ namespace Projeto_PDS.Models
             }
         }
 
-        public List<Cliente> List()
+        public List<Cliente> List(string busca)
         {
             try
             {
                 List<Cliente> list = new List<Cliente>();
 
                 var query = _conn.Query();
-                query.CommandText = "SELECT * FROM cliente";
+                query.CommandText = "CALL ListarCliente(@busca)";
+                query.Parameters.AddWithValue("@busca", busca);
 
                 MySqlDataReader reader = query.ExecuteReader();
 
