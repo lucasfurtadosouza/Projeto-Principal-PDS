@@ -28,7 +28,7 @@
               
                     <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Margin="10 0 600 0">
                         <TextBox Width="440" x:Name="txtBuscar" Margin="14" materialDesign:HintAssist.Hint="Buscar (Nome Fantasia)" FontSize="16" Foreground="White"></TextBox>
-                        <Button x:Name="btPesquisar" Margin="20 0 0 0"
+                        <Button x:Name="btPesquisar" Margin="20 0 10 0"
                             Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
                             ToolTip="Adicionar Departamento"  Cursor="Hand" Click="btPesquisar_Click">
                             <materialDesign:PackIcon Kind="TableSearch" />

@@ -238,7 +238,7 @@
         </Grid>
 
 
-        <Frame x:Name="frameRelatorio" Grid.ColumnSpan="8" Grid.RowSpan="3" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden" Margin="60,50,60,30" Grid.Row="2" />
+        <Frame x:Name="frameRelatorio" Grid.ColumnSpan="8" Grid.RowSpan="3" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden" Margin="60,25,60,30" Grid.Row="2" />
 
     </Grid>
 </Page>

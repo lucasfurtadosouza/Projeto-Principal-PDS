@@ -34,7 +34,7 @@
                                  FontSize="16" 
                                  Foreground="White"/>
                         
-                        <Button x:Name="BtnSearch" Margin="20 0 0 0"
+                        <Button x:Name="BtnSearch" Margin="20 0 10 0"
                             Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
                             ToolTip="Adicionar Departamento"  Cursor="Hand" Click="BtnSearch_Click">
                             <materialDesign:PackIcon Kind="TableSearch" />

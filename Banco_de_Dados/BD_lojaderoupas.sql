@@ -93,7 +93,8 @@ data_fechamento_cai date,
 hora_abertura_cai time,
 hora_fechamento_cai time,
 quantidade_pagamentos_cai int,
-quantidade_recebimentos_cai int
+quantidade_recebimentos_cai int,
+situacao_cai varchar(100)
 );
 
 create table Venda(
@@ -262,14 +263,14 @@ CALL InserirProduto('Jaqueta de Couro', 250, 300, 15, 'Jaqueta para frio de cour
 
 #INSERIR CAIXA
 DELIMITER $$
-CREATE PROCEDURE InserirCaixa(saldoInicial double, saldoFinal double, dataAbertura date, dataFechamento date, horaAbertura time, horaFechamento time, qtdPagamentos int, qtdRecebimentos int)
+CREATE PROCEDURE InserirCaixa(saldoInicial double, saldoFinal double, dataAbertura date, dataFechamento date, horaAbertura time, horaFechamento time, qtdPagamentos int, qtdRecebimentos int, situacao varchar(100))
 BEGIN
-    insert into Caixa values (null, saldoInicial, saldoFinal, dataAbertura, dataFechamento, horaAbertura, horaFechamento, qtdPagamentos, qtdRecebimentos);
+    insert into Caixa values (null, saldoInicial, saldoFinal, dataAbertura, dataFechamento, horaAbertura, horaFechamento, qtdPagamentos, qtdRecebimentos, situacao);
 END
 $$ DELIMITER ;
 
-CALL InserirCaixa(10, 2400, '2022/11/08', '2022/11/08', '08:00:00', '17:30:00', 20, 50);
-CALL InserirCaixa(0, 4500, '2022/11/09', '2022/11/09', '08:00:00', '17:30:00', 12, 94);
+CALL InserirCaixa(10, 2400, '2022/11/08', '2022/12/08', '08:00:00', '17:30:00', 20, 50, 'Fechado');
+CALL InserirCaixa(0, 4500, '2022/11/09', '2022/11/09', '08:00:00', '17:30:00', 12, 94, 'Aberto');
 
 #INSERIR VENDA
 DELIMITER $$

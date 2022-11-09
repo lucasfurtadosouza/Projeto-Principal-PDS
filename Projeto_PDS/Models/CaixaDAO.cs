@@ -42,14 +42,15 @@ namespace Projeto_PDS.Models
                 throw ex;
             }
         }
-        public List<Caixa> List()
+        public List<Caixa> List(string busca)
         {
             try
             {
                 List<Caixa> list = new List<Caixa>();
 
                 var query = _conn.Query();
-                query.CommandText = "SELECT * FROM Caixa";
+                query.CommandText = "CALL ListarCaixa(@busca)";
+                query.Parameters.AddWithValue("@busca", busca);
 
                 MySqlDataReader reader = query.ExecuteReader();
 

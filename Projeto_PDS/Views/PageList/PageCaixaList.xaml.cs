@@ -69,16 +69,13 @@ namespace Projeto_PDS.Views.PageList
             var caixaSelecionada = dtCaixa.SelectedItem as Caixa;
             _page.frameRelatorio.Content = new PageCaixa(_main, _page, caixaSelecionada);
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void CarregarListagem()
         {
             try
             {
+                string busca = txtBuscar.Text;
                 var dao = new CaixaDAO();
-                List<Caixa> listaCaixas = dao.List();
+                List<Caixa> listaCaixas = dao.List(busca);
 
                 dtCaixa.ItemsSource = listaCaixas;
 
