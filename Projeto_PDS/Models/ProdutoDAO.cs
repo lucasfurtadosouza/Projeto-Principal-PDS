@@ -99,8 +99,9 @@ namespace Projeto_PDS.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "CALL AtualizarProduto" +
-                    "(@nome, @valorCompra, @valorVenda, @estoque, @descricao, @foto)";
+                    "(@id, @nome, @valorCompra, @valorVenda, @estoque, @descricao, @foto)";
 
+                comando.Parameters.AddWithValue("@id", produto.Id);
                 comando.Parameters.AddWithValue("@nome", produto.Nome);
                 comando.Parameters.AddWithValue("@valorCompra", produto.ValorCompra);
                 comando.Parameters.AddWithValue("@valorVenda", produto.ValorVenda);

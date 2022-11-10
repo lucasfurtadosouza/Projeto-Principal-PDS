@@ -39,14 +39,8 @@
                           Style="{StaticResource MaterialDesignFlatButton}"
                            Foreground="White"
                           HorizontalAlignment="Right"
-                          Grid.Column="1" Cursor="Hand" Margin="0 0 10 0" Click="btLimpar_Click"/> 
-
-
-
-
+                          Grid.Column="1" Cursor="Hand" Margin="0 0 10 0" Click="btLimpar_Click"/>
                     </StackPanel>
-
-
                 </StackPanel>
 
                 <Border.Effect>
@@ -85,8 +79,8 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                         <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
-                        <DataGridTextColumn Header="Valor de Compra" Binding="{Binding ValorCompra}"/>
-                        <DataGridTextColumn Header="Valor de Venda" Binding="{Binding ValorVenda}"/>
+                        <DataGridTextColumn Header="Valor de Compra" Binding="{Binding ValorCompra, StringFormat=' {0:C}', ConverterCulture='pt-BR'}"/>
+                        <DataGridTextColumn Header="Valor de Venda" Binding="{Binding ValorVenda, StringFormat=' {0:C}', ConverterCulture='pt-BR'}"/>
                         <DataGridTextColumn Header="Estoque" Binding="{Binding Estoque}"/>
                         <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}"/>
 

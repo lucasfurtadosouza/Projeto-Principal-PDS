@@ -20,12 +20,12 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="250"/>
-            <RowDefinition Height="350"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="340"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <Border CornerRadius="20" Grid.RowSpan="3" Background="Azure" Margin="20">
+
+        <Border CornerRadius="20" Grid.RowSpan="3" Background="Azure" Margin="20 0 20 20">
         </Border>
         <!--STACK PANEL NOVO USUARIO-->
         <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
@@ -90,7 +90,7 @@
                           Width="200"
                           Height="50"
                           Margin="20,0,0,0"
-                          Mask="0000000"
+                          Mask="00\.000\.000-0"
                           materialDesign:HintAssist.Hint="RG"/>
 
                 <DatePicker x:Name="dtDataNasc" Padding="8"

@@ -112,8 +112,9 @@ namespace Projeto_PDS.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "CALL AtualizarFuncionario" +
-                    "(@nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @dataNasc, @carteiraTrabalho, @salario, @foto, @idSexo)";
+                    "(@id, @nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @dataNasc, @carteiraTrabalho, @salario, @foto, @idSexo)";
 
+                comando.Parameters.AddWithValue("@id", funcionario.Id);
                 comando.Parameters.AddWithValue("@nome", funcionario.Nome);
                 comando.Parameters.AddWithValue("@email", funcionario.Email);
                 comando.Parameters.AddWithValue("@cpf", funcionario.Cpf);

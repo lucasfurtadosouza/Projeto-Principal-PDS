@@ -17,5 +17,6 @@ namespace Projeto_PDS.Models
         public DateTime? HoraFechamento { get; set; }
         public int QuantidadePagamentos { get; set; }
         public int QuantidadeRecebimentos { get; set; }
+        public string Status { get; set; }
     }
 }

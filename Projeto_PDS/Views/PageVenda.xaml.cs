@@ -151,7 +151,7 @@ namespace Projeto_PDS.Views
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
-            _venda.Valor = Convert.ToDouble(txtValorTotal.Text);
+            _venda.Valor = UpdateValorTotal();
             if (dtDataVenda.SelectedDate != null)
             {
                 _venda.Data = dtDataVenda.SelectedDate;
@@ -165,7 +165,7 @@ namespace Projeto_PDS.Views
             try
             {
                 var dao = new VendaDAO();
-                //dao.Insert(_venda);
+                dao.Insert(_venda);
                 MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 btLimpar_Click(sender, e);

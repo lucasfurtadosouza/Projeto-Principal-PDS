@@ -19,7 +19,7 @@ namespace Projeto_PDS.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "CALL InserirCaixa" +
-                    "(@saldoInicial, @saldoFinal, @dataAbertura, @dataFechamento, @horaAbertura, @horaFechamento, @qtdPagamentos, @qtdRecebimentos)";
+                    "(@saldoInicial, @saldoFinal, @dataAbertura, @dataFechamento, @horaAbertura, @horaFechamento, @qtdPagamentos, @qtdRecebimentos, @status)";
 
                 comando.Parameters.AddWithValue("@saldoInicial", caixa.SaldoInicial);
                 comando.Parameters.AddWithValue("@saldoFinal", caixa.SaldoFinal);
@@ -29,6 +29,7 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@horaFechamento", caixa.HoraFechamento);
                 comando.Parameters.AddWithValue("@qtdPagamentos", caixa.QuantidadePagamentos);
                 comando.Parameters.AddWithValue("@qtdRecebimentos", caixa.QuantidadeRecebimentos);
+                comando.Parameters.AddWithValue("@status", caixa.Status);
 
                 var resultado = comando.ExecuteNonQuery();
 
@@ -42,15 +43,14 @@ namespace Projeto_PDS.Models
                 throw ex;
             }
         }
-        public List<Caixa> List(string busca)
+        public List<Caixa> List()
         {
             try
             {
                 List<Caixa> list = new List<Caixa>();
 
                 var query = _conn.Query();
-                query.CommandText = "CALL ListarCaixa(@busca)";
-                query.Parameters.AddWithValue("@busca", busca);
+                query.CommandText = "CALL ListarCaixa();";
 
                 MySqlDataReader reader = query.ExecuteReader();
 
@@ -66,6 +66,7 @@ namespace Projeto_PDS.Models
                     caixa.HoraFechamento = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "hora_fechamento_cai"));
                     caixa.QuantidadePagamentos = Convert.ToInt32(Helpers.DAOHelper.GetString(reader, "quantidade_pagamentos_cai"));
                     caixa.QuantidadeRecebimentos = Convert.ToInt32(Helpers.DAOHelper.GetString(reader, "quantidade_recebimentos_cai"));
+                    caixa.Status = Helpers.DAOHelper.GetString(reader, "status_cai");
 
                     list.Add(caixa);
                 }
@@ -102,7 +103,7 @@ namespace Projeto_PDS.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "CALL AtualizarCaixa" +
-                    "(@saldoInicial, @saldoFinal, @dataAbertura, @dataFechamento, @horaAbertura, @horaFechamento, @qtdPagamentos, @qtdRecebimentos)";
+                    "(@id, @saldoInicial, @saldoFinal, @dataAbertura, @dataFechamento, @horaAbertura, @horaFechamento, @qtdPagamentos, @qtdRecebimentos, @status)";
 
                 comando.Parameters.AddWithValue("@saldoInicial", caixa.SaldoInicial);
                 comando.Parameters.AddWithValue("@saldoFinal", caixa.SaldoFinal);

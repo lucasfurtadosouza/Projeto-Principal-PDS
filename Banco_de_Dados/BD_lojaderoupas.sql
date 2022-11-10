@@ -94,7 +94,7 @@ hora_abertura_cai time,
 hora_fechamento_cai time,
 quantidade_pagamentos_cai int,
 quantidade_recebimentos_cai int,
-situacao_cai varchar(100)
+status_cai varchar(100)
 );
 
 create table Venda(
@@ -202,8 +202,8 @@ BEGIN
 END
 $$ DELIMITER ;
 
-CALL InserirFuncionario('Vitória Marcela Alves', 'vitoriaalves@gmail.com', '982.015.552-52', '(69) 98766-3791', 'Rua Triângulo Mineiro', '519', 'Nova Brasília', '46.877.444-0', '2002/02/25', '746.99192.34-7', 2500, null, 2);
-CALL InserirFuncionario('Luiz Francisco Isaac', 'luizrezende@gmail.com', '195.288.362-83', '(69) 99306-8988', 'Rua Estrada Velha', '838', 'Primavera', '25.355.141-9', '2000/07/20', '985.77786.34-1', 2600, null, 1);
+CALL InserirFuncionario('Vitória Marcela Alves', 'vitoriaalves@gmail.com', '982.015.552-52', '(69) 98766-3791', 'Rua Triângulo Mineiro', '519', 'Nova Brasília', '46.877.444-0', '2002-02-25', '746.99192.34-7', 2500, null, 2);
+CALL InserirFuncionario('Luiz Francisco Isaac', 'luizrezende@gmail.com', '195.288.362-83', '(69) 99306-8988', 'Rua Estrada Velha', '838', 'Primavera', '25.355.141-9', '2000-07-20', '985.77786.34-1', 2600, null, 1);
 
 #INSERIR USUARIO
 DELIMITER $$
@@ -214,8 +214,8 @@ END
 $$ DELIMITER ;
 
 CALL InserirUsuario('admin', 'admin', 'Administrador', null);
-CALL InserirUsuario('Vitória Marcela', '123', 'Vendedor', null);
-CALL InserirUsuario('Luiz Francisco', '123', 'Vendedor', null);
+CALL InserirUsuario('Vitória Marcela', '123', 'Vendedor', 1);
+CALL InserirUsuario('Luiz Francisco', '123', 'Vendedor', 2);
 
 #INSERIR CLIENTE
 DELIMITER $$
@@ -225,8 +225,8 @@ BEGIN
 END
 $$ DELIMITER ;
 
-CALL InserirCliente('Gustavo Cauã Danilo', 'gustavocaua@gmail.com', '202.730.772-95', '(69) 98725-6535', 'Rua Padre Sílvio', '360', 'Riachuelo', '24.077.427-9', '1998/05/20', 3000, null, 1);
-CALL InserirCliente('Fernando Gonçalves Filho', 'fernandofilho@gmail.com', '202.730.772-95', '(69) 95434-4382', 'Rua Saia Bonita', '432', 'Mastodonte', '19.683.220-2', '1995/02/18', 3600, null, 1);
+CALL InserirCliente('Gustavo Cauã Danilo', 'gustavocaua@gmail.com', '202.730.772-95', '(69) 9 8725-6535', 'Rua Padre Sílvio', '360', 'Riachuelo', '24.077.427-9', '1998-05-20', 3000, null, 1);
+CALL InserirCliente('Fernando Gonçalves Filho', 'fernandofilho@gmail.com', '202.730.772-95', '(69) 9 8434-4382', 'Rua Saia Bonita', '432', 'Mastodonte', '19.683.220-2', '1995-02-18', 3600, null, 1);
 
 #INSERIR FORNECEDOR
 DELIMITER $$
@@ -247,8 +247,8 @@ BEGIN
 END
 $$ DELIMITER ;
 
-CALL InserirDespesa(450, '2022/11/30', '2022/11/07', 'Crédito', 'Energia');
-CALL InserirDespesa(500, '2022/11/29', '2022/11/08', 'Crédito', 'Internet');
+CALL InserirDespesa(450, '2022-11-30', '2022-11-07', 'Crédito', 'Energia');
+CALL InserirDespesa(500, '2022-11-29', '2022-11-08', 'Crédito', 'Internet');
 
 #INSERIR PRODUTO
 DELIMITER $$
@@ -263,14 +263,14 @@ CALL InserirProduto('Jaqueta de Couro', 250, 300, 15, 'Jaqueta para frio de cour
 
 #INSERIR CAIXA
 DELIMITER $$
-CREATE PROCEDURE InserirCaixa(saldoInicial double, saldoFinal double, dataAbertura date, dataFechamento date, horaAbertura time, horaFechamento time, qtdPagamentos int, qtdRecebimentos int, situacao varchar(100))
+CREATE PROCEDURE InserirCaixa(saldoInicial double, saldoFinal double, dataAbertura date, dataFechamento date, horaAbertura time, horaFechamento time, qtdPagamentos int, qtdRecebimentos int, status_caixa varchar(100))
 BEGIN
-    insert into Caixa values (null, saldoInicial, saldoFinal, dataAbertura, dataFechamento, horaAbertura, horaFechamento, qtdPagamentos, qtdRecebimentos, situacao);
+    insert into Caixa values (null, saldoInicial, saldoFinal, dataAbertura, dataFechamento, horaAbertura, horaFechamento, qtdPagamentos, qtdRecebimentos, status_caixa);
 END
 $$ DELIMITER ;
 
-CALL InserirCaixa(10, 2400, '2022/11/08', '2022/12/08', '08:00:00', '17:30:00', 20, 50, 'Fechado');
-CALL InserirCaixa(0, 4500, '2022/11/09', '2022/11/09', '08:00:00', '17:30:00', 12, 94, 'Aberto');
+CALL InserirCaixa(10, 2400, '2022-11-08', '2022-12-08', '08:00:00', '17:30:00', 20, 50, 'Fechado');
+CALL InserirCaixa(0, 4500, '2022-11-09', '2022-11-09', '08:00:00', '17:30:00', 12, 94, 'Aberto');
 
 #INSERIR VENDA
 DELIMITER $$
@@ -342,7 +342,14 @@ $$ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE DeletarUsuario(id int)
 BEGIN
-    delete from Usuario where (id_usu = id);
+	declare verificar int;
+	set verificar = (select id_fun_fk from Usuario where (id_usu = id));
+	if(busca <> '') or (busca is not null) then
+		delete from Funcionario where (id_fun = verificar);
+        delete from Usuario where (id_usu = id);
+    else
+		delete from Usuario where (id_usu = id);
+    end if;
 END
 $$ DELIMITER ;
 
@@ -446,14 +453,13 @@ $$ DELIMITER ;
 */
 
 #ATUALIZAR FUNCIONARIO
-/*
 DELIMITER $$
-CREATE PROCEDURE AtualizarFuncionario(nome varchar(300), email varchar(300), cpf varchar(300), telefone varchar(300), rua varchar(300), numero int, bairro varchar(300), rg varchar(300), dataNasc date, carteiraTrabalho varchar(300), salario double, foto blob, idSexo int)
+CREATE PROCEDURE AtualizarFuncionario(id int, nome varchar(300), email varchar(300), cpf varchar(300), telefone varchar(300), rua varchar(300), numero int, bairro varchar(300), rg varchar(300), dataNasc date, carteiraTrabalho varchar(300), salario double, foto blob, idSexo int)
 BEGIN
     update Funcionario set nome_fun = nome, email_fun = email, cpf_fun = cpf, telefone_fun = telefone, rua_fun = rua, numero_fun = numero, bairro_fun = bairro, rg_fun = rg, data_nasc_fun = dataNasc, carteira_de_trabalho_fun = carteiraTrabalho, salario_fun = salario, foto_fun = foto where (id_fun = id);
 END
 $$ DELIMITER ;
-*/
+
 
 #ATUALIZAR USUARIO
 /*
@@ -466,44 +472,40 @@ $$ DELIMITER ;
 */
 
 #ATUALIZAR CLIENTE
-/*
+
 DELIMITER $$
-CREATE PROCEDURE AtualizarCliente(nome varchar(300), email varchar(300), cpf varchar(300), telefone varchar(300), rua varchar(300), numero int, bairro varchar(300), rg varchar(300), dataNasc date, rendaFamiliar double, foto blob, idSexo int)
+CREATE PROCEDURE AtualizarCliente(id int, nome varchar(300), email varchar(300), cpf varchar(300), telefone varchar(300), rua varchar(300), numero int, bairro varchar(300), rg varchar(300), dataNasc date, rendaFamiliar double, foto blob, idSexo int)
 BEGIN
     update Cliente set nome_cli = nome, email_cli = email, cpf_cli = cpf, telefone_cli = telefone, rua_cli = rua, numero_cli = numero, bairro_cli = bairro, rg_cli = rg, data_nasc_cli = dataNasc, renda_familiar_cli = rendaFamiliar, foto_cli = foto, id_sex_fk = idSexo where (id_cli = id);
 END
 $$ DELIMITER ;
-*/
 
 #ATUALIZAR FORNECEDOR
-/*
 DELIMITER $$
-CREATE PROCEDURE AtualizarFornecedor(nomeFantasia varchar(300), razaoSocial varchar(300), cnpj varchar(300), email varchar(300), rua varchar(300), numero int, bairro varchar(300), telefone varchar(300))
+CREATE PROCEDURE AtualizarFornecedor(id int, nomeFantasia varchar(300), razaoSocial varchar(300), cnpj varchar(300), email varchar(300), rua varchar(300), numero int, bairro varchar(300), telefone varchar(300))
 BEGIN
-    update Fornecedor set nome_fantasia_for = @nomeFantasia, razao_social_for = razaoSocial, cnpj_for = @cnpj, email_for = @email, rua_for = @rua, numero_for = @numero, bairro_for = @bairro, telefone_for = @telefone where (id_for = id);
+    update Fornecedor set nome_fantasia_for = nomeFantasia, razao_social_for = razaoSocial, cnpj_for = @cnpj, email_for = @email, rua_for = @rua, numero_for = @numero, bairro_for = @bairro, telefone_for = @telefone where (id_for = id);
 END
 $$ DELIMITER ;
-*/
+
 
 #ATUALIZAR DESPESA
-/*
 DELIMITER $$
-CREATE PROCEDURE AtualizarDespesa(valor double, dataVencimento date, dataPagamento date, formaPagamento varchar(300), descricao varchar(300))
+CREATE PROCEDURE AtualizarDespesa(id int, valor double, dataVencimento date, dataPagamento date, formaPagamento varchar(300), descricao varchar(300))
 BEGIN
     update Despesa set valor_des = valor, data_vencimento_des = dataVencimento, data_pagamento_des = dataPagamento, forma_pagamento_des = formaPagamento, descricao_des = descricao where (id_des = id);
 END
 $$ DELIMITER ;
-*/
+
 
 #ATUALIZAR PRODUTO
-/*
 DELIMITER $$
-CREATE PROCEDURE AtualizarProduto(nome varchar(300), valorCompra double, valorVenda double, estoque int, descricao varchar(300), foto blob)
+CREATE PROCEDURE AtualizarProduto(id int, nome varchar(300), valorCompra double, valorVenda double, estoque int, descricao varchar(300), foto blob)
 BEGIN
     update Produto set nome_pro = nome, valor_compra_pro = valorCompra, valor_venda_pro = valorVenda, estoque_pro = estoque, descricao_pro = descricao, foto_pro = foto where (id_pro = id);
 END
 $$ DELIMITER ;
-*/
+
 
 #ATUALIZAR CAIXA
 /*
@@ -577,13 +579,9 @@ $$ DELIMITER ;
 
 #LISTAR CAIXA(SELECT)
 DELIMITER $$
-CREATE PROCEDURE ListarCaixa(busca varchar(300))
+CREATE PROCEDURE ListarCaixa()
 BEGIN
-    if(busca <> '') or (busca is not null) then
-        select * from Caixa where (id_cai = busca);
-    else
-        select * from Caixa;
-    end if;
+	select * from Caixa;
 END
 $$ DELIMITER ;
 

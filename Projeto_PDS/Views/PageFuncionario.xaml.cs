@@ -53,12 +53,12 @@ namespace Projeto_PDS.Views
             if(_funcionario.Numero != 0)
             {
                 txtNumero.Text = Convert.ToString(_funcionario.Numero);
+                txtSalario.Text = Convert.ToString(_funcionario.Salario);
             }
             txtBairro.Text = _funcionario.Bairro;
             txtRg.Text = _funcionario.Rg;
             dtDataNasc.SelectedDate = _funcionario.DataNasc;
             txtCarteiraTrabalho.Text = _funcionario.CarteiraDeTrabalho;
-            txtSalario.Text = Convert.ToString(_funcionario.Salario);
         }
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
@@ -87,7 +87,7 @@ namespace Projeto_PDS.Views
                 {
                     dao.Update(_funcionario);
                     MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
-                    _page.OpenPageList("List_Fornecedor");
+                    _page.OpenPageList("List_Funcionario");
                 }
                 else
                 {

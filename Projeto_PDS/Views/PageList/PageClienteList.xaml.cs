@@ -95,11 +95,6 @@ namespace Projeto_PDS.Views.PageList
             form.Show();
         }
 
-        private void btCarregar_Click(object sender, RoutedEventArgs e)
-        {
-            CarregarListagem();
-        }
-
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
             CarregarListagem();

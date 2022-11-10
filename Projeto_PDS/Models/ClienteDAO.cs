@@ -108,16 +108,10 @@ namespace Projeto_PDS.Models
             try
             {
                 var comando = _conn.Query();
-
-                /*
-                comando.CommandText = "UPDATE Cliente SET " +
-                    "nome_cli = @nome, email_cli = @email, cpf_cli = @cpf, telefone_cli = @telefone, rua_cli = @rua, numero_cli = @numero, bairro_cli = @bairro, rg_cli = @rg, " +
-                    "data_nasc_cli = @data_nasc, renda_familiar_cli = @renda_familiar, foto_cli = null" +
-                    "WHERE id_cli = @id";
-                */
                 comando.CommandText = "CALL AtualizarCliente" +
-                    "(@nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @dataNasc, @rendaFamiliar, @foto, @idSexo)";
+                    "(@id, @nome, @email, @cpf, @telefone, @rua, @numero, @bairro, @rg, @dataNasc, @rendaFamiliar, @foto, @idSexo)";
 
+                comando.Parameters.AddWithValue("@id", cliente.Id);
                 comando.Parameters.AddWithValue("@nome", cliente.Nome);
                 comando.Parameters.AddWithValue("@email", cliente.Email);
                 comando.Parameters.AddWithValue("@cpf", cliente.Cpf);

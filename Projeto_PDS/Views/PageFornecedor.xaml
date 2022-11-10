@@ -21,12 +21,12 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="250"/>
-            <RowDefinition Height="350"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="340"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border CornerRadius="20" Grid.RowSpan="3" Background="Azure" Margin="20">
+        <Border CornerRadius="20" Grid.RowSpan="3" Background="Azure" Margin="20 0 20 20">
         </Border>
 
         <!--STACK PANEL NOVO FORNECEDOR-->

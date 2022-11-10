@@ -237,6 +237,6 @@
                 </StackPanel>
             </Border>
         </Grid>
-        <Frame x:Name="framePage" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" Margin="0 0 0 0" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="framePage" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" Margin="0 20 0 0" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

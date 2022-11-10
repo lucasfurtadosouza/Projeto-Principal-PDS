@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Projeto_PDS.Views;
 using Projeto_PDS.Models;
+using System.Web.UI.WebControls;
 
 namespace Projeto_PDS.Views.PageList
 {
@@ -73,9 +74,8 @@ namespace Projeto_PDS.Views.PageList
         {
             try
             {
-                string busca = txtBuscar.Text;
                 var dao = new CaixaDAO();
-                List<Caixa> listaCaixas = dao.List(busca);
+                List<Caixa> listaCaixas = dao.List();
 
                 dtCaixa.ItemsSource = listaCaixas;
 
@@ -97,7 +97,11 @@ namespace Projeto_PDS.Views.PageList
         }
         private void btPesquisar_Click(object sender, RoutedEventArgs e)
         {
-            CarregarListagem();
+            var text = txtBuscar.Text;
+            var dao = new CaixaDAO();
+            List<Caixa> listaCaixas = dao.List();
+            var filteredList = listaCaixas.Where(i => i.Id.ToString().Contains(text));
+            dtCaixa.ItemsSource = filteredList;
         }
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {

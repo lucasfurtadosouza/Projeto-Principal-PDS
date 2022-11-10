@@ -102,25 +102,10 @@ namespace Projeto_PDS.Models
             try
             {
                 var comando = _conn.Query();
-
-                /*
-                comando.CommandText = "UPDATE fornecedor SET " +
-
-
-                    "id_for = @id," +
-                    "nome_fantasia_for = @nome_fantasia," +
-                    "razao_social_for = razao_social," +
-                    " cnpj_for = @cnpj, " +
-                    "email_for = @email," +
-                    "rua_for = @rua," +
-                    "numero_for = @numero," +
-                    "bairro_for = @bairro," +
-                    "telefone_for = @telefone";
-                */
-
                 comando.CommandText = "CALL AtualizarFornecedor" +
-                    "(@nomeFantasia, @razaoSocial, @cnpj, @email, @rua, @numero, @bairro, @telefone)";
+                    "(@id, @nomeFantasia, @razaoSocial, @cnpj, @email, @rua, @numero, @bairro, @telefone)";
 
+                comando.Parameters.AddWithValue("@id", fornecedor.Id);
                 comando.Parameters.AddWithValue("@nomeFantasia", fornecedor.Nome);
                 comando.Parameters.AddWithValue("@razaoSocial", fornecedor.Razao);
                 comando.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);

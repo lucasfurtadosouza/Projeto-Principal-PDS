@@ -97,7 +97,7 @@
                         <DataGridTextColumn Header="Número" Binding="{Binding Numero}"/>
                         <DataGridTextColumn Header="Bairro" Binding="{Binding Bairro}"/>
                         <DataGridTextColumn Header="RG" Binding="{Binding Rg}"/>
-                        <DataGridTextColumn Header="Data de Nascimento" Binding="{Binding DataNasc}"/>
+                        <DataGridTextColumn Header="Data de Nascimento" Binding="{Binding DataNasc, StringFormat=\{0:dd/MM/yyyy\}}"/>
 
                         <DataGridTemplateColumn Header="Ações">
                             <DataGridTemplateColumn.CellTemplate>

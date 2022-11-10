@@ -96,8 +96,9 @@ namespace Projeto_PDS.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "CALL AtualizarDespesa" +
-                    "(@valor, @dataVencimento, @dataPagamento, @formaPagamento, @descricao)";
+                    "(@id, @valor, @dataVencimento, @dataPagamento, @formaPagamento, @descricao)";
 
+                comando.Parameters.AddWithValue("@id", despesa.Id);
                 comando.Parameters.AddWithValue("@valor", despesa.Valor);
                 comando.Parameters.AddWithValue("@dataVencimento", despesa.Data_Vencimento);
                 comando.Parameters.AddWithValue("@dataPagamento", despesa.Data_Pagamento);

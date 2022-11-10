@@ -58,6 +58,7 @@ namespace Projeto_PDS.Views
                 dtDataFechamento.SelectedDate = _caixa.DataFechamento;
                 dtHoraAbertura.SelectedTime = _caixa.HoraAbertura;
                 dtHoraFechamento.SelectedTime = _caixa.HoraFechamento;
+                cbStatus.Text = _caixa.Status;
             }
             else
             {
@@ -87,6 +88,7 @@ namespace Projeto_PDS.Views
             }
             _caixa.QuantidadePagamentos = Convert.ToInt32(txtQuantidadePagamentos.Text);
             _caixa.QuantidadeRecebimentos = Convert.ToInt32(txtQuantidadeRecebimentos.Text);
+            _caixa.Status = cbStatus.Text;
 
             try
             {
