@@ -68,10 +68,6 @@ namespace Projeto_PDS.Views.PageList
             var funcionarioSelecionado = dtFuncionario.SelectedItem as Funcionario;
             _page.frameRelatorio.Content = new PageFuncionario(_main, _page, funcionarioSelecionado);
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void CarregarListagem()
         {
             try

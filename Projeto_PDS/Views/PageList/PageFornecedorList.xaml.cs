@@ -68,10 +68,6 @@ namespace Projeto_PDS.Views.PageList
             var fornecedorSelecionada = dtFornecedor.SelectedItem as Fornecedor;
             _page.frameRelatorio.Content = new PageFornecedor(_main, _page, fornecedorSelecionada);
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void CarregarListagem()
         {
             try

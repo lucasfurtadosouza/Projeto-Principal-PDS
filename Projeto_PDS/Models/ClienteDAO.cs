@@ -90,7 +90,7 @@ namespace Projeto_PDS.Models
             try
             {
                 var comando = _conn.Query();
-                comando.CommandText = "CALL DeletarUsuario(@id)";
+                comando.CommandText = "CALL DeletarCliente(@id)";
                 comando.Parameters.AddWithValue("@id", cliente.Id);
                 var resultado = comando.ExecuteNonQuery();
                 if (resultado == 0)

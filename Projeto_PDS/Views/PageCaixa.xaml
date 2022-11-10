@@ -67,7 +67,9 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             materialDesign:HintAssist.Hint="Data de Abertura"
-                            Style="{StaticResource MaterialDesignFilledDatePicker}"/>
+                            Style="{StaticResource MaterialDesignFilledDatePicker}"
+                            Background="#FFCDE3E3"
+                            IsEnabled="False"/>
                 
                 <materialDesign:TimePicker
                             x:Name="dtHoraAbertura"
@@ -78,7 +80,9 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             materialDesign:HintAssist.Hint="Hora de Abertura"
-                            Style="{StaticResource MaterialDesignFilledTimePicker}"/>
+                            Style="{StaticResource MaterialDesignFilledTimePicker}"
+                            Background="#FFCDE3E3"
+                            IsEnabled="False"/>
                     
                 <DatePicker x:Name="dtDataFechamento" Padding="8"
                             Width="210"

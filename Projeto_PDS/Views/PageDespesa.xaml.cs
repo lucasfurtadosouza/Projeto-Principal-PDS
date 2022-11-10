@@ -52,7 +52,7 @@ namespace Projeto_PDS.Views
             }
             dtDataVen.SelectedDate = _despesa.Data_Vencimento;
             dtDataPag.SelectedDate = _despesa.Data_Pagamento;
-            txtFormaPagamento.Text = _despesa.Forma_Pagamento;
+            cbFormaPagamento.Text = _despesa.Forma_Pagamento;
             txtDescricao.Text = _despesa.Descricao;
         }
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -66,7 +66,7 @@ namespace Projeto_PDS.Views
             {
                 _despesa.Data_Pagamento = dtDataPag.SelectedDate;
             }
-            _despesa.Forma_Pagamento = txtFormaPagamento.Text;
+            _despesa.Forma_Pagamento = cbFormaPagamento.Text;
             _despesa.Descricao = txtDescricao.Text;
 
             try
@@ -96,7 +96,7 @@ namespace Projeto_PDS.Views
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             txtValor.Clear();
-            txtFormaPagamento.Clear();
+            cbFormaPagamento.SelectedIndex = -1;
             txtDescricao.Clear();
             dtDataVen.SelectedDate = null;
             dtDataPag.SelectedDate = null;

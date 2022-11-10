@@ -69,10 +69,6 @@ namespace Projeto_PDS.Views.PageList
             _page.frameRelatorio.Content = new PageDespesa(_main, _page, despesaSelecionada);
 
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void CarregarListagem()
         {
             try

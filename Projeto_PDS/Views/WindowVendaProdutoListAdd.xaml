@@ -66,10 +66,10 @@
                               ScrollViewer.VerticalScrollBarVisibility="Auto">
 
                 <DataGrid  Margin="0,5,5,5" x:Name="dataGrid" CanUserAddRows="False" Background="#e2f0f0" CanUserDeleteRows="False" 
-                               AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2"
+                               AutoGenerateColumns="False" AlternatingRowBackground="#FFCDE3E3" AlternationCount="2"
                                ColumnWidth="*">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" IsReadOnly="True" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Id" IsReadOnly="True" Binding="{Binding Id}" MaxWidth="70"/>
                         <DataGridTextColumn Header="Nome do Produto" IsReadOnly="True" Binding="{Binding Nome}"/>
                         <DataGridTextColumn Header="Valor" IsReadOnly="True" Binding="{Binding ValorVenda, ConverterCulture='pt-BR', StringFormat=C}"/>
                         <DataGridTextColumn Header="Estoque" IsReadOnly="True" Binding="{Binding Estoque}"/>

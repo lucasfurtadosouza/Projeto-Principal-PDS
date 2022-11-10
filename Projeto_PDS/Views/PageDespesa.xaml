@@ -76,14 +76,20 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
                 <StackPanel>
-                    <TextBox x:Name="txtFormaPagamento" Padding="8"
-                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                    <ComboBox x:Name="cbFormaPagamento" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledComboBox}"
+                          materialDesign:HintAssist.Hint="Forma de Pagamento"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
-                          TextWrapping="Wrap"
-                          Width="495"
-                          Height="50"
-                          materialDesign:HintAssist.Hint="Forma de Pagamento"/>
+                          Margin="0,0,0,0"
+                          Width="355"
+                          Height="50">
+                        <ComboBoxItem Content="Dinheiro"/>
+                        <ComboBoxItem Content="Pix"/>
+                        <ComboBoxItem Content="Débito"/>
+                        <ComboBoxItem Content="Crédito"/>
+                        <ComboBoxItem Content="Outros"/>
+                    </ComboBox>
                 </StackPanel>
 
                 <StackPanel>
@@ -92,7 +98,7 @@
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="400"
+                          Width="540"
                           Height="50"
                           Margin="20,0,0,0"
                           materialDesign:HintAssist.Hint="Descrição"/>

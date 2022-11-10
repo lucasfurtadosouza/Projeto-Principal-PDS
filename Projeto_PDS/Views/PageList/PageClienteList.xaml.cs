@@ -71,7 +71,6 @@ namespace Projeto_PDS.Views.PageList
             _page.frameRelatorio.Content = new PageCliente(_main, _page, clienteSelecionado);
 
         }
-
         private void CarregarListagem()
         {
             try

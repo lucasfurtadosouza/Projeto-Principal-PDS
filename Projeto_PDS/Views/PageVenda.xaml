@@ -46,7 +46,9 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             materialDesign:HintAssist.Hint="Data da Venda"
-                            Style="{StaticResource MaterialDesignFilledDatePicker}"/>
+                            Style="{StaticResource MaterialDesignFilledDatePicker}"
+                            Background="#FFCDE3E3"
+                            IsEnabled="False"/>
 
                 <materialDesign:TimePicker
                             x:Name="dtHoraVenda"
@@ -58,7 +60,9 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             materialDesign:HintAssist.Hint="Hora da Venda"
-                            Style="{StaticResource MaterialDesignFilledTimePicker}"/>
+                            Style="{StaticResource MaterialDesignFilledTimePicker}"
+                            Background="#FFCDE3E3"
+                            IsEnabled="False"/>
             </StackPanel>
 
             <StackPanel Margin="0,0,0,10" HorizontalAlignment="Center" Orientation="Horizontal">
@@ -166,8 +170,8 @@
                           Width="260"
                           Height="50"
                           Background="#FFCDE3E3"
-                          materialDesign:HintAssist.Hint="Valor Total" CaretBrush="Orange" 
-                          IsEnabled="False"/>
+                          IsEnabled="False"
+                          materialDesign:HintAssist.Hint="Valor Total" CaretBrush="Orange" />
             </StackPanel>
         </StackPanel>
 
