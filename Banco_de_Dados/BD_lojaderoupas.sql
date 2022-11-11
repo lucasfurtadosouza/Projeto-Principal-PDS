@@ -162,8 +162,8 @@ quantidade_pro_ven int,
 valor_pro_ven double,
 valor_total_pro_ven double,
 
-id_pro_fk integer not null,
-id_ven_fk integer not null,
+id_pro_fk integer,
+id_ven_fk integer,
 foreign key (id_pro_fk) references Produto (id_pro),
 foreign key (id_ven_fk) references Venda (id_ven)
 );
@@ -174,8 +174,8 @@ quantidade_pro_com int,
 valor_pro_com double,
 valor_total_pro_com double,
 
-id_pro_fk integer not null,
-id_com_fk integer not null,
+id_pro_fk integer,
+id_com_fk integer,
 foreign key (id_pro_fk) references Produto (id_pro),
 foreign key (id_com_fk) references Compra (id_com)
 );
@@ -345,7 +345,7 @@ BEGIN
 	declare verificar int;
 	set verificar = (select id_fun_fk from Usuario where (id_usu = id));
 	if(busca <> '') or (busca is not null) then
-		delete from Funcionario where (id_fun = verificar);
+		Update Usuario set id_fun_fk = null where(id_usu = id);
         delete from Usuario where (id_usu = id);
     else
 		delete from Usuario where (id_usu = id);
@@ -487,7 +487,6 @@ BEGIN
     update Fornecedor set nome_fantasia_for = nomeFantasia, razao_social_for = razaoSocial, cnpj_for = @cnpj, email_for = @email, rua_for = @rua, numero_for = @numero, bairro_for = @bairro, telefone_for = @telefone where (id_for = id);
 END
 $$ DELIMITER ;
-
 
 #ATUALIZAR DESPESA
 DELIMITER $$
@@ -644,3 +643,5 @@ BEGIN
     end if;
 END
 $$ DELIMITER ;
+
+select * from Venda;

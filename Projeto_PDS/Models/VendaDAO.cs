@@ -21,8 +21,8 @@ namespace Projeto_PDS.Models
                 comando.CommandText = "CALL InserirVenda(@valor, @dataVenda, @horaVenda, @forma_pagamento, @funcionario, @cliente)";
 
                 comando.Parameters.AddWithValue("@valor", venda.Valor);
-                comando.Parameters.AddWithValue("@dataVenda ", venda.Data);
-                comando.Parameters.AddWithValue("@horaVenda ", venda.Hora);
+                comando.Parameters.AddWithValue("@dataVenda", venda.Data);
+                comando.Parameters.AddWithValue("@horaVenda", venda.Hora);
                 comando.Parameters.AddWithValue("@forma_pagamento", venda.FormaPagamento);
                 comando.Parameters.AddWithValue("@funcionario", venda.Funcionario.Id);
                 comando.Parameters.AddWithValue("@cliente", venda.Cliente.Id);
@@ -42,7 +42,7 @@ namespace Projeto_PDS.Models
             }
         }
 
-        private void InsertItens(long vendaId, List<VendaItem> itens)
+        private void InsertItens(long VendaId, List<VendaItem> itens)
         {
 
             foreach (VendaItem item in itens)
@@ -54,7 +54,7 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@valor", item.Valor);
                 comando.Parameters.AddWithValue("@valor_total", item.ValorTotal);
                 comando.Parameters.AddWithValue("@produto", item.Produto.Id);
-                comando.Parameters.AddWithValue("@venda", vendaId);
+                comando.Parameters.AddWithValue("@venda", VendaId);
 
                 var result = comando.ExecuteNonQuery();
 
@@ -62,7 +62,7 @@ namespace Projeto_PDS.Models
                     throw new Exception("Os itens da venda não foram adicionados. Verifique e tente novamente.");
             }
         }
-        public void Delete(Venda venda)
+        public void CancelarVenda(Venda venda)
         {
             try
             {

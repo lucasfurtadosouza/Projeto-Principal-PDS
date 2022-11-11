@@ -166,18 +166,20 @@ namespace Projeto_PDS.Views
             if (cbFuncionario.SelectedItem != null)
                 _venda.Funcionario = cbFuncionario.SelectedItem as Funcionario;
 
+            _venda.Itens = _vendaItensList;
             _venda.FormaPagamento = cbFormaPagamento.Text;
+
             try
             {
                 var dao = new VendaDAO();
                 dao.Insert(_venda);
                 MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                MessageBox.Show(UpdateValorTotal().ToString());
                 btLimpar_Click(sender, e);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -189,8 +191,6 @@ namespace Projeto_PDS.Views
             txtValorTotal.Clear();
             dataGrid.ItemsSource = null;
             LoadData();
-            //txtFormaPagamento.Clear();
         }
-
     }
 }
