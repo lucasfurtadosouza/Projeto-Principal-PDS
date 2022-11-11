@@ -643,5 +643,4 @@ BEGIN
     end if;
 END
 $$ DELIMITER ;
-
-select * from Venda;
+SELECT LAST_INSERT_ID(Venda);

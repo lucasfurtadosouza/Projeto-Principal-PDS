@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Windows;
+using System.Windows.Controls;
 using Projeto_PDS.DataBase;
 
 namespace Projeto_PDS.Models
@@ -33,6 +35,7 @@ namespace Projeto_PDS.Models
                     throw new Exception("A venda não foi realizada. Verifique e tente novamente.");
 
                 long VendaId = comando.LastInsertedId;
+                MessageBox.Show(VendaId.ToString());
 
                 InsertItens(VendaId, venda.Itens);
             }
@@ -41,7 +44,25 @@ namespace Projeto_PDS.Models
                 throw ex;
             }
         }
+        /*private LastId()
+        {
+            try
+            {
+                var query = _conn.Query();
+                query.CommandText = "SELECT LAST_INSERT_ID();";
 
+                MySqlDataReader reader = query.ExecuteReader();
+
+                int last_id = reader.GetInt32("LAST_INSERT_ID");
+
+                reader.Close();
+                return last_id;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }*/
         private void InsertItens(long VendaId, List<VendaItem> itens)
         {
 
