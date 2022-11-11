@@ -643,4 +643,3 @@ BEGIN
     end if;
 END
 $$ DELIMITER ;
-SELECT LAST_INSERT_ID(Venda);
