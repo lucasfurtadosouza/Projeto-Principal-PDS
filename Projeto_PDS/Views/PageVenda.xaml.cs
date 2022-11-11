@@ -50,6 +50,8 @@ namespace Projeto_PDS.Views
                 dtDataVenda.SelectedDate = _venda.Data;
                 dtHoraVenda.SelectedTime = _venda.Hora;
                 cbFormaPagamento.Text = _venda.FormaPagamento;
+                cbFuncionario.SelectedItem = _venda.Funcionario;
+                cbCliente.SelectedItem = _venda.Cliente;
             }
             else
             {
@@ -153,15 +155,18 @@ namespace Projeto_PDS.Views
         {
             _venda.Valor = UpdateValorTotal();
             if (dtDataVenda.SelectedDate != null)
-            {
                 _venda.Data = dtDataVenda.SelectedDate;
-            }
-            if (dtHoraVenda.SelectedTime != null)
-            {
-                _venda.Hora = dtHoraVenda.SelectedTime;
-            }
-            _venda.FormaPagamento = cbFormaPagamento.Text;
 
+            if (dtHoraVenda.SelectedTime != null)
+                _venda.Hora = dtHoraVenda.SelectedTime;
+
+            if (cbCliente.SelectedItem != null)
+                _venda.Cliente = cbCliente.SelectedItem as Cliente;
+
+            if (cbFuncionario.SelectedItem != null)
+                _venda.Funcionario = cbFuncionario.SelectedItem as Funcionario;
+
+            _venda.FormaPagamento = cbFormaPagamento.Text;
             try
             {
                 var dao = new VendaDAO();
