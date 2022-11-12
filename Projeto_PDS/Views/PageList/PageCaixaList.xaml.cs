@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Projeto_PDS.Views;
 using Projeto_PDS.Models;
 using System.Web.UI.WebControls;
+using Projeto_PDS.Views_MessageBox;
 
 namespace Projeto_PDS.Views.PageList
 {
@@ -47,16 +48,18 @@ namespace Projeto_PDS.Views.PageList
         private void btRemover_Click(object sender, RoutedEventArgs e)
         {
             var caixaSelecionada = dtCaixa.SelectedItem as Caixa;
-            var resultado = MessageBox.Show($"Deseja realmente excluir o caixa '{caixaSelecionada.Id}'?", "Confirmar Exclusão",
-                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            var message = new WindowMessageBoxPergunta($"Deseja realmente excluir o caixa '{caixaSelecionada.Id}'?", "Confirmar Exclusão");
+            message.ShowDialog();
+            var resultado = message.retorno;
             try
             {
-                if (resultado == MessageBoxResult.Yes)
+                if (resultado != false)
                 {
                     var dao = new CaixaDAO();
                     dao.Delete(caixaSelecionada);
 
-                    MessageBox.Show("Registro deletado com sucesso!");
+                    var messageCheck = new WindowMessageBoxCerto("Registro deletado com sucesso!", "Registro Excluído");
+                    messageCheck.ShowDialog();
                     CarregarListagem();
                 }
             }

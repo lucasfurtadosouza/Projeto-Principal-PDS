@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Projeto_PDS.Models;
+using Projeto_PDS.Views_MessageBox;
 
 namespace Projeto_PDS.Views
 {
@@ -83,6 +84,7 @@ namespace Projeto_PDS.Views
             try
             {
                 var dao = new FuncionarioDAO();
+                
                 if (_funcionario.Id > 0)
                 {
                     dao.Update(_funcionario);
@@ -92,7 +94,8 @@ namespace Projeto_PDS.Views
                 else
                 {
                     dao.Insert(_funcionario);
-                    MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso", "Cadastro Salvo");
+                    message.Show();
                 }
 
                 btLimpar_Click(sender, e);

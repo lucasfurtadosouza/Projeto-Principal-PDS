@@ -13,6 +13,6 @@ namespace Projeto_PDS.Models
         public double Valor { get; set; }
         public double ValorTotal { get; set; }
         public Produto Produto { get; set; }
-
+        public int IdVenda { get; set; }
     }
 }

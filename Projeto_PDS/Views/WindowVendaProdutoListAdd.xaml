@@ -19,7 +19,7 @@
         Title="WindowVendaProdutoListAdd" Height="600" Width="800" WindowStartupLocation="CenterScreen">
     <Border CornerRadius="20" Background="Azure" Width="740" Height="615" BorderThickness="20" materialDesign:ShadowAssist.Darken="True">
         <Border.Effect>
-            <DropShadowEffect Color="Black"  ShadowDepth="0.8"/>
+            <DropShadowEffect Color="Black" ShadowDepth="0.8"/>
         </Border.Effect>
         <Grid>
             <Grid.RowDefinitions>

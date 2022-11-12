@@ -111,6 +111,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.2\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
     <Reference Include="Xceed.Wpf.AvalonDock, Version=4.4.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <HintPath>..\packages\Extended.Wpf.Toolkit.4.4.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
     </Reference>
@@ -209,6 +212,18 @@
     </Compile>
     <Compile Include="Views\WindowVendaProdutoListAdd.xaml.cs">
       <DependentUpon>WindowVendaProdutoListAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views_MessageBox\WindowMessageBoxAlerta.xaml.cs">
+      <DependentUpon>WindowMessageBoxAlerta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views_MessageBox\WindowMessageBoxCerto.xaml.cs">
+      <DependentUpon>WindowMessageBoxCerto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views_MessageBox\WindowMessageBoxError.xaml.cs">
+      <DependentUpon>WindowMessageBoxError.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views_MessageBox\WindowMessageBoxPergunta.xaml.cs">
+      <DependentUpon>WindowMessageBoxPergunta.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowLogin.xaml.cs">
       <DependentUpon>WindowLogin.xaml</DependentUpon>
@@ -311,6 +326,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views_MessageBox\WindowMessageBoxAlerta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views_MessageBox\WindowMessageBoxCerto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views_MessageBox\WindowMessageBoxError.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views_MessageBox\WindowMessageBoxPergunta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -396,6 +427,12 @@
     <Resource Include="Icons\IconVenda.png" />
     <Resource Include="Icons\newCompra.png" />
     <Resource Include="Icons\newVenda.png" />
+    <Resource Include="Icons\IconCheck.png" />
+    <Resource Include="Icons\IconFechar-Gif.gif" />
+    <Resource Include="Icons\IconAlerta.png" />
+    <Resource Include="Icons\IconErro.png" />
+    <Resource Include="Icons\IconInfo.png" />
+    <Resource Include="Icons\IconPergunta.png" />
     <Content Include="Imagens_Videos\VideoLogo.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
