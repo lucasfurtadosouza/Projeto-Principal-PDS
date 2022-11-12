@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Projeto_PDS.Models;
+using Projeto_PDS.Views_MessageBox;
 
 namespace Projeto_PDS.Views
 {
@@ -53,8 +54,10 @@ namespace Projeto_PDS.Views
             }
 
             if (ProdutosSelecionados.Count == 0)
-                MessageBox.Show("Nenhum produto foi selecionado!", "", MessageBoxButton.OK, MessageBoxImage.Information);
-
+            {
+                var messageAlerta = new WindowMessageBoxAlerta("Nenhum produto foi selecionado!", "Seleção Vazia");
+                messageAlerta.ShowDialog();
+            }
             this.Close();
         }
         private void LoadDataGrid()
@@ -67,7 +70,8 @@ namespace Projeto_PDS.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+                var messageError = new WindowMessageBoxError("Error: " + ex.Message, "Não Executado");
+                messageError.ShowDialog();
             }
         }
 

@@ -88,21 +88,23 @@ namespace Projeto_PDS.Views
                 if (_funcionario.Id > 0)
                 {
                     dao.Update(_funcionario);
-                    MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var messageUp = new WindowMessageBoxCerto("Informações Atualizadas com Sucesso!", "Registro Atualizado");
+                    messageUp.ShowDialog();
                     _page.OpenPageList("List_Funcionario");
                 }
                 else
                 {
                     dao.Insert(_funcionario);
-                    var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso", "Cadastro Salvo");
-                    message.Show();
+                    var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
+                    message.ShowDialog();
                 }
 
                 btLimpar_Click(sender, e);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                var messageError = new WindowMessageBoxError("Error: " + ex.Message, "Erro");
+                messageError.ShowDialog();
             }
         }
 

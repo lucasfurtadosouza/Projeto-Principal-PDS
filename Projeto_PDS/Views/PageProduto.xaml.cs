@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Projeto_PDS.Models;
+using Projeto_PDS.Views_MessageBox;
 
 namespace Projeto_PDS.Views
 {
@@ -76,13 +77,15 @@ namespace Projeto_PDS.Views
                 if (_produto.Id > 0)
                 {
                     dao.Update(_produto);
-                    MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var messageUp = new WindowMessageBoxCerto("Informações Atualizadas com Sucesso!", "Registro Atualizado");
+                    messageUp.Show();
                     _page.OpenPageList("List_Produto");
                 }
                 else
                 {
                     dao.Insert(_produto);
-                    MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
+                    message.Show();
                 }
 
                 btLimpar_Click(sender, e);

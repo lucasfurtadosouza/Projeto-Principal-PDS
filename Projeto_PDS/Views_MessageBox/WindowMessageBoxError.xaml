@@ -48,7 +48,7 @@
                     <Image Width="130" Margin="10" Source="/Icons/IconErro.png"/>
 
                     <!--Mensagem-->
-                    <TextBlock Margin="0 35 0 10" Foreground="Black" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtMensagem"  Width="264" Height="90"
+                    <TextBlock Margin="0 5 0 15" Foreground="Black" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtMensagem"  Width="264" Height="120"
                      Text="" FontSize="15" FontFamily="Leelawadee UI" FontWeight="Light"/>
 
                     <!--Botão OK-->

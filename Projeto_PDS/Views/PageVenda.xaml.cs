@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Projeto_PDS.Models;
+using Projeto_PDS.Views_MessageBox;
 
 namespace Projeto_PDS.Views
 {
@@ -110,7 +111,8 @@ namespace Projeto_PDS.Views
                 }
                 else
                 {
-                    MessageBox.Show("Não há estoque suficiente!", "Alerta de Quantidade", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    var messageEstoque = new WindowMessageBoxAlerta("Não há estoque suficiente!", "Alerta de Quantidade");
+                    messageEstoque.ShowDialog();
                 }
             }
 
@@ -147,7 +149,8 @@ namespace Projeto_PDS.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+                var messageErro = new WindowMessageBoxError("Error: " + ex.Message, "Não Executado");
+                messageErro.ShowDialog();
             }
         }
 
@@ -173,13 +176,14 @@ namespace Projeto_PDS.Views
             {
                 var dao = new VendaDAO();
                 dao.Insert(_venda);
-                MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
-                MessageBox.Show(UpdateValorTotal().ToString());
+                var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
+                message.ShowDialog();
                 btLimpar_Click(sender, e);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+                var messageError = new WindowMessageBoxError("Error: " + ex.Message, "Erro");
+                messageError.ShowDialog();
             }
         }
 
