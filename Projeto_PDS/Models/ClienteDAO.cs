@@ -74,7 +74,7 @@ namespace Projeto_PDS.Models
                     cliente.DataNasc = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_nasc_cli"));
                     cliente.RendaFamiliar = Helpers.DAOHelper.GetString(reader, "renda_familiar_cli");
                     cliente.Foto = Helpers.DAOHelper.GetString(reader, "foto_cli");
-
+                        
                     list.Add(cliente);
                 }
                 reader.Close();

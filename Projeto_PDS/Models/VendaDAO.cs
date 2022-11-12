@@ -34,36 +34,21 @@ namespace Projeto_PDS.Models
                 if (result == 0)
                     throw new Exception("A venda não foi realizada. Verifique e tente novamente.");
 
-                long VendaId = comando.LastInsertedId;
-                MessageBox.Show(VendaId.ToString());
+                comando.CommandText = "SELECT LAST_INSERT_ID();";
+                MySqlDataReader reader = comando.ExecuteReader();
+                reader.Read();
+                int Venda_last_id = reader.GetInt32("LAST_INSERT_ID()");
 
-                InsertItens(VendaId, venda.Itens);
+                reader.Close();
+
+                InsertItens(Venda_last_id, venda.Itens);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        /*private LastId()
-        {
-            try
-            {
-                var query = _conn.Query();
-                query.CommandText = "SELECT LAST_INSERT_ID();";
-
-                MySqlDataReader reader = query.ExecuteReader();
-
-                int last_id = reader.GetInt32("LAST_INSERT_ID");
-
-                reader.Close();
-                return last_id;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }*/
-        private void InsertItens(long VendaId, List<VendaItem> itens)
+        private void InsertItens(int vendaId, List<VendaItem> itens)
         {
 
             foreach (VendaItem item in itens)
@@ -75,7 +60,7 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@valor", item.Valor);
                 comando.Parameters.AddWithValue("@valor_total", item.ValorTotal);
                 comando.Parameters.AddWithValue("@produto", item.Produto.Id);
-                comando.Parameters.AddWithValue("@venda", VendaId);
+                comando.Parameters.AddWithValue("@venda", vendaId);
 
                 var result = comando.ExecuteNonQuery();
 
