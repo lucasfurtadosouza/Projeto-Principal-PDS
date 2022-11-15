@@ -156,7 +156,7 @@ namespace Projeto_PDS.Views
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
-            /*_venda.Valor = UpdateValorTotal();
+            _venda.Valor = UpdateValorTotal();
             if (dtDataVenda.SelectedDate != null)
                 _venda.Data = dtDataVenda.SelectedDate;
 
@@ -174,17 +174,15 @@ namespace Projeto_PDS.Views
 
             try
             {
-                var dao = new VendaDAO();
-                dao.Insert(_venda);
-                var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
-                message.ShowDialog();
+                WindowRecebimento window = new WindowRecebimento(_venda);
+                window.ShowDialog();
                 btLimpar_Click(sender, e);
             }
             catch (Exception ex)
             {
                 var messageError = new WindowMessageBoxError("Error: " + ex.Message, "Erro");
                 messageError.ShowDialog();
-            }*/
+            }
         }
 
         private void btLimpar_Click(object sender, RoutedEventArgs e)

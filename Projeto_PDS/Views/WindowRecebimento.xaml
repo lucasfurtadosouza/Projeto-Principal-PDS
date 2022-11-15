@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeto_PDS.Views"
-        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -52,46 +52,135 @@
                     </Button.Template>
                 </Button>
             </StackPanel>
-            <!--STACK PANEL Animação Cartão-->
-            <StackPanel Grid.Row="1" Grid.Column="1">
-                <Image gif:ImageBehavior.AnimatedSource="/Imagens_Videos/GifCartao.gif"/>
-            </StackPanel>
-            <!--STACK PANEL NOVO USUARIO-->
-            <StackPanel Grid.Row="1" Grid.Column="0">
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0 25 0 25">
-                    <Image Source="/Icons/IconRecebimento.png" Width="100"/>
-                    <StackPanel VerticalAlignment="Center">
-                        <Label Content="Dados de Recebimento" FontSize="27" VerticalAlignment="Center" Margin="18,0,0,0" FontFamily="Leelawadee UI"/>
-                        <Label Content="Inserir informações para completar a venda" FontSize="13" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
-                    </StackPanel>
+            <!--STACK PANEL Animação Cartão e CbForma-->
+            <StackPanel Grid.RowSpan="2" Grid.Column="1" Grid.Row="1">
+                <Image gif:ImageBehavior.AnimatedSource="/Imagens_Videos/GifCartao.gif" Margin="0 0 0 0" Height="425"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <ComboBox x:Name="cbFormaPagamento" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledComboBox}"
+                          materialDesign:HintAssist.Hint="Forma de Recebimento"
+                          Background="#e0dee1"
+                          Foreground="Black"
+                          IsEnabled="False"
+                          Height="50"
+                          Width="170"
+                          Margin="0 0 20 0" >
+                        <ComboBoxItem Content="Dinheiro"/>
+                        <ComboBoxItem Content="Pix"/>
+                        <ComboBoxItem Content="Débito"/>
+                        <ComboBoxItem Content="Crédito"/>
+                        <ComboBoxItem Content="Outros"/>
+                    </ComboBox>
+                    <ComboBox x:Name="cbCaixa" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledComboBox}"
+                          materialDesign:HintAssist.Hint="Caixa"
+                          Height="50"
+                          Width="160"/>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                <ComboBox x:Name="cbFormaPagamento" Padding="8"
-                          Style="{StaticResource MaterialDesignFilledComboBox}"
-                          materialDesign:HintAssist.Hint="Forma de Pagamento"
-                          Margin="0,0,0,0"
-                          Height="50"
-                          Width="190">
-                    <ComboBoxItem Content="Dinheiro"/>
-                    <ComboBoxItem Content="Pix"/>
-                    <ComboBoxItem Content="Débito"/>
-                    <ComboBoxItem Content="Crédito"/>
-                    <ComboBoxItem Content="Outros"/>
-                </ComboBox>
+            <!--STACK PANEL NOVO USUARIO-->
+            <StackPanel Grid.Row="1" Grid.Column="0"> 
+                <StackPanel>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0 30 0 30">
+                        <Image Source="/Icons/IconRecebimento.png" Width="100"/>
+                        <StackPanel VerticalAlignment="Center">
+                            <Label Content="Dados de Recebimento" FontSize="27" VerticalAlignment="Center" Margin="18,0,0,0" FontFamily="Leelawadee UI"/>
+                            <Label Content="Insira as informações para completar a venda" FontSize="13" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,15">
+                    <ComboBox x:Name="cbStatus" Padding="8"
+                              Style="{StaticResource MaterialDesignFilledComboBox}"
+                              materialDesign:HintAssist.Hint="Status de Recebimento"
+                              Margin="0,0,0,0"
+                              Height="50"
+                              Width="190">
+                        <ComboBoxItem Content="Recebido"/>
+                        <ComboBoxItem Content="Pendente"/>
+                    </ComboBox>
+                    <TextBox x:Name="txtValor" Padding="8"
+                              Style="{StaticResource MaterialDesignFilledTextBox}"
+                              VerticalAlignment="Top"
+                              TextWrapping="Wrap"
+                              Margin="20,0,0,0"
+                              Width="190"
+                              Height="50"
+                              Background="#FFCDE3E3"
+                              IsEnabled="False"
+                              materialDesign:HintAssist.Hint="Valor Total" CaretBrush="Orange" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="0,0,0,15">
+                    <DatePicker x:Name="dtDataVenda" Padding="8"
+                            Width="190"
+                            Height="50"
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            materialDesign:HintAssist.Hint="Data da Venda"
+                            Style="{StaticResource MaterialDesignFilledDatePicker}"
+                            Background="#FFCDE3E3"
+                            IsEnabled="False"/>
 
-                <TextBox x:Name="txtValorTotal" Padding="8"
+                    <materialDesign:TimePicker
+                            x:Name="dtHoraVenda"
+                            Is24Hours="True"
+                            Padding="8"
+                            Width="190"
+                            Height="50"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            materialDesign:HintAssist.Hint="Hora da Venda"
+                            Style="{StaticResource MaterialDesignFilledTimePicker}"
+                            Background="#FFCDE3E3"
+                            IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBox x:Name="txtDescricao" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
-                          VerticalAlignment="Top"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Margin="20,0,0,0"
-                          Width="190"
-                          Height="50"
-                          Background="#FFCDE3E3"
-                          IsEnabled="False"
-                          materialDesign:HintAssist.Hint="Valor Total" CaretBrush="Orange" />
+                          Width="400"
+                          Height="100"
+                          materialDesign:HintAssist.Hint="Descrição"/>
+                </StackPanel>
             </StackPanel>
+            <!--STACK PANEL BOTOES-->
+            <StackPanel Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0" Orientation="Horizontal">
+                <Button Width="150" Height="50" Foreground="White" x:Name="btLimpar" Background="Transparent" Click="btLimpar_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border CornerRadius="25">
+                                <Border.Background>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#FFF1A132" Offset="0"/>
+                                        <GradientStop Color="#FFFF399B" Offset="1.7"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <TextBlock Text="Limpar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
 
+                <Button Width="150" Height="50" Foreground="White" x:Name="btSalvar" Background="Transparent" Click="btSalvar_Click" Margin="50,0,0,0">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border CornerRadius="25">
+                                <Border.Background>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#FFF1A132" Offset="0"/>
+                                        <GradientStop Color="#FFFF399B" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <TextBlock Text="Salvar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
 
         </Grid>
     </Border>

@@ -1,9 +1,11 @@
 ﻿using Projeto_PDS.Models;
+using Projeto_PDS.Views_MessageBox;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,20 +22,46 @@ namespace Projeto_PDS.Views
     /// </summary>
     public partial class WindowRecebimento : Window
     {
-        //public Recebimento _recebimento = new Recebimento();
-        public WindowRecebimento()
+        public Recebimento _recebimento = new Recebimento();
+        public Venda _venda = new Venda();
+        public WindowRecebimento(Venda venda)
         {
             InitializeComponent();
+            _venda = venda;
             Loaded += WindowRecebimento_Loaded;
         }
         private void WindowRecebimento_Loaded(object sender, RoutedEventArgs e)
         {
-            
-
         }
         private void btnFechar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        {
+            if (dtDataVenda.SelectedDate != null)
+                _recebimento.Data = dtDataVenda.SelectedDate;
+
+            if (dtHoraVenda.SelectedTime != null)
+                _recebimento.Hora = dtHoraVenda.SelectedTime;
+
+            if (cbCaixa.SelectedItem != null)
+                _recebimento.Caixa = cbCaixa.SelectedItem as Caixa;
+
+            _recebimento.Descricao = txtDescricao.Text;
+            _recebimento.FormaPagamento = cbFormaPagamento.Text;
+            _recebimento.Status = cbStatus.Text;
+            //Falta RecebimentoDAO
+            var dao = new VendaDAO();
+            dao.Insert(_venda);
+            var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
+            message.ShowDialog();
+        }
+
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            cbStatus.SelectedIndex = -1;
+            txtDescricao.Clear();
         }
     }
 }
