@@ -21,7 +21,7 @@ namespace Projeto_PDS.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "CALL InserirVenda(@valor, @dataVenda, @horaVenda, @forma_pagamento, @funcionario, @cliente)";
-
+    
                 comando.Parameters.AddWithValue("@valor", venda.Valor);
                 comando.Parameters.AddWithValue("@dataVenda", venda.Data);
                 comando.Parameters.AddWithValue("@horaVenda", venda.Hora);
@@ -37,11 +37,12 @@ namespace Projeto_PDS.Models
                 comando.CommandText = "SELECT LAST_INSERT_ID();";
                 MySqlDataReader reader = comando.ExecuteReader();
                 reader.Read();
-                int Venda_last_id = reader.GetInt32("LAST_INSERT_ID()");
+                Recebimento recebimento = new Recebimento();
+                recebimento.IdVenda = reader.GetInt32("LAST_INSERT_ID()");
 
                 reader.Close();
 
-                InsertItens(Venda_last_id, venda.Itens);
+                InsertItens(recebimento.IdVenda, venda.Itens);
             }
             catch (Exception ex)
             {

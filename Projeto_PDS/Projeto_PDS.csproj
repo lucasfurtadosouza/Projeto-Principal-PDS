@@ -207,6 +207,9 @@
     <Compile Include="Views\WindowNovoUsuario.xaml.cs">
       <DependentUpon>WindowNovoUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WindowRecebimento.xaml.cs">
+      <DependentUpon>WindowRecebimento.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WindowTermos.xaml.cs">
       <DependentUpon>WindowTermos.xaml</DependentUpon>
     </Compile>
@@ -318,6 +321,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\WindowRecebimento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WindowTermos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -408,7 +415,6 @@
     <Resource Include="Imagens_Videos\Fundo.png" />
     <Resource Include="Imagens_Videos\Fundo_Azul.png" />
     <Resource Include="Imagens_Videos\Fundo_Laranja.png" />
-    <Resource Include="Imagens_Videos\Retangulo_Laranja.png" />
     <Resource Include="Icons\IconMenu.png" />
     <Resource Include="Icons\IconUser.png" />
     <Resource Include="Icons\IconCaixa.png" />
@@ -433,6 +439,9 @@
     <Resource Include="Icons\IconErro.png" />
     <Resource Include="Icons\IconInfo.png" />
     <Resource Include="Icons\IconPergunta.png" />
+    <Resource Include="Icons\IconPagamento.png" />
+    <Resource Include="Icons\IconRecebimento.png" />
+    <Resource Include="Imagens_Videos\GifCartao.gif" />
     <Content Include="Imagens_Videos\VideoLogo.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -145,7 +145,6 @@ valor_rec double,
 data_recebimento_rec date,
 hora_rec time,
 descricao_rec varchar(300),
-tipo_rec varchar(300),
 status_rec varchar (300),
 parcelamento_rec varchar(300),
 forma_pagamento_rec varchar(300),
@@ -298,9 +297,9 @@ $$ DELIMITER ;
 
 #INSERIR RECEBIMENTO
 DELIMITER $$
-CREATE PROCEDURE InserirRecebimento(valor double, dataRecebimento date, hora time, descricao varchar(300), tipo varchar(300), status varchar(300), parcelamento varchar(300), formaPagamento varchar(300), idVenda int, idCaixa int)
+CREATE PROCEDURE InserirRecebimento(valor double, dataRecebimento date, hora time, descricao varchar(300), status varchar(300), parcelamento varchar(300), formaPagamento varchar(300), idVenda int, idCaixa int)
 BEGIN
-    insert into Recebimento values (null, valor, dataRecebimento, hora, descricao, tipo, status, parcelamento, formaPagamento, idVenda, idCaixa);
+    insert into Recebimento values (null, valor, dataRecebimento, hora, descricao, status, parcelamento, formaPagamento, idVenda, idCaixa);
 END
 $$ DELIMITER ;
 
@@ -551,7 +550,7 @@ $$ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE AtualizarRecebimento(valor double, dataRecebimento date, hora time, descricao varchar(300), tipo varchar(300), status varchar(300), parcelamento varchar(300), formaPagamento varchar(300), idVenda int, idCaixa int)
 BEGIN
-    update Recebimento set valor_rec = valor, data_recebimento_rec = dataRecebimento, hora_rec = hora, descricao_rec = descricao, tipo_rec = tipo, status_rec = status, parcelamento_rec = parcelamento, forma_pagamento_rec = formaPagamento, id_ven_fk = idVenda, id_cai_fk = idCaixa where (id_rec = id);
+    update Recebimento set valor_rec = valor, data_recebimento_rec = dataRecebimento, hora_rec = hora, descricao_rec = descricao, status_rec = status, parcelamento_rec = parcelamento, forma_pagamento_rec = formaPagamento, id_ven_fk = idVenda, id_cai_fk = idCaixa where (id_rec = id);
 END
 $$ DELIMITER ;
 */
@@ -643,3 +642,5 @@ BEGIN
     end if;
 END
 $$ DELIMITER ;
+
+#SELECT LAST_INSERT_ID();

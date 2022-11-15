@@ -156,7 +156,7 @@ namespace Projeto_PDS.Views
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
-            _venda.Valor = UpdateValorTotal();
+            /*_venda.Valor = UpdateValorTotal();
             if (dtDataVenda.SelectedDate != null)
                 _venda.Data = dtDataVenda.SelectedDate;
 
@@ -184,7 +184,7 @@ namespace Projeto_PDS.Views
             {
                 var messageError = new WindowMessageBoxError("Error: " + ex.Message, "Erro");
                 messageError.ShowDialog();
-            }
+            }*/
         }
 
         private void btLimpar_Click(object sender, RoutedEventArgs e)
