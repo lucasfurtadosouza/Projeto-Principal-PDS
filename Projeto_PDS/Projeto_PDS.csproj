@@ -161,6 +161,9 @@
     <Compile Include="Views\PageDespesa.xaml.cs">
       <DependentUpon>PageDespesa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PageFecharCaixa.xaml.cs">
+      <DependentUpon>PageFecharCaixa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PageFuncionario.xaml.cs">
       <DependentUpon>PageFuncionario.xaml</DependentUpon>
     </Compile>
@@ -256,6 +259,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PageDespesa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageFecharCaixa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -443,7 +450,7 @@
     <Resource Include="Icons\IconPergunta.png" />
     <Resource Include="Icons\IconPagamento.png" />
     <Resource Include="Icons\IconRecebimento.png" />
-    <Resource Include="Imagens_Videos\GifCartao.gif" />
+    <Resource Include="Imagens_Videos\imgCartao.png" />
     <Content Include="Imagens_Videos\VideoLogo.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

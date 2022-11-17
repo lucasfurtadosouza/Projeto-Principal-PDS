@@ -442,15 +442,6 @@ $$ DELIMITER ;
 
 #PROCEDIMENTOS UPDATE
 
-/*ATUALIZAR SEXO
-DELIMITER $$
-CREATE PROCEDURE AtualizarSexo(id int, tipo varchar(300))
-BEGIN
-    update Sexo set tipo_sex = tipo where (id_sex = id);
-END
-$$ DELIMITER ;
-*/
-
 #ATUALIZAR FUNCIONARIO
 DELIMITER $$
 CREATE PROCEDURE AtualizarFuncionario(id int, nome varchar(300), email varchar(300), cpf varchar(300), telefone varchar(300), rua varchar(300), numero int, bairro varchar(300), rg varchar(300), dataNasc date, carteiraTrabalho varchar(300), salario double, foto blob, idSexo int)
@@ -574,6 +565,7 @@ BEGIN
 END
 $$ DELIMITER ;
 */
+
 DELIMITER $$
 CREATE PROCEDURE ListarSexo()
 BEGIN
@@ -649,4 +641,35 @@ BEGIN
 END
 $$ DELIMITER ;
 
-#SELECT LAST_INSERT_ID();
+#TRIGGERS
+/*
+#Trigger de Caixa
+DELIMITER $$
+CREATE TRIGGER controleCaixaRecebimentos AFTER INSERT
+ON Recebimento FOR EACH ROW
+BEGIN
+	UPDATE Caixa SET saldo_final_cai = saldo_final_cai +
+	NEW.valor_rec, quantidade_recebimentos_cai = quantidade_recebimentos_cai + 1 WHERE (id_cai = NEW.id_cai_fk);
+END;
+$$ DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER controleCaixaPagamentos AFTER INSERT
+ON Pagamento FOR EACH ROW
+BEGIN
+	UPDATE Caixa SET saldo_final_cai = saldo_final_cai -
+	NEW.valor_pag, quantidade_pagamentos_cai = quantidade_pagamentos_cai + 1 WHERE (id_cai = NEW.id_cai_fk);
+END;
+$$ DELIMITER ;
+
+#Trigger de Estoque
+DELIMITER $$
+CREATE TRIGGER baixarEstoque AFTER INSERT
+ON Venda_Produto FOR EACH ROW
+BEGIN
+	UPDATE Produto SET estoque_pro = estoque_pro -
+	NEW.quantidade_pro_ven WHERE (id_pro = NEW.id_pro_fk);
+END;
+$$ DELIMITER ;
+
+#SELECT LAST_INSERT_ID(); */

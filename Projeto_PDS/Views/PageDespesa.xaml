@@ -48,12 +48,14 @@
                           TextWrapping="Wrap"
                           Width="475"
                           Height="50"
+                          FontSize="15"
                           materialDesign:HintAssist.Hint="Valor"/>
                 </StackPanel>
 
                 <StackPanel>
                     <DatePicker x:Name="dtDataVen" Padding="8"
                             Width="200"
+                            FontSize="15"
                             Height="50"
                             Margin="20,0,0,0"
                             VerticalAlignment="Center"
@@ -66,6 +68,7 @@
                     <DatePicker x:Name="dtDataPag" Padding="8"
                             Width="200"
                             Height="50"
+                            FontSize="15"
                             Margin="20,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
@@ -81,6 +84,7 @@
                           materialDesign:HintAssist.Hint="Forma de Pagamento"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
+                          FontSize="15"
                           Margin="0,0,0,0"
                           Width="355"
                           Height="50">
@@ -98,6 +102,7 @@
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
+                          FontSize="15"
                           Width="540"
                           Height="50"
                           Margin="20,0,0,0"

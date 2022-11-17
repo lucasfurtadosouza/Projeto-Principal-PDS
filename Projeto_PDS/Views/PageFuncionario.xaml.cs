@@ -60,7 +60,7 @@ namespace Projeto_PDS.Views
             txtBairro.Text = _funcionario.Bairro;
             txtRg.Text = _funcionario.Rg;
             dtDataNasc.SelectedDate = _funcionario.DataNasc;
-            MessageBox.Show(Convert.ToString(_funcionario.Sexo));
+            //MessageBox.Show(Convert.ToString(_funcionario.Sexo));
             cbSexo.SelectedValuePath = Convert.ToString(_funcionario.Sexo);
             txtCarteiraTrabalho.Text = _funcionario.CarteiraDeTrabalho;
         }
