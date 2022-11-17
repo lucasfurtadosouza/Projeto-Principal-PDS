@@ -31,7 +31,7 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@carteiraTrabalho", funcionario.CarteiraDeTrabalho);
                 comando.Parameters.AddWithValue("@salario", funcionario.Salario);
                 comando.Parameters.AddWithValue("@foto", null);
-                comando.Parameters.AddWithValue("@idSexo", null);
+                comando.Parameters.AddWithValue("@idSexo", funcionario.Sexo);
 
                 var resultado = comando.ExecuteNonQuery();
 
@@ -71,7 +71,7 @@ namespace Projeto_PDS.Models
                     funcionario.Bairro = Helpers.DAOHelper.GetString(reader, "bairro_fun");
                     funcionario.Rg = Helpers.DAOHelper.GetString(reader, "rg_fun");
                     funcionario.DataNasc = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_nasc_fun"));
-                    //funcionario.Sexo = Helpers.DAOHelper.GetString(reader, "sexo_fun");
+                    //funcionario.Sexo = Helpers.DAOHelper.GetString(reader, "id_sex_fk");
                     funcionario.CarteiraDeTrabalho = Helpers.DAOHelper.GetString(reader, "carteira_de_trabalho_fun");
                     funcionario.Salario = Convert.ToDouble(Helpers.DAOHelper.GetString(reader, "salario_fun"));
                     funcionario.Foto = Helpers.DAOHelper.GetString(reader, "foto_fun");
@@ -127,7 +127,7 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@carteiraTrabalho", funcionario.CarteiraDeTrabalho);
                 comando.Parameters.AddWithValue("@salario", funcionario.Salario);
                 comando.Parameters.AddWithValue("@foto", null);
-                comando.Parameters.AddWithValue("@idSexo", null);
+                comando.Parameters.AddWithValue("@idSexo", funcionario.Sexo);
 
                 var resultado = comando.ExecuteNonQuery();
 

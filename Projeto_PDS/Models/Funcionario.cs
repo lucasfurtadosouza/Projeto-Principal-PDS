@@ -18,7 +18,7 @@ namespace Projeto_PDS.Models
         public string Bairro { get; set; }
         public string Rg { get; set; }
         public DateTime? DataNasc { get; set; }
-        public string Sexo { get; set; }
+        public Sexo Sexo { get; set; }
         public string CarteiraDeTrabalho { get; set; }
         public double Salario { get; set; }
         public string Foto { get; set; }

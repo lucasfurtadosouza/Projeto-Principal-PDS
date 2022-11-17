@@ -32,7 +32,7 @@ namespace Projeto_PDS.Views
         {
             InitializeComponent();
             _main = mainWindow;
-            Loaded += PageFornecedor_Loaded;
+            Loaded += PageFuncionario_Loaded;
         }
         public PageFuncionario(MainWindow mainWindow, PageRelatorio page, Funcionario funcionario)
         {
@@ -41,10 +41,11 @@ namespace Projeto_PDS.Views
             _main = mainWindow;
             _page = page;
 
-            Loaded += PageFornecedor_Loaded;
+            Loaded += PageFuncionario_Loaded;
         }
-        private void PageFornecedor_Loaded(object sender, RoutedEventArgs e)
+        private void PageFuncionario_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadSexo();
             txtNome.Focus();
             txtNome.Text = _funcionario.Nome;
             txtEmail.Text = _funcionario.Email;
@@ -59,6 +60,8 @@ namespace Projeto_PDS.Views
             txtBairro.Text = _funcionario.Bairro;
             txtRg.Text = _funcionario.Rg;
             dtDataNasc.SelectedDate = _funcionario.DataNasc;
+            MessageBox.Show(Convert.ToString(_funcionario.Sexo));
+            cbSexo.SelectedValuePath = Convert.ToString(_funcionario.Sexo);
             txtCarteiraTrabalho.Text = _funcionario.CarteiraDeTrabalho;
         }
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -72,10 +75,12 @@ namespace Projeto_PDS.Views
             _funcionario.Bairro = txtBairro.Text;
             _funcionario.Rg = txtRg.Text;
 
+            if (cbSexo.SelectedItem != null)
+                _funcionario.Sexo = cbSexo.SelectedItem as Sexo;
+
             if (dtDataNasc.SelectedDate != null)
-            {
                 _funcionario.DataNasc = dtDataNasc.SelectedDate;
-            }
+
             _funcionario.CarteiraDeTrabalho = txtCarteiraTrabalho.Text;
             _funcionario.Salario = Convert.ToDouble(txtSalario.Text);
 
@@ -122,6 +127,18 @@ namespace Projeto_PDS.Views
             txtSalario.Clear();
             cbSexo.SelectedIndex = -1;
             dtDataNasc.SelectedDate = null;
+        }
+        private void LoadSexo()
+        {
+            try
+            {
+                cbSexo.ItemsSource = new SexoDAO().List();
+            }
+            catch (Exception ex)
+            {
+                var messageErro = new WindowMessageBoxError("Error: " + ex.Message, "Não Executado");
+                messageErro.ShowDialog();
+            }
         }
     }
 }

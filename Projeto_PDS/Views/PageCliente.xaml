@@ -109,13 +109,10 @@
                           materialDesign:HintAssist.Hint="Sexo"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
+                          DisplayMemberPath="Nome"
+                          SelectedValuePath="Id"
                           Height="50"
-                          Width="480">
-                    <ComboBoxItem Content="Masculino"/>
-                    <ComboBoxItem Content="Feminino"/>
-                    <ComboBoxItem Content="Outros"/>
-                    <ComboBoxItem Content="Não Informar"/>
-                </ComboBox>
+                          Width="480"/>
 
                 <TextBox x:Name="txtRenda" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"

@@ -32,6 +32,12 @@ namespace Projeto_PDS.Views
         }
         private void WindowRecebimento_Loaded(object sender, RoutedEventArgs e)
         {
+            dtDataVenda.SelectedDate = _venda.Data;
+            dtHoraVenda.SelectedTime = _venda.Hora;
+            cbFormaPagamento.Text = _venda.FormaPagamento;
+            cbFormaPagamento.Text = _venda.FormaPagamento;
+            txtValor.Text = Convert.ToString(_venda.Valor);
+            LoadCaixa();
         }
         private void btnFechar_Click(object sender, RoutedEventArgs e)
         {
@@ -51,17 +57,31 @@ namespace Projeto_PDS.Views
             _recebimento.Descricao = txtDescricao.Text;
             _recebimento.FormaPagamento = cbFormaPagamento.Text;
             _recebimento.Status = cbStatus.Text;
-            //Falta RecebimentoDAO
+            _recebimento.Valor = Convert.ToDouble(txtValor.Text);
+
             var dao = new VendaDAO();
-            dao.Insert(_venda);
+            dao.Insert(_venda, _recebimento);
             var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
             message.ShowDialog();
+            this.Close();
         }
 
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             cbStatus.SelectedIndex = -1;
             txtDescricao.Clear();
+        }
+        private void LoadCaixa()
+        {
+            try
+            {
+                cbCaixa.ItemsSource = new CaixaDAO().List();
+            }
+            catch (Exception ex)
+            {
+                var messageErro = new WindowMessageBoxError("Error: " + ex.Message, "Não Executado");
+                messageErro.ShowDialog();
+            }
         }
     }
 }

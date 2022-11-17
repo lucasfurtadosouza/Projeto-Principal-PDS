@@ -32,7 +32,7 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@dataNasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
                 comando.Parameters.AddWithValue("@rendaFamiliar", cliente.RendaFamiliar);
                 comando.Parameters.AddWithValue("@foto", null);
-                comando.Parameters.AddWithValue("@idSexo", null);
+                comando.Parameters.AddWithValue("@idSexo", cliente.Sexo);
 
                 var resultado = comando.ExecuteNonQuery();
 
@@ -74,7 +74,8 @@ namespace Projeto_PDS.Models
                     cliente.DataNasc = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_nasc_cli"));
                     cliente.RendaFamiliar = Helpers.DAOHelper.GetString(reader, "renda_familiar_cli");
                     cliente.Foto = Helpers.DAOHelper.GetString(reader, "foto_cli");
-                        
+                    //cliente.Sexo = Helpers.DAOHelper.GetString(reader, "id_sex_fk");
+
                     list.Add(cliente);
                 }
                 reader.Close();
@@ -123,7 +124,7 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@dataNasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
                 comando.Parameters.AddWithValue("@rendaFamiliar", cliente.RendaFamiliar);
                 comando.Parameters.AddWithValue("@foto", null);
-                comando.Parameters.AddWithValue("@idSexo", null);
+                comando.Parameters.AddWithValue("@idSexo", cliente.Sexo);
 
                 var resultado = comando.ExecuteNonQuery();
 

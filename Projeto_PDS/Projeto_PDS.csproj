@@ -144,6 +144,8 @@
     <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\CompraDAO.cs" />
     <Compile Include="Models\CompraItem.cs" />
+    <Compile Include="Models\Sexo.cs" />
+    <Compile Include="Models\SexoDAO.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\UsuarioDAO.cs" />
     <Compile Include="Models\VendaItem.cs" />

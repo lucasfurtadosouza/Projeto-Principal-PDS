@@ -71,11 +71,17 @@
                         <ComboBoxItem Content="Crédito"/>
                         <ComboBoxItem Content="Outros"/>
                     </ComboBox>
-                    <ComboBox x:Name="cbCaixa" Padding="8"
-                          Style="{StaticResource MaterialDesignFilledComboBox}"
-                          materialDesign:HintAssist.Hint="Caixa"
-                          Height="50"
-                          Width="160"/>
+                    <TextBox x:Name="txtValor" Padding="8"
+                              Style="{StaticResource MaterialDesignFilledTextBox}"
+                              VerticalAlignment="Top"
+                              TextWrapping="Wrap"
+                              Margin="0,0,0,0"
+                              Width="160"
+                              Height="50"
+                              Background="#e0dee1"
+                              Foreground="Black"
+                              IsEnabled="False"
+                              materialDesign:HintAssist.Hint="Valor Total" CaretBrush="Orange" />
                 </StackPanel>
             </StackPanel>
             <!--STACK PANEL NOVO USUARIO-->
@@ -93,22 +99,19 @@
                     <ComboBox x:Name="cbStatus" Padding="8"
                               Style="{StaticResource MaterialDesignFilledComboBox}"
                               materialDesign:HintAssist.Hint="Status de Recebimento"
-                              Margin="0,0,0,0"
+                              Margin="0,0,20,0"
                               Height="50"
                               Width="190">
                         <ComboBoxItem Content="Recebido"/>
                         <ComboBoxItem Content="Pendente"/>
                     </ComboBox>
-                    <TextBox x:Name="txtValor" Padding="8"
-                              Style="{StaticResource MaterialDesignFilledTextBox}"
-                              VerticalAlignment="Top"
-                              TextWrapping="Wrap"
-                              Margin="20,0,0,0"
-                              Width="190"
-                              Height="50"
-                              Background="#FFCDE3E3"
-                              IsEnabled="False"
-                              materialDesign:HintAssist.Hint="Valor Total" CaretBrush="Orange" />
+                    <ComboBox x:Name="cbCaixa" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledComboBox}"
+                          materialDesign:HintAssist.Hint="Caixa"
+                          Height="50"
+                          Width="190"
+                          DisplayMemberPath="Id"
+                          SelectedValuePath="Id"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="0,0,0,15">
                     <DatePicker x:Name="dtDataVenda" Padding="8"

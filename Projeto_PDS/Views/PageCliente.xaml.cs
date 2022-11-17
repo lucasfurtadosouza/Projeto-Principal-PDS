@@ -46,6 +46,7 @@ namespace Projeto_PDS.Views
 
         private void PageCliente_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadSexo();
             txtNome.Focus();
             txtNome.Text = _cliente.Nome;
             txtEmail.Text = _cliente.Email;
@@ -59,8 +60,11 @@ namespace Projeto_PDS.Views
             }
             txtRg.Text = _cliente.Rg;
             dtDataNasc.SelectedDate = _cliente.DataNasc;
-            cbSexo.Text = _cliente.Sexo;
+            // Erro no Select que nao armazena em nenhum tipo de variavel
+            // 
+            //cbSexo.SelectedValuePath = Convert.ToString(_cliente.Sexo);
             txtRenda.Text = _cliente.RendaFamiliar;
+            
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -73,11 +77,12 @@ namespace Projeto_PDS.Views
             _cliente.Bairro = txtBairro.Text;
             _cliente.Numero = Convert.ToInt32(txtNumero.Text);
             _cliente.Rg = txtRg.Text;
+            if (cbSexo.SelectedItem != null)
+                _cliente.Sexo = cbSexo.SelectedItem as Sexo;
+
             if (dtDataNasc.SelectedDate != null)
-            {
                 _cliente.DataNasc = dtDataNasc.SelectedDate;
-            }
-            _cliente.Sexo = cbSexo.Text;
+
             _cliente.RendaFamiliar = txtRenda.Text;
 
             try
@@ -105,7 +110,6 @@ namespace Projeto_PDS.Views
                 var messageError = new WindowMessageBoxError("Error: " + ex.Message, "Erro");
                 messageError.ShowDialog();
             }
-
         }
 
         private void btLimpar_Click(object sender, RoutedEventArgs e)
@@ -121,6 +125,18 @@ namespace Projeto_PDS.Views
             txtRenda.Clear();
             dtDataNasc.SelectedDate = null;
             cbSexo.SelectedIndex = -1;
+        }
+        private void LoadSexo()
+        {
+            try
+            {
+                cbSexo.ItemsSource = new SexoDAO().List();
+            }
+            catch (Exception ex)
+            {
+                var messageErro = new WindowMessageBoxError("Error: " + ex.Message, "Não Executado");
+                messageErro.ShowDialog();
+            }
         }
     }
 }

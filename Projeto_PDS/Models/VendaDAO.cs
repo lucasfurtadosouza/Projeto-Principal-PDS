@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using System.Windows;
 using System.Windows.Controls;
 using Projeto_PDS.DataBase;
+using Projeto_PDS.Models;
 
 namespace Projeto_PDS.Models
 {
@@ -14,7 +15,7 @@ namespace Projeto_PDS.Models
     {
         private static Conexao _conn = new Conexao();
 
-        public void Insert(Venda venda)
+        public void Insert(Venda venda, Recebimento _recebimento)
         {
             try
             {
@@ -37,12 +38,15 @@ namespace Projeto_PDS.Models
                 comando.CommandText = "SELECT LAST_INSERT_ID();";
                 MySqlDataReader reader = comando.ExecuteReader();
                 reader.Read();
+
                 Recebimento recebimento = new Recebimento();
+                recebimento = _recebimento;
                 recebimento.IdVenda = reader.GetInt32("LAST_INSERT_ID()");
 
                 reader.Close();
 
                 InsertItens(recebimento.IdVenda, venda.Itens);
+                InsertRecebimento(recebimento.IdVenda, recebimento);
             }
             catch (Exception ex)
             {
@@ -67,6 +71,33 @@ namespace Projeto_PDS.Models
 
                 if (result == 0)
                     throw new Exception("Os itens da venda não foram adicionados. Verifique e tente novamente.");
+            }
+        }
+        private void InsertRecebimento(int vendaId, Recebimento recebimento)
+        {
+
+            try
+            {
+                var comando = _conn.Query();
+
+                comando.CommandText = "CALL InserirRecebimento(@valor, @dataRecebimento, @hora, @descricao, @status, @parcelamento, @formaPagamento, @idVenda, @Caixa);";
+
+                comando.Parameters.AddWithValue("@valor", recebimento.Valor);
+                comando.Parameters.AddWithValue("@dataRecebimento", recebimento.Data);
+                comando.Parameters.AddWithValue("@hora", recebimento.Hora);
+                comando.Parameters.AddWithValue("@descricao", recebimento.Descricao);
+                comando.Parameters.AddWithValue("@status", recebimento.Status);
+                comando.Parameters.AddWithValue("@parcelamento", recebimento.Parcelamento);
+                comando.Parameters.AddWithValue("@formaPagamento", recebimento.FormaPagamento);
+                comando.Parameters.AddWithValue("@idVenda", vendaId);
+                comando.Parameters.AddWithValue("@Caixa", recebimento.Caixa.Id);
+
+                var result = comando.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
         public void CancelarVenda(Venda venda)
