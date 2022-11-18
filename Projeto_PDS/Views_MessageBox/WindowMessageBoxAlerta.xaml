@@ -53,7 +53,7 @@
 
                     <!--Botão OK-->
                     <Button Width="130" Height="30" Background="Transparent" x:Name="btnOK" Click="btnOK_Click">
-                        <Button.Template >
+                        <Button.Template>
                             <ControlTemplate>
                                 <Border CornerRadius="15" Background="#ffa950" x:Name="border_btnOK" Cursor="Hand">
                                     <Border.Effect>

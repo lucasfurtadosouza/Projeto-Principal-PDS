@@ -81,7 +81,7 @@ namespace Projeto_PDS.Views
                     framePage.NavigationService.Navigate(new PageVenda(this));
                     break;
                 case "MN_Compra":
-                    //framePage.NavigationService.Navigate(new PageCompra(this));
+                    framePage.NavigationService.Navigate(new PageCompra(this));
                     break;
                 case "MN_Relatorio":
                     framePage.Content = new PageRelatorio(this);

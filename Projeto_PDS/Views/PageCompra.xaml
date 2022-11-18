@@ -4,11 +4,207 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Projeto_PDS.Views"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal" 
+      TextOptions.TextRenderingMode="Auto"        
+      Background="Transparent"
+      FontFamily="{DynamicResource MaterialDesignFont}"
+      d:DesignHeight="800" d:DesignWidth="1220"
       Title="PageCompra">
-
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Border CornerRadius="20" Grid.RowSpan="3" Background="Azure" Margin="20 0 20 20">
+        </Border>
+        <!--STACK PANEL NOVO USUARIO-->
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Image Source="/Icons/newCompra.png" Width="100"/>
+            <StackPanel VerticalAlignment="Center">
+                <Label Content="Nova Compra" FontSize="30" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
+                <Label Content="Inserir informações para uma nova compra" FontSize="13" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--STACK PANEL INFORMACOES-->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Width="880" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
+                <DatePicker x:Name="dtDataCompra" Padding="8"
+                            Width="430"
+                            Height="50"
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            materialDesign:HintAssist.Hint="Data da Compra"
+                            Style="{StaticResource MaterialDesignFilledDatePicker}"
+                            Background="#FFCDE3E3"
+                            IsEnabled="False"/>
+
+                <materialDesign:TimePicker
+                            x:Name="dtHoraCompra"
+                            Is24Hours="True"
+                            Padding="8"
+                            Width="430"
+                            Height="50"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            materialDesign:HintAssist.Hint="Hora da Compra"
+                            Style="{StaticResource MaterialDesignFilledTimePicker}"
+                            IsEnabled="False"
+                            Background="#FFCDE3E3"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,0,0,10" HorizontalAlignment="Center" Orientation="Horizontal">
+                <ComboBox x:Name="cbFornecedor" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledComboBox}"
+                          materialDesign:HintAssist.Hint="Fornecedor"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          DisplayMemberPath="Nome"
+                          SelectedValuePath="Id"
+                          Height="50"
+                          Width="430"/>
+
+                <ComboBox x:Name="cbFuncionario" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledComboBox}"
+                          materialDesign:HintAssist.Hint="Funcionário"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          DisplayMemberPath="Nome"
+                          SelectedValuePath="Id"
+                          Margin="20,0,0,0"
+                          Height="50"
+                          Width="430"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,0,0,10" HorizontalAlignment="Center">
+                <Canvas Margin="0 10 0 20">
+                    <TextBlock 
+                    FontSize="20"
+                    Text="Itens da compra (produtos)"
+                    Margin="0 12 0 0"/>
+                    <Button Canvas.Right="0" Canvas.Top="4" x:Name="btnAddProdutos" Foreground="White" Width="200" Height="40" Content="Adicionar Produto" Click="BtnAddProduto_Click">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Border CornerRadius="18">
+                                    <Border.Background>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="#FFF1A132" Offset="0"/>
+                                            <GradientStop Color="#FFFF399B" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <TextBlock Text="Adicionar Produtos" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Canvas>
+
+                <ScrollViewer Margin="0 36 0 10" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                    <ScrollViewer Margin="0 0 0 0" 
+                      ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                        <DataGrid  Margin="0,0,0,0" x:Name="dataGrid" 
+                           CanUserAddRows="False"
+                           CanUserDeleteRows="False"
+                           Background="#e2f0f0"
+                           AutoGenerateColumns="False" AlternatingRowBackground="#FFE1F7F7" AlternationCount="2"
+                           CellEditEnding="DataGrid_CellEditEnding"
+                           ColumnWidth="*" MinHeight="250">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="#" IsReadOnly="True" Binding="{Binding Id}"/>
+                                <DataGridTextColumn Header="Produto" IsReadOnly="True" Binding="{Binding Produto.Nome}"/>
+                                <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}"/>
+
+                                <DataGridTextColumn Header="Valor unitário" IsReadOnly="True" Binding="{Binding Valor, ConverterCulture='pt-BR', StringFormat=C}"/>
+                                <DataGridTextColumn Header="Valor Total" IsReadOnly="True" Binding="{Binding ValorTotal, ConverterCulture='pt-BR', StringFormat=C}"/>
+
+                                <DataGridTemplateColumn Header="Remover">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="Remover" 
+                                             Height="25" FontSize="12" Padding="0"
+                                             ToolTip="Remover produto da lista de vendas" Click="BtnRemoverProduto_Click" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </ScrollViewer>
+                </ScrollViewer>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center" >
+                <ComboBox x:Name="cbFormaPagamento" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledComboBox}"
+                          materialDesign:HintAssist.Hint="Forma de Pagamento"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          Margin="0,0,0,0"
+                          Height="50"
+                          Width="600">
+                    <ComboBoxItem Content="Dinheiro"/>
+                    <ComboBoxItem Content="Pix"/>
+                    <ComboBoxItem Content="Débito"/>
+                    <ComboBoxItem Content="Crédito"/>
+                    <ComboBoxItem Content="Outros"/>
+                </ComboBox>
+                <TextBox x:Name="txtValorTotal" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          Margin="20,0,0,0"
+                          Width="260"
+                          Height="50"
+                          Background="#FFCDE3E3"
+                          IsEnabled="False"
+                          materialDesign:HintAssist.Hint="Valor Total" CaretBrush="Orange" />
+            </StackPanel>
+        </StackPanel>
+
+        <!--STACK PANEL BOTOES-->
+        <StackPanel Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10" Orientation="Horizontal">
+            <Button Width="150" Height="50" Foreground="White" x:Name="btLimpar" Background="Transparent" Click="btLimpar_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="25">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FFF1A132" Offset="0"/>
+                                    <GradientStop Color="#FFFF399B" Offset="1.7"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="Limpar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Width="150" Height="50" Foreground="White" x:Name="btSalvar" Background="Transparent" Click="btSalvar_Click" Margin="50,0,0,0">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="25">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FFF1A132" Offset="0"/>
+                                    <GradientStop Color="#FFFF399B" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="Salvar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

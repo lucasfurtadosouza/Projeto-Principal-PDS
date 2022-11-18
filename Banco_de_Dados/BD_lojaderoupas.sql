@@ -643,7 +643,7 @@ $$ DELIMITER ;
 
 #TRIGGERS
 /*
-#Trigger de Caixa
+#Triggers de Caixa
 DELIMITER $$
 CREATE TRIGGER controleCaixaRecebimentos AFTER INSERT
 ON Recebimento FOR EACH ROW
@@ -662,12 +662,21 @@ BEGIN
 END;
 $$ DELIMITER ;
 
-#Trigger de Estoque
+#Triggers de Estoque
 DELIMITER $$
 CREATE TRIGGER baixarEstoque AFTER INSERT
 ON Venda_Produto FOR EACH ROW
 BEGIN
 	UPDATE Produto SET estoque_pro = estoque_pro -
+	NEW.quantidade_pro_ven WHERE (id_pro = NEW.id_pro_fk);
+END;
+$$ DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER aumentarEstoque AFTER INSERT
+ON Compra_Produto FOR EACH ROW
+BEGIN
+	UPDATE Produto SET estoque_pro = estoque_pro +
 	NEW.quantidade_pro_ven WHERE (id_pro = NEW.id_pro_fk);
 END;
 $$ DELIMITER ;

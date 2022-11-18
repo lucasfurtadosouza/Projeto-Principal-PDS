@@ -15,5 +15,6 @@ namespace Projeto_PDS.Models
         public string FormaPagamento { get; set; }
         public Funcionario Funcionario { get; set; }
         public Fornecedor Fornecedor { get; set; }
+        public List<CompraItem> Itens { get; set; } = new List<CompraItem>();
     }
 }

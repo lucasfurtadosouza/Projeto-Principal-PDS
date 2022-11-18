@@ -61,7 +61,7 @@ namespace Projeto_PDS.Views
             txtRg.Text = _funcionario.Rg;
             dtDataNasc.SelectedDate = _funcionario.DataNasc;
             //MessageBox.Show(Convert.ToString(_funcionario.Sexo));
-            cbSexo.SelectedValuePath = Convert.ToString(_funcionario.Sexo);
+            cbSexo.SelectedValue = _funcionario.Sexo.Id;
             txtCarteiraTrabalho.Text = _funcionario.CarteiraDeTrabalho;
         }
         private void btSalvar_Click(object sender, RoutedEventArgs e)
