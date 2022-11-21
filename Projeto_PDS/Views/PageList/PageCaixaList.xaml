@@ -84,6 +84,7 @@
                     </DataGrid.Background>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
                         <DataGridTextColumn Header="Saldo Inicial" Binding="{Binding SaldoInicial, StringFormat=' {0:C}', ConverterCulture='pt-BR'}"/>
                         <DataGridTextColumn Header="Saldo Final" Binding="{Binding SaldoFinal, StringFormat=' {0:C}', ConverterCulture='pt-BR'}"/>
                         <DataGridTextColumn Header="Data de Abertura" Binding="{Binding DataAbertura, StringFormat=\{0:dd/MM/yyyy\}}"/>
@@ -95,8 +96,8 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button x:Name="btAtualizar" Width="50" Background="#03c2fc" Margin="5 0" Click="btAtualizar_Click">
-                                            <materialDesign:PackIcon Kind="Pencil"/>
+                                        <Button x:Name="btVisualizar" Width="50" Background="#03c2fc" Margin="5 0" Click="btVisualizar_Click">
+                                            <materialDesign:PackIcon Kind="Eye"/>
                                         </Button>
                                         <Button x:Name="btRemover" Width="50" Background="#ff3333" Margin="5 0" Click="btRemover_Click">
                                             <materialDesign:PackIcon Kind="Trash"/>

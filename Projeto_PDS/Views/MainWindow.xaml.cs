@@ -74,8 +74,11 @@ namespace Projeto_PDS.Views
                 case "MN_Produto":
                     framePage.NavigationService.Navigate(new PageProduto(this));
                     break;
-                case "MN_Caixa":
-                    framePage.NavigationService.Navigate(new PageCaixa(this));
+                case "MN_CaixaAbrir":
+                    framePage.NavigationService.Navigate(new PageAbrirCaixa(this));
+                    break;
+                case "MN_CaixaFechar":
+                    framePage.NavigationService.Navigate(new PageFecharCaixa(this));
                     break;
                 case "MN_Venda":
                     framePage.NavigationService.Navigate(new PageVenda(this));

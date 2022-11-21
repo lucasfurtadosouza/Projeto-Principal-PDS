@@ -68,7 +68,7 @@ namespace Projeto_PDS.Views.PageList
                 MessageBox.Show(ex.Message);
             }
         }
-        private void btAtualizar_Click(Object sender, RoutedEventArgs e)
+        private void btVisualizar_Click(Object sender, RoutedEventArgs e)
         {
             var caixaSelecionada = dtCaixa.SelectedItem as Caixa;
             _page.frameRelatorio.Content = new PageCaixa(_main, _page, caixaSelecionada);

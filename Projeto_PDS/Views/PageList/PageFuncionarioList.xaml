@@ -84,7 +84,7 @@
                         <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
                         <DataGridTextColumn Header="Cpf" Binding="{Binding Cpf}"/>
                         <DataGridTextColumn Header="Telefone" Binding="{Binding Telefone}"/>
-                        <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo}"/>
+                        <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo.Nome}"/>
                         <DataGridTextColumn Header="Carteira de trabalho" Binding="{Binding CarteiraDeTrabalho}"/>
                         <DataGridTextColumn Header="Salário" Binding="{Binding Salario, StringFormat=' {0:C}', ConverterCulture='pt-BR'}"/>
 

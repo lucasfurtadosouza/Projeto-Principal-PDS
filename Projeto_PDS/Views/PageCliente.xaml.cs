@@ -57,14 +57,11 @@ namespace Projeto_PDS.Views
             if(_cliente.Numero != 0)
             {
                 txtNumero.Text = Convert.ToString(_cliente.Numero);
+                cbSexo.SelectedValue = _cliente.Sexo.Id;
             }
             txtRg.Text = _cliente.Rg;
             dtDataNasc.SelectedDate = _cliente.DataNasc;
-            // Erro no Select que nao armazena em nenhum tipo de variavel
-            // 
-            //cbSexo.SelectedValuePath = Convert.ToString(_cliente.Sexo);
             txtRenda.Text = _cliente.RendaFamiliar;
-            
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)

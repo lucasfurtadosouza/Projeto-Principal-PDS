@@ -41,92 +41,24 @@ namespace Projeto_PDS.Views
             _caixa = caixa;
             _main = mainWindow;
             _page = page;
-
             Loaded += WindowCaixa_Loaded;
-            
         }
 
         private void WindowCaixa_Loaded(object sender, RoutedEventArgs e)
         {
-            txtSaldoInicial.Focus();
-            if (_caixa.Id > 0)
-            {
-                txtSaldoInicial.Text = Convert.ToString(_caixa.SaldoInicial);
-                txtSaldoFinal.Text = Convert.ToString(_caixa.SaldoFinal);
-                txtQuantidadePagamentos.Text = Convert.ToString(_caixa.QuantidadePagamentos);
-                txtQuantidadeRecebimentos.Text = Convert.ToString(_caixa.QuantidadeRecebimentos);
-                dtDataAbertura.SelectedDate = _caixa.DataAbertura;
-                dtDataFechamento.SelectedDate = _caixa.DataFechamento;
-                dtHoraAbertura.SelectedTime = _caixa.HoraAbertura;
-                dtHoraFechamento.SelectedTime = _caixa.HoraFechamento;
-                cbStatus.Text = _caixa.Status;
-            }
-            else
-            {
-                dtDataAbertura.SelectedDate = DateTime.Now;
-                dtHoraAbertura.SelectedTime = DateTime.Now;
-            }
+            txtSaldoInicial.Text = Convert.ToString(_caixa.SaldoInicial);
+            txtSaldoFinal.Text = Convert.ToString(_caixa.SaldoFinal);
+            txtQuantidadePagamentos.Text = Convert.ToString(_caixa.QuantidadePagamentos);
+            txtQuantidadeRecebimentos.Text = Convert.ToString(_caixa.QuantidadeRecebimentos);
+            dtDataAbertura.SelectedDate = _caixa.DataAbertura;
+            dtDataFechamento.SelectedDate = _caixa.DataFechamento;
+            dtHoraAbertura.SelectedTime = _caixa.HoraAbertura;
+            dtHoraFechamento.SelectedTime = _caixa.HoraFechamento;
+            cbStatus.Text = _caixa.Status;
         }
-        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        private void btVoltar_Click(object sender, RoutedEventArgs e)
         {
-            _caixa.SaldoInicial = Convert.ToDouble(txtSaldoInicial.Text);
-            _caixa.SaldoFinal = Convert.ToDouble(txtSaldoFinal.Text);
-            if (dtDataAbertura.SelectedDate != null)
-            {
-                _caixa.DataAbertura = dtDataAbertura.SelectedDate;
-            }
-            if (dtDataFechamento.SelectedDate != null)
-            {
-                _caixa.DataFechamento = dtDataFechamento.SelectedDate;
-            }
-            if (dtHoraAbertura.SelectedTime != null)
-            {
-                _caixa.HoraAbertura = dtHoraAbertura.SelectedTime;
-            }
-            if (dtHoraFechamento.SelectedTime != null)
-            {
-                _caixa.HoraFechamento = dtHoraFechamento.SelectedTime;
-            }
-            _caixa.QuantidadePagamentos = Convert.ToInt32(txtQuantidadePagamentos.Text);
-            _caixa.QuantidadeRecebimentos = Convert.ToInt32(txtQuantidadeRecebimentos.Text);
-            _caixa.Status = cbStatus.Text;
-
-            try
-            {
-                var dao = new CaixaDAO();
-                if (_caixa.Id > 0)
-                {
-                    dao.Update(_caixa);
-                    var messageUp = new WindowMessageBoxCerto("Informações Atualizadas com Sucesso!", "Registro Atualizado");
-                    messageUp.ShowDialog();
-                    _page.OpenPageList("List_Caixa"); ;
-                }
-                else
-                {
-                    dao.Insert(_caixa);
-                    var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
-                    message.ShowDialog();
-                }
-
-                btLimpar_Click(sender, e);
-            }
-            catch (Exception ex)
-            {
-                var messageError = new WindowMessageBoxError("Error: " + ex.Message, "Erro");
-                messageError.ShowDialog();
-            }
-        }
-
-        private void btLimpar_Click(object sender, RoutedEventArgs e)
-        {
-            txtSaldoInicial.Clear();
-            txtSaldoFinal.Clear();
-            dtDataAbertura.SelectedDate = DateTime.Now;
-            dtHoraAbertura.SelectedTime = DateTime.Now;
-            dtDataFechamento.SelectedDate = null;
-            dtHoraFechamento.SelectedTime = null;
-            txtQuantidadePagamentos.Clear();
-            txtQuantidadeRecebimentos.Clear();
+            _page.OpenPageList("List_Caixa"); ;
         }
     }
 }

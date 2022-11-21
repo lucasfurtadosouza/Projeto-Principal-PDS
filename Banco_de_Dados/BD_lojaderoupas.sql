@@ -446,7 +446,7 @@ $$ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE AtualizarFuncionario(id int, nome varchar(300), email varchar(300), cpf varchar(300), telefone varchar(300), rua varchar(300), numero int, bairro varchar(300), rg varchar(300), dataNasc date, carteiraTrabalho varchar(300), salario double, foto blob, idSexo int)
 BEGIN
-    update Funcionario set nome_fun = nome, email_fun = email, cpf_fun = cpf, telefone_fun = telefone, rua_fun = rua, numero_fun = numero, bairro_fun = bairro, rg_fun = rg, data_nasc_fun = dataNasc, carteira_de_trabalho_fun = carteiraTrabalho, salario_fun = salario, foto_fun = foto where (id_fun = id);
+    update Funcionario set nome_fun = nome, email_fun = email, cpf_fun = cpf, telefone_fun = telefone, rua_fun = rua, numero_fun = numero, bairro_fun = bairro, rg_fun = rg, data_nasc_fun = dataNasc, carteira_de_trabalho_fun = carteiraTrabalho, salario_fun = salario, foto_fun = foto, id_sex_fk = idSexo where (id_fun = id);
 END
 $$ DELIMITER ;
 
@@ -495,16 +495,6 @@ BEGIN
 END
 $$ DELIMITER ;
 
-
-#ATUALIZAR CAIXA
-/*
-DELIMITER $$
-CREATE PROCEDURE AtualizarCaixa(saldoInicial double, saldoFinal double, dataAbertura date, dataFechamento date, horaAbertura time, horaFechamento time, qtdPagamentos int, qtdRecebimentos int)
-BEGIN
-    update Caixa set saldo_inicial_cai = saldoInicial, saldo_final_cai = saldoFinal, data_abertura_cai = dataAbertura, data_fechamento_cai = dataFechamento, hora_abertura_cai = horaAbertura, hora_fechamento_cai = horaFechamento, quantidade_pagamentos_cai = qtdPagamentos, quantidade_recebimentos_cai = qtdRecebimentos where (id_cai = id);
-END
-$$ DELIMITER ;
-*/
 
 #ATUALIZAR VENDA
 /*
@@ -566,10 +556,27 @@ END
 $$ DELIMITER ;
 */
 
+#FECHAR CAIXA
+DELIMITER $$
+CREATE PROCEDURE FecharCaixa(id int, saldoFinal double, dataFechamento date, horaFechamento time, qtdPagamentos int, qtdRecebimentos int, status_caixa varchar(100))
+BEGIN
+    update Caixa set saldo_final_cai = saldoFinal, data_fechamento_cai = dataFechamento, hora_fechamento_cai = horaFechamento, quantidade_pagamentos_cai = qtdPagamentos, quantidade_recebimentos_cai = qtdRecebimentos, status_cai = status_caixa where (id_cai = id);
+END
+$$ DELIMITER ;
+
+#LISTAR SEXO
 DELIMITER $$
 CREATE PROCEDURE ListarSexo()
 BEGIN
 	select * from Sexo;
+END
+$$ DELIMITER ;
+
+#LISTAR CAIXA ABERTO
+DELIMITER $$
+CREATE PROCEDURE ListarCaixaAberto()
+BEGIN
+    select * from Caixa where(status_cai = "Aberto");
 END
 $$ DELIMITER ;
 
@@ -586,9 +593,45 @@ DELIMITER $$
 CREATE PROCEDURE ListarCliente(busca varchar(300))
 BEGIN
     if(busca <> '') or (busca is not null) then
-        select * from Cliente where (nome_cli like (select concat('%', busca, '%')));
+		Select
+        Cliente.id_cli,
+		Cliente.nome_cli,
+		Cliente.email_cli,
+		Cliente.cpf_cli,
+		Cliente.telefone_cli,
+        Cliente.rua_cli,
+        Cliente.numero_cli,
+        Cliente.bairro_cli,
+        Cliente.rg_cli,
+        Cliente.data_nasc_cli,
+        Cliente.renda_familiar_cli,
+        Cliente.foto_cli,
+        Sexo.id_sex,
+        Sexo.tipo_sex
+        From 
+        Cliente, Sexo
+        Where
+        (nome_cli like (select concat('%', busca, '%'))) and (Cliente.id_sex_fk = Sexo.id_sex);
     else
-        select * from Cliente;
+        Select
+        Cliente.id_cli,
+		Cliente.nome_cli,
+		Cliente.email_cli,
+		Cliente.cpf_cli,
+		Cliente.telefone_cli,
+        Cliente.rua_cli,
+        Cliente.numero_cli,
+        Cliente.bairro_cli,
+        Cliente.rg_cli,
+        Cliente.data_nasc_cli,
+        Cliente.renda_familiar_cli,
+        Cliente.foto_cli,
+        Sexo.id_sex,
+        Sexo.tipo_sex
+        From 
+        Cliente, Sexo
+        Where
+        (Cliente.id_sex_fk = Sexo.id_sex);
     end if;
 END
 $$ DELIMITER ;
@@ -622,9 +665,47 @@ DELIMITER $$
 CREATE PROCEDURE ListarFuncionario(busca varchar(300))
 BEGIN
     if(busca <> '') or (busca is not null) then
-        select * from Funcionario where (nome_fun like (select concat('%', busca, '%')));
+        Select
+        Funcionario.id_fun,
+		Funcionario.nome_fun,
+		Funcionario.email_fun,
+		Funcionario.cpf_fun,
+		Funcionario.telefone_fun,
+        Funcionario.rua_fun,
+        Funcionario.numero_fun,
+        Funcionario.bairro_fun,
+        Funcionario.rg_fun,
+        Funcionario.data_nasc_fun,
+        Funcionario.carteira_de_trabalho_fun,
+        Funcionario.salario_fun,
+        Funcionario.foto_fun,
+        Sexo.id_sex,
+        Sexo.tipo_sex
+        From 
+        Funcionario, Sexo
+        Where
+        (nome_fun like (select concat('%', busca, '%'))) and (Funcionario.id_sex_fk = Sexo.id_sex);
     else
-        select * from Funcionario;
+        Select
+        Funcionario.id_fun,
+		Funcionario.nome_fun,
+		Funcionario.email_fun,
+		Funcionario.cpf_fun,
+		Funcionario.telefone_fun,
+        Funcionario.rua_fun,
+        Funcionario.numero_fun,
+        Funcionario.bairro_fun,
+        Funcionario.rg_fun,
+        Funcionario.data_nasc_fun,
+        Funcionario.carteira_de_trabalho_fun,
+        Funcionario.salario_fun,
+        Funcionario.foto_fun,
+        Sexo.id_sex,
+        Sexo.tipo_sex
+        From 
+        Funcionario, Sexo 
+        Where
+        (Funcionario.id_sex_fk = Sexo.id_sex);
     end if;
 END
 $$ DELIMITER ;

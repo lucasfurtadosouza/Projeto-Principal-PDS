@@ -56,12 +56,11 @@ namespace Projeto_PDS.Views
             {
                 txtNumero.Text = Convert.ToString(_funcionario.Numero);
                 txtSalario.Text = Convert.ToString(_funcionario.Salario);
+                cbSexo.SelectedValue = _funcionario.Sexo.Id;
             }
             txtBairro.Text = _funcionario.Bairro;
             txtRg.Text = _funcionario.Rg;
             dtDataNasc.SelectedDate = _funcionario.DataNasc;
-            //MessageBox.Show(Convert.ToString(_funcionario.Sexo));
-            cbSexo.SelectedValue = _funcionario.Sexo.Id;
             txtCarteiraTrabalho.Text = _funcionario.CarteiraDeTrabalho;
         }
         private void btSalvar_Click(object sender, RoutedEventArgs e)

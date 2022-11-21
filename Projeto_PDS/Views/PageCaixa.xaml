@@ -9,7 +9,7 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
+        TextElement.FontSize="15"
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         Background="Transparent"
@@ -22,7 +22,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="190"/>
-            <RowDefinition Height="250"/>
+            <RowDefinition Height="260"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -33,9 +33,8 @@
         <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             <Image Source="/Icons/newCaixa.png" Width="100"/>
             <StackPanel VerticalAlignment="Center">
-                <Label Content="Abrir Caixa" FontSize="30" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
-                <Label Content="Inserir informações para abrir um caixa" FontSize="13" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
-            </StackPanel>
+                <Label Content="Caixa" FontSize="30" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
+                <Label Content="Visualize as informações do caixa" FontSize="13" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/></StackPanel>
         </StackPanel>
 
         <!--STACK PANEL INFORMACOES-->
@@ -48,7 +47,9 @@
                           TextWrapping="Wrap"
                           Width="440"
                           Height="50"
-                          materialDesign:HintAssist.Hint="Saldo Inicial" CaretBrush="Orange"/>
+                          materialDesign:HintAssist.Hint="Saldo Inicial" CaretBrush="Orange"
+                          Background="#FFCDE3E3"
+                          IsEnabled="False"/>
 
                 <TextBox x:Name="txtSaldoFinal" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
@@ -58,6 +59,8 @@
                           Width="440"
                           Height="50"
                           Margin="20,0,0,0"
+                          Background="#FFCDE3E3"
+                          IsEnabled="False"
                           materialDesign:HintAssist.Hint="Saldo Final"/>
             </StackPanel>
 
@@ -90,6 +93,8 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             materialDesign:HintAssist.Hint="Data de Fechamento"
+                            Background="#FFCDE3E3"
+                            IsEnabled="False"
                             Style="{StaticResource MaterialDesignFilledDatePicker}"/>
                 <materialDesign:TimePicker
                             x:Name="dtHoraFechamento"
@@ -99,6 +104,8 @@
                             Margin="20,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
+                            Background="#FFCDE3E3"
+                            IsEnabled="False"
                             materialDesign:HintAssist.Hint="Hora de Fechamento"
                             Style="{StaticResource MaterialDesignFilledTimePicker}"/>
             </StackPanel>
@@ -110,7 +117,9 @@
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
                           Width="440"
-                          materialDesign:HintAssist.Hint="Quantidade de Pagamentos"/>
+                          materialDesign:HintAssist.Hint="Quantidade de Pagamentos"
+                          Background="#FFCDE3E3"
+                          IsEnabled="False"/>
 
                 <TextBox x:Name="txtQuantidadeRecebimentos" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
@@ -119,6 +128,8 @@
                           TextWrapping="Wrap"
                           Width="440"
                           Margin="20,0,0,0"
+                          Background="#FFCDE3E3"
+                          IsEnabled="False"
                           materialDesign:HintAssist.Hint="Quantidade de Recebimentos"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left">
@@ -127,6 +138,8 @@
                     x:Name="cbStatus"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Center"
+                    Background="#FFCDE3E3"
+                    IsEnabled="False"
                     materialDesign:HintAssist.Hint="Status">
                     <ComboBoxItem Content="Aberto"/>
                     <ComboBoxItem Content="Fechado"/>
@@ -137,23 +150,7 @@
 
         <!--STACK PANEL BOTOES-->
         <StackPanel Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10" Orientation="Horizontal">
-            <Button Width="150" Height="50" Foreground="White" x:Name="btLimpar" Background="Transparent" Click="btLimpar_Click">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Border CornerRadius="25">
-                            <Border.Background>
-                                <LinearGradientBrush>
-                                    <GradientStop Color="#FFF1A132" Offset="0"/>
-                                    <GradientStop Color="#FFFF399B" Offset="1.7"/>
-                                </LinearGradientBrush>
-                            </Border.Background>
-                            <TextBlock Text="Limpar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Width="150" Height="50" Foreground="White" x:Name="btSalvar" Background="Transparent" Click="btSalvar_Click" Margin="50,0,0,0">
+            <Button Width="150" Height="50" Foreground="White" x:Name="btVoltar" Background="Transparent" Click="btVoltar_Click">
                 <Button.Template>
                     <ControlTemplate>
                         <Border CornerRadius="25">
@@ -163,7 +160,7 @@
                                     <GradientStop Color="#FFFF399B" Offset="1.0"/>
                                 </LinearGradientBrush>
                             </Border.Background>
-                            <TextBlock Text="Salvar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
+                            <TextBlock Text="Voltar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Leelawadee UI" FontWeight="Bold"/>
                         </Border>
                     </ControlTemplate>
                 </Button.Template>

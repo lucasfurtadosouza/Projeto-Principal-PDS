@@ -8,7 +8,7 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
+        TextElement.FontSize="15"
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         Background="Transparent"
@@ -45,10 +45,10 @@
                     x:Name="cbCaixa"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Center"
-                    FontSize="15"
                     DisplayMemberPath="Id"
                     SelectedValuePath="Id"
                     Margin="0,0,20,0"
+                    SelectionChanged="cbCaixa_SelectionChanged"
                     materialDesign:HintAssist.Hint="Caixa"/>
                 
                 <ComboBox Width="225"
@@ -57,7 +57,6 @@
                     VerticalAlignment="Top"
                     HorizontalAlignment="Center"
                     Margin="0,0,20,0"
-                    FontSize="15"
                     materialDesign:HintAssist.Hint="Status">
                     <ComboBoxItem Content="Aberto"/>
                     <ComboBoxItem Content="Fechado"/>
@@ -68,8 +67,7 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="200"
-                          FontSize="15"
+                          Width="220"
                           Background="#FFCDE3E3"
                           Foreground="Black"
                           IsEnabled="False"
@@ -80,12 +78,11 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          Width="200"
+                          Width="220"
                           Margin="20,0,0,0"
                           Background="#FFCDE3E3"
                           IsEnabled="False"
                           Foreground="Black"
-                          FontSize="15"
                           materialDesign:HintAssist.Hint="Quantidade de Recebimentos"/>
             </StackPanel>
 
@@ -95,7 +92,6 @@
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
-                          FontSize="15"
                           Background="#FFCDE3E3"
                           Foreground="Black"
                           IsEnabled="False"
@@ -103,10 +99,9 @@
                           Height="50"
                           materialDesign:HintAssist.Hint="Saldo Final" CaretBrush="Orange"/>
                 <DatePicker x:Name="dtDataFechamento" Padding="8"
-                            Width="200"
+                            Width="220"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
-                            FontSize="15"
                             Margin="20,0,0,0"
                             materialDesign:HintAssist.Hint="Data de Fechamento"
                             Style="{StaticResource MaterialDesignFilledDatePicker}"
@@ -118,11 +113,10 @@
                             x:Name="dtHoraFechamento"
                             Is24Hours="True"
                             Padding="8"
-                            Width="200"
+                            Width="220"
                             Margin="20,0,0,0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
-                            FontSize="15"
                             materialDesign:HintAssist.Hint="Hora de Fechamento"
                             Style="{StaticResource MaterialDesignFilledTimePicker}"
                             Background="#FFCDE3E3"

@@ -22,13 +22,13 @@ namespace Projeto_PDS.Models
                     "(@saldoInicial, @saldoFinal, @dataAbertura, @dataFechamento, @horaAbertura, @horaFechamento, @qtdPagamentos, @qtdRecebimentos, @status)";
 
                 comando.Parameters.AddWithValue("@saldoInicial", caixa.SaldoInicial);
-                comando.Parameters.AddWithValue("@saldoFinal", caixa.SaldoFinal);
+                comando.Parameters.AddWithValue("@saldoFinal", null);
                 comando.Parameters.AddWithValue("@dataAbertura", caixa.DataAbertura);
-                comando.Parameters.AddWithValue("@dataFechamento", caixa.DataFechamento);
+                comando.Parameters.AddWithValue("@dataFechamento", null);
                 comando.Parameters.AddWithValue("@horaAbertura", caixa.HoraAbertura);
                 comando.Parameters.AddWithValue("@horaFechamento", caixa.HoraFechamento);
-                comando.Parameters.AddWithValue("@qtdPagamentos", caixa.QuantidadePagamentos);
-                comando.Parameters.AddWithValue("@qtdRecebimentos", caixa.QuantidadeRecebimentos);
+                comando.Parameters.AddWithValue("@qtdPagamentos", null);
+                comando.Parameters.AddWithValue("@qtdRecebimentos", null);
                 comando.Parameters.AddWithValue("@status", caixa.Status);
 
                 var resultado = comando.ExecuteNonQuery();
@@ -37,6 +37,41 @@ namespace Projeto_PDS.Models
                 {
                     throw new Exception("Ocorreram erros ao salvar as informações");
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<Caixa> ListCaixaAberto()
+        {
+            try
+            {
+                List<Caixa> list = new List<Caixa>();
+
+                var query = _conn.Query();
+                query.CommandText = "CALL ListarCaixaAberto();";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var caixa = new Caixa();
+                    caixa.Id = reader.GetInt32("id_cai");
+                    caixa.SaldoInicial = Convert.ToDouble(Helpers.DAOHelper.GetString(reader, "saldo_inicial_cai"));
+                    caixa.SaldoFinal = Convert.ToDouble(Helpers.DAOHelper.GetString(reader, "saldo_final_cai"));
+                    caixa.DataAbertura = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_abertura_cai"));
+                    caixa.DataFechamento = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_fechamento_cai"));
+                    caixa.HoraAbertura = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "hora_abertura_cai"));
+                    caixa.HoraFechamento = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "hora_fechamento_cai"));
+                    caixa.QuantidadePagamentos = Convert.ToInt32(Helpers.DAOHelper.GetString(reader, "quantidade_pagamentos_cai"));
+                    caixa.QuantidadeRecebimentos = Convert.ToInt32(Helpers.DAOHelper.GetString(reader, "quantidade_recebimentos_cai"));
+                    caixa.Status = Helpers.DAOHelper.GetString(reader, "status_cai");
+
+                    list.Add(caixa);
+                }
+                reader.Close();
+                return list;
             }
             catch (Exception ex)
             {
@@ -96,23 +131,21 @@ namespace Projeto_PDS.Models
                 throw ex;
             }
         }
-        public void Update(Caixa caixa)
+        public void FecharCaixa(Caixa caixa)
         {
             try
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "CALL AtualizarCaixa" +
-                    "(@id, @saldoInicial, @saldoFinal, @dataAbertura, @dataFechamento, @horaAbertura, @horaFechamento, @qtdPagamentos, @qtdRecebimentos, @status)";
+                comando.CommandText = "CALL FecharCaixa" +
+                    "(@id, @saldoFinal, @dataFechamento, @horaFechamento, @qtdPagamentos, @qtdRecebimentos, @status)";
 
-                comando.Parameters.AddWithValue("@saldoInicial", caixa.SaldoInicial);
                 comando.Parameters.AddWithValue("@saldoFinal", caixa.SaldoFinal);
-                comando.Parameters.AddWithValue("@dataAbertura", caixa.DataAbertura);
                 comando.Parameters.AddWithValue("@dataFechamento", caixa.DataFechamento);
-                comando.Parameters.AddWithValue("@horaAbertura", caixa.HoraAbertura);
                 comando.Parameters.AddWithValue("@horaFechamento", caixa.HoraFechamento);
                 comando.Parameters.AddWithValue("@qtdPagamentos", caixa.QuantidadePagamentos);
                 comando.Parameters.AddWithValue("@qtdRecebimentos", caixa.QuantidadeRecebimentos);
+                comando.Parameters.AddWithValue("@status", caixa.Status);
 
                 var resultado = comando.ExecuteNonQuery();
 
