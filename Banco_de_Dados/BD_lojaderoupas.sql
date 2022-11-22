@@ -109,12 +109,13 @@ id_cli_fk integer not null,
 foreign key (id_fun_fk) references Funcionario (id_fun),
 foreign key (id_cli_fk) references Cliente (id_cli)
 );
-create table controle(
+
+create table Controle(
 id_con int primary key auto_increment,
 usuario_con varchar(300),
 senha_com varchar(300)
 );
-select * from usuario;
+
 create table Compra(
 id_com int not null primary key auto_increment,
 valor_com double,
@@ -215,8 +216,7 @@ BEGIN
 END
 $$ DELIMITER ;
 
-CALL InserirFuncionario('Vitória Marcela Alves', 'vitoriaalves@gmail.com', '982.015.552-52', '(69) 98766-3791', 'Rua Triângulo Mineiro', '519', 'Nova Brasília', '46.877.444-0', '
--02-25', '746.99192.34-7', 2500, null, 2);
+CALL InserirFuncionario('Vitória Marcela Alves', 'vitoriaalves@gmail.com', '982.015.552-52', '(69) 98766-3791', 'Rua Triângulo Mineiro', '519', 'Nova Brasília', '46.877.444-0', '2002-02-25', '746.99192.34-7', 2500, null, 2);
 CALL InserirFuncionario('Luiz Francisco Isaac', 'luizrezende@gmail.com', '195.288.362-83', '(69) 99306-8988', 'Rua Estrada Velha', '838', 'Primavera', '25.355.141-9', '2000-07-20', '985.77786.34-1', 2600, null, 1);
 
 #INSERIR USUARIO
@@ -906,11 +906,13 @@ set buscar2 = (select id_con from controle where(id_con = 1));
     
 END
 $$ DELIMITER ;
+/*
 call inserirUsuario('daniel','123456','chefe',null);
 call buscarUsuario('daniel');
 select * from controle;
+*/
+
 #TRIGGERS
-/*
 #Triggers de Caixa
 DELIMITER $$
 CREATE TRIGGER controleCaixaRecebimentos AFTER INSERT
@@ -935,8 +937,7 @@ DELIMITER $$
 CREATE TRIGGER baixarEstoque AFTER INSERT
 ON Venda_Produto FOR EACH ROW
 BEGIN
-	UPDATE Produto SET estoque_pro = estoque_pro -
-	NEW.quantidade_pro_ven WHERE (id_pro = NEW.id_pro_fk);
+	UPDATE Produto SET estoque_pro = estoque_pro - NEW.quantidade_pro_ven WHERE (id_pro = NEW.id_pro_fk);
 END;
 $$ DELIMITER ;
 
@@ -945,8 +946,6 @@ CREATE TRIGGER aumentarEstoque AFTER INSERT
 ON Compra_Produto FOR EACH ROW
 BEGIN
 	UPDATE Produto SET estoque_pro = estoque_pro +
-	NEW.quantidade_pro_ven WHERE (id_pro = NEW.id_pro_fk);
+	NEW.quantidade_pro_com WHERE (id_pro = NEW.id_pro_fk);
 END;
 $$ DELIMITER ;
-
-#SELECT LAST_INSERT_ID(); */
