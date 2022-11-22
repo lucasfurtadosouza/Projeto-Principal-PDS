@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Projeto_PDS.Models;
+using Projeto_PDS.Views_MessageBox;
 
 namespace Projeto_PDS.Views.PageList
 {
@@ -45,17 +46,21 @@ namespace Projeto_PDS.Views.PageList
         private void btRemover_Click(object sender, RoutedEventArgs e)
         {
             var produtoSelecionado = dtProduto.SelectedItem as Produto;
-            var resultado = MessageBox.Show($"Deseja realmente excluir o produto '{produtoSelecionado.Nome}'?", "Confirmar Exclusão",
-                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            var message = new WindowMessageBoxPergunta($"Deseja realmente excluir o produto '{produtoSelecionado.Id}'?", "Confirmar Exclusão");
+            message.ShowDialog();
+            var resultado = message.retorno;
             try
             {
-                if (resultado == MessageBoxResult.Yes)
+                if (resultado != false)
                 {
+                    {
                     var dao = new ProdutoDAO();
                     dao.Delete(produtoSelecionado);
 
-                    MessageBox.Show("Registro deletado com sucesso!");
-                    CarregarListagem();
+                        var messageCheck = new WindowMessageBoxCerto("Registro deletado com sucesso!", "Registro Excluído");
+                        messageCheck.ShowDialog();
+                        CarregarListagem();
+                    }
                 }
             }
             catch (Exception ex)

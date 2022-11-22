@@ -52,16 +52,45 @@ namespace Projeto_PDS
         }
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-            
+
             string HashPassword = getHashSha256(txtSenha.Password.ToString());
             _usuario.Senha = HashPassword;
             _usuario.Nome = txtUsuario.Text;
+            try
+            {
+                var dao = new UsuarioDAO();
+                if (HashPassword != "")
+                {
+                    if(dao.Login(_usuario))
+                    {
+                        new MainWindow().Show();
+                        this.Close();
+
+                    }
+                    else
+                    {
+                        var message = new WindowMessageBoxError("Usuário ou senha incorreto.", "Erro");
+                        message.Show();
+                    }
+                        
+                   
 
 
-          
-            
-            
-        }
+                }
+                else
+                {
+
+                    var message = new WindowMessageBoxCerto("Deu merda", "fudeu");
+                    message.Show();
+                    MessageBox.Show(HashPassword);
+                }
+
+
+
+
+
+            }catch (Exception ex) { MessageBox.Show(ex.Message); }
+         }
         public static string getHashSha256(string text)
         {
             byte[] bytes = Encoding.Unicode.GetBytes(text);

@@ -62,6 +62,7 @@ namespace Projeto_PDS.Views
                     var form = new WindowLogin();
                     form.Show();
                     this.Close();
+
                 }
                 else
                 {
@@ -69,7 +70,7 @@ namespace Projeto_PDS.Views
                     //daof.Insert2(_func);
                     var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
                     message.ShowDialog();
-                    var form = new WindowLogin();
+                    var form = new MainWindow();
                     form.Show();
                     this.Close();
                 }

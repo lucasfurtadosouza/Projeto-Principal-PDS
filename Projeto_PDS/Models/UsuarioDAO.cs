@@ -7,7 +7,8 @@ using Projeto_PDS.Models;
 using Projeto_PDS.Helpers;
 using MySql.Data.MySqlClient;
 using Projeto_PDS.DataBase;
-
+using Projeto_PDS.Views;
+using Projeto_PDS.Views_MessageBox;
 namespace Projeto_PDS.Models
 {
     public class UsuarioDAO
@@ -77,6 +78,7 @@ namespace Projeto_PDS.Models
                 if (resultado == 0)
                 {
                     throw new Exception("Ocorreram erros ao salvar as informações");
+
                 }
             }
             catch (Exception ex)
@@ -84,12 +86,24 @@ namespace Projeto_PDS.Models
                 throw ex;
             }
         }
-        public void Insert2(Usuario usuario)
+        public bool Login(Usuario usuario)
         {
             try
             {
+                var comando = _conn.Query();
+                comando.CommandText = "Select count(1) from usuario where (nome_usu= @usuario and senha_usu = @senha)";
 
-            }catch (Exception ex)
+                comando.Parameters.AddWithValue("@usuario", usuario.Nome);
+                comando.Parameters.AddWithValue("@senha", usuario.Senha);
+                int count = Convert.ToInt32(comando.ExecuteScalar());
+
+                if (count == 1)
+                    return true;
+
+                return false;
+
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
