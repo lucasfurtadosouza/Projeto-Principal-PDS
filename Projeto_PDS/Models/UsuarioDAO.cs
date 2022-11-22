@@ -84,6 +84,18 @@ namespace Projeto_PDS.Models
                 throw ex;
             }
         }
+        public void Insert2(Usuario usuario)
+        {
+            try
+            {
+
+            }catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+        }
         public List<Usuario> List()
         {
             try
@@ -114,64 +126,7 @@ namespace Projeto_PDS.Models
                 throw ex;
             }
         }
-        public List<Usuario> List3(string usuario)
-        {
-            try
-            {
-                List<Usuario> list = new List<Usuario>();
-
-
-                var comando = _conn.Query();
-
-                comando.CommandText = "CALL buscarUsuario" +
-                    "(@usuario)";
-
-                comando.Parameters.AddWithValue("@usuario", usuario);
-                
-                
-
-                var resultado = comando.ExecuteNonQuery();
-
-                
-                return list;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        public Usuario GetByControle()
-        {
-            try
-            {
-                var query = _conn.Query();
-                query.CommandText = "SELECT * FROM controle";
-
-               
-
-                MySqlDataReader reader = query.ExecuteReader();
-
-                Usuario usuario = null;
-
-                while (reader.Read())
-                {
-                    usuario = new Usuario();
-                    usuario.Nome = reader.GetString("usuario_con");
-                    usuario.Permissao = reader.GetString("senha_com");
-                
-                }
-
-                return usuario;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-            finally
-            {
-                _conn.Close();
-            }
-        }
+      
        
                 
         public List<Usuario> List2()

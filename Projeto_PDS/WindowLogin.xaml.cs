@@ -52,41 +52,15 @@ namespace Projeto_PDS
         }
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-            string senha;
-            string usuario;
-            string HashPassword = getHashSha256(txtSenha.Password.ToString());
-            usuario = txtUsuario.Text;
-            _usuario.buscar = usuario; 
             
-            senha = HashPassword;
+            string HashPassword = getHashSha256(txtSenha.Password.ToString());
+            _usuario.Senha = HashPassword;
+            _usuario.Nome = txtUsuario.Text;
+
+
           
-                    try
-                    {
-                        string busca = txtUsuario.Text;
-                        var dao = new UsuarioDAO();
-                        List<Usuario> listaUsuario = dao.List3(busca);
-                        dao.GetByControle();
-                        
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-            if (_usuario.Nome == usuario && _usuario.Senha == senha)
-            {
-                var form = new MainWindow();
-                form.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Erro");
-            }
-
-
-
-
+            
+            
         }
         public static string getHashSha256(string text)
         {
