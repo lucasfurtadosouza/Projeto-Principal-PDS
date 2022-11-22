@@ -906,11 +906,13 @@ set buscar2 = (select id_con from controle where(id_con = 1));
     
 END
 $$ DELIMITER ;
+/*
 call inserirUsuario('daniel','123456','chefe',null);
 call buscarUsuario('daniel');
 select * from controle;
+*/
+
 #TRIGGERS
-/*
 #Triggers de Caixa
 DELIMITER $$
 CREATE TRIGGER controleCaixaRecebimentos AFTER INSERT
@@ -948,5 +950,3 @@ BEGIN
 	NEW.quantidade_pro_ven WHERE (id_pro = NEW.id_pro_fk);
 END;
 $$ DELIMITER ;
-
-#SELECT LAST_INSERT_ID(); */
