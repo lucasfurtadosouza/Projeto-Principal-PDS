@@ -8,6 +8,7 @@ using Projeto_PDS.Helpers;
 using MySql.Data.MySqlClient;
 using Projeto_PDS.DataBase;
 using Projeto_PDS.Views;
+using Projeto_PDS.Views_MessageBox;
 namespace Projeto_PDS.Models
 {
     public class UsuarioDAO
@@ -96,8 +97,15 @@ namespace Projeto_PDS.Models
                 int count = Convert.ToInt32(comando.ExecuteScalar());
                 if(count == 1)
                 {
+                    var atual = new WindowLogin();
+                    atual.Close();
                     var form = new  MainWindow();
                     form.Show();
+                }
+                else
+                {
+                    var message = new WindowMessageBoxError("Erro!", "Usuario ou senha incorretas");
+                    message.Show();
                 }
 
             }

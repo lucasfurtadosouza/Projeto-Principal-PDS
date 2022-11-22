@@ -59,11 +59,11 @@ namespace Projeto_PDS
             try
             {
                 var dao = new UsuarioDAO();
-                if (_usuario.Id > 0)
+                if (HashPassword != "")
                 {
                     dao.Insert2(_usuario);
-                    var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
-                    message.Show();
+                   
+
 
                 }
                 else
@@ -71,6 +71,7 @@ namespace Projeto_PDS
 
                     var message = new WindowMessageBoxCerto("Deu merda", "fudeu");
                     message.Show();
+                    MessageBox.Show(HashPassword);
                 }
 
 
