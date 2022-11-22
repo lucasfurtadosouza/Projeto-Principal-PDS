@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Projeto_PDS.Models;
+using Projeto_PDS.Views_MessageBox;
 
 namespace Projeto_PDS.Views.PageList
 {
@@ -45,16 +46,18 @@ namespace Projeto_PDS.Views.PageList
         private void btRemover_Click(object sender, RoutedEventArgs e)
         {
             var FornecedorSelecionado = dtFornecedor.SelectedItem as Fornecedor;
-            var resultado = MessageBox.Show($"Deseja realmente excluir o fornecedor '{FornecedorSelecionado.Razao}'?", "Confirmar Exclusão",
-                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            var message = new WindowMessageBoxPergunta($"Deseja realmente excluir o fornecedor'{FornecedorSelecionado.Id}'?", "Confirmar Exclusão");
+            message.ShowDialog();
+            var resultado = message.retorno;
             try
             {
-                if (resultado == MessageBoxResult.Yes)
+                if (resultado != false)
                 {
                     var dao = new FornecedorDAO();
                     dao.Delete(FornecedorSelecionado);
 
-                    MessageBox.Show("Registro deletado com sucesso!");
+                    var messageCheck = new WindowMessageBoxCerto("Registro deletado com sucesso!", "Registro Excluído");
+                    messageCheck.ShowDialog();
                     CarregarListagem();
                 }
             }
