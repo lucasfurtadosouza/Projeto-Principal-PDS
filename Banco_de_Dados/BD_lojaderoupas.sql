@@ -197,7 +197,16 @@ CALL InserirSexo('Outros');
 DELIMITER $$
 CREATE PROCEDURE InserirFuncionario(nome varchar(300), email varchar(300), cpf varchar(300), telefone varchar(300), rua varchar(300), numero int, bairro varchar(300), rg varchar(300), dataNasc date, carteiraTrabalho varchar(300), salario double, foto blob, idSexo int)
 BEGIN
-    insert into Funcionario values (null, nome, email, cpf, telefone, rua, numero, bairro, rg, dataNasc, carteiraTrabalho, salario, foto, idSexo);
+    if(nome <> '') or (nome is not null) then
+        if(email <> '') or (email is not null) then
+            insert into Funcionario values (null, nome, email, cpf, telefone, rua, numero, bairro, rg, dataNasc, carteiraTrabalho, salario, foto, idSexo);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
+    
 END
 $$ DELIMITER ;
 
@@ -208,7 +217,15 @@ CALL InserirFuncionario('Luiz Francisco Isaac', 'luizrezende@gmail.com', '195.28
 DELIMITER $$
 CREATE PROCEDURE InserirUsuario(nome varchar(300), senha varchar(300), nivelPermissao varchar(300), idFuncionario int)
 BEGIN
-    insert into Usuario values (null, nome, senha, nivelPermissao, idFuncionario);
+    if(nome <> '') or (nome is not null) then
+        if(senha <> '') or (senha is not null) then
+            insert into Usuario values (null, nome, senha, nivelPermissao, idFuncionario);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -220,7 +237,15 @@ CALL InserirUsuario('Luiz Francisco', '123', 'Vendedor', 2);
 DELIMITER $$
 CREATE PROCEDURE InserirCliente(nome varchar(300), email varchar(300), cpf varchar(300), telefone varchar(300), rua varchar(300), numero int, bairro varchar(300), rg varchar(300), dataNasc date, rendaFamiliar double, foto blob, idSexo int)
 BEGIN
-    insert into Cliente values (null, nome, email, cpf, telefone, rua, numero, bairro, rg, dataNasc, rendaFamiliar, foto, idSexo);
+    if(nome <> '') or (nome is not null) then
+        if(email <> '') or (email is not null) then
+            insert into Cliente values (null, nome, email, cpf, telefone, rua, numero, bairro, rg, dataNasc, rendaFamiliar, foto, idSexo);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -231,7 +256,15 @@ CALL InserirCliente('Fernando Gonçalves Filho', 'fernandofilho@gmail.com', '202
 DELIMITER $$
 CREATE PROCEDURE InserirFornecedor(nomeFantasia varchar(300), razaoSocial varchar(300), cnpj varchar(300), email varchar(300), rua varchar(300), numero int, bairro varchar(300), telefone varchar(300))
 BEGIN
-    insert into Fornecedor values (null, nomeFantasia, razaoSocial, cnpj, email, rua, numero, bairro, telefone);
+    if(nomeFantasia <> '') or (nomeFantasia is not null) then
+        if(razaoSocial <> '') or (razaoSocial is not null) then
+            insert into Fornecedor values (null, nomeFantasia, razaoSocial, cnpj, email, rua, numero, bairro, telefone);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -242,7 +275,15 @@ CALL InserirFornecedor('Caçoali', 'Caçoali Roupas', '05.745.943/0001-67', 'ca�
 DELIMITER $$
 CREATE PROCEDURE InserirDespesa(valor double, dataVencimento date, dataPagamento date, formaPagamento varchar(300), descricao varchar(300))
 BEGIN
-    insert into Despesa values (null, valor, dataVencimento, dataPagamento, formaPagamento, descricao);
+    if(valor > 0) then
+        if(descricao <> '') or (descricao is not null) then
+            insert into Despesa values (null, valor, dataVencimento, dataPagamento, formaPagamento, descricao);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -253,7 +294,15 @@ CALL InserirDespesa(500, '2022-11-29', '2022-11-08', 'Crédito', 'Internet');
 DELIMITER $$
 CREATE PROCEDURE InserirProduto(nome varchar(300), valorCompra double, valorVenda double, estoque int, descricao varchar(300), foto blob)
 BEGIN
-    insert into Produto values (null, nome, valorCompra, valorVenda, estoque, descricao, foto);
+    if(nome <> '') or (nome is not null) then
+        if(valorCompra > 0) then
+            insert into Produto values (null, nome, valorCompra, valorVenda, estoque, descricao, foto);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -264,7 +313,15 @@ CALL InserirProduto('Jaqueta de Couro', 250, 300, 15, 'Jaqueta para frio de cour
 DELIMITER $$
 CREATE PROCEDURE InserirCaixa(saldoInicial double, saldoFinal double, dataAbertura date, dataFechamento date, horaAbertura time, horaFechamento time, qtdPagamentos int, qtdRecebimentos int, status_caixa varchar(100))
 BEGIN
-    insert into Caixa values (null, saldoInicial, saldoFinal, dataAbertura, dataFechamento, horaAbertura, horaFechamento, qtdPagamentos, qtdRecebimentos, status_caixa);
+    if(saldoInicial is not null) then
+        if(saldoFinal is not null) then
+            insert into Caixa values (null, saldoInicial, saldoFinal, dataAbertura, dataFechamento, horaAbertura, horaFechamento, qtdPagamentos, qtdRecebimentos, status_caixa);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -275,7 +332,15 @@ CALL InserirCaixa(0, 4500, '2022-11-09', '2022-11-09', '08:00:00', '17:30:00', 1
 DELIMITER $$
 CREATE PROCEDURE InserirVenda(valor double, dataVenda date, horaVenda time, formaPagamento varchar(300), idFuncionario int, idCliente int)
 BEGIN
-    insert into Venda values (null, valor, dataVenda, horaVenda, formaPagamento, idFuncionario, idCliente);
+    if(valor > 0) then
+        if(formaPagamento <> '') or (formaPagamento is not null) then
+            insert into Venda values (null, valor, dataVenda, horaVenda, formaPagamento, idFuncionario, idCliente);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -283,7 +348,15 @@ $$ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE InserirCompra(valor double, dataCompra date, horaCompra time, formaPagamento varchar(300), idFuncionario int, idFornecedor int)
 BEGIN
-    insert into Compra values (null, valor, dataCompra, horaCompra, formaPagamento, idFuncionario, idFornecedor);
+    if(valor > 0) then
+        if(formaPagamento <> '') or (formaPagamento is not null) then
+            insert into Compra values (null, valor, dataCompra, horaCompra, formaPagamento, idFuncionario, idFornecedor);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -291,7 +364,15 @@ $$ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE InserirPagamento(valor double, dataVencimento date, hora time, descricao varchar(300), status varchar(300), parcelamento varchar(300), formaPagamento varchar(300), idDespesa int, idCaixa int)
 BEGIN
-    insert into Pagamento values (null, valor, dataVencimento, hora, descricao, status, parcelamento, formaPagamento, idDespesa, idCaixa);
+    if(valor > 0) then
+        if(descricao <> '') or (descricao is not null) then
+            insert into Pagamento values (null, valor, dataVencimento, hora, descricao, status, parcelamento, formaPagamento, idDespesa, idCaixa);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -299,7 +380,15 @@ $$ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE InserirRecebimento(valor double, dataRecebimento date, hora time, descricao varchar(300), status varchar(300), parcelamento varchar(300), formaPagamento varchar(300), idVenda int, idCaixa int)
 BEGIN
-    insert into Recebimento values (null, valor, dataRecebimento, hora, descricao, status, parcelamento, formaPagamento, idVenda, idCaixa);
+    if(valor > 0) then
+        if(descricao <> '') or (descricao is not null) then
+            insert into Recebimento values (null, valor, dataRecebimento, hora, descricao, status, parcelamento, formaPagamento, idVenda, idCaixa);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -307,7 +396,15 @@ $$ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE InserirVendaProduto(quantidade int, valor double, valorTotal double, idProduto int, idVenda int)
 BEGIN
-    insert into Venda_Produto values (null, quantidade, valor, valorTotal, idProduto, idVenda);
+    if(quantidade > 0) then
+        if(valorTotal is not null) then
+            insert into Venda_Produto values (null, quantidade, valor, valorTotal, idProduto, idVenda);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -315,7 +412,15 @@ $$ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE InserirCompraProduto(quantidade int, valor double, valorTotal double, idProduto int, idCompra int)
 BEGIN
-    insert into Compra_Produto values (null, quantidade, valor, valorTotal, idProduto, idCompra);
+    if(quantidade > 0) then
+        if(valorTotal is not null) then
+            insert into Compra_Produto values (null, quantidade, valor, valorTotal, idProduto, idCompra);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -446,27 +551,49 @@ $$ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE AtualizarFuncionario(id int, nome varchar(300), email varchar(300), cpf varchar(300), telefone varchar(300), rua varchar(300), numero int, bairro varchar(300), rg varchar(300), dataNasc date, carteiraTrabalho varchar(300), salario double, foto blob, idSexo int)
 BEGIN
-    update Funcionario set nome_fun = nome, email_fun = email, cpf_fun = cpf, telefone_fun = telefone, rua_fun = rua, numero_fun = numero, bairro_fun = bairro, rg_fun = rg, data_nasc_fun = dataNasc, carteira_de_trabalho_fun = carteiraTrabalho, salario_fun = salario, foto_fun = foto, id_sex_fk = idSexo where (id_fun = id);
+    if(id is not null) then
+        if(nome <> '') or (nome is not null) then
+            update Funcionario set nome_fun = nome, email_fun = email, cpf_fun = cpf, telefone_fun = telefone, rua_fun = rua, numero_fun = numero, bairro_fun = bairro, rg_fun = rg, data_nasc_fun = dataNasc, carteira_de_trabalho_fun = carteiraTrabalho, salario_fun = salario, foto_fun = foto, id_sex_fk = idSexo where (id_fun = id);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
-
 
 #ATUALIZAR USUARIO
 /*
 DELIMITER $$
 CREATE PROCEDURE AtualizarUsuario(nome varchar(300), senha varchar(300), nivelPermissao varchar(300), idFuncionario int)
 BEGIN
-    update Usuario set nome_usu = nome, senha_usu = senha, nivel_permissao_usu = nivelPermissao, id_fun_fk = idFuncionario where (id_usu = id);
+    if(nome <> '') or (nome is not null) then
+        if(senha <> '') or (senha is not null) then
+            update Usuario set nome_usu = nome, senha_usu = senha, nivel_permissao_usu = nivelPermissao, id_fun_fk = idFuncionario where (id_usu = id);
+        else
+
+        end if;
+    else
+
+    end if;
 END
 $$ DELIMITER ;
 */
 
 #ATUALIZAR CLIENTE
-
 DELIMITER $$
 CREATE PROCEDURE AtualizarCliente(id int, nome varchar(300), email varchar(300), cpf varchar(300), telefone varchar(300), rua varchar(300), numero int, bairro varchar(300), rg varchar(300), dataNasc date, rendaFamiliar double, foto blob, idSexo int)
 BEGIN
-    update Cliente set nome_cli = nome, email_cli = email, cpf_cli = cpf, telefone_cli = telefone, rua_cli = rua, numero_cli = numero, bairro_cli = bairro, rg_cli = rg, data_nasc_cli = dataNasc, renda_familiar_cli = rendaFamiliar, foto_cli = foto, id_sex_fk = idSexo where (id_cli = id);
+    if(id is not null) then
+        if(nome <> '') or (nome is not null) then
+            update Cliente set nome_cli = nome, email_cli = email, cpf_cli = cpf, telefone_cli = telefone, rua_cli = rua, numero_cli = numero, bairro_cli = bairro, rg_cli = rg, data_nasc_cli = dataNasc, renda_familiar_cli = rendaFamiliar, foto_cli = foto, id_sex_fk = idSexo where (id_cli = id);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -474,7 +601,15 @@ $$ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE AtualizarFornecedor(id int, nomeFantasia varchar(300), razaoSocial varchar(300), cnpj varchar(300), email varchar(300), rua varchar(300), numero int, bairro varchar(300), telefone varchar(300))
 BEGIN
-    update Fornecedor set nome_fantasia_for = nomeFantasia, razao_social_for = razaoSocial, cnpj_for = @cnpj, email_for = @email, rua_for = @rua, numero_for = @numero, bairro_for = @bairro, telefone_for = @telefone where (id_for = id);
+    if(id is not null) then
+        if(nomeFantasia <> '') or (nomeFantasia is not null) then
+            update Fornecedor set nome_fantasia_for = nomeFantasia, razao_social_for = razaoSocial, cnpj_for = @cnpj, email_for = @email, rua_for = @rua, numero_for = @numero, bairro_for = @bairro, telefone_for = @telefone where (id_for = id);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -482,16 +617,31 @@ $$ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE AtualizarDespesa(id int, valor double, dataVencimento date, dataPagamento date, formaPagamento varchar(300), descricao varchar(300))
 BEGIN
-    update Despesa set valor_des = valor, data_vencimento_des = dataVencimento, data_pagamento_des = dataPagamento, forma_pagamento_des = formaPagamento, descricao_des = descricao where (id_des = id);
+    if(id is not null) then
+        if(valor > 0) then
+            update Despesa set valor_des = valor, data_vencimento_des = dataVencimento, data_pagamento_des = dataPagamento, forma_pagamento_des = formaPagamento, descricao_des = descricao where (id_des = id);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
-
 
 #ATUALIZAR PRODUTO
 DELIMITER $$
 CREATE PROCEDURE AtualizarProduto(id int, nome varchar(300), valorCompra double, valorVenda double, estoque int, descricao varchar(300), foto blob)
 BEGIN
-    update Produto set nome_pro = nome, valor_compra_pro = valorCompra, valor_venda_pro = valorVenda, estoque_pro = estoque, descricao_pro = descricao, foto_pro = foto where (id_pro = id);
+    if(id is not null) then
+        if(nome <> '') or (nome is not null) then
+            update Produto set nome_pro = nome, valor_compra_pro = valorCompra, valor_venda_pro = valorVenda, estoque_pro = estoque, descricao_pro = descricao, foto_pro = foto where (id_pro = id);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
@@ -560,7 +710,15 @@ $$ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE FecharCaixa(id int, saldoFinal double, dataFechamento date, horaFechamento time, qtdPagamentos int, qtdRecebimentos int, status_caixa varchar(100))
 BEGIN
-    update Caixa set saldo_final_cai = saldoFinal, data_fechamento_cai = dataFechamento, hora_fechamento_cai = horaFechamento, quantidade_pagamentos_cai = qtdPagamentos, quantidade_recebimentos_cai = qtdRecebimentos, status_cai = status_caixa where (id_cai = id);
+    if(id is not null) then
+        if(status_caixa is not null) then
+            update Caixa set saldo_final_cai = saldoFinal, data_fechamento_cai = dataFechamento, hora_fechamento_cai = horaFechamento, quantidade_pagamentos_cai = qtdPagamentos, quantidade_recebimentos_cai = qtdRecebimentos, status_cai = status_caixa where (id_cai = id);
+        else
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+        end if;
+    else
+        select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+    end if;
 END
 $$ DELIMITER ;
 
