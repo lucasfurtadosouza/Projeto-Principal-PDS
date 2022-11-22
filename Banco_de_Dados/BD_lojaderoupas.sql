@@ -109,7 +109,12 @@ id_cli_fk integer not null,
 foreign key (id_fun_fk) references Funcionario (id_fun),
 foreign key (id_cli_fk) references Cliente (id_cli)
 );
-
+create table controle(
+id_con int primary key auto_increment,
+usuario_con varchar(300),
+senha_com varchar(300)
+);
+select * from usuario;
 create table Compra(
 id_com int not null primary key auto_increment,
 valor_com double,
@@ -210,7 +215,8 @@ BEGIN
 END
 $$ DELIMITER ;
 
-CALL InserirFuncionario('Vitória Marcela Alves', 'vitoriaalves@gmail.com', '982.015.552-52', '(69) 98766-3791', 'Rua Triângulo Mineiro', '519', 'Nova Brasília', '46.877.444-0', '2002-02-25', '746.99192.34-7', 2500, null, 2);
+CALL InserirFuncionario('Vitória Marcela Alves', 'vitoriaalves@gmail.com', '982.015.552-52', '(69) 98766-3791', 'Rua Triângulo Mineiro', '519', 'Nova Brasília', '46.877.444-0', '
+-02-25', '746.99192.34-7', 2500, null, 2);
 CALL InserirFuncionario('Luiz Francisco Isaac', 'luizrezende@gmail.com', '195.288.362-83', '(69) 99306-8988', 'Rua Estrada Velha', '838', 'Primavera', '25.355.141-9', '2000-07-20', '985.77786.34-1', 2600, null, 1);
 
 #INSERIR USUARIO
@@ -228,6 +234,7 @@ BEGIN
     end if;
 END
 $$ DELIMITER ;
+#pode mexer ai eu vou me deitar, to morrendo aqui, quando terminar desliga ai
 
 CALL InserirUsuario('admin', 'admin', 'Administrador', null);
 CALL InserirUsuario('Vitória Marcela', '123', 'Vendedor', 1);
@@ -879,7 +886,29 @@ BEGIN
     end if;
 END
 $$ DELIMITER ;
-
+#buscar usuario
+DELIMITER $$
+CREATE PROCEDURE buscarUsuario(usuario1 varchar(300))
+BEGIN
+declare buscar int;
+declare usuario varchar(300);
+declare senha varchar(300);
+declare buscar2 int;
+set buscar = (select id_usu from usuario where (nome_usu  like usuario1 ));
+set usuario = (select nome_usu from usuario where(buscar = id_usu));
+set senha = (select senha_usu from usuario where(buscar = id_usu));
+set buscar2 = (select id_con from controle where(id_con = 1));
+	if(buscar2 <> '')or (buscar2 is not null) then
+		delete from controle;
+    else
+		insert into controle values(null,usuario,senha);
+	end if;
+    
+END
+$$ DELIMITER ;
+call inserirUsuario('daniel','123456','chefe',null);
+call buscarUsuario('daniel');
+select * from controle;
 #TRIGGERS
 /*
 #Triggers de Caixa

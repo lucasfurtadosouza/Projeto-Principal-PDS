@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Projeto_PDS.Helpers;
 using Projeto_PDS.Models;
 using System.Security.Cryptography;
+using Projeto_PDS.Views_MessageBox;
 
 namespace Projeto_PDS.Views
 {
@@ -40,14 +41,12 @@ namespace Projeto_PDS.Views
                 //string salt = getSalt();
                 //string HashPassword = CalcSaltedPass(salt, txtSenha.Text);
                 //string HashUsuario = CalcSaltedPass(salt, txtUsuario.Text);
-                string HashUsuario = getHashSha256(txtUsuario.Text);
+               
                 string HashPassword = getHashSha256(txtSenha.Password.ToString());
                 _login.Senha = HashPassword;
-                _login.Nome = HashUsuario;
-                //_func.Nome = txtNome.Text;
+                _login.Nome = txtUsuario.Text;
+                
                 _login.Permissao = cbPermissao.Text;
-                MessageBox.Show(HashUsuario);
-                MessageBox.Show(HashPassword);
             }
 
             try
@@ -58,7 +57,8 @@ namespace Projeto_PDS.Views
                 if (_login.Id > 0)
                 {
                     dao.Update(_login);
-                    MessageBox.Show("Informações Atualizadas com Sucesso", "Cadastro Atualizado", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
+                    message.ShowDialog();
                     var form = new WindowLogin();
                     form.Show();
                     this.Close();
@@ -67,7 +67,8 @@ namespace Projeto_PDS.Views
                 {
                     dao.Insert(_login);
                     //daof.Insert2(_func);
-                    MessageBox.Show("Informações Salvas com Sucesso", "Cadastro Salvo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
+                    message.ShowDialog();
                     var form = new WindowLogin();
                     form.Show();
                     this.Close();

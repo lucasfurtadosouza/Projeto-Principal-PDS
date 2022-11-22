@@ -15,6 +15,7 @@ using Projeto_PDS.Models;
 using Projeto_PDS.Views;
 using System.Security.Cryptography;
 using Projeto_PDS.Helpers;
+using Projeto_PDS.Views_MessageBox;
 
 namespace Projeto_PDS
 {
@@ -31,7 +32,7 @@ namespace Projeto_PDS
 
 
         }
-        private Usuario _login = new Usuario();
+        private Usuario _usuario = new Usuario();
         private void WindowLogin_Loaded(object sender, RoutedEventArgs e)
         {
             CarregarListagem();
@@ -51,23 +52,54 @@ namespace Projeto_PDS
         }
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-            /*string email = txtUsuario.Text;
-            string senha = txtSenha.Password.ToString();
+         
+            string senha;
+            string usuario;
+            string HashPassword = getHashSha256(txtSenha.Password.ToString());
+            usuario = txtUsuario.Text;
+            _usuario.buscar = usuario; 
+            
+            senha = HashPassword;
+          
+                    try
+                    {
+                        string busca = txtUsuario.Text;
+                        var dao = new UsuarioDAO();
+                        List<Usuario> listaUsuario = dao.List3(busca);
+                        dao.GetByControle();
+                        
 
-            if (SessionHelper.Login(email, senha))
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+            if (_usuario.Nome != usuario && _usuario.Senha != senha)
             {
-                var main = new MainWindow();
-                main.Show();
+                var form = new MainWindow();
+                form.Show();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Usuario e/ou senha incorretos! Tente novamente", "Autorização negada", MessageBoxButton.OK, MessageBoxImage.Warning);
-                _ = txtUsuario.Focus();
-            }*/
-            var dao = new MainWindow();
-            dao.Show();
-            this.Close();
+                MessageBox.Show("Erro");
+            }
+
+
+
+
+        }
+        public static string getHashSha256(string text)
+        {
+            byte[] bytes = Encoding.Unicode.GetBytes(text);
+            SHA256Managed hashstring = new SHA256Managed();
+            byte[] hash = hashstring.ComputeHash(bytes);
+            string hashString = string.Empty;
+            foreach (byte x in hash)
+            {
+                hashString += String.Format("{0:x2}", x);
+            }
+            return hashString;
         }
     }
 }

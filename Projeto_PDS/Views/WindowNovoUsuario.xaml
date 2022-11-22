@@ -45,7 +45,7 @@
                                 <ImageBrush ImageSource="/Icons/IconLogin.png"/>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <Grid Margin=" 0 50 0 10" Width="270">
+                        <Grid Margin=" 0 40 0 10" Width="270">
                             <TextBox
                              x:Name="txtUsuario"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
