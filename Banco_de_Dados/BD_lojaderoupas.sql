@@ -223,11 +223,11 @@ CALL InserirFuncionario('Luiz Francisco Isaac', 'luizrezende@gmail.com', '195.28
 DELIMITER $$
 CREATE PROCEDURE InserirUsuario(nome varchar(300), senha varchar(300), nivelPermissao varchar(300), idFuncionario int)
 BEGIN
-    declare check_usuario varchar(300)
+    declare check_usuario varchar(300);
     set check_usuario = (select nome_usu from Usuario where (nome_usu = nome));
     
     if(nome <> '') or (nome is not null) then
-        if(check_usuario is not null) then
+        if(check_usuario is null) then
             insert into Usuario values (null, nome, senha, nivelPermissao, idFuncionario);
         else
             select 'O usuário já existe.' as 'Erro';
