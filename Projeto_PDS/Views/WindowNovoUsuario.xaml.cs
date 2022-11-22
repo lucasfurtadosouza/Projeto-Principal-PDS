@@ -70,7 +70,7 @@ namespace Projeto_PDS.Views
                     //daof.Insert2(_func);
                     var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
                     message.ShowDialog();
-                    var form = new MainWindow();
+                    var form = new WindowLogin();
                     form.Show();
                     this.Close();
                 }

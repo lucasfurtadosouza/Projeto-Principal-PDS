@@ -16,7 +16,9 @@ using Projeto_PDS.DataBase;
 using Projeto_PDS;
 using System.Windows.Threading;
 using System.Timers;
+using Projeto_PDS.Views_MessageBox;
 namespace Projeto_PDS.Views
+    
 {
     /// <summary>
     /// Lógica interna para WindowTermos.xaml
@@ -59,7 +61,8 @@ namespace Projeto_PDS.Views
             }
             else
             {
-                MessageBox.Show("Aceite a condição para continuar");
+                var messageAlert = new WindowMessageBoxAlerta("Aceite os termos primeiro", "Aceite os Termos");
+                messageAlert.ShowDialog();
             }
 
         }

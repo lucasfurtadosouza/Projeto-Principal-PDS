@@ -223,22 +223,22 @@ CALL InserirFuncionario('Luiz Francisco Isaac', 'luizrezende@gmail.com', '195.28
 DELIMITER $$
 CREATE PROCEDURE InserirUsuario(nome varchar(300), senha varchar(300), nivelPermissao varchar(300), idFuncionario int)
 BEGIN
-    declare check_usuario varchar(300);
-    set check_usuario = (select nome_usu from Usuario where (nome_usu = nome));
-    
     if(nome <> '') or (nome is not null) then
-        if(check_usuario is null) then
+        if(senha <> '') or (senha is not null) then
             insert into Usuario values (null, nome, senha, nivelPermissao, idFuncionario);
         else
-            select 'O usuário já existe.' as 'Erro';
+            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
         end if;
     else
         select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
     end if;
 END
 $$ DELIMITER ;
+#pode mexer ai eu vou me deitar, to morrendo aqui, quando terminar desliga ai
 
-CALL InserirUsuario('admin', '7523c62abdb7628c5a9dad8f97d8d8c5c040ede36535e531a8a3748b6cae7e00', 'Administrador', null);
+CALL InserirUsuario('admin', 'admin', 'Administrador', null);
+CALL InserirUsuario('Vitória Marcela', '123', 'Vendedor', 1);
+CALL InserirUsuario('Luiz Francisco', '123', 'Vendedor', 2);
 
 #INSERIR CLIENTE
 DELIMITER $$
@@ -906,11 +906,14 @@ set buscar2 = (select id_con from controle where(id_con = 1));
     
 END
 $$ DELIMITER ;
-/*
-call inserirUsuario('daniel','123456','chefe',null);
-call buscarUsuario('daniel');
-select * from controle;
-*/
+DELIMITER $$
+CREATE PROCEDURE ExisteUsuario(usuario1 varchar(300))
+BEGIN
+	declare existe int;
+	set existe = (select Count(id_usu) from usuario);
+	select existe;
+END
+$$ DELIMITER ;
 
 #TRIGGERS
 #Triggers de Caixa

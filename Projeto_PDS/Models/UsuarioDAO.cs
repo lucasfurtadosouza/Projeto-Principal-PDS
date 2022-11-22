@@ -9,6 +9,7 @@ using MySql.Data.MySqlClient;
 using Projeto_PDS.DataBase;
 using Projeto_PDS.Views;
 using Projeto_PDS.Views_MessageBox;
+using System.Windows;
 namespace Projeto_PDS.Models
 {
     public class UsuarioDAO
@@ -222,6 +223,25 @@ namespace Projeto_PDS.Models
                 {
                     throw new Exception("Ocorreram erros ao salvar as informações");
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int Verificar()
+        {
+            try
+            {
+                var comando = _conn.Query();
+                comando.CommandText = "select count(id_usu) from usuario;";
+                MySqlDataReader reader = comando.ExecuteReader();
+                reader.Read();
+
+                Usuario usuario = new Usuario();
+                usuario.Id = reader.GetInt32("count(id_usu)");
+                reader.Close();
+                return usuario.Id;
             }
             catch (Exception ex)
             {

@@ -25,7 +25,7 @@ namespace Projeto_PDS
     public partial class SplashScreen : Window
 
     {
-        Funcionario _login = new Funcionario();
+        Usuario _login = new Usuario();
         public SplashScreen()
         {
             InitializeComponent();
@@ -43,11 +43,13 @@ namespace Projeto_PDS
         private void timer_tick(object sender, EventArgs e)
         {
             timer.Stop();
+            UsuarioDAO usuario = new UsuarioDAO();
+            _login.Id = usuario.Verificar();
             chave = _login.Id;
             if (chave > 0)
             {
                 verdade = true;
-                var form = new MainWindow();
+                var form = new WindowLogin();
                 form.Show();
                 this.Close();
             }

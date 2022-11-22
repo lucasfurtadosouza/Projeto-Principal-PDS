@@ -11,7 +11,7 @@
         Background="Transparent"
         AllowsTransparency="True" WindowStartupLocation="CenterScreen">
 
-    <Border Background="#ebebeb" CornerRadius="25">
+    <Border Background="White" CornerRadius="25">
 
         <Grid>
             <MediaElement x:Name="media" UnloadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded" Stretch="Fill" Margin="76, 10, 76, 10"/>
