@@ -52,16 +52,33 @@ namespace Projeto_PDS
         }
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-            
+
             string HashPassword = getHashSha256(txtSenha.Password.ToString());
             _usuario.Senha = HashPassword;
             _usuario.Nome = txtUsuario.Text;
+            try
+            {
+                var dao = new UsuarioDAO();
+                if (_usuario.Id > 0)
+                {
+                    dao.Insert2(_usuario);
+                    var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
+                    message.Show();
+
+                }
+                else
+                {
+
+                    var message = new WindowMessageBoxCerto("Deu merda", "fudeu");
+                    message.Show();
+                }
 
 
-          
-            
-            
-        }
+
+
+
+            }catch (Exception ex) { MessageBox.Show(ex.Message); }
+         }
         public static string getHashSha256(string text)
         {
             byte[] bytes = Encoding.Unicode.GetBytes(text);
