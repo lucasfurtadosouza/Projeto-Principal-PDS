@@ -906,14 +906,6 @@ set buscar2 = (select id_con from controle where(id_con = 1));
     
 END
 $$ DELIMITER ;
-DELIMITER $$
-CREATE PROCEDURE ExisteUsuario(usuario1 varchar(300))
-BEGIN
-	declare existe int;
-	set existe = (select Count(id_usu) from usuario);
-	select existe;
-END
-$$ DELIMITER ;
 
 #TRIGGERS
 #Triggers de Caixa
