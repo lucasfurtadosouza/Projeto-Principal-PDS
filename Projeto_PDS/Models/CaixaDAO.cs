@@ -22,13 +22,13 @@ namespace Projeto_PDS.Models
                     "(@saldoInicial, @saldoFinal, @dataAbertura, @dataFechamento, @horaAbertura, @horaFechamento, @qtdPagamentos, @qtdRecebimentos, @status)";
 
                 comando.Parameters.AddWithValue("@saldoInicial", caixa.SaldoInicial);
-                comando.Parameters.AddWithValue("@saldoFinal", null);
+                comando.Parameters.AddWithValue("@saldoFinal", 0);
                 comando.Parameters.AddWithValue("@dataAbertura", caixa.DataAbertura);
                 comando.Parameters.AddWithValue("@dataFechamento", null);
                 comando.Parameters.AddWithValue("@horaAbertura", caixa.HoraAbertura);
                 comando.Parameters.AddWithValue("@horaFechamento", caixa.HoraFechamento);
-                comando.Parameters.AddWithValue("@qtdPagamentos", null);
-                comando.Parameters.AddWithValue("@qtdRecebimentos", null);
+                comando.Parameters.AddWithValue("@qtdPagamentos", 0);
+                comando.Parameters.AddWithValue("@qtdRecebimentos", 0);
                 comando.Parameters.AddWithValue("@status", caixa.Status);
 
                 var resultado = comando.ExecuteNonQuery();

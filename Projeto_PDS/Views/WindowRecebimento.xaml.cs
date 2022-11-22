@@ -75,7 +75,7 @@ namespace Projeto_PDS.Views
         {
             try
             {
-                cbCaixa.ItemsSource = new CaixaDAO().List();
+                cbCaixa.ItemsSource = new CaixaDAO().ListCaixaAberto();
             }
             catch (Exception ex)
             {
