@@ -61,7 +61,18 @@ namespace Projeto_PDS
                 var dao = new UsuarioDAO();
                 if (HashPassword != "")
                 {
-                    dao.Insert2(_usuario);
+                    if(dao.Login(_usuario))
+                    {
+                        new MainWindow().Show();
+                        this.Close();
+
+                    }
+                    else
+                    {
+                        var message = new WindowMessageBoxError("Usuário ou senha incorreto.", "Erro");
+                        message.Show();
+                    }
+                        
                    
 
 

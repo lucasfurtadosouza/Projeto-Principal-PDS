@@ -78,6 +78,7 @@ namespace Projeto_PDS.Models
                 if (resultado == 0)
                 {
                     throw new Exception("Ocorreram erros ao salvar as informações");
+
                 }
             }
             catch (Exception ex)
@@ -85,7 +86,7 @@ namespace Projeto_PDS.Models
                 throw ex;
             }
         }
-        public void Insert2(Usuario usuario)
+        public bool Login(Usuario usuario)
         {
             try
             {
@@ -95,18 +96,11 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@usuario", usuario.Nome);
                 comando.Parameters.AddWithValue("@senha", usuario.Senha);
                 int count = Convert.ToInt32(comando.ExecuteScalar());
-                if(count == 1)
-                {
-                    var atual = new WindowLogin();
-                    atual.Close();
-                    var form = new  MainWindow();
-                    form.Show();
-                }
-                else
-                {
-                    var message = new WindowMessageBoxError("Erro!", "Usuario ou senha incorretas");
-                    message.Show();
-                }
+
+                if (count == 1)
+                    return true;
+
+                return false;
 
             }
             catch (Exception ex)

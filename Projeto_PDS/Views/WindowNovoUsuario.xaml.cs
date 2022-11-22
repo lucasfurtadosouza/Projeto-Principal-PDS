@@ -62,6 +62,7 @@ namespace Projeto_PDS.Views
                     var form = new WindowLogin();
                     form.Show();
                     this.Close();
+
                 }
                 else
                 {
