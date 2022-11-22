@@ -7,7 +7,7 @@ using Projeto_PDS.Models;
 using Projeto_PDS.Helpers;
 using MySql.Data.MySqlClient;
 using Projeto_PDS.DataBase;
-
+using Projeto_PDS.Views;
 namespace Projeto_PDS.Models
 {
     public class UsuarioDAO
@@ -88,8 +88,20 @@ namespace Projeto_PDS.Models
         {
             try
             {
+                var comando = _conn.Query();
+                comando.CommandText = "Select count(1) from usuario where (nome_usu= @usuario and senha_usu = @senha)";
 
-            }catch (Exception ex)
+                comando.Parameters.AddWithValue("@usuario", usuario.Nome);
+                comando.Parameters.AddWithValue("@senha", usuario.Senha);
+                int count = Convert.ToInt32(comando.ExecuteScalar());
+                if(count == 1)
+                {
+                    var form = new  MainWindow();
+                    form.Show();
+                }
+
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

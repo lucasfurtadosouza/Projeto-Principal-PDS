@@ -43,7 +43,7 @@ namespace Projeto_PDS.Models
             }  
 
         }
-        public List<Fornecedor> List(string busca)
+        public List<Fornecedor> List( string busca)
         {
             try
             {
