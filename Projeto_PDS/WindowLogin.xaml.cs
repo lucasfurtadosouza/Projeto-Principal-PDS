@@ -52,7 +52,6 @@ namespace Projeto_PDS
         }
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-         
             string senha;
             string usuario;
             string HashPassword = getHashSha256(txtSenha.Password.ToString());
@@ -74,7 +73,7 @@ namespace Projeto_PDS
                     {
                         MessageBox.Show(ex.Message);
                     }
-            if (_usuario.Nome != usuario && _usuario.Senha != senha)
+            if (_usuario.Nome == usuario && _usuario.Senha == senha)
             {
                 var form = new MainWindow();
                 form.Show();
