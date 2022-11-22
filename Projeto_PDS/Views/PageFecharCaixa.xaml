@@ -50,7 +50,7 @@
                     Margin="0,0,20,0"
                     SelectionChanged="cbCaixa_SelectionChanged"
                     materialDesign:HintAssist.Hint="Caixa"/>
-                
+
                 <ComboBox Width="225"
                     Style="{StaticResource MaterialDesignFilledComboBox}"
                     x:Name="cbStatus"
@@ -58,7 +58,6 @@
                     HorizontalAlignment="Center"
                     Margin="0,0,20,0"
                     materialDesign:HintAssist.Hint="Status">
-                    <ComboBoxItem Content="Aberto"/>
                     <ComboBoxItem Content="Fechado"/>
                 </ComboBox>
 

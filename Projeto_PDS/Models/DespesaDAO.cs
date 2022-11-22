@@ -12,7 +12,7 @@ namespace Projeto_PDS.Models
     {
         private static Conexao _conn = new Conexao();
 
-        public void Insert(Despesa despesa)
+        public void Insert(Despesa despesa, Pagamento _pagamento)
         {
             try
             {
@@ -33,6 +33,18 @@ namespace Projeto_PDS.Models
                 {
                     throw new Exception("Ocorreram erros ao salvar as informações");
                 }
+
+                comando.CommandText = "SELECT LAST_INSERT_ID();";
+                MySqlDataReader reader = comando.ExecuteReader();
+                reader.Read();
+
+                Pagamento pagamento = new Pagamento();
+                pagamento = _pagamento;
+                pagamento.IdDespesa = reader.GetInt32("LAST_INSERT_ID()");
+
+                reader.Close();
+
+                InsertPagamento(pagamento.IdDespesa, pagamento);
             }
             catch (Exception ex)
             {
@@ -111,6 +123,33 @@ namespace Projeto_PDS.Models
                 {
                     throw new Exception("Ocorreram erros ao salvar as informações");
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void InsertPagamento(int DespesaId, Pagamento pagamento)
+        {
+
+            try
+            {
+                var comando = _conn.Query();
+
+                comando.CommandText = "CALL InserirPagamento(@valor, @dataVencimento, @hora, @descricao, @status, @parcelamento, @formaPagamento, @idDespesa, @idCaixa);";
+
+                comando.Parameters.AddWithValue("@valor", pagamento.Valor);
+                comando.Parameters.AddWithValue("@dataVencimento", pagamento.Data);
+                comando.Parameters.AddWithValue("@hora", pagamento.Hora);
+                comando.Parameters.AddWithValue("@descricao", pagamento.Descricao);
+                comando.Parameters.AddWithValue("@status", pagamento.Status);
+                comando.Parameters.AddWithValue("@parcelamento", pagamento.Parcelamento);
+                comando.Parameters.AddWithValue("@formaPagamento", pagamento.FormaPagamento);
+                comando.Parameters.AddWithValue("@idDespesa", DespesaId);
+                comando.Parameters.AddWithValue("@idCaixa", pagamento.Caixa.Id);
+
+                var result = comando.ExecuteNonQuery();
+
             }
             catch (Exception ex)
             {

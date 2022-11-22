@@ -52,7 +52,7 @@ namespace Projeto_PDS.Views
                 txtValor.Text = Convert.ToString(_despesa.Valor);
             }
             dtDataVen.SelectedDate = _despesa.Data_Vencimento;
-            dtDataPag.SelectedDate = _despesa.Data_Pagamento;
+            dtDataPag.SelectedDate = DateTime.Now;
             cbFormaPagamento.Text = _despesa.Forma_Pagamento;
             txtDescricao.Text = _despesa.Descricao;
         }
@@ -69,7 +69,6 @@ namespace Projeto_PDS.Views
             }
             _despesa.Forma_Pagamento = cbFormaPagamento.Text;
             _despesa.Descricao = txtDescricao.Text;
-
             try
             {
                 var dao = new DespesaDAO();
@@ -82,9 +81,9 @@ namespace Projeto_PDS.Views
                 }
                 else
                 {
-                    dao.Insert(_despesa);
-                    var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
-                    message.ShowDialog();
+                    WindowPagamento window = new WindowPagamento(_despesa);
+                    window.ShowDialog();
+                    btLimpar_Click(sender, e);
                 }
 
                 btLimpar_Click(sender, e);

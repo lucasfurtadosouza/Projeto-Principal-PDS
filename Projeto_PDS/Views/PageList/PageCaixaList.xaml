@@ -88,9 +88,7 @@
                         <DataGridTextColumn Header="Saldo Inicial" Binding="{Binding SaldoInicial, StringFormat=' {0:C}', ConverterCulture='pt-BR'}"/>
                         <DataGridTextColumn Header="Saldo Final" Binding="{Binding SaldoFinal, StringFormat=' {0:C}', ConverterCulture='pt-BR'}"/>
                         <DataGridTextColumn Header="Data de Abertura" Binding="{Binding DataAbertura, StringFormat=\{0:dd/MM/yyyy\}}"/>
-                        <DataGridTextColumn Header="Data de Fechamento" Binding="{Binding DataFechamento, StringFormat=\{0:dd/MM/yyyy\}}"/>
                         <DataGridTextColumn Header="Hora de Abertura" Binding="{Binding HoraAbertura, StringFormat=\{0:HH:mm:ss\}}"/>
-                        <DataGridTextColumn Header="Hora de Fechamento" Binding="{Binding HoraFechamento, StringFormat=\{0:HH:mm:ss\}}"/>
 
                         <DataGridTemplateColumn Header="Ações">
                             <DataGridTemplateColumn.CellTemplate>

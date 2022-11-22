@@ -17,7 +17,7 @@ namespace Projeto_PDS.Models
         public string Status { get; set; }
         public int Parcelamento { get; set; }
         public string FormaPagamento { get; set; }
-        public Despesa Despesa { get; set; }
+        public int IdDespesa { get; set; }
         public Caixa Caixa { get; set; }
     }
 }

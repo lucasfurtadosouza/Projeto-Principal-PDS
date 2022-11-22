@@ -215,6 +215,9 @@
     <Compile Include="Views\WindowNovoUsuario.xaml.cs">
       <DependentUpon>WindowNovoUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WindowPagamento.xaml.cs">
+      <DependentUpon>WindowPagamento.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WindowRecebimento.xaml.cs">
       <DependentUpon>WindowRecebimento.xaml</DependentUpon>
     </Compile>
@@ -337,6 +340,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\WindowPagamento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WindowRecebimento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -382,11 +389,9 @@
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\FuncionarioDAO.cs" />
     <Compile Include="Models\Pagamento.cs" />
-    <Compile Include="Models\PagamentoDAO.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\ProdutoDAO.cs" />
     <Compile Include="Models\Recebimento.cs" />
-    <Compile Include="Models\RecebimentoDAO.cs" />
     <Compile Include="Models\Venda.cs" />
     <Compile Include="Models\VendaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

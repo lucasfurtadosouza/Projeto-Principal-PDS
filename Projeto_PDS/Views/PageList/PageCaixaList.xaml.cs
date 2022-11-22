@@ -81,7 +81,6 @@ namespace Projeto_PDS.Views.PageList
                 List<Caixa> listaCaixas = dao.List();
 
                 dtCaixa.ItemsSource = listaCaixas;
-
             }
             catch (Exception ex)
             {

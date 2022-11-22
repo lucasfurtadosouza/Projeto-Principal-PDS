@@ -42,9 +42,7 @@ namespace Projeto_PDS.Views
             _caixa = caixa;
             _main = mainWindow;
             _page = page;
-
             Loaded += WindowCaixa_Loaded;
-
         }
 
         private void WindowCaixa_Loaded(object sender, RoutedEventArgs e)
@@ -60,6 +58,7 @@ namespace Projeto_PDS.Views
                 {
                     if (cbStatus.Text == "Fechado")
                     {
+                        _caixa.Id = Convert.ToInt32(cbCaixa.SelectedValue);
                         _caixa.SaldoFinal = Convert.ToDouble(txtSaldoFinal.Text);
                         if (dtDataFechamento.SelectedDate != null)
                         {
@@ -77,12 +76,12 @@ namespace Projeto_PDS.Views
                         dao.FecharCaixa(_caixa);
                         var messageUp = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Caixa Fechado");
                         messageUp.ShowDialog();
-
+                        LoadCaixaAberto();
                         btLimpar_Click(sender, e);
                     }
                     else
                     {
-                        var messageAlert = new WindowMessageBoxAlerta("O Status do Caixa está Incorreto!", "Status Incorreto");
+                        var messageAlert = new WindowMessageBoxAlerta("O Status do Caixa está Vazio!", "Status Vazio");
                         messageAlert.ShowDialog();
                     }
                 }
@@ -128,16 +127,19 @@ namespace Projeto_PDS.Views
         {
             try
             {
-                var caixaSelecionado = cbCaixa.SelectedItem as Caixa;
+                if (cbCaixa.SelectedIndex != -1)
+                {
+                    var caixaSelecionado = cbCaixa.SelectedItem as Caixa;
 
-                txtSaldoFinal.Text = Convert.ToString(caixaSelecionado.SaldoFinal);
-                txtQuantidadePagamentos.Text = Convert.ToString(caixaSelecionado.QuantidadePagamentos);
-                txtQuantidadeRecebimentos.Text = Convert.ToString(caixaSelecionado.QuantidadeRecebimentos);
-                dtDataFechamento.SelectedDate = caixaSelecionado.DataFechamento;
-                dtHoraFechamento.SelectedTime = caixaSelecionado.HoraFechamento;
-                dtDataFechamento.SelectedDate = DateTime.Now;
-                dtHoraFechamento.SelectedTime = DateTime.Now;
-                cbStatus.SelectedIndex = 0;
+                    txtSaldoFinal.Text = Convert.ToString(caixaSelecionado.SaldoFinal);
+                    txtQuantidadePagamentos.Text = Convert.ToString(caixaSelecionado.QuantidadePagamentos);
+                    txtQuantidadeRecebimentos.Text = Convert.ToString(caixaSelecionado.QuantidadeRecebimentos);
+                    dtDataFechamento.SelectedDate = caixaSelecionado.DataFechamento;
+                    dtHoraFechamento.SelectedTime = caixaSelecionado.HoraFechamento;
+                    dtDataFechamento.SelectedDate = DateTime.Now;
+                    dtHoraFechamento.SelectedTime = DateTime.Now;
+                    cbStatus.SelectedIndex = 0;
+                }
             }
             catch (Exception ex)
             {
