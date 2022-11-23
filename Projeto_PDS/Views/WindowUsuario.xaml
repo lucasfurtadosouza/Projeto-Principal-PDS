@@ -1,12 +1,12 @@
-﻿<Window x:Class="Projeto_PDS.Views.WindowPagamento"
+﻿<Window x:Class="Projeto_PDS.Views.WindowUsuario"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeto_PDS.Views"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -17,7 +17,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Title="WindowPagamento" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
+        Title="WindowUsuario" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
     <Border CornerRadius="20" Background="Azure" Width="940" Height="615" BorderThickness="20" materialDesign:ShadowAssist.Darken="True">
         <Border.Effect>
             <DropShadowEffect Color="Black" ShadowDepth="0.8"/>
@@ -29,15 +29,9 @@
                 <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="420"/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Grid.RowSpan="3" Grid.Column="1" Fill="White" 
-             RadiusX="20" RadiusY="20" Canvas.Left="10" Canvas.Top="100"/>
             <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
                 <Border Background="#001245" Width="900" Height="70" CornerRadius="10 10 0 0">
-                    <TextBlock Grid.Row="0" x:Name="txtBlockTitle" Text="Pagamento" 
+                    <TextBlock Grid.Row="0" x:Name="txtBlockTitle" Text="Usuário" 
                            FontSize="32"  Foreground="White" FontFamily="Leelawadee UI" Margin="20 14 0 0"/>
                 </Border>
             </StackPanel>
@@ -52,100 +46,46 @@
                     </Button.Template>
                 </Button>
             </StackPanel>
-            <!--STACK PANEL Animação Cartão e CbForma-->
-            <StackPanel Grid.RowSpan="2" Grid.Column="1" Grid.Row="1">
-                <Image Source="/Imagens_Videos/imgCartao.png" Margin="0 0 0 0" Height="425"/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <ComboBox x:Name="cbFormaPagamento" Padding="8"
-                          Style="{StaticResource MaterialDesignFilledComboBox}"
-                          materialDesign:HintAssist.Hint="Forma de Pagamento"
-                          Background="#e0dee1"
-                          Foreground="Black"
-                          IsEnabled="False"
-                          Height="50"
-                          Width="170"
-                          Margin="0 0 20 0" >
-                        <ComboBoxItem Content="Dinheiro"/>
-                        <ComboBoxItem Content="Pix"/>
-                        <ComboBoxItem Content="Débito"/>
-                        <ComboBoxItem Content="Crédito"/>
-                        <ComboBoxItem Content="Outros"/>
-                    </ComboBox>
-                    <TextBox x:Name="txtValor" Padding="8"
-                              Style="{StaticResource MaterialDesignFilledTextBox}"
-                              VerticalAlignment="Top"
-                              TextWrapping="Wrap"
-                              Margin="0,0,0,0"
-                              Width="160"
-                              Height="50"
-                              Background="#e0dee1"
-                              Foreground="Black"
-                              IsEnabled="False"
-                              materialDesign:HintAssist.Hint="Valor Total" CaretBrush="Orange" />
-                </StackPanel>
-            </StackPanel>
-            <!--STACK PANEL NOVO PAGAMENTO-->
+            
+            <!--STACK PANEL NOVO USUARIO-->
             <StackPanel Grid.Row="1" Grid.Column="0">
                 <StackPanel>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0 30 0 30">
-                        <Image Source="/Icons/IconRecebimento.png" Width="100"/>
+                        <Image Source="/Icons/newUsuario.png" Width="100"/>
                         <StackPanel VerticalAlignment="Center">
-                            <Label Content="Dados de Pagamento" FontSize="27" VerticalAlignment="Center" Margin="18,0,0,0" FontFamily="Leelawadee UI"/>
-                            <Label Content="Insira as informações para completar a ação" FontSize="13" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
+                            <Label Content="Dados de Usuário" FontSize="27" VerticalAlignment="Center" Margin="18,0,0,0" FontFamily="Leelawadee UI"/>
+                            <Label Content="Inserir informações para um novo usuário" FontSize="13" VerticalAlignment="Center" Margin="20,0,0,0" FontFamily="Leelawadee UI"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,15">
-                    <ComboBox x:Name="cbStatus" Padding="8"
-                              Style="{StaticResource MaterialDesignFilledComboBox}"
-                              materialDesign:HintAssist.Hint="Status de Pagamento"
-                              Margin="0,0,20,0"
-                              Height="50"
-                              Width="190">
-                        <ComboBoxItem Content="Pago"/>
-                        <ComboBoxItem Content="Pendente"/>
-                    </ComboBox>
-                    <ComboBox x:Name="cbCaixa" Padding="8"
-                          Style="{StaticResource MaterialDesignFilledComboBox}"
-                          materialDesign:HintAssist.Hint="Caixa"
-                          Height="50"
-                          Width="190"
-                          DisplayMemberPath="Id"
-                          SelectedValuePath="Id"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="0,0,0,15">
-                    <DatePicker x:Name="dtDataPagamento" Padding="8"
-                            Width="190"
-                            Height="50"
-                            Margin="0,0,0,0"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Center"
-                            materialDesign:HintAssist.Hint="Data do Pagamento"
-                            Style="{StaticResource MaterialDesignFilledDatePicker}"
-                            Background="#FFCDE3E3"
-                            IsEnabled="False"/>
-
-                    <materialDesign:TimePicker
-                            x:Name="dtHoraPagamento"
-                            Is24Hours="True"
-                            Padding="8"
-                            Width="190"
-                            Height="50"
-                            Margin="20,0,0,0"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Center"
-                            materialDesign:HintAssist.Hint="Hora do Pagamento"
-                            Style="{StaticResource MaterialDesignFilledTimePicker}"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Center">
-                    <TextBox x:Name="txtDescricao" Padding="8"
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10,0,15">
+                    <TextBox x:Name="txtNome" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
                           TextWrapping="Wrap"
                           Width="400"
-                          Height="100"
-                          materialDesign:HintAssist.Hint="Descrição"/>
+                          Height="50"
+                          materialDesign:HintAssist.Hint="Nome"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,15">
+                    <TextBox x:Name="txtSenha" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledTextBox}"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          TextWrapping="Wrap"
+                          Width="400"
+                          Height="50"
+                          materialDesign:HintAssist.Hint="Senha"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <ComboBox x:Name="cbFuncionario" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledComboBox}"
+                          materialDesign:HintAssist.Hint="Funcionário"
+                          Height="50"
+                          Width="400"
+                          DisplayMemberPath="Nome"
+                          SelectedValuePath="Id"/>
                 </StackPanel>
             </StackPanel>
             <!--STACK PANEL BOTOES-->

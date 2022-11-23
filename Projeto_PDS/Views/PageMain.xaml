@@ -13,7 +13,7 @@
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"     
       FontFamily="{DynamicResource MaterialDesignFont}"
-      d:DesignHeight="680" d:DesignWidth="1100"
+      d:DesignHeight="780" d:DesignWidth="1100"
       Title="PageMain">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -26,7 +26,7 @@
             <TextBlock Text="" x:Name="txtHora" FontSize="20" Padding="5"  FontFamily="/Fonts/#Dosis" FontWeight="Bold" HorizontalAlignment="Right"/>
             <TextBlock Text="" x:Name="txtData" FontSize="20" FontFamily="/Fonts/#Dosis" FontWeight="Bold" HorizontalAlignment="Right"/>
         </StackPanel>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="0,130,0,0" Orientation="Horizontal" >
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="0,150,0,0" Orientation="Horizontal" >
             <StackPanel Margin="0 0 70 0">
                 <Border Height="130" Width="270" CornerRadius="15">
                     <Border.Background>
@@ -39,7 +39,7 @@
                         <materialDesign:PackIcon Kind="CashMultiple" Height="50" Width="50" Margin="0 7 14 0" Foreground="White" HorizontalAlignment="Right" />
                         <StackPanel Margin="20 -40 0 0" VerticalAlignment="Bottom">
                             <TextBlock Text="Lucro" FontFamily="/Fonts/#Dosis" FontSize="35" FontWeight="Bold" Foreground="White" Margin="0 0 0 5"/>
-                            <TextBlock Text="" x:Name="txtLucro" FontFamily="Poppins Medium" FontSize="35" FontWeight="ExtraBold" Foreground="White"/>
+                            <TextBlock Text="" x:Name="txtLucro" FontFamily="Poppins Medium" FontSize="35" FontWeight="Light" Foreground="White"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -56,7 +56,7 @@
                         <materialDesign:PackIcon Kind="Hanger" Height="50" Width="50" Margin="0 11 10 0" Foreground="White" HorizontalAlignment="Right" />
                         <StackPanel Margin="20 -40 0 0" HorizontalAlignment="Left">
                             <TextBlock TextWrapping="Wrap" Text="Itens Vendidos" FontFamily="/Fonts/#Dosis" FontSize="30" FontWeight="Bold" Foreground="White" Margin="0 0 0 0" Width="189"/>
-                            <TextBlock Text="" x:Name="txtItensVend" FontFamily="Poppins Medium" FontSize="35" FontWeight="ExtraBold" Foreground="White" Margin="0 8 0 0"/>
+                            <TextBlock Text="" x:Name="txtItensVend" FontFamily="Poppins Medium" FontSize="35" FontWeight="Light" Foreground="White" Margin="0 8 0 0"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -73,7 +73,7 @@
                         <materialDesign:PackIcon Kind="Package" Height="50" Width="50" Margin="0 14 10 0" Foreground="White" HorizontalAlignment="Right" />
                         <StackPanel Margin="20 -44 0 0" HorizontalAlignment="Left">
                             <TextBlock TextWrapping="Wrap" Text="Estoque" FontFamily="/Fonts/#Dosis" FontSize="30" FontWeight="Bold" Foreground="White" Margin="0 0 0 0" Width="189"/>
-                            <TextBlock Text="" x:Name="txtEstoque" Margin="0 9 0 0" FontFamily="Poppins Medium" FontSize="35" FontWeight="ExtraBold" Foreground="White"/>
+                            <TextBlock Text="" x:Name="txtEstoque" Margin="0 9 0 0" FontFamily="Poppins Medium" FontSize="35" FontWeight="Light" Foreground="White"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -81,12 +81,12 @@
         </StackPanel>
 
         <!--Grafico-->
-        <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,70">
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,60">
             <lvc:CartesianChart LegendLocation="None" Width="550" Height="350">
                 <lvc:CartesianChart.DataTooltip>
                     <lvc:DefaultTooltip Background="Red" Foreground="Black" BulletSize="10" Opacity="0.7"/>
                 </lvc:CartesianChart.DataTooltip>
-                
+
                 <lvc:CartesianChart.AxisX>
                     <lvc:Axis Foreground="#90a3b2" ShowLabels="True">
                         <lvc:Axis.Separator>
@@ -114,7 +114,16 @@
                     </lvc:LineSeries>
                 </lvc:CartesianChart.Series>
             </lvc:CartesianChart>
+            <StackPanel Margin="12 0 0 0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Rectangle" Height="40" Width="40" Foreground="#328efb" HorizontalAlignment="Left" />
+                    <TextBlock Text="Receita" FontFamily="Poppins Medium" FontSize="23" FontWeight="Light" Foreground="Black" Margin="0 8 0 0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Rectangle" Height="40" Width="40" Foreground="#f14c40" HorizontalAlignment="Left" />
+                    <TextBlock Text="Despesa" FontFamily="Poppins Medium" FontSize="23" FontWeight="Light" Foreground="Black" Margin="0 8 0 0"/>
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
-
     </Grid>
 </Page>

@@ -84,7 +84,7 @@
                               materialDesign:HintAssist.Hint="Valor Total" CaretBrush="Orange" />
                 </StackPanel>
             </StackPanel>
-            <!--STACK PANEL NOVO USUARIO-->
+            <!--STACK PANEL NOVO RECEBIMENTO-->
             <StackPanel Grid.Row="1" Grid.Column="0"> 
                 <StackPanel>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0 30 0 30">

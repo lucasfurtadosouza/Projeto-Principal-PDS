@@ -229,6 +229,9 @@
     <Compile Include="Views\WindowTermos.xaml.cs">
       <DependentUpon>WindowTermos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WindowUsuario.xaml.cs">
+      <DependentUpon>WindowUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WindowVendaProdutoListAdd.xaml.cs">
       <DependentUpon>WindowVendaProdutoListAdd.xaml</DependentUpon>
     </Compile>
@@ -354,6 +357,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WindowTermos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
