@@ -46,7 +46,7 @@ namespace Projeto_PDS.Views.PageList
         private void btRemover_Click(object sender, RoutedEventArgs e)
         {
             var produtoSelecionado = dtProduto.SelectedItem as Produto;
-            var message = new WindowMessageBoxPergunta($"Deseja realmente excluir o produto '{produtoSelecionado.Id}'?", "Confirmar Exclusão");
+            var message = new WindowMessageBoxPergunta($"Deseja realmente excluir o Produto '{produtoSelecionado.Nome}'?", "Confirmar Exclusão");
             message.ShowDialog();
             var resultado = message.retorno;
             try
@@ -88,12 +88,6 @@ namespace Projeto_PDS.Views.PageList
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void btVoltar_Click(object sender, RoutedEventArgs e)
-        {
-            var form = new Views.MainWindow();
-            form.Show();
         }
 
         private void btCarregar_Click(object sender, RoutedEventArgs e)

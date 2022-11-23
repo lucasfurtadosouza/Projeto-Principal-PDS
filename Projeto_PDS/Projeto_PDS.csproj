@@ -139,7 +139,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BoolToVisible.cs" />
-    <Compile Include="Helpers\HashHelper.cs" />
     <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\CompraDAO.cs" />

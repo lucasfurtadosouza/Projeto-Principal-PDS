@@ -19,12 +19,13 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "CALL InserirCompra(@valor, @dataVenda, @horaVenda, @forma_pagamento, @funcionario, @fornecedor)";
+                comando.CommandText = "CALL InserirCompra(@valor, @dataVenda, @horaVenda, @forma_pagamento, @status, @funcionario, @fornecedor)";
 
                 comando.Parameters.AddWithValue("@valor", compra.Valor);
                 comando.Parameters.AddWithValue("@dataVenda", compra.Data);
                 comando.Parameters.AddWithValue("@horaVenda", compra.Hora);
                 comando.Parameters.AddWithValue("@forma_pagamento", compra.FormaPagamento);
+                comando.Parameters.AddWithValue("@status", compra.Status);
                 comando.Parameters.AddWithValue("@funcionario", compra.Funcionario.Id);
                 comando.Parameters.AddWithValue("@fornecedor", compra.Fornecedor.Id);
 

@@ -21,12 +21,13 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "CALL InserirVenda(@valor, @dataVenda, @horaVenda, @forma_pagamento, @funcionario, @cliente)";
+                comando.CommandText = "CALL InserirVenda(@valor, @dataVenda, @horaVenda, @forma_pagamento, @status, @funcionario, @cliente)";
     
                 comando.Parameters.AddWithValue("@valor", venda.Valor);
                 comando.Parameters.AddWithValue("@dataVenda", venda.Data);
                 comando.Parameters.AddWithValue("@horaVenda", venda.Hora);
                 comando.Parameters.AddWithValue("@forma_pagamento", venda.FormaPagamento);
+                comando.Parameters.AddWithValue("@status", venda.Status);
                 comando.Parameters.AddWithValue("@funcionario", venda.Funcionario.Id);
                 comando.Parameters.AddWithValue("@cliente", venda.Cliente.Id);
 
@@ -105,7 +106,7 @@ namespace Projeto_PDS.Models
             try
             {
                 var comando = _conn.Query();
-                comando.CommandText = "CALL DeletarVenda(@id)";
+                comando.CommandText = "CALL CancelarVenda(@id)";
                 comando.Parameters.AddWithValue("@id", venda.Id);
                 var resultado = comando.ExecuteNonQuery();
                 if (resultado == 0)

@@ -134,7 +134,7 @@
                 <StackPanel Margin="0,60,0,0">
                     <StackPanel Margin="0,0,0,22">
 
-                        <TextBlock x:Name="Name_User" Text="Usuário" TextAlignment="Center" Foreground="White" FontSize="22" FontFamily="/Fonts/#Dosis" FontWeight="Bold"/>
+                        <TextBlock x:Name="txtNomeUsuario" Text="Usuário" TextAlignment="Center" Foreground="White" FontSize="22" FontFamily="/Fonts/#Dosis" FontWeight="Bold"/>
                         <Border x:Name="BorderFoto" Width="100" Height="100" Padding="3" Background="white" CornerRadius="100" HorizontalAlignment="Center" Margin="0 -170 0 0">
                             <Ellipse>
                                 <Ellipse.Fill>

@@ -46,7 +46,7 @@ namespace Projeto_PDS.Views.PageList
         private void btRemover_Click(object sender, RoutedEventArgs e)
         {
             var FornecedorSelecionado = dtFornecedor.SelectedItem as Fornecedor;
-            var message = new WindowMessageBoxPergunta($"Deseja realmente excluir o fornecedor'{FornecedorSelecionado.Id}'?", "Confirmar Exclusão");
+            var message = new WindowMessageBoxPergunta($"Deseja realmente excluir o Fornecedor '{FornecedorSelecionado.Nome}'?", "Confirmar Exclusão");
             message.ShowDialog();
             var resultado = message.retorno;
             try
@@ -87,13 +87,6 @@ namespace Projeto_PDS.Views.PageList
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void btVoltar_Click(object sender, RoutedEventArgs e)
-        {
-            var form = new Views.MainWindow();
-            form.Show();
-        }
-
         private void btCarregar_Click(object sender, RoutedEventArgs e)
         {
             CarregarListagem();

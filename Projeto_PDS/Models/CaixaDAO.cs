@@ -19,14 +19,12 @@ namespace Projeto_PDS.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "CALL InserirCaixa" +
-                    "(@saldoInicial, @saldoFinal, @dataAbertura, @dataFechamento, @horaAbertura, @horaFechamento, @qtdPagamentos, @qtdRecebimentos, @status)";
+                    "(@saldoInicial, @saldoFinal, @dataAbertura, @horaAbertura, @qtdPagamentos, @qtdRecebimentos, @status)";
 
                 comando.Parameters.AddWithValue("@saldoInicial", caixa.SaldoInicial);
                 comando.Parameters.AddWithValue("@saldoFinal", 0);
                 comando.Parameters.AddWithValue("@dataAbertura", caixa.DataAbertura);
-                comando.Parameters.AddWithValue("@dataFechamento", null);
                 comando.Parameters.AddWithValue("@horaAbertura", caixa.HoraAbertura);
-                comando.Parameters.AddWithValue("@horaFechamento", caixa.HoraFechamento);
                 comando.Parameters.AddWithValue("@qtdPagamentos", 0);
                 comando.Parameters.AddWithValue("@qtdRecebimentos", 0);
                 comando.Parameters.AddWithValue("@status", caixa.Status);
@@ -94,9 +92,9 @@ namespace Projeto_PDS.Models
                     caixa.SaldoInicial = Convert.ToDouble(Helpers.DAOHelper.GetString(reader, "saldo_inicial_cai"));
                     caixa.SaldoFinal = Convert.ToDouble(Helpers.DAOHelper.GetString(reader, "saldo_final_cai"));
                     caixa.DataAbertura = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_abertura_cai"));
-                    //caixa.DataFechamento = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_fechamento_cai"));
+                    caixa.DataFechamento = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "data_fechamento_cai"));
                     caixa.HoraAbertura = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "hora_abertura_cai"));
-                    //caixa.HoraFechamento = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "hora_fechamento_cai"));
+                    caixa.HoraFechamento = Convert.ToDateTime(Helpers.DAOHelper.GetString(reader, "hora_fechamento_cai"));
                     caixa.QuantidadePagamentos = Convert.ToInt32(Helpers.DAOHelper.GetString(reader, "quantidade_pagamentos_cai"));
                     caixa.QuantidadeRecebimentos = Convert.ToInt32(Helpers.DAOHelper.GetString(reader, "quantidade_recebimentos_cai"));
                     caixa.Status = Helpers.DAOHelper.GetString(reader, "status_cai");

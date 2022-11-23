@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projeto_PDS.Helpers;
+using Projeto_PDS.Views_MessageBox;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,11 +22,21 @@ namespace Projeto_PDS.Views
     /// </summary>
     public partial class PageMain : Page
     {
+        SessionHelper binds = new SessionHelper();
         public PageMain()
         {
             InitializeComponent();
             txtHora.Text = DateTime.Now.ToShortTimeString();
             txtData.Text = DateTime.Now.ToShortDateString();
+            try
+            {
+                txtLucro.Text = binds.GetLucro();
+            }
+            catch (Exception ex)
+            {
+                var messageError = new WindowMessageBoxError("Error: " + ex.Message, "Erro");
+                messageError.ShowDialog();
+            }
         }
 
         private void UIElement_TouchEnter(object sender, TouchEventArgs e)

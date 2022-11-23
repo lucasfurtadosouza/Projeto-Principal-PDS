@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Projeto_PDS;
+using Projeto_PDS.Helpers;
 using Projeto_PDS.Models;
 using Projeto_PDS.Views_MessageBox;
 
@@ -24,14 +25,17 @@ namespace Projeto_PDS.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private string nomeUsu;
+        public MainWindow(string nameUsu)
         {
             InitializeComponent();
+            nomeUsu = nameUsu;
             Loaded += MainWindow_Loaded;
         }
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             this.setPageMain();
+            txtNomeUsuario.Text = nomeUsu;
         }
         public  void setPage(string page)
         {
@@ -104,7 +108,7 @@ namespace Projeto_PDS.Views
         {
             ButtonCloseMenu.Visibility = Visibility.Visible;
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
-            Name_User.Visibility = Visibility.Visible;
+            txtNomeUsuario.Visibility = Visibility.Visible;
             BorderFoto.Margin = new Thickness(0, -170, 0, 0);
         }
 
@@ -112,7 +116,7 @@ namespace Projeto_PDS.Views
         {
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
-            Name_User.Visibility = Visibility.Collapsed;
+            txtNomeUsuario.Visibility = Visibility.Collapsed;
             BorderFoto.Margin = new Thickness(0, -10, 0, 0);
         }
         //Icon Editar <materialDesign:PackIcon Kind="Pencil" Height="28" Width="25"/>

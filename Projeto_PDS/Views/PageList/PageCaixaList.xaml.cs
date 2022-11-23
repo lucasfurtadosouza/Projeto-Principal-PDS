@@ -87,12 +87,6 @@ namespace Projeto_PDS.Views.PageList
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void btVoltar_Click(object sender, RoutedEventArgs e)
-        {
-            var form = new Views.MainWindow();
-            form.Show();
-        }
         private void btCarregar_Click(object sender, RoutedEventArgs e)
         {
             CarregarListagem();

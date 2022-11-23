@@ -46,7 +46,7 @@ namespace Projeto_PDS.Views.PageList
         private void btRemover_Click(object sender, RoutedEventArgs e)
         {
             var funcionarioSelecionado = dtFuncionario.SelectedItem as Funcionario;
-            var message = new WindowMessageBoxPergunta($"Deseja realmente excluir o funcionario'{funcionarioSelecionado.Id}'?", "Confirmar Exclusão");
+            var message = new WindowMessageBoxPergunta($"Deseja realmente excluir o Funcionário '{funcionarioSelecionado.Nome}'?", "Confirmar Exclusão");
             message.ShowDialog();
             var resultado = message.retorno;
             try

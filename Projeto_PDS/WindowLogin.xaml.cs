@@ -29,8 +29,6 @@ namespace Projeto_PDS
             InitializeComponent();
             Loaded += WindowLogin_Loaded;
             this.WindowStyle = WindowStyle.None;
-
-
         }
         private Usuario _usuario = new Usuario();
         private void WindowLogin_Loaded(object sender, RoutedEventArgs e)
@@ -63,33 +61,28 @@ namespace Projeto_PDS
                 {
                     if(dao.Login(_usuario))
                     {
-                        new MainWindow().Show();
+                        string nameUsu = txtUsuario.Text;
+                        MainWindow window = new MainWindow(nameUsu);
+                        window.Show();
                         this.Close();
-
                     }
                     else
                     {
                         var message = new WindowMessageBoxError("Usuário ou senha incorreto.", "Erro");
                         message.Show();
                     }
-                        
-                   
-
-
                 }
                 else
                 {
-
-                    var message = new WindowMessageBoxCerto("Deu merda", "fudeu");
+                    var message = new WindowMessageBoxCerto("Deu ruim", "Ferrou");
                     message.Show();
-                    MessageBox.Show(HashPassword);
+                    //MessageBox.Show(HashPassword);
                 }
-
-
-
-
-
-            }catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }catch (Exception ex) 
+            {
+                var message = new WindowMessageBoxError(ex.Message, "Erro");
+                message.Show();
+            }
          }
         public static string getHashSha256(string text)
         {

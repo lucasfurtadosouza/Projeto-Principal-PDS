@@ -47,7 +47,7 @@ namespace Projeto_PDS.Views.PageList
         private void btRemover_Click(object sender, RoutedEventArgs e)
         {
             var clienteSelecionado = dtCliente.SelectedItem as Cliente;
-            var message = new WindowMessageBoxPergunta($"Deseja realmente excluir o Cliente '{clienteSelecionado.Id}'?", "Confirmar Exclusão");
+            var message = new WindowMessageBoxPergunta($"Deseja realmente excluir o Cliente '{clienteSelecionado.Nome}'?", "Confirmar Exclusão");
             message.ShowDialog();
             var resultado = message.retorno;
             try
@@ -89,12 +89,6 @@ namespace Projeto_PDS.Views.PageList
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void btVoltar_Click(object sender, RoutedEventArgs e)
-        {
-            var form = new MainWindow();
-            form.Show();
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)

@@ -1,52 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+using Projeto_PDS.DataBase;
 using Projeto_PDS.Models;
 
 namespace Projeto_PDS.Helpers
 {
     public class SessionHelper
     {
-        private static SessionHelper _instance;
+        private static Conexao _conn = new Conexao();
 
-        private static Usuario _usuario = null;
-
-        private SessionHelper() { }
-
-        public static SessionHelper GetInstance()
+        public string GetLucro()
         {
-            if (_instance == null)
-                _instance = new SessionHelper();
+            try
+            {
+                var comando = _conn.Query();
+                comando.CommandText = "Call Lucro();";
+                MySqlDataReader reader = comando.ExecuteReader();
+                reader.Read();
 
-            return _instance;
-        }
+                
+                string lucro = reader.GetString("lucro");
 
-        public static bool Login(string usuario, string senha)
-        {
-            _ = GetInstance();
+                reader.Close();
 
-            if (_usuario != null)
-                return true;
+                string lucroFormatado = string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", lucro);
 
-            var user = new UsuarioDAO().GetByUsuario(usuario);
-
-            _usuario = user;
-
-            return HashHelper.Compare(senha, user.Senha);
-        }
-
-        public static void Logout()
-        {
-            _usuario = null;
-        }
-
-        public static Usuario GetUsuario()
-        {
-            _ = GetInstance();
-
-            return _usuario != null ? _usuario : null;
+                return lucroFormatado;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

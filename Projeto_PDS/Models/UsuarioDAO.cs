@@ -16,17 +16,7 @@ namespace Projeto_PDS.Models
     {
         private static Conexao _conn = new Conexao();
 
-        public Usuario GetByUsuario(string usuario)
-        {
-            return new Usuario()
-            {
-                Id = 1,
-                Nome = "João Teixeira",
-                Senha = HashHelper.Compute("joao1234")
-            };
-        }
-
-        public Usuario GetByUsuario(string usuarioNome, string senha)
+        public Usuario GetByUsuario(string usuarioNome)
         {
             try
             {
@@ -141,8 +131,6 @@ namespace Projeto_PDS.Models
                 throw ex;
             }
         }
-      
-       
                 
         public List<Usuario> List2()
         {

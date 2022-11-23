@@ -103,6 +103,7 @@ valor_ven double,
 data_ven date,
 hora_ven time,
 forma_pagamento_ven varchar(300),
+status_ven varchar(100),
 
 id_fun_fk integer not null,
 id_cli_fk integer not null,
@@ -113,7 +114,7 @@ foreign key (id_cli_fk) references Cliente (id_cli)
 create table Controle(
 id_con int primary key auto_increment,
 usuario_con varchar(300),
-senha_com varchar(300)
+senha_con varchar(300)
 );
 
 create table Compra(
@@ -122,6 +123,7 @@ valor_com double,
 data_com date,
 hora_com time,
 forma_pagamento_com varchar(300),
+status_com varchar(100),
 
 id_fun_fk integer not null,
 foreign key (id_fun_fk) references Funcionario (id_fun),
@@ -234,11 +236,6 @@ BEGIN
     end if;
 END
 $$ DELIMITER ;
-#pode mexer ai eu vou me deitar, to morrendo aqui, quando terminar desliga ai
-
-CALL InserirUsuario('admin', 'admin', 'Administrador', null);
-CALL InserirUsuario('Vitória Marcela', '123', 'Vendedor', 1);
-CALL InserirUsuario('Luiz Francisco', '123', 'Vendedor', 2);
 
 #INSERIR CLIENTE
 DELIMITER $$
@@ -318,11 +315,11 @@ CALL InserirProduto('Jaqueta de Couro', 250, 300, 15, 'Jaqueta para frio de cour
 
 #INSERIR CAIXA
 DELIMITER $$
-CREATE PROCEDURE InserirCaixa(saldoInicial double, saldoFinal double, dataAbertura date, dataFechamento date, horaAbertura time, horaFechamento time, qtdPagamentos int, qtdRecebimentos int, status_caixa varchar(100))
+CREATE PROCEDURE InserirCaixa(saldoInicial double, saldoFinal double, dataAbertura date, horaAbertura time, qtdPagamentos int, qtdRecebimentos int, status_caixa varchar(100))
 BEGIN
     if(saldoInicial is not null) then
         if(saldoFinal is not null) then
-            insert into Caixa values (null, saldoInicial, saldoFinal, dataAbertura, dataFechamento, horaAbertura, horaFechamento, qtdPagamentos, qtdRecebimentos, status_caixa);
+            insert into Caixa values (null, saldoInicial, saldoFinal, dataAbertura, '1111-11-11', horaAbertura, '00:00:00', qtdPagamentos, qtdRecebimentos, status_caixa);
         else
             select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
         end if;
@@ -332,16 +329,16 @@ BEGIN
 END
 $$ DELIMITER ;
 
-CALL InserirCaixa(10, 2400, '2022-11-08', '2022-12-08', '08:00:00', '17:30:00', 20, 50, 'Fechado');
-CALL InserirCaixa(0, 4500, '2022-11-09', '2022-11-09', '08:00:00', '17:30:00', 12, 94, 'Aberto');
+CALL InserirCaixa(10, 0, '2022-11-19', '12:30:00', 20, 30, 'Aberto');
+CALL InserirCaixa(100, 2000, '2022-11-21', '07:20:00', 12, 20, 'Aberto');
 
 #INSERIR VENDA
 DELIMITER $$
-CREATE PROCEDURE InserirVenda(valor double, dataVenda date, horaVenda time, formaPagamento varchar(300), idFuncionario int, idCliente int)
+CREATE PROCEDURE InserirVenda(valor double, dataVenda date, horaVenda time, formaPagamento varchar(300), status_venda varchar(100), idFuncionario int, idCliente int)
 BEGIN
     if(valor > 0) then
         if(formaPagamento <> '') or (formaPagamento is not null) then
-            insert into Venda values (null, valor, dataVenda, horaVenda, formaPagamento, idFuncionario, idCliente);
+            insert into Venda values (null, valor, dataVenda, horaVenda, formaPagamento, status_venda, idFuncionario, idCliente);
         else
             select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
         end if;
@@ -353,11 +350,11 @@ $$ DELIMITER ;
 
 #INSERIR COMPRA
 DELIMITER $$
-CREATE PROCEDURE InserirCompra(valor double, dataCompra date, horaCompra time, formaPagamento varchar(300), idFuncionario int, idFornecedor int)
+CREATE PROCEDURE InserirCompra(valor double, dataCompra date, horaCompra time, formaPagamento varchar(300), status_compra varchar(100), idFuncionario int, idFornecedor int)
 BEGIN
     if(valor > 0) then
         if(formaPagamento <> '') or (formaPagamento is not null) then
-            insert into Compra values (null, valor, dataCompra, horaCompra, formaPagamento, idFuncionario, idFornecedor);
+            insert into Compra values (null, valor, dataCompra, horaCompra, formaPagamento, status_compra, idFuncionario, idFornecedor);
         else
             select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
         end if;
@@ -504,19 +501,19 @@ BEGIN
 END
 $$ DELIMITER ;
 
-#DELETAR VENDA
+#CANCELAR VENDA
 DELIMITER $$
-CREATE PROCEDURE DeletarVenda(id int)
+CREATE PROCEDURE CancelarVenda(id int)
 BEGIN
-    delete from Venda where (id_ven = id);
+    Update Venda set status_ven = "Cancelada" where (id_ven = id);
 END
 $$ DELIMITER ;
 
-#DELETAR Compra
+#CANCELAR COMPRA
 DELIMITER $$
-CREATE PROCEDURE DeletarCompra(id int)
+CREATE PROCEDURE CancelarCompra(id int)
 BEGIN
-    delete from Compra where (id_com = id);
+    Update Compra set status_com = "Cancelada" where (id_com = id);
 END
 $$ DELIMITER ;
 
@@ -653,46 +650,6 @@ END
 $$ DELIMITER ;
 
 
-#ATUALIZAR VENDA
-/*
-DELIMITER $$
-CREATE PROCEDURE AtualizarVenda(valor double, dataVenda date, horaVenda time, formaPagamento varchar(300), idFuncionario int, idCliente int)
-BEGIN
-    update Venda set valor_ven = valor, data_ven = dataVenda, hora_ven = horaVenda, forma_pagamento_ven = formaPagamento, id_fun_fk = idFuncionario, id_cli_fk = idCliente where (id_ven = id);
-END
-$$ DELIMITER ;
-*/
-
-#ATUALIZAR COMPRA
-/*
-DELIMITER $$
-CREATE PROCEDURE AtualizarCompra(valor double, dataCompra date, horaCompra time, formaPagamento varchar(300), idFuncionario int, idFornecedor int)
-BEGIN
-    update Compra set valor_com = valor, data_com = dataCompra, hora_com = horaCompra, forma_pagamento_com = formaPagamento, id_fun_fk = idFuncionario, id_for_fk = idFornecedor where (id_com = id);
-END
-$$ DELIMITER ;
-*/
-
-#ATUALIZAR PAGAMENTO
-/*
-DELIMITER $$
-CREATE PROCEDURE AtualizarPagamento(valor double, dataVencimento date, hora time, descricao varchar(300), status varchar(300), parcelamento varchar(300), formaPagamento varchar(300), idDespesa int, idCaixa int)
-BEGIN
-    update Pagamento set valor_pag = valor, data_vencimento_pag = dataVencimento, hora_pag = hora, descricao_pag = descricao, status_pag = status, parcelamento_pag = parcelamento, forma_pagamento_pag = formaPagamento, id_des_fk = idDespesa, id_cai_fk = idCaixa where (id_pag = id);
-END
-$$ DELIMITER ;
-*/
-
-#ATUALIZAR RECEBIMENTO
-/*
-DELIMITER $$
-CREATE PROCEDURE AtualizarRecebimento(valor double, dataRecebimento date, hora time, descricao varchar(300), tipo varchar(300), status varchar(300), parcelamento varchar(300), formaPagamento varchar(300), idVenda int, idCaixa int)
-BEGIN
-    update Recebimento set valor_rec = valor, data_recebimento_rec = dataRecebimento, hora_rec = hora, descricao_rec = descricao, status_rec = status, parcelamento_rec = parcelamento, forma_pagamento_rec = formaPagamento, id_ven_fk = idVenda, id_cai_fk = idCaixa where (id_rec = id);
-END
-$$ DELIMITER ;
-*/
-
 #ATUALIZAR PRODUTO_VENDA
 /*
 DELIMITER $$
@@ -728,6 +685,7 @@ BEGIN
     end if;
 END
 $$ DELIMITER ;
+CALL FecharCaixa(1, 1400, '2022-11-20', '08:00:00', 20, 30, "Fechado");
 
 #LISTAR SEXO
 DELIMITER $$
@@ -886,31 +844,51 @@ BEGIN
     end if;
 END
 $$ DELIMITER ;
+
 #buscar usuario
 DELIMITER $$
 CREATE PROCEDURE buscarUsuario(usuario1 varchar(300))
 BEGIN
-declare buscar int;
-declare usuario varchar(300);
-declare senha varchar(300);
-declare buscar2 int;
-set buscar = (select id_usu from usuario where (nome_usu  like usuario1 ));
-set usuario = (select nome_usu from usuario where(buscar = id_usu));
-set senha = (select senha_usu from usuario where(buscar = id_usu));
-set buscar2 = (select id_con from controle where(id_con = 1));
-	if(buscar2 <> '')or (buscar2 is not null) then
-		delete from controle;
-    else
-		insert into controle values(null,usuario,senha);
-	end if;
+	declare buscar int;
+	declare usuario varchar(300);
+	declare senha varchar(300);
+	declare buscar2 int;
+	set buscar = (select id_usu from usuario where (nome_usu like usuario1 ));
+	set usuario = (select nome_usu from usuario where(buscar = id_usu));
+	set senha = (select senha_usu from usuario where(buscar = id_usu));
+	set buscar2 = (select id_con from controle where(id_con = 1));
+		if(buscar2 <> '') or (buscar2 is not null) then
+			delete from controle;
+		else
+			insert into controle values(null,usuario,senha);
+		end if;
+END
+$$ DELIMITER ;
+
+#CALCULAR LUCRO
+DELIMITER $$
+CREATE PROCEDURE Lucro()
+BEGIN
+    declare valorPag double;
+    declare valorRec double;
+    declare lucro double;
+    set valorRec = (select SUM(valor_rec) from Recebimento);
+    set valorPag = (select SUM(valor_pag) from Pagamento);
     
+    set lucro = valorRec - valorPag;
+    
+    if(lucro <> '') or (lucro is not null) then
+		select lucro as lucro;
+	else
+		select 0 as lucro;
+	end if;
 END
 $$ DELIMITER ;
 
 #TRIGGERS
 #Triggers de Caixa
 DELIMITER $$
-CREATE TRIGGER controleCaixaRecebimentos AFTER INSERT
+CREATE TRIGGER aumentarRecebimentosCaixa AFTER INSERT
 ON Recebimento FOR EACH ROW
 BEGIN
 	UPDATE Caixa SET saldo_final_cai = saldo_final_cai +
@@ -919,11 +897,29 @@ END;
 $$ DELIMITER ;
 
 DELIMITER $$
-CREATE TRIGGER controleCaixaPagamentos AFTER INSERT
+CREATE TRIGGER aumentarPagamentosCaixa AFTER INSERT
 ON Pagamento FOR EACH ROW
 BEGIN
 	UPDATE Caixa SET saldo_final_cai = saldo_final_cai -
 	NEW.valor_pag, quantidade_pagamentos_cai = quantidade_pagamentos_cai + 1 WHERE (id_cai = NEW.id_cai_fk);
+END;
+$$ DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER diminuirPagamentosCaixa AFTER DELETE
+ON Pagamento FOR EACH ROW
+BEGIN
+	UPDATE Caixa SET saldo_final_cai = saldo_final_cai +
+	OLD.valor_pag, quantidade_pagamentos_cai = quantidade_pagamentos_cai - 1 WHERE (id_cai = OLD.id_cai_fk);
+END;
+$$ DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER diminuirRecebimentosCaixa AFTER DELETE
+ON Recebimento FOR EACH ROW
+BEGIN
+	UPDATE Caixa SET saldo_final_cai = saldo_final_cai -
+	OLD.valor_rec, quantidade_recebimentos_cai = quantidade_recebimentos_cai - 1 WHERE (id_cai = OLD.id_cai_fk);
 END;
 $$ DELIMITER ;
 
@@ -942,5 +938,21 @@ ON Compra_Produto FOR EACH ROW
 BEGIN
 	UPDATE Produto SET estoque_pro = estoque_pro +
 	NEW.quantidade_pro_com WHERE (id_pro = NEW.id_pro_fk);
+END;
+$$ DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER diminuirEstoque AFTER DELETE
+ON Compra_Produto FOR EACH ROW
+BEGIN
+	UPDATE Produto SET estoque_pro = estoque_pro - OLD.quantidade_pro_com WHERE (id_pro = OLD.id_pro_fk);
+END;
+$$ DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER acrescentarEstoque AFTER DELETE
+ON Venda_Produto FOR EACH ROW
+BEGIN
+	UPDATE Produto SET estoque_pro = estoque_pro + OLD.quantidade_pro_ven WHERE (id_pro = OLD.id_pro_fk);
 END;
 $$ DELIMITER ;

@@ -13,6 +13,7 @@ namespace Projeto_PDS.Models
         public DateTime? Data { get; set; }
         public DateTime? Hora { get; set; }
         public string FormaPagamento { get; set; }
+        public string Status { get; set; }
         public Funcionario Funcionario { get; set; }
         public Cliente Cliente { get; set; }
         public List<VendaItem> Itens { get; set; } = new List<VendaItem>();

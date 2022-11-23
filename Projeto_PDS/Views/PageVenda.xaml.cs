@@ -171,6 +171,7 @@ namespace Projeto_PDS.Views
 
             _venda.Itens = _vendaItensList;
             _venda.FormaPagamento = cbFormaPagamento.Text;
+            _venda.Status = "Realizada";
 
             try
             {

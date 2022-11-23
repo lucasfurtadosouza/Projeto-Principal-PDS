@@ -46,7 +46,7 @@ namespace Projeto_PDS.Views.PageList
         private void btRemover_Click(object sender, RoutedEventArgs e)
         {
             var despesaSelecionada = dtDespesa.SelectedItem as Despesa;
-            var message = new WindowMessageBoxPergunta($"Deseja realmente excluir a despesa '{despesaSelecionada.Id}'?", "Confirmar Exclusão");
+            var message = new WindowMessageBoxPergunta($"Deseja realmente excluir a Despesa '{despesaSelecionada.Id}'?", "Confirmar Exclusão");
             message.ShowDialog();
             var resultado = message.retorno;
             try
@@ -87,12 +87,6 @@ namespace Projeto_PDS.Views.PageList
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void btVoltar_Click(object sender, RoutedEventArgs e)
-        {
-            var form = new Views.MainWindow();
-            form.Show();
         }
 
         private void btCarregar_Click(object sender, RoutedEventArgs e)
