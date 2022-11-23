@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Org.BouncyCastle.Asn1.X509;
 using Projeto_PDS.Models;
 using Projeto_PDS.Views_MessageBox;
 
@@ -46,14 +47,18 @@ namespace Projeto_PDS.Views
 
         private void WindowCaixa_Loaded(object sender, RoutedEventArgs e)
         {
+            DateTime Comparar = new DateTime(1111, 11, 11);
             txtSaldoInicial.Text = Convert.ToString(_caixa.SaldoInicial);
             txtSaldoFinal.Text = Convert.ToString(_caixa.SaldoFinal);
             txtQuantidadePagamentos.Text = Convert.ToString(_caixa.QuantidadePagamentos);
             txtQuantidadeRecebimentos.Text = Convert.ToString(_caixa.QuantidadeRecebimentos);
+            if (_caixa.DataFechamento != Comparar)
+            {
+                dtDataFechamento.SelectedDate = _caixa.DataFechamento;
+                dtHoraFechamento.SelectedTime = _caixa.HoraFechamento;
+            }
             dtDataAbertura.SelectedDate = _caixa.DataAbertura;
-            dtDataFechamento.SelectedDate = _caixa.DataFechamento;
             dtHoraAbertura.SelectedTime = _caixa.HoraAbertura;
-            dtHoraFechamento.SelectedTime = _caixa.HoraFechamento;
             cbStatus.Text = _caixa.Status;
         }
         private void btVoltar_Click(object sender, RoutedEventArgs e)

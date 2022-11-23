@@ -31,7 +31,6 @@ namespace Projeto_PDS
             InitializeComponent();
             media.Source = new Uri(Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf("Projeto_PDS")) + @"Projeto_PDS\Imagens_Videos\VideoLogo1.mp4");
             Loading();
-            
         }
         DispatcherTimer timer = new DispatcherTimer();
         public int chave;
@@ -43,8 +42,8 @@ namespace Projeto_PDS
         private void timer_tick(object sender, EventArgs e)
         {
             timer.Stop();
-            UsuarioDAO usuario = new UsuarioDAO();
-            _login.Id = usuario.Verificar();
+            UsuarioDAO verificar = new UsuarioDAO();
+            _login.Id = verificar.Verificar();
             chave = _login.Id;
             if (chave > 0)
             {

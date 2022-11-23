@@ -36,7 +36,7 @@ namespace Projeto_PDS.Views
             }
             catch (Exception ex)
             {
-                var messageError = new WindowMessageBoxError("Error: " + ex.Message, "Erro");
+                var messageError = new WindowMessageBoxError("Error: " + ex.Message, "Erro"); 
                 messageError.ShowDialog();
             }
         }
