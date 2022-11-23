@@ -225,17 +225,22 @@ CALL InserirFuncionario('Luiz Francisco Isaac', 'luizrezende@gmail.com', '195.28
 DELIMITER $$
 CREATE PROCEDURE InserirUsuario(nome varchar(300), senha varchar(300), nivelPermissao varchar(300), idFuncionario int)
 BEGIN
+    declare check_usuario varchar(300);
+    set check_usuario = (select nome_usu from Usuario where (nome_usu = nome));
+
     if(nome <> '') or (nome is not null) then
-        if(senha <> '') or (senha is not null) then
+        if(check_usuario is null) then
             insert into Usuario values (null, nome, senha, nivelPermissao, idFuncionario);
         else
-            select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
+            select 'O usuário já existe.' as 'Erro';
         end if;
     else
         select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
     end if;
 END
 $$ DELIMITER ;
+
+CALL InserirUsuario('admin', '7523c62abdb7628c5a9dad8f97d8d8c5c040ede36535e531a8a3748b6cae7e00', 'Administrador', null);
 
 #INSERIR CLIENTE
 DELIMITER $$
