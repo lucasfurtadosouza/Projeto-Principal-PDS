@@ -25,17 +25,17 @@ namespace Projeto_PDS.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string nomeUsu;
-        public MainWindow(string nameUsu)
+        Usuario _user = new Usuario();
+        public MainWindow(Usuario user)
         {
             InitializeComponent();
-            nomeUsu = nameUsu;
+            _user = user;
             Loaded += MainWindow_Loaded;
         }
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             this.setPageMain();
-            txtNomeUsuario.Text = nomeUsu;
+            txtNomeUsuario.Text = _user.Nome;
         }
         public  void setPage(string page)
         {
@@ -108,6 +108,7 @@ namespace Projeto_PDS.Views
         {
             ButtonCloseMenu.Visibility = Visibility.Visible;
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
+            btUser.Visibility = Visibility.Visible;
             txtNomeUsuario.Visibility = Visibility.Visible;
             BorderFoto.Margin = new Thickness(0, -170, 0, 0);
         }
@@ -116,9 +117,15 @@ namespace Projeto_PDS.Views
         {
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
+            btUser.Visibility = Visibility.Collapsed;
             txtNomeUsuario.Visibility = Visibility.Collapsed;
             BorderFoto.Margin = new Thickness(0, -10, 0, 0);
         }
-        //Icon Editar <materialDesign:PackIcon Kind="Pencil" Height="28" Width="25"/>
+
+        private void User_Click(object sender, RoutedEventArgs e)
+        {
+            WindowUsuario window = new WindowUsuario(_user);
+            window.ShowDialog();
+        }
     }
 }

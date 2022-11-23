@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Projeto_PDS.Models;
+using System.Security.Cryptography;
 using Projeto_PDS.Views_MessageBox;
 
 namespace Projeto_PDS.Views
@@ -22,19 +23,21 @@ namespace Projeto_PDS.Views
     public partial class WindowUsuario : Window
     {
         public Usuario _usuario = new Usuario();
+        public WindowUsuario()
+        {
+            InitializeComponent();
+            Loaded += WindowUsuario_Loaded;
+        }
         public WindowUsuario(Usuario usuario)
         {
             InitializeComponent();
             _usuario = usuario;
-            Loaded += WindowRecebimento_Loaded;
+            Loaded += WindowUsuario_Loaded;
         }
-        private void WindowRecebimento_Loaded(object sender, RoutedEventArgs e)
+        private void WindowUsuario_Loaded(object sender, RoutedEventArgs e)
         {
-            /*dtDataVenda.SelectedDate = _venda.Data;
-            dtHoraVenda.SelectedTime = _venda.Hora;
-            cbFormaPagamento.Text = _venda.FormaPagamento;
-            cbFormaPagamento.Text = _venda.FormaPagamento;
-            txtValor.Text = Convert.ToString(_venda.Valor);*/
+            txtNome.Text = _usuario.Nome;
+            cbFuncionario.SelectedItem = _usuario.Funcionario;
             LoadFuncionario();
         }
         private void btnFechar_Click(object sender, RoutedEventArgs e)
@@ -43,30 +46,52 @@ namespace Projeto_PDS.Views
         }
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
-            /*if (dtDataVenda.SelectedDate != null)
-                _recebimento.Data = dtDataVenda.SelectedDate;
+            string HashPassword = getHashSha256(txtSenha.Password.ToString());
+            _usuario.Senha = HashPassword;
+            _usuario.Nome = txtNome.Text;
+            _usuario.Permissao = cbPermissao.Text;
+            if (cbFuncionario.SelectedItem != null)
+                _usuario.Funcionario = cbFuncionario.SelectedItem as Funcionario;
 
-            if (dtHoraVenda.SelectedTime != null)
-                _recebimento.Hora = dtHoraVenda.SelectedTime;
+            try
+            {
+                var dao = new UsuarioDAO();
+                if (_usuario.Id > 0)
+                {
+                    if (_usuario.Nome == "admin")
+                    {
+                        var messageError = new WindowMessageBoxError("Não é possivel atualizar o usuário Admin" , "Erro");
+                        messageError.ShowDialog();
+                    }
+                    else
+                    {
+                        dao.Update(_usuario);
+                        var messageUp = new WindowMessageBoxCerto("Informações Atualizadas com Sucesso!", "Registro Atualizado");
+                        messageUp.ShowDialog();
+                    }
+                }
+                else
+                {
+                    dao.Insert(_usuario);
+                    var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
+                    message.ShowDialog();
+                }
 
-            if (cbCaixa.SelectedItem != null)
-                _recebimento.Caixa = cbCaixa.SelectedItem as Caixa;
-
-            _recebimento.Descricao = txtDescricao.Text;
-            _recebimento.FormaPagamento = cbFormaPagamento.Text;
-            _recebimento.Status = cbStatus.Text;
-            _recebimento.Valor = Convert.ToDouble(txtValor.Text);
-
-            var dao = new VendaDAO();
-            dao.Insert(_venda, _recebimento);
-            var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
-            message.ShowDialog();*/
-            this.Close();
+                btLimpar_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                //var messageError = new WindowMessageBoxError("Error: " + ex.Message, "Erro");
+                //messageError.ShowDialog();
+                var messageError = new WindowMessageBoxError("Não é possivel atualizar o usuário Admin e " + ex.Message, "Erro");
+                messageError.ShowDialog();
+            }
         }
 
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             cbFuncionario.SelectedIndex = -1;
+            cbPermissao.SelectedIndex = -1;
             txtNome.Clear();
             txtSenha.Clear();
         }
@@ -74,13 +99,25 @@ namespace Projeto_PDS.Views
         {
             try
             {
-                cbFuncionario.ItemsSource = new CaixaDAO().ListCaixaAberto();
+                cbFuncionario.ItemsSource = new FuncionarioDAO().List(null);
             }
             catch (Exception ex)
             {
                 var messageErro = new WindowMessageBoxError("Error: " + ex.Message, "Não Executado");
                 messageErro.ShowDialog();
             }
+        }
+        public static string getHashSha256(string text)
+        {
+            byte[] bytes = Encoding.Unicode.GetBytes(text);
+            SHA256Managed hashstring = new SHA256Managed();
+            byte[] hash = hashstring.ComputeHash(bytes);
+            string hashString = string.Empty;
+            foreach (byte x in hash)
+            {
+                hashString += String.Format("{0:x2}", x);
+            }
+            return hashString;
         }
     }
 }

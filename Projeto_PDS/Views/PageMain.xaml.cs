@@ -45,5 +45,10 @@ namespace Projeto_PDS.Views
         {
 
         }
+        private void User_Click(object sender, RoutedEventArgs e)
+        {
+            WindowUsuario window = new WindowUsuario();
+            window.ShowDialog();
+        }
     }
 }

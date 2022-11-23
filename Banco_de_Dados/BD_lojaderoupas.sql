@@ -8,7 +8,6 @@ create table Sexo(
 id_sex int not null primary key auto_increment,
 tipo_sex varchar(300)
 );
-
 create table Funcionario(
 id_fun int not null primary key auto_increment,
 nome_fun varchar (300) not null,
@@ -573,7 +572,6 @@ END
 $$ DELIMITER ;
 
 #ATUALIZAR USUARIO
-/*
 DELIMITER $$
 CREATE PROCEDURE AtualizarUsuario(nome varchar(300), senha varchar(300), nivelPermissao varchar(300), idFuncionario int)
 BEGIN
@@ -581,14 +579,13 @@ BEGIN
         if(senha <> '') or (senha is not null) then
             update Usuario set nome_usu = nome, senha_usu = senha, nivel_permissao_usu = nivelPermissao, id_fun_fk = idFuncionario where (id_usu = id);
         else
-
+			select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
         end if;
     else
-
+		select 'Ocorreu um erro ao realizar a ação.' as 'Erro';
     end if;
 END
 $$ DELIMITER ;
-*/
 
 #ATUALIZAR CLIENTE
 DELIMITER $$

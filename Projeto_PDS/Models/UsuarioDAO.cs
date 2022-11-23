@@ -62,6 +62,33 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@nome", usuario.Nome);
                 comando.Parameters.AddWithValue("@senha", usuario.Senha);
                 comando.Parameters.AddWithValue("@nivelPermissao", usuario.Permissao);
+                comando.Parameters.AddWithValue("@idFuncionario", usuario.Funcionario.Id);
+
+                var resultado = comando.ExecuteNonQuery();
+
+                if (resultado == 0)
+                {
+                    throw new Exception("Ocorreram erros ao salvar as informações");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void InsertPrimeiro(Usuario usuario)
+        {
+            try
+            {
+                var comando = _conn.Query();
+
+                comando.CommandText = "CALL InserirUsuario" +
+                    "(@nome, @senha, @nivelPermissao, @idFuncionario)";
+
+                comando.Parameters.AddWithValue("@nome", usuario.Nome);
+                comando.Parameters.AddWithValue("@senha", usuario.Senha);
+                comando.Parameters.AddWithValue("@nivelPermissao", usuario.Permissao);
                 comando.Parameters.AddWithValue("@idFuncionario", null);
 
                 var resultado = comando.ExecuteNonQuery();
@@ -190,20 +217,13 @@ namespace Projeto_PDS.Models
             {
                 var comando = _conn.Query();
 
-                /*
-                comando.CommandText = "UPDATE UsuarioSET " +
-                    "nome_usu = @nome, permissao_usu = @perm, senha_usu = @senha, id_fun_fk = @funcionario"+
-                    "WHERE id_usu = @id";
-                */
-
                 comando.CommandText = "CALL AtualizarUsuario" +
                     "(@nome, @senha, @nivelPermissao, @idFuncionario)";
 
                 comando.Parameters.AddWithValue("@nome", usuario.Nome);
                 comando.Parameters.AddWithValue("@senha", usuario.Senha);
                 comando.Parameters.AddWithValue("@nivelPermissao", usuario.Permissao);
-                comando.Parameters.AddWithValue("@idFuncionario", null);
-
+                comando.Parameters.AddWithValue("@idFuncionario", usuario.Funcionario.Id);
 
                 var resultado = comando.ExecuteNonQuery();
 

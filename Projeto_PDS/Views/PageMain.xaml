@@ -77,51 +77,70 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
+                <StackPanel Margin="0 200 0 0">
+                    <Border Height="400" Width="270" CornerRadius="15">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                <GradientStop Color="#0047A6" Offset="0"/>
+                                <GradientStop Color="#5271FF" Offset="0.6"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <StackPanel>
+                            <Button Height="35" Width="200" BorderBrush="{x:Null}" Background="{x:Null}" Click="User_Click" Name="btUser" Cursor="Hand" Margin="0 25 0 0">
+                                <TextBlock x:Name="txtNomeUsuario" Text="Novo Usuário" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" FontSize="30" FontFamily="/Fonts/#Dosis" FontWeight="Bold"/>
+                            </Button>
+                            <Image Source="/Imagens_Videos/imgBorder.png" Margin="0 0 0 0" Width="250" Height="300"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
             </StackPanel>
+            
         </StackPanel>
 
         <!--Grafico-->
-        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,60">
-            <lvc:CartesianChart LegendLocation="None" Width="550" Height="350">
-                <lvc:CartesianChart.DataTooltip>
-                    <lvc:DefaultTooltip Background="Red" Foreground="Black" BulletSize="10" Opacity="0.7"/>
-                </lvc:CartesianChart.DataTooltip>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="30,0,0,60" Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <lvc:CartesianChart LegendLocation="None" Width="550" Height="350">
+                    <lvc:CartesianChart.DataTooltip>
+                        <lvc:DefaultTooltip Background="Red" Foreground="Black" BulletSize="10" Opacity="0.7"/>
+                    </lvc:CartesianChart.DataTooltip>
 
-                <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Foreground="#90a3b2" ShowLabels="True">
-                        <lvc:Axis.Separator>
-                            <lvc:Separator StrokeThickness="0" Step="2"/>
-                        </lvc:Axis.Separator>
-                    </lvc:Axis>
-                </lvc:CartesianChart.AxisX>
+                    <lvc:CartesianChart.AxisX>
+                        <lvc:Axis Foreground="#90a3b2" ShowLabels="True">
+                            <lvc:Axis.Separator>
+                                <lvc:Separator StrokeThickness="0" Step="2"/>
+                            </lvc:Axis.Separator>
+                        </lvc:Axis>
+                    </lvc:CartesianChart.AxisX>
 
-                <lvc:CartesianChart.AxisY>
-                    <lvc:Axis Foreground="Black" ShowLabels="True" MinValue="0" MaxValue="30">
-                        <lvc:Axis.Separator>
-                            <lvc:Separator StrokeThickness="1" Stroke="Gray"/>
-                        </lvc:Axis.Separator>
-                    </lvc:Axis>
-                </lvc:CartesianChart.AxisY>
+                    <lvc:CartesianChart.AxisY>
+                        <lvc:Axis Foreground="Black" ShowLabels="True" MinValue="0" MaxValue="30">
+                            <lvc:Axis.Separator>
+                                <lvc:Separator StrokeThickness="1" Stroke="Gray"/>
+                            </lvc:Axis.Separator>
+                        </lvc:Axis>
+                    </lvc:CartesianChart.AxisY>
 
-                <lvc:CartesianChart.Series>
-                    <lvc:LineSeries StrokeThickness="2" Stroke="#2889fc" PointGeometrySize="0"
+                    <lvc:CartesianChart.Series>
+                        <lvc:LineSeries StrokeThickness="2" Stroke="#2889fc" PointGeometrySize="0"
                                     Values="15, 20, 20, 25, 22, 20, 24, 20">
-                    </lvc:LineSeries>
+                        </lvc:LineSeries>
 
 
-                    <lvc:LineSeries StrokeThickness="2"  PointGeometrySize="0"
+                        <lvc:LineSeries StrokeThickness="2"  PointGeometrySize="0"
                                     Values="10, 10, 5, 8, 8, 10, 15, 10">
-                    </lvc:LineSeries>
-                </lvc:CartesianChart.Series>
-            </lvc:CartesianChart>
-            <StackPanel Margin="12 0 0 0">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Rectangle" Height="40" Width="40" Foreground="#328efb" HorizontalAlignment="Left" />
-                    <TextBlock Text="Receita" FontFamily="Poppins Medium" FontSize="23" FontWeight="Light" Foreground="Black" Margin="0 8 0 0"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Rectangle" Height="40" Width="40" Foreground="#f14c40" HorizontalAlignment="Left" />
-                    <TextBlock Text="Despesa" FontFamily="Poppins Medium" FontSize="23" FontWeight="Light" Foreground="Black" Margin="0 8 0 0"/>
+                        </lvc:LineSeries>
+                    </lvc:CartesianChart.Series>
+                </lvc:CartesianChart>
+                <StackPanel Margin="12 0 0 0">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Rectangle" Height="40" Width="40" Foreground="#328efb" HorizontalAlignment="Left" />
+                        <TextBlock Text="Receita" FontFamily="Poppins Medium" FontSize="23" FontWeight="Light" Foreground="Black" Margin="0 8 0 0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Rectangle" Height="40" Width="40" Foreground="#f14c40" HorizontalAlignment="Left" />
+                        <TextBlock Text="Despesa" FontFamily="Poppins Medium" FontSize="23" FontWeight="Light" Foreground="Black" Margin="0 8 0 0"/>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

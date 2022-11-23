@@ -61,8 +61,8 @@ namespace Projeto_PDS
                 {
                     if(dao.Login(_usuario))
                     {
-                        string nameUsu = txtUsuario.Text;
-                        MainWindow window = new MainWindow(nameUsu);
+
+                        MainWindow window = new MainWindow(_usuario);
                         window.Show();
                         this.Close();
                     }

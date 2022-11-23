@@ -475,6 +475,9 @@
     <Resource Include="Icons\IconPagamento.png" />
     <Resource Include="Icons\IconRecebimento.png" />
     <Resource Include="Imagens_Videos\imgCartao.png" />
+    <Resource Include="Imagens_Videos\imgUserBorder.png" />
+    <Resource Include="Imagens_Videos\img-removebg-preview.png" />
+    <Resource Include="Imagens_Videos\imgBorder.png" />
     <Content Include="Imagens_Videos\VideoLogo.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

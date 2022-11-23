@@ -28,7 +28,6 @@ namespace Projeto_PDS.Views
             InitializeComponent();
         }
         private Usuario _login = new Usuario();
-        //private Funcionario _func = new Funcionario();
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
             if(txtSenha.Password.ToString() == "" && txtUsuario.Text == "")
@@ -38,10 +37,7 @@ namespace Projeto_PDS.Views
             }
             else
             {
-                //string salt = getSalt();
-                //string HashPassword = CalcSaltedPass(salt, txtSenha.Text);
-                //string HashUsuario = CalcSaltedPass(salt, txtUsuario.Text);
-               
+
                 string HashPassword = getHashSha256(txtSenha.Password.ToString());
                 _login.Senha = HashPassword;
                 _login.Nome = txtUsuario.Text;
@@ -66,7 +62,7 @@ namespace Projeto_PDS.Views
                 }
                 else
                 {
-                    dao.Insert(_login);
+                    dao.InsertPrimeiro(_login);
                     //daof.Insert2(_func);
                     var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
                     message.ShowDialog();

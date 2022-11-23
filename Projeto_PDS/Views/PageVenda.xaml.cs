@@ -145,7 +145,7 @@ namespace Projeto_PDS.Views
             {
                 cbFuncionario.ItemsSource = new FuncionarioDAO().List(null);
                 cbCliente.ItemsSource = new ClienteDAO().List(null);
-                //comboBoxFuncionario.SelectedValue = Usuario.GetFuncionarioId();
+                //cbFuncionario.SelectedValue = Usuario.GetFuncionarioId();
             }
             catch (Exception ex)
             {

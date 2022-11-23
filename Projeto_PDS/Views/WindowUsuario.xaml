@@ -17,8 +17,8 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Title="WindowUsuario" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
-    <Border CornerRadius="20" Background="Azure" Width="940" Height="615" BorderThickness="20" materialDesign:ShadowAssist.Darken="True">
+        Title="WindowUsuario" Height="650" Width="1000" WindowStartupLocation="CenterScreen">
+    <Border CornerRadius="20" Background="Azure" Width="940" Height="650" BorderThickness="20" materialDesign:ShadowAssist.Darken="True">
         <Border.Effect>
             <DropShadowEffect Color="Black" ShadowDepth="0.8"/>
         </Border.Effect>
@@ -58,7 +58,7 @@
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10,0,15">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,00,0,15">
                     <TextBox x:Name="txtNome" Padding="8"
                           Style="{StaticResource MaterialDesignFilledTextBox}"
                           VerticalAlignment="Center"
@@ -69,16 +69,28 @@
                           materialDesign:HintAssist.Hint="Nome"/>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,15">
-                    <TextBox x:Name="txtSenha" Padding="8"
-                          Style="{StaticResource MaterialDesignFilledTextBox}"
-                          VerticalAlignment="Center"
-                          HorizontalAlignment="Center"
-                          TextWrapping="Wrap"
-                          Width="400"
-                          Height="50"
-                          materialDesign:HintAssist.Hint="Senha"/>
+                    <PasswordBox x:Name="txtSenha" Padding="8"
+                      Style="{StaticResource MaterialDesignFilledPasswordBox}"
+                      materialDesign:HintAssist.Hint="Senha"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center"
+                      Width="400"
+                      Height="50" /> 
                 </StackPanel>
-                <StackPanel HorizontalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center" Margin="0,0,0,15">
+                    <ComboBox x:Name="cbPermissao" Padding="8"
+                          Style="{StaticResource MaterialDesignFilledComboBox}"
+                          materialDesign:HintAssist.Hint="Permissão"
+                          Height="50"
+                          Width="400">
+                        <ComboBoxItem Content="Administador"/>
+                                <ComboBoxItem Content="Gerente"/>
+                                <ComboBoxItem Content="Vendedor"/>
+                                <ComboBoxItem Content="Controlador"/>
+                                <ComboBoxItem Content="Financeiro"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" >
                     <ComboBox x:Name="cbFuncionario" Padding="8"
                           Style="{StaticResource MaterialDesignFilledComboBox}"
                           materialDesign:HintAssist.Hint="Funcionário"
