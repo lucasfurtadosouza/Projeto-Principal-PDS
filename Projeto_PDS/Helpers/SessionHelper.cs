@@ -22,15 +22,51 @@ namespace Projeto_PDS.Helpers
                 comando.CommandText = "Call Lucro();";
                 MySqlDataReader reader = comando.ExecuteReader();
                 reader.Read();
-
                 
-                string lucro = reader.GetString("lucro");
-
+                double lucro = reader.GetDouble("lucro");
                 reader.Close();
 
-                string lucroFormatado = string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", lucro);
+                string lucroFormatado = lucro.ToString("C");
 
                 return lucroFormatado;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string GetItensVendidos()
+        {
+            try
+            {
+                var comando = _conn.Query();
+                comando.CommandText = "Call ItensVendidos();";
+                MySqlDataReader reader = comando.ExecuteReader();
+                reader.Read();
+
+                string Itens = reader.GetString("itensVem");
+                reader.Close();
+
+                return Itens;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string GetEstoque()
+        {
+            try
+            {
+                var comando = _conn.Query();
+                comando.CommandText = "Call EstoqueDisponivel();";
+                MySqlDataReader reader = comando.ExecuteReader();
+                reader.Read();
+
+                string estoque = reader.GetString("estoque");
+                reader.Close();
+
+                return estoque;
             }
             catch (Exception ex)
             {

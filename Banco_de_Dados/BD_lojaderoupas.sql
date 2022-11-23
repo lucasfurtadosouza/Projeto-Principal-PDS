@@ -880,12 +880,49 @@ BEGIN
     set valorRec = (select SUM(valor_rec) from Recebimento);
     set valorPag = (select SUM(valor_pag) from Pagamento);
     
+    if(valorPag = '') or (valorPag is null) then
+		set valorPag = 0;
+	end if;
+    if(valorRec = '') or (valorRec is null) then
+		set valorRec = 0;
+	end if;
+    
     set lucro = valorRec - valorPag;
     
     if(lucro <> '') or (lucro is not null) then
 		select lucro as lucro;
 	else
 		select 0 as lucro;
+	end if;
+END
+$$ DELIMITER ;
+
+#CALCULAR ITENS VENDIDOS
+DELIMITER $$
+CREATE PROCEDURE ItensVendidos()
+BEGIN
+    declare itensVem int;
+    set itensVem = (select SUM(quantidade_pro_ven) from Venda_Produto);
+    
+    if(itensVem = '') or (itensVem is null) then
+		select 0 as itensVem;
+	else
+		select itensVem as itensVem;
+	end if;
+END
+$$ DELIMITER ;
+
+#CALCULAR ESTOQUE
+DELIMITER $$
+CREATE PROCEDURE EstoqueDisponivel()
+BEGIN
+    declare estoque int;
+    set estoque = (select SUM(estoque_pro) from Produto);
+    
+    if(estoque = '') or (estoque is null) then
+		select 0 as estoque;
+	else
+		select estoque as estoque;
 	end if;
 END
 $$ DELIMITER ;

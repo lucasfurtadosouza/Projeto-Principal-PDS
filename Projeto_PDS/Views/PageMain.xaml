@@ -12,35 +12,71 @@
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"     
       FontFamily="{DynamicResource MaterialDesignFont}"
-      d:DesignHeight="600" d:DesignWidth="1020"
+      d:DesignHeight="600" d:DesignWidth="1100"
       Title="PageMain">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="950"/>
+            <ColumnDefinition Width="1000"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Visão Geral do Negócio" Grid.ColumnSpan="3" VerticalAlignment="Top" Padding="30" HorizontalAlignment="Center" FontSize="22" FontFamily="Century Gothic" FontWeight="Bold" Foreground="Black"/>
+        <TextBlock Text="Visão Geral do Negócio" Grid.ColumnSpan="3" VerticalAlignment="Top" Padding="30" HorizontalAlignment="Center" FontSize="30" FontFamily="Century Gothic" FontWeight="Bold" Foreground="Black"/>
         <StackPanel Grid.ColumnSpan="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 10 10">
             <TextBlock Text="" x:Name="txtHora" FontSize="20" Padding="5"  FontFamily="/Fonts/#Dosis" FontWeight="Bold" HorizontalAlignment="Right"/>
             <TextBlock Text="" x:Name="txtData" FontSize="20" FontFamily="/Fonts/#Dosis" FontWeight="Bold" HorizontalAlignment="Right"/>
         </StackPanel>
-        <StackPanel Grid.Column="1"  HorizontalAlignment="Center" Margin="130">
-            <Border Height="130" Width="250" CornerRadius="15">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#0047A6" Offset="0"/>
-                        <GradientStop Color="#5271FF" Offset="0.6"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-                <StackPanel>
-                    <materialDesign:PackIcon Kind="CashMultiple" Height="50" Width="50" Margin="0 7 14 0" Foreground="White" HorizontalAlignment="Right" />
-                    <StackPanel Margin="20 -40 0 0" VerticalAlignment="Bottom">
-                        <TextBlock Text="Lucro" FontFamily="/Fonts/#Dosis" FontSize="35" FontWeight="Bold" Foreground="White" Margin="0 0 0 5"/>
-                        <TextBlock Text="" x:Name="txtLucro" FontFamily="Poppins Medium" FontSize="35" FontWeight="ExtraBold" Foreground="White"/>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="0,130,0,0" Orientation="Horizontal" >
+            <StackPanel Margin="0 0 70 0">
+                <Border Height="130" Width="270" CornerRadius="15">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                            <GradientStop Color="#0047A6" Offset="0"/>
+                            <GradientStop Color="#5271FF" Offset="0.6"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="CashMultiple" Height="50" Width="50" Margin="0 7 14 0" Foreground="White" HorizontalAlignment="Right" />
+                        <StackPanel Margin="20 -40 0 0" VerticalAlignment="Bottom">
+                            <TextBlock Text="Lucro" FontFamily="/Fonts/#Dosis" FontSize="35" FontWeight="Bold" Foreground="White" Margin="0 0 0 5"/>
+                            <TextBlock Text="" x:Name="txtLucro" FontFamily="Poppins Medium" FontSize="35" FontWeight="ExtraBold" Foreground="White"/>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-            </Border>
+                </Border>
+            </StackPanel>
+            <StackPanel Margin="0 0 70 0">
+                <Border Height="130" Width="270" CornerRadius="15">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                            <GradientStop Color="#0047A6" Offset="0"/>
+                            <GradientStop Color="#5271FF" Offset="0.6"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="Hanger" Height="50" Width="50" Margin="0 11 10 0" Foreground="White" HorizontalAlignment="Right" />
+                        <StackPanel Margin="20 -40 0 0" HorizontalAlignment="Left">
+                            <TextBlock TextWrapping="Wrap" Text="Itens Vendidos" FontFamily="/Fonts/#Dosis" FontSize="30" FontWeight="Bold" Foreground="White" Margin="0 0 0 0" Width="189"/>
+                            <TextBlock Text="" x:Name="txtItensVend" FontFamily="Poppins Medium" FontSize="35" FontWeight="ExtraBold" Foreground="White" Margin="0 8 0 0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel>
+                <Border Height="130" Width="270" CornerRadius="15">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                            <GradientStop Color="#0047A6" Offset="0"/>
+                            <GradientStop Color="#5271FF" Offset="0.6"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="Package" Height="50" Width="50" Margin="0 14 10 0" Foreground="White" HorizontalAlignment="Right" />
+                        <StackPanel Margin="20 -44 0 0" HorizontalAlignment="Left">
+                            <TextBlock TextWrapping="Wrap" Text="Estoque" FontFamily="/Fonts/#Dosis" FontSize="30" FontWeight="Bold" Foreground="White" Margin="0 0 0 0" Width="189"/>
+                            <TextBlock Text="" x:Name="txtEstoque" Margin="0 9 0 0" FontFamily="Poppins Medium" FontSize="35" FontWeight="ExtraBold" Foreground="White"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

@@ -31,6 +31,8 @@ namespace Projeto_PDS.Views
             try
             {
                 txtLucro.Text = binds.GetLucro();
+                txtItensVend.Text = binds.GetItensVendidos();
+                txtEstoque.Text = binds.GetEstoque();
             }
             catch (Exception ex)
             {
