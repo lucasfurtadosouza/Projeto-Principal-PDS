@@ -651,27 +651,6 @@ BEGIN
 END
 $$ DELIMITER ;
 
-
-#ATUALIZAR PRODUTO_VENDA
-/*
-DELIMITER $$
-CREATE PROCEDURE AtualizarProdutoVenda(quantidade int, idProduto int, idVenda int)
-BEGIN
-    update Produto_Venda set quantidade_pro_ven = quantidade, id_pro_fk = idProduto, id_ven_fk = idVenda where (id_pro_ven = id);
-END
-$$ DELIMITER ;
-*/
-
-#ATUALIZAR PRODUTO_COMPRA
-/*
-DELIMITER $$
-CREATE PROCEDURE AtualizarProdutoCompra(quantidade int, idProduto int, idCompra int)
-BEGIN
-    update Produto_Compra set quantidade_pro_com = quantidade, id_pro_fk = idProduto, id_com_fk = idCompra where (id_pro_com = id);
-END
-$$ DELIMITER ;
-*/
-
 #FECHAR CAIXA
 DELIMITER $$
 CREATE PROCEDURE FecharCaixa(id int, saldoFinal double, dataFechamento date, horaFechamento time, qtdPagamentos int, qtdRecebimentos int, status_caixa varchar(100))
