@@ -239,8 +239,6 @@ BEGIN
 END
 $$ DELIMITER ;
 
-CALL InserirUsuario('admin', '7523c62abdb7628c5a9dad8f97d8d8c5c040ede36535e531a8a3748b6cae7e00', 'Administrador', null);
-
 #INSERIR CLIENTE
 DELIMITER $$
 CREATE PROCEDURE InserirCliente(nome varchar(300), email varchar(300), cpf varchar(300), telefone varchar(300), rua varchar(300), numero int, bairro varchar(300), rg varchar(300), dataNasc date, rendaFamiliar double, foto blob, idSexo int)
