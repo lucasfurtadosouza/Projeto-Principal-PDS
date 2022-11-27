@@ -32,7 +32,7 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@dataNasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
                 comando.Parameters.AddWithValue("@rendaFamiliar", cliente.RendaFamiliar);
                 comando.Parameters.AddWithValue("@foto", null);
-                comando.Parameters.AddWithValue("@idSexo", cliente.Sexo);
+                comando.Parameters.AddWithValue("@idSexo", cliente.Sexo.Id);
 
                 var resultado = comando.ExecuteNonQuery();
 

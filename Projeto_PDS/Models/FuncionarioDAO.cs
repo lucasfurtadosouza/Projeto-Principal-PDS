@@ -31,7 +31,7 @@ namespace Projeto_PDS.Models
                 comando.Parameters.AddWithValue("@carteiraTrabalho", funcionario.CarteiraDeTrabalho);
                 comando.Parameters.AddWithValue("@salario", funcionario.Salario);
                 comando.Parameters.AddWithValue("@foto", null);
-                comando.Parameters.AddWithValue("@idSexo", funcionario.Sexo);
+                comando.Parameters.AddWithValue("@idSexo", funcionario.Sexo.Id);
 
                 var resultado = comando.ExecuteNonQuery();
 

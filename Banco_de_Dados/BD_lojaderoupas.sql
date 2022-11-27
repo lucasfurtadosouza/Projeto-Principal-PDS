@@ -239,7 +239,7 @@ BEGIN
 END
 $$ DELIMITER ;
 
-CALL InserirUsuario('admin', '7523c62abdb7628c5a9dad8f97d8d8c5c040ede36535e531a8a3748b6cae7e00', 'Administrador', null);
+#CALL InserirUsuario('admin', '7523c62abdb7628c5a9dad8f97d8d8c5c040ede36535e531a8a3748b6cae7e00', 'Administrador', null);
 
 #INSERIR CLIENTE
 DELIMITER $$
