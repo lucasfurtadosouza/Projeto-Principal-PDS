@@ -26,7 +26,7 @@
             <TextBlock Text="" x:Name="txtHora" FontSize="20" Padding="5"  FontFamily="/Fonts/#Dosis" FontWeight="Bold" HorizontalAlignment="Right"/>
             <TextBlock Text="" x:Name="txtData" FontSize="20" FontFamily="/Fonts/#Dosis" FontWeight="Bold" HorizontalAlignment="Right"/>
         </StackPanel>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="0,150,0,0" Orientation="Horizontal" >
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="0,130,0,0" Orientation="Horizontal" >
             <StackPanel Margin="0 0 70 0">
                 <Border Height="130" Width="270" CornerRadius="15">
                     <Border.Background>
@@ -77,28 +77,12 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <StackPanel Margin="0 200 0 0">
-                    <Border Height="400" Width="270" CornerRadius="15">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                <GradientStop Color="#0047A6" Offset="0"/>
-                                <GradientStop Color="#5271FF" Offset="0.6"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
-                        <StackPanel>
-                            <Button Height="35" Width="200" BorderBrush="{x:Null}" Background="{x:Null}" Click="User_Click" Name="btUser" Cursor="Hand" Margin="0 25 0 0">
-                                <TextBlock x:Name="txtNomeUsuario" Text="Novo Usuário" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" FontSize="30" FontFamily="/Fonts/#Dosis" FontWeight="Bold"/>
-                            </Button>
-                            <Image Source="/Imagens_Videos/imgBorder.png" Margin="0 0 0 0" Width="250" Height="300"/>
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
             </StackPanel>
             
         </StackPanel>
 
         <!--Grafico-->
-        <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="30,0,0,60" Orientation="Horizontal">
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="30,0,0,25" Orientation="Horizontal">
             <StackPanel Orientation="Vertical">
                 <lvc:CartesianChart LegendLocation="None" Width="550" Height="350">
                     <lvc:CartesianChart.DataTooltip>
@@ -142,6 +126,22 @@
                         <TextBlock Text="Despesa" FontFamily="Poppins Medium" FontSize="23" FontWeight="Light" Foreground="Black" Margin="0 8 0 0"/>
                     </StackPanel>
                 </StackPanel>
+            </StackPanel>
+            <StackPanel Margin="125 0 0 0">
+                <Border Height="400" Width="270" CornerRadius="15">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                            <GradientStop Color="#0047A6" Offset="0"/>
+                            <GradientStop Color="#5271FF" Offset="0.6"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel>
+                        <Button Height="35" Width="200" BorderBrush="{x:Null}" Background="{x:Null}" Click="User_Click" Name="btUser" Cursor="Hand" Margin="0 25 0 0">
+                            <TextBlock x:Name="txtNomeUsuario" Text="Novo Usuário" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" FontSize="30" FontFamily="/Fonts/#Dosis" FontWeight="Bold"/>
+                        </Button>
+                        <Image Source="/Imagens_Videos/imgBorder.png" Margin="0 0 0 0" Width="250" Height="300"/>
+                    </StackPanel>
+                </Border>
             </StackPanel>
         </StackPanel>
     </Grid>
